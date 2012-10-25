@@ -1,0 +1,3 @@
+default:
+  enabled:     false
+  lifetime:    300

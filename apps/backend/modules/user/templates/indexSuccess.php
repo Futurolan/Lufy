@@ -1,0 +1,26 @@
+<h2>Liste des joueurs</h2>
+<?=ajax_link(image_tag('/css/img/backend/16excel.png').' Exporter au format Excel 2007', 'user/exportCsv', array('class' => 'button'))?>
+<table class="table">
+  <thead>
+    <tr>
+	  <th>#ID</th>
+      <th>Prenom Nom (Pseudo)</th>
+	  <th>Equipe</th>
+      <th>Licence Masters</th>
+      <th>Licence GA</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <? foreach ($users as $user): ?>
+    <tr>
+      <td>#<?=$user->getUserId()?></td>
+	  <td><?=$user->getSfGuardUser()->getName()?> (<?=$user->getSfGuardUser()->getUsername()?>)</td>
+	  <td><?=$user->getTeam()->getName()?></td>
+      <td><?=$user->getSfGuardUser()->getLicenceMasters()?></td>
+      <td><?=$user->getSfGuardUser()->getLicenceGa()?></td>
+      <td><a href="<?=url_for('user/view?user_id='.$user->getUserId())?>">Infos</a></td>
+    </tr>
+    <? endforeach; ?>
+  </tbody>
+</table>

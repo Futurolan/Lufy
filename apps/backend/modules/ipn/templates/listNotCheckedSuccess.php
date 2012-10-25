@@ -1,0 +1,1 @@
+<h2>Notifications en attente</h2><? include_partial('list', array('ipns' => $ipns))?>

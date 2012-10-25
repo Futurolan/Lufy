@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.gamers-assembly.net/fr</loc>
+  <changefreq>hourly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/page/presentation</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/page/informations-pratiques-galloween-2012</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/gallery</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/page/palmares</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/partner</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/page/presse</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/page/contact</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/news/annonce-de-la-galloween-2012</loc>
+  <changefreq>hourly</changefreq>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>http://www.gamers-assembly.net/fr/news/galloween-2012-la-liste-des-tournois</loc>
+  <changefreq>hourly</changefreq>
+  <priority>0.30</priority>
+</url>
+</urlset>

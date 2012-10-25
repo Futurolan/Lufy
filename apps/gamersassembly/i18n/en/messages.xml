@@ -1,0 +1,1107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="en" datatype="plaintext" original="messages" date="2012-09-30T20:55:30Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Accueil</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Presentation</source>
+        <target>Presentation</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Informations</source>
+        <target>Informations</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Palmares</source>
+        <target>Palmares</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>Partenaires</source>
+        <target>Partners</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Presse</source>
+        <target>Press</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Forum</source>
+        <target>Forum</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Flux Twitter</source>
+        <target>Flux Twitter</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Actualite</source>
+        <target>News</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>Tournois</source>
+        <target>Tournament</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Galeries Dailymotion</source>
+        <target>Dailymotion gallery</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Photos/Videos</source>
+        <target>Photos/Videos</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Mon equipe</source>
+        <target>My team</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Mon inscription</source>
+        <target>My participation</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Deconnexion</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Connexion</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Créer un compte</source>
+        <target>Create an account</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>Mon équipe</source>
+        <target>My team</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>Ajouter votre licence Masters</source>
+        <target>Add a masters licence</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>Pour lier une licence Masters a votre compte GA vous devez renseigner correctement votre nom, prenom et date de naissance sur les deux site internet.</source>
+        <target>To bind a Master licence to your personal profile (on GA website) you have to give the right (at least the same) name, surname and date of birth on both website.</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>Tshirt size</source>
+        <target>Tshirt size</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>La taille du tee shirt est donnee a titre indicatif, nous ne pouvons pas garantir la diponibilitee sur place.</source>
+        <target>The tshirt size is given in a indicative way, we cannot ensure its availability at the event</target>
+      </trans-unit>
+      <trans-unit id="38">
+        <source>Enregistrer</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="39">
+        <source>Confirmation de creation de compte</source>
+        <target>Confirm your account</target>
+      </trans-unit>
+      <trans-unit id="40">
+        <source>Votre compte utilisateur a bien ete creee, un mail contenant un lien de confirmation vous a ete envoye. Merci de bien vouloir cliquer sur ce lien ou copier l adresse dans votre navigateur.</source>
+        <target>Your user account has been created, a mail with a confirmation link has been send. Please, confirm your inscription by clicking on the link  or copying into you web browser.</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>Retour sur la page d accueil</source>
+        <target>Go to homepage</target>
+      </trans-unit>
+      <trans-unit id="42">
+        <source>Changer le mot de passe</source>
+        <target>Change my password</target>
+      </trans-unit>
+      <trans-unit id="43">
+        <source>Modifier</source>
+        <target>Change</target>
+      </trans-unit>
+      <trans-unit id="44">
+        <source>Gestion de la licence Masters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="45">
+        <source>Si vous ne possedez pas de licence Masters du Jeu Video vous devez créer un compte sur le site</source>
+        <target>If you do not own a “Master du Jeu Video” Licence you have to create a account on the website.</target>
+      </trans-unit>
+      <trans-unit id="46">
+        <source>rendez-vous ensuite a la page</source>
+        <target>then go to the next page</target>
+      </trans-unit>
+      <trans-unit id="47">
+        <source>Votre licence Masters est</source>
+        <target>Your Masters licence is </target>
+      </trans-unit>
+      <trans-unit id="48">
+        <source>Informations relatives a votre licence</source>
+        <target>All  informations on your licence</target>
+      </trans-unit>
+      <trans-unit id="49">
+        <source>Pseudo</source>
+        <target>Nickname</target>
+      </trans-unit>
+      <trans-unit id="50">
+        <source>Saison</source>
+        <target>Season</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source>Type de licence</source>
+        <target>Licence type</target>
+      </trans-unit>
+      <trans-unit id="52">
+        <source>Vous ne possedez pas de licence Masters, aucune reduction sera applique.</source>
+        <target>You do not own a Masters licence, no reduction will be applied.</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>Ajouter une licence Masters</source>
+        <target>Add a masters licence</target>
+      </trans-unit>
+      <trans-unit id="54">
+        <source>Retourner sur mon espace personnel</source>
+        <target>Return on my space</target>
+      </trans-unit>
+      <trans-unit id="55">
+        <source>Prenom</source>
+        <target>Firstname</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>Nom</source>
+        <target>Lastname</target>
+      </trans-unit>
+      <trans-unit id="57">
+        <source>Adresse mail</source>
+        <target>Email address</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>Inscription rapide</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>Les champs marques * sont obligatoires pour valider votre inscription a un tournoi.</source>
+        <target>Every forms with * have to be completed to validate your registration to a tournament.</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>Revenir sur mon espace</source>
+        <target>Return on my space</target>
+      </trans-unit>
+      <trans-unit id="61">
+        <source>Date de naissance</source>
+        <target>Birthdate</target>
+      </trans-unit>
+      <trans-unit id="62">
+        <source>Telephone</source>
+        <target>Phone</target>
+      </trans-unit>
+      <trans-unit id="63">
+        <source>Adresse</source>
+        <target>Address</target>
+      </trans-unit>
+      <trans-unit id="64">
+        <source>Code Postal</source>
+        <target>Zipcode</target>
+      </trans-unit>
+      <trans-unit id="65">
+        <source>Ville</source>
+        <target>City</target>
+      </trans-unit>
+      <trans-unit id="66">
+        <source>Sexe</source>
+        <target>Gender</target>
+      </trans-unit>
+      <trans-unit id="67">
+        <source>Pays</source>
+        <target>Country</target>
+      </trans-unit>
+      <trans-unit id="68">
+        <source>Photo de profil (Url)</source>
+        <target>Photo (url)</target>
+      </trans-unit>
+      <trans-unit id="69">
+        <source>Site web (Url)</source>
+        <target>Website (url)</target>
+      </trans-unit>
+      <trans-unit id="70">
+        <source>Carriere</source>
+        <target>Career</target>
+      </trans-unit>
+      <trans-unit id="71">
+        <source>Espace perso</source>
+        <target>My space</target>
+      </trans-unit>
+      <trans-unit id="72">
+        <source>Informations personnelles</source>
+        <target>Personal information</target>
+      </trans-unit>
+      <trans-unit id="73">
+        <source>Competition / Inscription</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="74">
+        <source>Modifier mes informations</source>
+        <target>Change my information</target>
+      </trans-unit>
+      <trans-unit id="75">
+        <source>Voir mon profil public</source>
+        <target>My public profil</target>
+      </trans-unit>
+      <trans-unit id="76">
+        <source>Taille du tee-shirt</source>
+        <target>Tshirt size</target>
+      </trans-unit>
+      <trans-unit id="77">
+        <source>Mes invitations</source>
+        <target>My invitations</target>
+      </trans-unit>
+      <trans-unit id="78">
+        <source>Mon &amp;eacute;quipe</source>
+        <target>My team</target>
+      </trans-unit>
+      <trans-unit id="79">
+        <source>Ma licence Masters</source>
+        <target>My masters licence</target>
+      </trans-unit>
+      <trans-unit id="80">
+        <source>Gerer mon inscription</source>
+        <target>Manage your registration</target>
+      </trans-unit>
+      <trans-unit id="81">
+        <source>Inscription a la Gamers Assembly</source>
+        <target>Subscribe to Gamers Assembly</target>
+      </trans-unit>
+      <trans-unit id="82">
+        <source>DOCUMENT(S) A IMPRIMER</source>
+        <target>DOCUMENTS TO PRINT</target>
+      </trans-unit>
+      <trans-unit id="83">
+        <source>Bulletin d inscription</source>
+        <target>Registration form</target>
+      </trans-unit>
+      <trans-unit id="84">
+        <source>Autorisation parentale</source>
+        <target>Parental consent</target>
+      </trans-unit>
+      <trans-unit id="85">
+        <source>pour les joueurs mineurs</source>
+        <target>for minor player</target>
+      </trans-unit>
+      <trans-unit id="86">
+        <source>Mon profil</source>
+        <target>My profil</target>
+      </trans-unit>
+      <trans-unit id="87">
+        <source>Inscrit le</source>
+        <target>Registred at</target>
+      </trans-unit>
+      <trans-unit id="88">
+        <source>Age / Sexe</source>
+        <target>Age / sex</target>
+      </trans-unit>
+      <trans-unit id="89">
+        <source>Equipe</source>
+        <target>Team</target>
+      </trans-unit>
+      <trans-unit id="90">
+        <source>Licence Masters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="91">
+        <source>Site web</source>
+        <target>Website</target>
+      </trans-unit>
+      <trans-unit id="92">
+        <source>Editer mon profil</source>
+        <target>Change my profil</target>
+      </trans-unit>
+      <trans-unit id="93">
+        <source>Voir mon profil publique</source>
+        <target>My public profil</target>
+      </trans-unit>
+      <trans-unit id="94">
+        <source>Fiche joueur</source>
+        <target>Player</target>
+      </trans-unit>
+      <trans-unit id="95">
+        <source>Inviter le joueur &amp;agrave; rejoindre mon equipe</source>
+        <target>Ask a player to join my team</target>
+      </trans-unit>
+      <trans-unit id="96">
+        <source>Pour inviter ce joueur a rejoindre votre equipe vous devez etre gerant. Vous ne pouvez pas inviter un joueur si celui ci appartient deja a une autre equipe.</source>
+        <target>To ask a player to join your team, you have to be the manager of this team. You can’t ask a player already belonging to another team.</target>
+      </trans-unit>
+      <trans-unit id="97">
+        <source>Edition de votre profil</source>
+        <target>Change your profil</target>
+      </trans-unit>
+      <trans-unit id="98">
+        <source>Numero de licence Masters</source>
+        <target>Number of masters licence</target>
+      </trans-unit>
+      <trans-unit id="99">
+        <source>Lire la suite</source>
+        <target>Read more</target>
+      </trans-unit>
+      <trans-unit id="100">
+        <source>Retrouvez toutes les news</source>
+        <target>Read more news</target>
+      </trans-unit>
+      <trans-unit id="101">
+        <source>Les news</source>
+        <target>News</target>
+      </trans-unit>
+      <trans-unit id="102">
+        <source>Page</source>
+        <target>Page</target>
+      </trans-unit>
+      <trans-unit id="103">
+        <source>Premiere</source>
+        <target>First</target>
+      </trans-unit>
+      <trans-unit id="104">
+        <source>Derniere</source>
+        <target>Last</target>
+      </trans-unit>
+      <trans-unit id="105">
+        <source>Publie le</source>
+        <target>Publish at</target>
+      </trans-unit>
+      <trans-unit id="106">
+        <source>par</source>
+        <target>by</target>
+      </trans-unit>
+      <trans-unit id="107">
+        <source>/css/gamersassembly/img/postnews.gif</source>
+        <target>/css/gamersassembly/img/postnews-en.gif</target>
+      </trans-unit>
+      <trans-unit id="108">
+        <source>Commentaires</source>
+        <target>Comments</target>
+      </trans-unit>
+      <trans-unit id="109">
+        <source>Poste le</source>
+        <target>Posted at</target>
+      </trans-unit>
+      <trans-unit id="110">
+        <source>Ajouter un commentaire</source>
+        <target>Add a comment</target>
+      </trans-unit>
+      <trans-unit id="111">
+        <source>Vous devez etre identifie pour ajouter un commentaire.</source>
+        <target>You must to be logged for add a comment</target>
+      </trans-unit>
+      <trans-unit id="112">
+        <source>Galeries photos, vid&amp;eacute;os et autres</source>
+        <target>Gallery photos, movies &amp; co.</target>
+      </trans-unit>
+      <trans-unit id="113">
+        <source>Photos</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="114">
+        <source>Wallpapers</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="115">
+        <source>a venir</source>
+        <target>soon</target>
+      </trans-unit>
+      <trans-unit id="116">
+        <source>Replays</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="117">
+        <source>Paiement par Paypal</source>
+        <target>Paypal order</target>
+      </trans-unit>
+      <trans-unit id="118">
+        <source>En cliquant sur le bouton Acheter vous allez etre redirige vers le site de paiement en ligne Paypal. Vous serez alors invite a entrer vos informations de carte bancaire ou a vous connecter avec votre compte Paypal pour effectuer le paiement.</source>
+        <target>By clicking on the Pay/Acheter button, you will be redirected on your paypal account to pay the registration.</target>
+      </trans-unit>
+      <trans-unit id="119">
+        <source>La validation de l inscription est effective dans les 24 a 48h suivant le paiement.</source>
+        <target>The validation will be done 24 to 48 h following the payement</target>
+      </trans-unit>
+      <trans-unit id="120">
+        <source>Recapituatif de votre paiement</source>
+        <target>Summary of your payment</target>
+      </trans-unit>
+      <trans-unit id="121">
+        <source>Prix total</source>
+        <target>Total price</target>
+      </trans-unit>
+      <trans-unit id="122">
+        <source>Inscription</source>
+        <target>Registration</target>
+      </trans-unit>
+      <trans-unit id="123">
+        <source>Liste des participants</source>
+        <target>List of participants</target>
+      </trans-unit>
+      <trans-unit id="124">
+        <source>Tournoi</source>
+        <target>Tournament</target>
+      </trans-unit>
+      <trans-unit id="125">
+        <source>Plus d informations sur le tournoi</source>
+        <target>More information on this tournament</target>
+      </trans-unit>
+      <trans-unit id="126">
+        <source>Nom de l equipe</source>
+        <target>Team name</target>
+      </trans-unit>
+      <trans-unit id="127">
+        <source>Debut de la liste d attente</source>
+        <target>Begining of the waiting list</target>
+      </trans-unit>
+      <trans-unit id="128">
+        <source>Paiement par Cheque</source>
+        <target>Check order</target>
+      </trans-unit>
+      <trans-unit id="129">
+        <source>En cliquant sur le bouton Je confirme mon paiement je m engage a adresser un Cheque du montant indique dans les plus brefs delai.</source>
+        <target>By clicking on the ‘Je confirme mon paiement’ button, I agree to send a check with the correct amount of money as soon as I can.</target>
+      </trans-unit>
+      <trans-unit id="130">
+        <source>La validation de votre inscriptions sera effective a la reception du paiement pour la totalitee de l equipe.</source>
+        <target>The validation of your registration will be actual after the reception of your payement for ALL the team.</target>
+      </trans-unit>
+      <trans-unit id="131">
+        <source>Veuillez imprimer cette page est nous la renvoyer, avec votre Cheque, a l adresse suivante</source>
+        <target>Please print this sheet and send it with you check, to the following Adresse</target>
+      </trans-unit>
+      <trans-unit id="132">
+        <source>Cheque a l ordre de : Association Futurolan</source>
+        <target>Write down your check to : Association Futurolan</target>
+      </trans-unit>
+      <trans-unit id="133">
+        <source>Association Futurolan</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="134">
+        <source>11 rue Paul Gauvin</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="135">
+        <source>86280 SAINT BENOIT</source>
+        <target>86280 SAINT BENOIT - FRANCE</target>
+      </trans-unit>
+      <trans-unit id="136">
+        <source>Vous devez ajouter le nom de votre equipe ainsi que votre identifiant</source>
+        <target>You have to add the name of your team as well as your username</target>
+      </trans-unit>
+      <trans-unit id="137">
+        <source>au dos du cheque</source>
+        <target>to the back of the check</target>
+      </trans-unit>
+      <trans-unit id="138">
+        <source>Identifiant</source>
+        <target>Ident</target>
+      </trans-unit>
+      <trans-unit id="139">
+        <source>Je confirme mon paiement</source>
+        <target>I confirm my payment</target>
+      </trans-unit>
+      <trans-unit id="140">
+        <source>Nom de lequipe</source>
+        <target>Team name</target>
+      </trans-unit>
+      <trans-unit id="141">
+        <source>Joueurs</source>
+        <target>Players</target>
+      </trans-unit>
+      <trans-unit id="142">
+        <source>Debut de la liste dattente</source>
+        <target>Beginning of the waiting list</target>
+      </trans-unit>
+      <trans-unit id="143">
+        <source>Valide</source>
+        <target>Valid</target>
+      </trans-unit>
+      <trans-unit id="144">
+        <source>En attente de paiement</source>
+        <target>Payment pending</target>
+      </trans-unit>
+      <trans-unit id="145">
+        <source>Inscription Tournoi</source>
+        <target>Tournament registration</target>
+      </trans-unit>
+      <trans-unit id="146">
+        <source>Votre equipe est inscrite au tournoi</source>
+        <target>Your team is registered in tournaments</target>
+      </trans-unit>
+      <trans-unit id="147">
+        <source>En tant que joueur pour cette equipe vous pouvez beneficier d une reduction de 5e sur votre inscription grace a votre licence Masters</source>
+        <target>You can benefit of a 5e discount thanks to your Masters licence</target>
+      </trans-unit>
+      <trans-unit id="148">
+        <source>Plus d infos</source>
+        <target>More informations</target>
+      </trans-unit>
+      <trans-unit id="149">
+        <source>La reduction est valable uniquement sur les tournois homologues Masters series.</source>
+        <target>The discount is available only in the “Masters series” tournament</target>
+      </trans-unit>
+      <trans-unit id="150">
+        <source>Vous avez une licence Masters Gold. La reduction est automatiquement prise en compte.</source>
+        <target>You have a Masters gold licence. The discount will be automatically done.</target>
+      </trans-unit>
+      <trans-unit id="151">
+        <source>Vous avez deja utilise votre reduction pour un evenement precedant.</source>
+        <target>You have already used your discount in a previous event</target>
+      </trans-unit>
+      <trans-unit id="152">
+        <source>Votre reduction pour cet evenement a ete prise en compte.</source>
+        <target>The discount has been done</target>
+      </trans-unit>
+      <trans-unit id="153">
+        <source>Vous n avez pas entre de licence Masters.</source>
+        <target>You do not have a Masters Licence</target>
+      </trans-unit>
+      <trans-unit id="154">
+        <source>Cliquez ici pour gerer vos licences</source>
+        <target>Click here to manage your licences</target>
+      </trans-unit>
+      <trans-unit id="155">
+        <source>Rappel sur la validation</source>
+        <target>Reminder on the validation</target>
+      </trans-unit>
+      <trans-unit id="156">
+        <source>Tous les joueurs de l equipe doivent completer entierement leur profil (champs marques *)</source>
+        <target>Every players of the team have to fullfill their profile (forms with *)</target>
+      </trans-unit>
+      <trans-unit id="157">
+        <source>L equipe doit posseder le nombre de joueur requis pour valider l inscription</source>
+        <target>The team needs to have the right number of player to validate the inscription</target>
+      </trans-unit>
+      <trans-unit id="158">
+        <source>Apres la validation vous ne pourrez plus modifier la composition de votre equipe</source>
+        <target>After the validation you will not be able to modify your team’s lineup</target>
+      </trans-unit>
+      <trans-unit id="159">
+        <source>Gerer mon equipe</source>
+        <target>Manage my team</target>
+      </trans-unit>
+      <trans-unit id="160">
+        <source>Vous pouvez vous desinscrire du tournoi en cliquant ici</source>
+        <target>You can unsuscribe from the tournament by clicking here</target>
+      </trans-unit>
+      <trans-unit id="161">
+        <source>Votre inscription est en cours de validation</source>
+        <target>Your registration is being validated</target>
+      </trans-unit>
+      <trans-unit id="162">
+        <source>Un membre de l equipe a choisis de payer par cheque. A la reception du cheque, un admin validera votre equipe.</source>
+        <target>A member of your team have chosen to pay by check. When it will be receive, an admin will then validate your team</target>
+      </trans-unit>
+      <trans-unit id="163">
+        <source>Votre equipe n a pas encore valide son inscription.</source>
+        <target>Your team has not confirmed inscription yet.</target>
+      </trans-unit>
+      <trans-unit id="164">
+        <source>Si vous avez deja envoye un cheque ou paye par Paypal votre validation sera effective dans quelques jours. Un mail de confirmation vous sera envoye.</source>
+        <target>If you have already send a check or pay by paypal, your validation will be done in a few days, a confirmation mail will be sent.</target>
+      </trans-unit>
+      <trans-unit id="165">
+        <source>La validation de l inscription doit etre effectuee en un seul paiement de</source>
+        <target>The validation of the team has to be done in one payement</target>
+      </trans-unit>
+      <trans-unit id="166">
+        <source>pour la totalite de l equipe.</source>
+        <target>for the whole team.</target>
+      </trans-unit>
+      <trans-unit id="167">
+        <source>La validation sera effective au moment de la reception integrale du paiement.</source>
+        <target>The validation will be done when we will receive the complete payement.</target>
+      </trans-unit>
+      <trans-unit id="168">
+        <source>Vous avez le choix entre les deux moyens de paiement suivants</source>
+        <target>You can choose between the two following ways of payement</target>
+      </trans-unit>
+      <trans-unit id="169">
+        <source>Paiement par cheque ici</source>
+        <target>Check order here</target>
+      </trans-unit>
+      <trans-unit id="170">
+        <source>Paiement par Paypal ici</source>
+        <target>Paypal order here</target>
+      </trans-unit>
+      <trans-unit id="171">
+        <source>Votre equipe n est pas complete</source>
+        <target>Your team isn’t full</target>
+      </trans-unit>
+      <trans-unit id="172">
+        <source>Vous devez completer votre equipe avant de pouvoir faire le paiement.</source>
+        <target>You have to complete your team before being allowed to pay</target>
+      </trans-unit>
+      <trans-unit id="173">
+        <source>Votre equipe a bien valide toutes les etapes de l inscription au tournoi</source>
+        <target>Your team successfully pass every steps to register to the tournament</target>
+      </trans-unit>
+      <trans-unit id="174">
+        <source>Devenir partenaire ?</source>
+        <target>Become a partner ?</target>
+      </trans-unit>
+      <trans-unit id="175">
+        <source>La Gamers Assembly ne pourrait exister sans le soutien de ses nombreux partenaires, dont certains sont fideles maintenant depuis de longues annees.</source>
+        <target>The Gamers Assembly could not exist without its partners, some of them being loyal for many years</target>
+      </trans-unit>
+      <trans-unit id="176">
+        <source>Vous souhaitez sponsoriser un tournoi, exposer lors de notre manifestation ou simplement associer votre image a la notre ?&#13;
+			Nous possedons de nombreuses solutions de communication et d entraide afin de creer des collaborations gagnant-gagnant. &#13;
+			Contactez nous en decrivant votre activite et votre projet, nous nous engageons a revenir vers vous rapidement pour definir la maniere dont nous pouvons travailler a vos cotes !</source>
+        <target>You wish to sponsor a tournament, expose during the manifestation or simply associate your image to ours?&#13;
+			We have numerous communication or mutual aid solutions designed to create win-win collaboration.&#13;
+			Contact us with a description of your activity or your project, and we will call you back the soonest in order to define the best way to collaborate together.</target>
+      </trans-unit>
+      <trans-unit id="177">
+        <source>Confirmation d invitation</source>
+        <target>Confirmation invitation</target>
+      </trans-unit>
+      <trans-unit id="178">
+        <source>Le joueur a ete notifie de votre invitation, il rejoindra votre equipe après avoir accepte votre invitation.</source>
+        <target>The player has been notified of your invitation, he will join as soon as he accepts the invitation.</target>
+      </trans-unit>
+      <trans-unit id="179">
+        <source>Rechercher un autre joueur</source>
+        <target>Search an other player</target>
+      </trans-unit>
+      <trans-unit id="180">
+        <source>Ajouter un ami</source>
+        <target>Add friend</target>
+      </trans-unit>
+      <trans-unit id="181">
+        <source>Invitations en cours</source>
+        <target>Pending invitation</target>
+      </trans-unit>
+      <trans-unit id="182">
+        <source>vous invite dans son equipe, souhaitez vous la rejoindre ?</source>
+        <target>is asking you to join his/her team, do you accept?</target>
+      </trans-unit>
+      <trans-unit id="183">
+        <source>Oui</source>
+        <target>Yes</target>
+      </trans-unit>
+      <trans-unit id="184">
+        <source>Non</source>
+        <target>No</target>
+      </trans-unit>
+      <trans-unit id="185">
+        <source>vous invite a etre son ami(e)</source>
+        <target>is asking you to be his/her friend</target>
+      </trans-unit>
+      <trans-unit id="186">
+        <source>Accepter</source>
+        <target>Accept</target>
+      </trans-unit>
+      <trans-unit id="187">
+        <source>Refuser</source>
+        <target>Refuse</target>
+      </trans-unit>
+      <trans-unit id="188">
+        <source>Vous n avez aucune invitation actuellement.</source>
+        <target>You have no invitation</target>
+      </trans-unit>
+      <trans-unit id="189">
+        <source>Historique</source>
+        <target>History</target>
+      </trans-unit>
+      <trans-unit id="190">
+        <source>Vous avez rejoins l equipe</source>
+        <target>You have joined the team</target>
+      </trans-unit>
+      <trans-unit id="191">
+        <source>Vous avez refuse l invitation a rejoindre l equipe</source>
+        <target>You have refuse to join a team</target>
+      </trans-unit>
+      <trans-unit id="192">
+        <source>est devenu votre ami.</source>
+        <target>is now your friend</target>
+      </trans-unit>
+      <trans-unit id="193">
+        <source>Vous avez refuse la demande d ami de</source>
+        <target>You declined the invitation</target>
+      </trans-unit>
+      <trans-unit id="194">
+        <source>Foire aux questions</source>
+        <target>Frequently Asked Questions</target>
+      </trans-unit>
+      <trans-unit id="195">
+        <source>Erreur 401</source>
+        <target>401 error</target>
+      </trans-unit>
+      <trans-unit id="196">
+        <source>Vous n etes pas autorise a afficher cette page.</source>
+        <target>You are not allowed to display this page.</target>
+      </trans-unit>
+      <trans-unit id="197">
+        <source>Erreur 404</source>
+        <target>404 error</target>
+      </trans-unit>
+      <trans-unit id="198">
+        <source>La page que vous recherchez n existe pas ou a ete deplace.</source>
+        <target>The seeked page doesn’t exist or has been replaced.</target>
+      </trans-unit>
+      <trans-unit id="199">
+        <source>Stream</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="200">
+        <source>Resultats des tournois</source>
+        <target>Tournament results</target>
+      </trans-unit>
+      <trans-unit id="201">
+        <source>Recherche d un joueur</source>
+        <target>Search a player</target>
+      </trans-unit>
+      <trans-unit id="202">
+        <source>Vous pouvez rechercher un joueur en tapant une partie ou la totalit&amp;eacute; de son pseudo. Vous devez utiliser 2 caractères au minimum.</source>
+        <target>You can search for a player by typing part or full nickname, at least 2 characters</target>
+      </trans-unit>
+      <trans-unit id="203">
+        <source>Resulats de la recherche</source>
+        <target>Search results</target>
+      </trans-unit>
+      <trans-unit id="204">
+        <source>Aucun résultat.</source>
+        <target>No result</target>
+      </trans-unit>
+      <trans-unit id="205">
+        <source>Relancer une nouvelle recherche</source>
+        <target>Restart a new search</target>
+      </trans-unit>
+      <trans-unit id="206">
+        <source>Liste des inscrits</source>
+        <target>Registered players list</target>
+      </trans-unit>
+      <trans-unit id="207">
+        <source>Selectionner un tournoi pour voir la liste des inscrits.</source>
+        <target>Select a tournament to see the registration list</target>
+      </trans-unit>
+      <trans-unit id="208">
+        <source>Rejoindre un tournoi</source>
+        <target>Join a tournament</target>
+      </trans-unit>
+      <trans-unit id="209">
+        <source>Save</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="210">
+        <source>Retour</source>
+        <target>Return</target>
+      </trans-unit>
+      <trans-unit id="211">
+        <source>slots</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="212">
+        <source>equipes inscrites</source>
+        <target>registered team</target>
+      </trans-unit>
+      <trans-unit id="213">
+        <source>dont</source>
+        <target>and</target>
+      </trans-unit>
+      <trans-unit id="214">
+        <source>validees</source>
+        <target>team validated</target>
+      </trans-unit>
+      <trans-unit id="215">
+        <source>Choississez le tournoi auquel vous souhaitez participer</source>
+        <target>Choose your tournament</target>
+      </trans-unit>
+      <trans-unit id="216">
+        <source>Type</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="217">
+        <source>Editeur</source>
+        <target>Editor</target>
+      </trans-unit>
+      <trans-unit id="218">
+        <source>Plateforme</source>
+        <target>Plateform</target>
+      </trans-unit>
+      <trans-unit id="219">
+        <source>Le tournoi se joue par equipe de</source>
+        <target>This tournament is played in team of</target>
+      </trans-unit>
+      <trans-unit id="220">
+        <source>joueur(s). Les inscriptions sont ouvertes pour</source>
+        <target>player(s). Registrations are open for</target>
+      </trans-unit>
+      <trans-unit id="221">
+        <source>Prix d entree (par joueur)</source>
+        <target>Enter price (per player)</target>
+      </trans-unit>
+      <trans-unit id="222">
+        <source>J inscris mon equipe</source>
+        <target>I register my team</target>
+      </trans-unit>
+      <trans-unit id="223">
+        <source>Les admins de ce tournoi sont</source>
+        <target>the admins of this tournament are</target>
+      </trans-unit>
+      <trans-unit id="224">
+        <source>Liste des equipes inscrites</source>
+        <target>Registered team</target>
+      </trans-unit>
+      <trans-unit id="225">
+        <source>Reglement</source>
+        <target>Rules</target>
+      </trans-unit>
+      <trans-unit id="226">
+        <source>J accepte le reglement et je confirme ma participation</source>
+        <target>I accept the paiement and I confirm my participation</target>
+      </trans-unit>
+      <trans-unit id="227">
+        <source>Je refuse et j annule mon inscription</source>
+        <target>I refuse and I cancel my registration</target>
+      </trans-unit>
+      <trans-unit id="228">
+        <source>Mes Amis</source>
+        <target>My friends</target>
+      </trans-unit>
+      <trans-unit id="229">
+        <source>Vous n avez pas d amis actuellement.</source>
+        <target>You don’t have friends yet</target>
+      </trans-unit>
+      <trans-unit id="230">
+        <source>Liste d amis</source>
+        <target>Friend list</target>
+      </trans-unit>
+      <trans-unit id="231">
+        <source>Ajouter le commentaire</source>
+        <target>Add comment</target>
+      </trans-unit>
+      <trans-unit id="232">
+        <source>Creer une equipe</source>
+        <target>Create team</target>
+      </trans-unit>
+      <trans-unit id="233">
+        <source>Attention, un joueur peut appartenir a une seule equipe. Si un autre membre a deja cree une équipe vous devez lui demander de vous inviter a la rejoindre.</source>
+        <target>Careful, a player can only be part of one team. If another member has already created a team, ask him to invite you.</target>
+      </trans-unit>
+      <trans-unit id="234">
+        <source>Modifier la composition de l equipe</source>
+        <target>Modify the team’s lineup</target>
+      </trans-unit>
+      <trans-unit id="235">
+        <source>Les gerants sont les seuls a pouvoir modifier les membres d une equipe et en inviter de nouveaux.</source>
+        <target>The managers are the only members able to modify the team, and to invite new members</target>
+      </trans-unit>
+      <trans-unit id="236">
+        <source>Attention, un joueur ne peut pas appartenir a plusieurs equipes differentes.</source>
+        <target>Warning, a player cannot be part of several teams</target>
+      </trans-unit>
+      <trans-unit id="237">
+        <source>Gerants</source>
+        <target>Managers</target>
+      </trans-unit>
+      <trans-unit id="238">
+        <source>Proprietaire de l equipe</source>
+        <target>Owner</target>
+      </trans-unit>
+      <trans-unit id="239">
+        <source>S ajouter en tant que joueur</source>
+        <target>Add as a player</target>
+      </trans-unit>
+      <trans-unit id="240">
+        <source>Ajouter aux joueurs</source>
+        <target>Add to player</target>
+      </trans-unit>
+      <trans-unit id="241">
+        <source> Ajouter aux joueurs</source>
+        <target>Add to player</target>
+      </trans-unit>
+      <trans-unit id="242">
+        <source>Retirer des capitaines</source>
+        <target>Remove a captain</target>
+      </trans-unit>
+      <trans-unit id="243">
+        <source>Ajouter aux capitaines</source>
+        <target>Add to captains</target>
+      </trans-unit>
+      <trans-unit id="244">
+        <source>Supprimer</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="245">
+        <source>Joueurs composant votre equipe</source>
+        <target>Player in your team</target>
+      </trans-unit>
+      <trans-unit id="246">
+        <source>Retirer le joueur</source>
+        <target>Remove a player</target>
+      </trans-unit>
+      <trans-unit id="247">
+        <source>Membres (Non-joueur)</source>
+        <target>Members (non-player)</target>
+      </trans-unit>
+      <trans-unit id="248">
+        <source>Retirer des joueurs</source>
+        <target>Remove players</target>
+      </trans-unit>
+      <trans-unit id="249">
+        <source>Retourner a la fiche de l equipe</source>
+        <target>Back to the team’s sheet</target>
+      </trans-unit>
+      <trans-unit id="250">
+        <source>Ajouter l equipe</source>
+        <target>Add team</target>
+      </trans-unit>
+      <trans-unit id="251">
+        <source>Annuler</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="252">
+        <source>Enregistrer les modification</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="253">
+        <source>Tag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="254">
+        <source>Logo (url)</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="255">
+        <source>Cree le</source>
+        <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="256">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="257">
+        <source>Etes vous sur de vouloir definitivement supprimer votre team (historique, place dans le tournoi) ?</source>
+        <target>Are you sure you want to remove your team definitively (historic, slot in the tournament)</target>
+      </trans-unit>
+      <trans-unit id="258">
+        <source>Composition de l equipe</source>
+        <target>Team's lineup</target>
+      </trans-unit>
+      <trans-unit id="259">
+        <source>Pour valider votre inscription a un tournoi vous devez posseder autant de joueur que necessaire.&lt;br/&gt;&#13;
+        Les gerants, proprietaire et managers, peuvent modifier la composition d une equipe et inviter de nouveaux joueurs.</source>
+        <target>To validate your inscription to the tournament you need as many players as required.&lt;br/&gt;&#13;
+        The manager, owner can modify the composition of a team and invite new playerst</target>
+      </trans-unit>
+      <trans-unit id="260">
+        <source>Joueurs composant votre &amp;eacute;quipe</source>
+        <target>Players among your team</target>
+      </trans-unit>
+      <trans-unit id="261">
+        <source>Gerer la composition de l equipe</source>
+        <target>Manage the team composition</target>
+      </trans-unit>
+      <trans-unit id="262">
+        <source>Rechercher un joueur</source>
+        <target>Search a player</target>
+      </trans-unit>
+      <trans-unit id="263">
+        <source>Pour inscrire votre equipe a un tournoi, veuillez cliquer</source>
+        <target>To register your team to a tournament, please click</target>
+      </trans-unit>
+      <trans-unit id="264">
+        <source>ici</source>
+        <target>here</target>
+      </trans-unit>
+      <trans-unit id="265">
+        <source>ou cliquer sur le bouton choisir un tournoi.</source>
+        <target>or click on the tournament’s button</target>
+      </trans-unit>
+      <trans-unit id="266">
+        <source>Valider mon inscription au tournoi </source>
+        <target>Confirm my inscription</target>
+      </trans-unit>
+      <trans-unit id="267">
+        <source>Changer de tournoi</source>
+        <target>Move to another tournament</target>
+      </trans-unit>
+      <trans-unit id="268">
+        <source>L equipe est inscrite a aucun tournoi</source>
+        <target>The team isn’t registered to any tournament</target>
+      </trans-unit>
+      <trans-unit id="269">
+        <source>Vous n appartenez a aucune equipe pour le moment.</source>
+        <target>You are not part of any team for the moment</target>
+      </trans-unit>
+      <trans-unit id="270">
+        <source>Deux possibilites s offrent a vous</source>
+        <target>There are two possibilities</target>
+      </trans-unit>
+      <trans-unit id="271">
+        <source>Se faire inviter par une equipe</source>
+        <target>Be invited by a team</target>
+      </trans-unit>
+      <trans-unit id="272">
+        <source>Si votre equipe a ete creee par votre manager, indiquez lui votre	pseudo afin qu il vous invite a la rejoindre.</source>
+        <target>If your team has been created by your manager, give him your nickname, in order to allow him to ask you to join the team.</target>
+      </trans-unit>
+      <trans-unit id="273">
+        <source>Creer votre equipe</source>
+        <target>Create your team</target>
+      </trans-unit>
+      <trans-unit id="274">
+        <source>Si vous creez une equipe, vous serez le responsable de celle-ci et vous pourrez inviter vos joueurs a la rejoindre.</source>
+        <target>If you create a team you are responsible of it and you can invite players to join it</target>
+      </trans-unit>
+      <trans-unit id="275">
+        <source>Fiche equipe</source>
+        <target>Team's sheet</target>
+      </trans-unit>
+      <trans-unit id="276">
+        <source>Team</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="277">
+        <source>Autres</source>
+        <target>Others</target>
+      </trans-unit>
+      <trans-unit id="278">
+        <source>L equipe est inscrite au tournoi </source>
+        <target>The team is registered to the tournament</target>
+      </trans-unit>
+      <trans-unit id="279">
+        <source>L equipe n est pas inscrite a un tournoi</source>
+        <target>The team is not registered to the tournament</target>
+      </trans-unit>
+      <trans-unit id="280">
+        <source>Creer une nouvelle equipe</source>
+        <target>Create a new team</target>
+      </trans-unit>
+      <trans-unit id="281">
+        <source>Modifier mon equipe</source>
+        <target>Modify my team</target>
+      </trans-unit>
+      <trans-unit id="282">
+        <source>Publi&amp;eacute; le</source>
+        <target>Published at</target>
+      </trans-unit>
+      <trans-unit id="283">
+        <source>A l'affiche</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="284">
+        <source>Aucun commentaire</source>
+        <target>No comment</target>
+      </trans-unit>
+      <trans-unit id="285">
+        <source>commentaire</source>
+        <target>comment</target>
+      </trans-unit>
+      <trans-unit id="286">
+        <source>commentaires</source>
+        <target>comments</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

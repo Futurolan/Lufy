@@ -1,0 +1,59 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# news rules
+news_index:
+  url:   /actualites
+  param: { module: news, action: index }
+news_view:
+  url:   /actualite/:slug
+  param: { module: news, action: view }
+
+
+# page rules
+page_view:
+  url:   /page/:slug
+  param: { module: page, action: view }
+
+
+# reader rules
+reader_index:
+  url:   /reader
+  param: { module: reader, action: index }
+
+reader_view:
+  url:   /reader/:slug
+  param: { module: reader, action: view }
+
+reader_view_display:
+  url:   /reader/:slug/:display
+  param: { module: reader, action: view }
+
+
+# gallery rules
+gallery_index:
+  url:   /galeries
+  param: { module: gallery, action: index }
+
+gallery_view:
+  url:   /galerie/photo/:slug
+  param: { module: gallery, action: view }
+
+gallery_video_index:
+  url:   /galerie/video/:slug
+  param: { module: file, action: view }
+
+
+# default rules
+homepage:
+  url:   /
+  param: { module: main, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+#
+#default:
+#  url:   /:module/:action/*

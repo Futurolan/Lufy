@@ -1,0 +1,13 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+
+  # url du site
+  root_url: http://www.gamers-assembly.net/index.php
+  destinataire_contact: noreply@futurolan.net   #destinataires des emails formulaire de contact
+  debut_annee_naissance: 1940
+
+  sfGuardPlugin:
+    defaultFromEmail: noreply@futurolan.net

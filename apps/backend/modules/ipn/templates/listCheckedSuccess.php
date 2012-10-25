@@ -1,0 +1,1 @@
+<h2>Notifications archiv&eacute;s</h2><? include_partial('list', array('ipns' => $ipns))?>

@@ -1,0 +1,431 @@
+/* @import url('blueprint/screen.css'); */
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url('img/background.jpg');
+    background-repeat: repeat-x;
+    background-position: center top;
+    font-family: Verdana, Arial;
+    font-size: 11px;
+    color: #111;
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; margin-top: 10px; margin-bottom: 5px; }
+h1 { font-size: 20px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; margin-bottom: 10px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 10px; }
+
+a {
+    color: #003366;
+    text-decoration: none;
+}
+
+a:hover
+{
+	color: #741C38;
+}
+img {
+    border: 0px;
+}
+
+p {
+    line-height: 1.3em;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+tr, th, td {
+    text-align: left;
+    font-weight: normal;
+    padding: 5px;
+}
+
+input[type=text], input[type=password], textarea {
+    padding: 5px 5px 5px 5px;
+    border:  1px solid #a8b5cd;
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+/* background: url('img/bg-button.jpg') repeat-x;
+background: url('img/bg-button-hover.jpg') repeat-x;
+*/
+input[type=submit], input[type=button] 
+{  
+	 
+	color: #fff;
+	background: #333333;
+	padding-bottom: 13px;
+	padding-left: 13px;
+	padding-right: 13px; 
+	padding-top: 12px; 
+	cursor: pointer;
+	
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border-radius: 5px;
+	
+	text-align:center;
+	vertical-align:middle;
+}
+
+
+.button {
+    color: #fff;
+    
+    display: inline-block;
+    padding: 15px 15px 15px 15px;
+
+    
+	display: inline-block;
+    
+	text-align:center;
+	vertical-align:middle;
+	
+	background: #333333;
+
+	text-decoration: none;
+    line-height: 1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border-radius: 5px;
+    border-bottom: 2px solid #666666;
+	border-right: 2px solid #666666;
+	border-top: 2px solid #EEEEEE;
+	border-left: 2px solid #EEEEEE;
+    position: relative;
+    cursor: pointer;
+}
+.button a {
+    color: #ffffff;
+	border: 1px solid #224D77;
+    
+}
+.smallbutton {
+ 	color: #fff;
+    
+    display: inline-block;
+   
+	text-align:center;
+	vertical-align:middle;
+	
+	padding-bottom: 6px;
+	padding-left: 6px;
+	padding-right: 6px; 
+	padding-top: 6px; 
+	
+	background: #333333;
+
+	text-decoration: none;
+    line-height: 1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+.button:hover,.smallbutton:hover, input[type=submit]:hover, input[type=button]:hover {
+    background: #003366;
+	color: #ffffff;
+}
+
+.listteam {
+    width: 600px;
+    margin: auto auto;
+}
+.listteam th {
+    background: #222;
+    color: #eee;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.listteam tr td {
+    border-bottom: solid 1px #ccc;
+}
+/********************/
+#Page { width: 1008px; margin: auto auto }
+
+#Login {
+    height: 21px;
+    margin: auto auto;
+    margin-top: 0px;
+    background: #595959;
+    background: url('img/bg-slider.png') no-repeat 50% 38%;
+    color: #82a5e7;
+    font-family: "Lucida Sans", Verdana, Arial;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    border-left: solid 1px #3b3b3b;
+    border-bottom: solid 1px #4b4b4b;
+    border-right: solid 1px #4b4b4b;
+    border-radius: 0px 0px 5px 5px;
+    top: 0px;
+}
+
+#Login a {
+    color: #fff;
+}
+#Login a:hover {
+    color: #9db8ea;
+    text-shadow: #dae3f2 0px 0px 30px;
+}
+
+#Login ul {
+    margin: 0px;
+    padding: 0px;
+    padding-top: 2px;
+}
+
+#Login ul li {
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+
+#Navigation  { width: 1000px; margin: auto auto; margin-top: 2px; padding-bottom: 5px; text-align: center; text-transform: uppercase; font-size: 18px; border-bottom: solid 1px #ddd; }
+#Navigation a { color: #111; text-shadow: #bbb 0px 0px 10px; }
+#Navigation a:hover { color: #111; text-shadow: #777 0px 0px 20px; }
+#Navigation span { margin-left: 5px; margin-right: 5px; }
+
+
+#Slider { width: 960px; height: 150px; margin: auto auto; margin-top: 95px; padding: 5px; background: url('img/bg-slider.png') no-repeat; color: #FFFFFF; }
+#Slider .logo
+{
+    border-right: 2px solid #FFFFFF;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+#Slider .link
+{
+    float: right;
+}
+
+
+#Partner {
+
+}
+
+#Partner-principal, #Partners {
+    width: 490px;
+    float: left;
+    padding: 5px;
+}
+
+
+
+#Partner-principal .table{
+    margin: 0px;
+    padding: 0px;
+
+}
+#Partner-principal .table td{
+
+    padding: 0px;
+
+}
+#Partners .partnerLogoOrga{
+    float: right;
+}
+#Partners .link{
+    float: right;
+}
+
+#Body-top {
+    background: url('img/bg-body-top.png');
+    padding-top: 15px;
+    width: 1008px;
+    height: 7px;
+}
+
+#Body {
+    background: url('img/bg-body.png');
+    width: 1000px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 30px;
+}
+
+#Content {
+    width: 700px;
+    float: left;
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+#Sidebar {
+    width: 250px;
+    float: left;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+
+#Footer {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 208px;
+    background: url('img/bg-footer.png') repeat-x;
+    color: #fff;
+}
+#FooterContent {
+    width: 1000px;
+    margin: auto auto;
+    font-size: 11px;
+}
+#FooterContent div.box {
+    float: left;
+    padding: 25px;
+}
+#FooterContent div b {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#FooterContent .box a {
+    color: #fff;
+}
+
+/********************/
+/**.partnerLogo { width: 125px; height: 125px; margin: 5px; }
+
+/********************/
+.spacer-10 {
+    width: 10px;
+    height: 10px;
+}
+.clear-left {
+    clear: left;
+}
+
+
+/* CSS pour les messages flash */
+.flashbox {
+    border: solid 2px black;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.success {
+    border-color: #6cba5a;
+    background-color: #eef8ed;
+    color: #428537;
+}
+.info {
+    border-color: #4a79b2;
+    background-color: #e0ebf2;
+    color: #2c436b;
+}
+.warning {
+    border-color: #b5a84d;
+    background-color: #f1f4e4;
+    color: #6f6d2e;
+}
+.error , .error_list{
+    border-color: #b24a4a;
+    background-color: #f2e3e0;
+    color: #6b2e2c;
+}
+
+.triadix
+{
+	border-color: #b24a4a;
+    background-color: #ff0000;
+    color: #ffffff;
+	border-radius: 5px;
+}
+
+/* Complément visuel */
+.H4Enhance
+{
+	background-color:#333333;
+	color:#FFFFFF;
+	padding-left: 5px;
+	border-radius: 5px;
+}
+
+.H3Enhance
+{
+	background-color: #003366;
+	color: #ffffff;
+	padding-left: 5px;
+	border-radius: 5px;
+}
+
+.profil1
+{
+	border: 1px solid #666666;
+	
+	background-color: #9eb0c2;
+	width:70%;
+}
+
+.profil2
+{
+	border: 1px solid #666666;
+	background-color: #b9c6d3;
+	width: 70%;
+}
+
+.profil3
+{
+	border: 1px solid #666666;
+	background-color: #d5dde4;
+	width: 70%;
+}
+
+.profil4
+{
+	border: 1px solid #666666;
+	background-color: #dddddd;
+	color: #ffffff;
+	width: 70%;
+}
+
+.status_libre
+{
+
+}
+.status_inscrit
+{
+	background-color:#66CCFF;
+	color: #000000;
+}
+.status_reserve
+{
+	background-color:#CCCCCC;
+	color: #000000;
+}
+.status_valide
+{
+	background-color:#99FF66;
+	color: #000000;
+}
+.status_attente
+{
+	background-color:#66CCFF;
+	color: #000000;
+}
+
+
+
+
+
+
+

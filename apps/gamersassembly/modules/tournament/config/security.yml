@@ -1,0 +1,6 @@
+all:
+  is_secure: true
+list:
+  is_secure: false
+view:
+  is_secure: false

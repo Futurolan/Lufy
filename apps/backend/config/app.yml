@@ -1,0 +1,23 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  google_account:
+    mail: xxxxxx@gmail.com
+    password: xxxxxx
+    # Google Analytics
+    id_analytics: xx:xxxx
+
+  sfImageTransformPlugin:
+    mime_type:
+      auto_detect: true
+      library: gd_mime_type # Fileinfo (PECL), MIME_Type (PEAR), gd_mime_type (GD)
+
+  .array:
+    partenaire_logo: 
+      50:  { max_x: 50, max_y: 50 }
+      100: { max_x: 100, max_y: 100 }
+      150: { max_x: 150, max_y: 150 }
+      200: { max_x: 200, max_y: 200 }
+      300: { max_x: 300, max_y: 300 }

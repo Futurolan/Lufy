@@ -1,0 +1,1 @@
+<?phpclass blockComponents extends sfComponents {    public function executeList(sfWebRequest $request) {        $this->blocks = Doctrine_Query::create()                        ->from('block')                        ->where('is_active = 1')                        ->orderBy('position')                        ->execute();    }}

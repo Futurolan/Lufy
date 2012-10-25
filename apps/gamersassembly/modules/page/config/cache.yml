@@ -1,0 +1,7 @@
+default:
+  enabled:     true
+  with_layout: false
+  lifetime:    300
+
+concoursOuikos:
+  enabled:     false

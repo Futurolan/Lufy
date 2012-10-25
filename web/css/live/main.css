@@ -1,0 +1,478 @@
+@import url(http://fonts.googleapis.com/css?family=Electrolize);
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Lucida Sans";
+    font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #111;
+    background-color: #130e17;
+}
+
+h4 {
+    font-weight: normal;
+    font-size: 13px;
+}
+
+a {
+    color: #0f69a4;
+    text-decoration: none;
+}
+a:hover {
+    color: #189ecf;
+    text-decoration: underline;
+}
+
+ul {
+    margin: 0px;
+    padding-left: 10px;
+}
+
+li {
+}
+
+table th {
+    text-align: left;
+    padding: 5px;
+}
+
+input[type=text]:focus, input[type=password], select:focus, textarea:focus, .button:focus {
+    border: solid 1px orange;
+}
+input[type=text], input[type=password], select, textarea {
+    padding: 5px;
+    background: #f0f0f0;
+    border: solid 1px #d5d5d5;
+    margin: 5px;
+    font-size: 11px;
+    color: #0c3671;
+}
+input[type=text], input[type=password] {
+    width: 220px;
+}
+select {
+    padding: 2px 5px 2px 5px;
+}
+textarea {
+    min-width: 400px;
+    font-family: "Lucida Sans";
+}
+
+fieldset {
+    border: solid 1px #adadad;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+fieldset legend {
+    color: #333;
+}
+
+#lightoff {
+    z-index: 5px;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    opacity: 0.9;
+    display: none;
+}
+
+#Page {
+    background: url('ga2012/background.jpg') repeat-x #eee top center; /*
+    background-color: #ccc; */
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+}
+
+#header {
+    background: url('ga2012/header.png') no-repeat;
+    width: 1000px;
+    height: 120px;
+    margin: auto auto;
+    z-index: 2;
+}
+
+#navigation {
+    width: 1000px;
+    color: #666;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    text-align: center;
+}
+#navigation span {
+    margin-right: 20px;
+    margin-left: 10px;
+}
+#navigation span a {
+    color: #666;
+    text-decoration: none;
+}
+#navigation span a:hover {
+    color: #eacc0d;
+    text-decoration: underline;
+}
+
+#container {
+    width: 1000px;
+    margin: auto auto;
+}
+
+#prebody {
+    width: 190px;
+    height: 600px;
+    margin-left: -210px;
+    margin-right: 20px;
+    float: left;
+    margin-top: -100px;
+    z-index: 1;
+}
+
+.body, #body {
+    background-color: #fff;
+    width: 1000px;
+    margin: auto auto;
+    margin-top: 20px;
+    padding-top: 15px;
+    float: left;
+    z-index: 2;
+    box-shadow: 0px 0px 20px #aaa;
+}
+
+#postbody {
+    width: 190px;
+    height: 600px;
+    margin-left: 1020px;
+    position: absolute;
+    top: 20px;
+    float: left;
+//    opacity: 0.4;
+//    background: url('../../images/espace-annonceurs.jpg') no-repeat;
+}
+
+.box {
+    margin-top: 0px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.box .title {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.box .subtitle {
+    border-bottom: solid 1px #ddd;
+    font-size: 15px;
+    margin: 20px 0px 10px 0px;
+}
+.box .content {
+    line-height: 17px;
+}
+.box .content p {
+    text-align: justify;
+}
+#content {
+    width: 800px;
+    float: left;
+}
+#content .box {
+    width: 760px;
+}
+.box .title {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #eee;
+    border-top: solid 1px #ddd;
+    border-left: solid 1px #ddd;
+}
+#content .box .content {
+
+}
+#content .box .content .news {
+    margin-left: 70px;
+}
+#content .box .content .news .title {
+    font-size: 14px;
+    background-color: #fff;
+    padding: 0px;
+    border: 0px;
+}
+#content .box .content .news .image {
+    margin-left: -70px;
+    margin-top: -20px;
+}
+#content .box .content .news .content {
+    margin-bottom: 10px;
+}
+
+#sidebar {
+    width: 200px;
+    float: left;
+}
+#sidebar .box {
+    
+}
+#sidebar .box .title {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #eee;
+    border-top: solid 1px #ddd;
+    border-left: solid 1px #ddd;
+}
+#sidebar .box .content {
+    width: 220px;
+}
+#sidebar .box .content table.tournament {
+
+}
+#sidebar .box .content table.tournament tbody tr{
+    height: 10px;
+}
+#sidebar .box .content table.tournament tbody tr td{
+    min-width: 25px;
+}
+#sidebar .box .content table.tournament tbody tr td.icone{
+    padding-top: 5px;
+}
+
+
+#footer {
+    min-height: 50px;
+    background-color: #000;
+}
+#footer-content {
+    width: 1000px;
+    margin: auto auto;
+}
+#footer-content .box {
+    width: 220px;
+    float: left;
+    color: #ddd;
+    font-size: 10px;
+    margin-top: 20px;
+}
+
+
+/********************************************/
+
+
+/* CSS pour la pagination */
+.pager, .pager-top, .pager-bottom {
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.pager-top {
+    border-bottom: solid 5px #e5e5e5;
+}
+.pager-bottom {
+    border-top: solid 5px #e5e5e5;
+}
+.pager span {
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.pager span a {
+    text-decoration: none;
+    color: #666;
+}
+.pager .current {
+    background: #e8e8e8;
+    color: #ccc;
+}
+.pager .page {
+    background: #eee;
+}
+.pager .page a:hover {
+    color: #507aaa;
+}
+
+/* CSS pour le lecteur video */
+ul.playlist{
+        width: 300px;
+        height: 297px;
+        overflow: auto;
+        margin: 0px;
+        margin-left: -10px;
+        padding: 0px;
+}
+ul.playlist li {
+        font-size: 10px;
+        height: 27px;
+        vertical-align: middle;
+        color: #333;
+        background: url('http://publishers.dailymotion.com/widgets/images/playMovie_tn.png') 4% 50% no-repeat #eee;
+        padding: 15px 5px 10px 50px;
+        margin: 0px;
+        border: solid 1px #ccc;
+}
+ul.playlist li:hover {
+        background-color: #e5e5e5;
+}
+ul.playlist li:active {
+        background-color: #ddd;
+}
+
+/* CSS pour les messages flash */
+.flashbox {
+    border: solid 2px black;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.topflashbox {
+    z-index: 10;
+    border: solid 2px #ddd;
+    background-color: #e3e3e3;
+    padding: 23px 10px 15px 65px;
+    margin: auto auto;
+    margin-bottom: 20px;
+    width: 500px;
+    min-height: 30px;
+    position: fixed;
+    top: 30%;
+    left: 35%;
+    opacity: 1;
+}
+.topsuccess, .topwarning, .toptriadix {
+}
+.topsuccess {
+    background: #ddd url('img/success.png') no-repeat;
+}
+.topwarning {
+    background: #ddd url('img/warning.png') no-repeat;
+}
+.toptriadix {
+    background: #ddd url('img/error.png') no-repeat;
+}
+
+.success {
+    border-color: #6cba5a;
+    background-color: #eef8ed;
+    color: #428537;
+}
+.info {
+    border-color: #4a79b2;
+    background-color: #e0ebf2;
+    color: #2c436b;
+}
+.warning {
+    border-color: #b5a84d;
+    background-color: #f1f4e4;
+    color: #6f6d2e;
+}
+.error , .error_list{
+    border-color: #b24a4a;
+    background-color: #f2e3e0;
+    color: #6b2e2c;
+}
+.triadix
+{
+        border-color: #b24a4a;
+    background-color: #ff0000;
+    color: #ffffff;
+        border-radius: 5px;
+}
+
+/* CSS pour les listes d'inscrits */
+.listteam {
+    width: 680px;
+    margin: auto auto;
+    background: #f1f1f1;
+    border: solid 1px grey;
+}
+.listteam th {
+    background: #222;
+    color: #eee;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.listteam tr td {
+    border-bottom: solid 1px #ccc;
+}
+.listteam tr:hover {
+    background: #e6ecec;
+}
+
+table.form {
+    text-align: left;
+}
+
+input.button, .button {
+    padding: 10px;
+    background: #e9e9e9;
+    border: solid 1px #d5d5d5;
+    margin: 5px;
+    font-size: 11px;
+    color: #0f69a4;
+    text-transform: uppercase;
+}
+input.button:hover, .button:hover {
+    background: #e1e1e1;
+    color: #189ecf;
+}
+
+.gallery-box {
+    float:left;
+    width: 200px;
+    margin: 10px 10px 10px 10px;
+    padding: 0px;
+}
+.gallery-box li {
+    list-style-type:none;
+}
+.gallery-title {
+    font-size: 13px;
+}
+.gallery-content {
+    font-size: 11px;
+    color: #bbb;
+}
+
+#DMWidget div#DM_infinite_carousel div.wrapper ul li.video div.title {
+    font-size: 12px;
+    background: none;
+    font-family: 'Lucida sans', sans serif;
+}
+#DMWidget div#DM_infinite_carousel div.wrapper ul li.video {
+    margin: 0px;
+    padding: 9px;
+    width: 150px;
+}
+
+#DMWidget div#DM_infinite_carousel div.wrapper ul li.video div.thumb {
+    margin: 0px;
+    padding: 0px;
+    width: 150px;
+}
+#DMWidget div#DM_infinite_carousel div.wrapper ul li.video div.thumb a img {
+    width: 150px;
+}
+.hoverize:hover {
+    background-color: #fff9e5;
+}
+
+#toplink {
+width: 100%;
+background: #000;
+position: fixed;
+top: 0px;
+z-index: 10;
+}
+#toplink-content {
+width: 1000px;
+margin: auto auto;
+color: #fff;
+padding: 5px;
+}

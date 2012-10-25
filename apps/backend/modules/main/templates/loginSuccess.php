@@ -1,0 +1,1 @@
+<? include_component('sfGuardAuth', 'signin_form')?>

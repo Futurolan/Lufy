@@ -1,0 +1,6 @@
+all:
+  is_secure: true
+  credentials: m_tournament_slot
+
+dashboard:
+  is_secure: false

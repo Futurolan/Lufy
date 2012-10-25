@@ -1,0 +1,55 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+prod:
+  .settings:
+    no_script_name:         true
+    logging_enabled:        false
+    cache:                  true
+    error_reporting:        <?php echo (E_PARSE | E_COMPILE_ERROR | E_ERROR | E_CORE_ERROR | E_USER_ERROR)."\n" ?>
+    i18n:                   true
+    default_culture:        fr
+
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         false
+    etag:                   false
+    i18n:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:
+    i18n:                   true
+    default_culture:        fr
+    standard_helpers:       [Partial, I18N, Date]
+    # Form security secret (CSRF protection)
+    csrf_secret:            0da5827719a854c6be9c7a214692abde4996567c
+
+    # Output escaping settings
+    escaping_strategy:      true
+    escaping_method:        ESC_SPECIALCHARS
+
+    # Enable the database manager
+    use_database:           true
+    enabled_modules:        [sfGuardAuth, sfGuardRegister, sfGuardForgotPassword]
+
+    # Verifie si le site est en mode maintenance
+    check_lock:             on
+
+  .actions:
+    login_module:           sfGuardAuth
+    login_action:           signin
+    secure_module:          main
+    secure_action:          error401
+    error_404_module:       main
+    error_404_action:       error404

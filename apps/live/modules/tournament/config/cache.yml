@@ -1,0 +1,12 @@
+default:
+  enabled:     false
+
+_nexttournament:
+  enabled: true
+  with_layout: false
+  lifetime: 900
+
+view:
+  enabled: true
+  with_layout: false
+  lifetime: 30

@@ -1,0 +1,8 @@
+default:
+  enabled:     true
+  lifetime:    120
+  with_layout: false
+view:
+  enabled: false
+index:
+  enabled: false

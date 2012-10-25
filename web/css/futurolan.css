@@ -1,0 +1,54 @@
+body {
+	background: #343434;
+	font-family: Lucida Sans;
+	font-size: 11px;
+}
+
+#Page {
+	background: #fefefe;
+	width: 1000px;
+	margin: auto auto;
+}
+
+#header {
+	height: 60px;
+	padding: 20px;
+}
+	#logo {
+		background: url('img/futurolan/logo.png') no-repeat;
+		width: 350px;
+		height: 50px;
+	}
+#navigation {
+	height: 25px;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: bold;
+	background: #e5e5e5;
+	text-align: center;
+	padding-top: 10px;
+}
+	#navigation span {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+#columnLeft {
+	width: 160px;
+	float: left;
+}
+
+#columnCenter {
+	width: 600px;
+	float: left;
+}
+
+#columnRight {
+	width: 240px;
+	float: left;
+}
+
+#footer {
+	height: 40px;
+	background: #434343;
+}

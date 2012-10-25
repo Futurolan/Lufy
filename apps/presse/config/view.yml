@@ -1,0 +1,24 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Futurolan - Espace presse et partenaires
+    #description:  symfony project
+    #keywords:     symfony, project
+    language:     fr
+    #robots:       index, follow
+
+  stylesheets:
+    - presse.css
+    - http://fonts.googleapis.com/css?family=Questrial
+
+  javascripts:
+    - jquery-1.7.1.min.js
+    - jquery.turn.js
+
+  has_layout:     true
+  layout:         layout

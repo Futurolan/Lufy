@@ -1,0 +1,188 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #eee;
+    font-family: Lucida Sans;
+    font-size: 12px;
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+h2 {
+    border-bottom: solid 1px #ddd;
+}
+h3 {
+    border-bottom: solid 1px #ddd;
+    margin-top: 30px;
+}
+
+a {
+    color: #507aaa;
+    text-decoration:none;
+}
+a:hover {
+    color: #0a8ebe;
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#header {
+    width: 100%;
+    height: 40px;
+    background: url('img/intranet/logo.png') center center no-repeat #2c4056;
+}
+
+#sub-header {
+    height: 6px;
+    font-size: 10px;
+    padding-left: 54%;
+    color: #fff;
+    font-weight: bold;
+    background: #507aaa;
+}
+
+#navigation {
+    font-size: 16px;
+    color: #000;
+    width: 1100px;
+    margin: auto auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#navigation ul {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+    text-align: center;
+}
+#navigation li {
+    margin-left:40px;
+    margin-right:40px;
+    display: inline;
+}
+#navigation ul li a {
+    text-decoration:none;
+    text-align:center;
+    color: #000;
+ }
+#navigation ul li a:hover {
+    color: #555;
+    box-shadow: 0px 0px 5px #ccc;
+ } 
+
+#content {
+    width: 1060px;
+    padding: 20px;
+    margin: auto auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    min-height: 600px;
+    background-color: #FFF;
+    border: solid 1px #ddd;
+    box-shadow: 0px 0px 10px #CCC;
+}
+
+.pager, .pager-top, .pager-bottom {
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.pager-top {
+    border-bottom: solid 5px #e5e5e5;
+}
+.pager-bottom {
+    border-top: solid 5px #e5e5e5;
+}
+.pager span {
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.pager span a {
+    text-decoration: none;
+    color: #666;
+}
+.pager .current {
+    background: #e8e8e8;
+    color: #ccc;
+}
+.pager .page {
+    background: #eee;
+}
+.pager .page a:hover {
+    color: #507aaa;
+}
+
+.helptext {
+    font-size: 10px;
+    color: #888;
+}
+
+/* CSS pour les messages flash */
+.flashbox {
+    border: solid 2px black;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.success {
+    border-color: #6cba5a;
+    background-color: #eef8ed;
+    color: #428537;
+}
+.info {
+    border-color: #4a79b2;
+    background-color: #e0ebf2;
+    color: #2c436b;
+}
+.warning {
+    border-color: #dcb432;
+    background-color: #faf0dc;
+    color: #6f6d2e;
+}
+.error , .error_list{
+    border-color: #b24a4a;
+    background-color: #f2e3e0;
+    color: #6b2e2c;
+}
+
+/* CSS pour les tableaux */
+.table tr {
+    background: #f2f2f2;
+}
+.table tr th {
+    text-align: left;
+    height: 35px;
+    background: #e5e5e5;
+}
+.table tr td {
+    text-align: left;
+    height: 25px;
+}
+.table tr:nth-child(even) {
+    background-color: #efefef;
+}
+.table tr:nth-child(odd) {
+    background-color: #f6f6f6;
+}
+.table tr:hover {
+    background-color: #ffffdd;
+}
+
+/* CSS pour les boutons */
+div.button {
+    font-size: 14px;
+    width: 350px;
+    padding: 10px 0px 10px 0px;
+    margin: auto auto;
+    margin-top: 40px;
+    text-align: center;
+    background: #ffffdd;
+    border: solid 2px #ffd953;
+}

@@ -1,0 +1,20 @@
+<div class="box">
+    <div class="title">Proposition d'aide pour la Gamers-Assembly 2012</div>
+    <div class="content">
+<p>
+    La Gamers Assembly se d&eacute;roulera du 7 au 9 avril 2012 au Palais des Congr&egrave;s du Futuroscope.<br/>
+    Les aides orgas seront accueillis d&egrave;s le jeudi matin 9h.<br/><br/>
+    Merci de remplir soigneusement le formulaire ci dessous :
+</p>
+
+<form action='<?php echo url_for('contact/sendcontact')?>' method="post">
+<table class='contact'>
+<?php echo $form?>
+    <tr>
+	<th>&nbsp;</th>
+	<td><input type='submit' value='Envoyer'></td>
+    </tr>
+</table>
+</form>
+    </div>
+</div>

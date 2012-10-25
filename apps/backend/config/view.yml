@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Gamers Assembly :: Administration
+    #description:  symfony project
+    #keywords:     symfony, project
+    language:     fr
+    #robots:       index, follow
+
+  stylesheets:    [backend.css, jquery-ui.css]
+
+  javascripts:    [jquery-1.4.2.min.js, jquery-ui.js, tiny_mce/tiny_mce.js, kfm/tinyMCE_kfm.js, jquery.bbcodeeditor-1.0.min.js, jquery-hashchange.js, backend/ajax.js]
+
+  has_layout:     true
+  layout:         layout

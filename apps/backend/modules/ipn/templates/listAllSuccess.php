@@ -1,0 +1,1 @@
+<h2>Toutes les notifications</h2><? include_partial('list', array('ipns' => $ipns))?>

@@ -1,0 +1,43 @@
+<?php
+
+require_once(dirname(__FILE__).'/../config/ProjectConfiguration.class.php');
+
+list($subdomain, $domain, $tld) = explode('.', $_SERVER['HTTP_HOST']);
+
+// Default values
+$app = 'gamersassembly';
+$env = 'prod';
+$dbg = false;
+
+
+// Select an application and environment
+switch($subdomain)
+{
+  case 'backend':
+    $app = 'backend';
+    $env = 'prod';
+    $dbg = true;
+  break;
+
+  case 'presse':
+    $app = 'presse';
+    $env = 'prod';
+//    $dbg = true;
+  break;
+
+  case 'partenaire':
+    $app = 'presse';
+    $env = 'prod';
+    $dbg = false;
+  break;
+
+  default:
+    $app = 'gamersassembly';
+    $env = 'prod';
+    $dbg = false;
+  break;
+}
+
+
+$configuration = ProjectConfiguration::getApplicationConfiguration($app, $env, $dbg);
+sfContext::createInstance($configuration)->dispatch();

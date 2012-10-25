@@ -1,0 +1,161 @@
+body{
+	background: url('presse/background.png') repeat-x bottom #fff;
+	font-family: Arial;
+	font-size: 14px;
+	font-family: 'Questrial', sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	color:#0195bb;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000;
+}
+
+ul {
+	padding-left: 10px;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+#header{
+	width: 100%;
+	height: 30px;
+	background: #292d31;
+	color:#0195bb;
+	font-size: 16px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+#header div div {
+	background: url('http://presse.futurolan.net/css/presse/header.png') no-repeat #292d31;
+	line-height: 34px;
+	padding-left: 200px;
+}
+
+#Page{
+	width: 1050px;
+	margin: auto auto;
+	margin-top: 30px;
+	min-height: 700px;
+}
+#Page div#sidebar {
+	width: 250px;
+}
+#Page div#sidebar li {
+	height: 35px;
+	font-size: 15px;
+}
+#Page div#container {
+	width: 800px;
+}
+
+#magazine{
+	width:800px;
+	height:565px;
+}
+
+#magazine .turn-page-wrapper{
+	box-shadow: 0px 0px 10px #aaa;
+}
+
+#magazine .turn-page{
+	background-color:#ccc;
+	background-size:100% 100%;
+}
+
+#pager{
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	margin-top: 20px;
+	margin-left: -125px;
+	font-size: 18px;
+	color: #aaa;
+	text-align: center;
+}
+
+#footer{
+	width: 1100px;
+	min-height: 90px;
+	color:#555;
+	padding: 5px;
+	margin: auto auto;
+	margin-top: 50px;
+	border-top: solid 1px #AAA;
+	text-transform: uppercase;
+	font-size: 10px;
+	text-align: center;
+}
+
+#toolbox {
+	position: fixed;
+	bottom: 60px;
+	right: 10px;
+	width: 50px;
+	font-size: 28px;
+}
+
+#pager a, #toolbox a {
+	margin: auto auto;
+	display: block;
+	background-color: #fff;
+	width: 30px;
+	margin: 4px 2px 4px 2px; 
+	border: solid 1px #ccc;
+	text-align: center;
+	color: #999;
+	box-shadow: 0px 0px 5px #bbb;
+	border-radius: 5px;
+}
+
+#pager a {
+	float: left;
+	padding: 2px;
+}
+
+#pager a:hover, #toolbox a:hover {
+	color: #000;
+	border: solid 1px #999;
+	pointer: cursor;
+}
+
+#filename{
+	font-size: 13px;
+}
+
+#header a{
+	color: #eee;
+	text-decoration: none;
+}
+
+#header a:hover, .triangle:hover{
+	color: #fff;
+	border-color: #222 #222 #eee #222;
+}
+
+.box .title {
+	font-size: 20px;
+	border-bottom: solid 1px #ccc;
+	margin-bottom: 20px;
+}
+
+.box .content {
+	line-height: 20px;
+	text-align: justify;
+}	
+
+.box .content .subtitle {
+	font-size: 17px;
+	color: #333;
+	border-bottom: solid 1px #ccc;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}

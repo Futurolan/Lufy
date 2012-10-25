@@ -1,0 +1,4 @@
+default:
+  is_secure: on
+payment:
+  is_secure: false
