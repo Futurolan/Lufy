@@ -8,7 +8,7 @@
                 <td>
                     <?= link_to($tournament['name'], 'tournament/view?slug='.$tournament['slug'])?><br/>
                     <div style="width: 150px; height: 5px; background: #eee; border: solid 1px #ccc;">
-                        <div style="height: 5px; width: <?=$tournament['percent_valides']*1.5?>px; background: #dcc45e;"></div>
+                        <div style="height: 5px; width: <?=$tournament['percent_valides']*1.5?>px; background: #c63527; background: #ffcd00;"></div>
                     </div>
 		</td>
 	    </tr>

@@ -1,6 +1,18 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var o = {
+    buttonList: ['save','bold','italic','underline','left','center','right','justify','ol','ul','fontSize','fontFamily','fontFormat','indent','outdent','image','link','unlink','forecolor','bgcolor', 'xhtml'],
+    iconsPath:('http://js.nicedit.com/nicEditIcons-latest.gif')
+  };
+  new nicEditor(o).panelInstance('news_summary');
+});
+</script>
+
 <form action="<?php echo url_for('news/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id_news='.$form->getObject()->getIdNews() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />

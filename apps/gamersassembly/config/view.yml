@@ -6,8 +6,8 @@ default:
     content-type: text/html
 
   metas:
-    title:        Gamers Assembly 2012
-    description:  Gamers Assembly 2012, Palais des Congres du Futuroscope
+    title:        Gamers Assembly 2013
+    description:  Gamers Assembly 2013, Palais des Congres du Futuroscope
     keywords:     Gamers Assembly, Futurolan, LAN Party, Masters Jeu Video, Palais des Congres
     language:     fr
     #robots:      index, follow
@@ -17,4 +17,4 @@ default:
   javascripts:    [jquery-1.7.1.min.js, jquery-slideshowlite.js, jquery.bubble.js]
 
   has_layout:     true
-  layout:         galloween2012
+  layout:         ga2013

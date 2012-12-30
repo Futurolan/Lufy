@@ -7,7 +7,8 @@ body {
     font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
     font-size: 12px;
     color: #111;
-    background-color: #130e17;
+    background-color: #130e17; /* GA 2012 */
+    background-color: #000; /* GA 2013 */
 }
 
 h4 {
@@ -16,11 +17,13 @@ h4 {
 }
 
 a {
-    color: #0f69a4;
+    color: #0f69a4; /* GA 2012 */
+    color: #c63527; /* GA 2013 */
     text-decoration: none;
 }
 a:hover {
-    color: #189ecf;
+    color: #189ecf; /* GA 2012 */
+    color: #ffcd00; /* GA 2013 */
     text-decoration: underline;
 }
 
@@ -80,13 +83,13 @@ fieldset legend {
 }
 
 #Page {
-    background: url('galloween2012/background.jpg') repeat-x top center #050608;
+    background: url('ga2013/background.png') repeat-x top center #050608;
     width: 100%;
     height: 100%;
 }
 
 #header {
-    background: url('galloween2012/header.png') no-repeat;
+    background: url('ga2013/header.png') no-repeat;
     width: 1000px;
     height: 120px;
     margin: auto auto;
@@ -102,10 +105,12 @@ fieldset legend {
 }
 #userbar a {
     text-decoration: none;
-    color: #fff;
+    color: #fff; /* GA 2012 */
+    color: #ffcd00; /* GA 2013 */
 }
 #userbar a:hover {
-    color: #189ecf;
+    color: #189ecf; /* GA 2012 */
+    color: #c63527; /* GA 2013 */
 }
 #userbar ul {
     margin: 0px;
@@ -132,11 +137,13 @@ fieldset legend {
     margin-left: 10px;
 }
 #navigation span a {
-    color: #fff;
+    color: #fff; /* GA 2012 */
+    color: #ffcd00; /* GA 2013 */
     text-decoration: none;
 }
 #navigation span a:hover {
-    color: #eacc0d;
+    color: #eacc0d; /* GA 2012 */
+    color: #c63527; /* GA 2013 */
     text-decoration: underline;
 }
 
@@ -209,7 +216,8 @@ fieldset legend {
     font-size: 16px;
     margin-bottom: 15px;
     padding: 5px;
-    background-color: #e1e1e1;
+    background-color: #e1e1e1; /* GA 2012 */
+    background: #ffcd00 url('ga2013/title.png') no-repeat center right; /* GA 2013 */
 }
 #content .box .content {
 
@@ -240,7 +248,8 @@ fieldset legend {
 }
 #sidebar .box .title {
     padding: 5px;
-    background-color: #e1e1e1;    
+    background-color: #e1e1e1; /* GA 2012 */
+    background: #ffcd00 url('ga2013/title.png') no-repeat center right; /* GA 2013 */
 }
 #sidebar .box .content {
     width: 220px;
