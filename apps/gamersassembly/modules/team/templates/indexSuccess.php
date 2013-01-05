@@ -145,10 +145,10 @@
         <?=__('Vous n appartenez a aucune equipe pour le moment.')?>
         
         <?=__('Deux possibilites s offrent a vous')?> :
-		<h4 class="H4Enhance"><?=__('Se faire inviter par une equipe')?> :</h4>
-			<div class="flashbox info"><?=__('Si votre equipe a ete creee par votre manager, indiquez lui votre	pseudo afin qu il vous invite a la rejoindre.')?></div>
-<br/>
-		<h4 class="H4Enhance"><?=__('Creer votre equipe')?></h4>
+		<div class="subtitle"><?=__('Se faire inviter par une equipe')?> :</div>
+		<div class="flashbox info"><?=__('Si votre equipe a ete creee par votre manager, indiquez lui votre	pseudo afin qu il vous invite a la rejoindre.')?></div>
+
+		<div class="subtitle"><?=__('Creer votre equipe')?></div>
 		<div class="flashbox info"><?=__('Si vous creez une equipe, vous serez le responsable de celle-ci et vous pourrez inviter vos joueurs a la rejoindre.')?></div>
 
 

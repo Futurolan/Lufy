@@ -31,6 +31,18 @@ switch($subdomain)
     $dbg = false;
   break;
 
+  case 'dev-backend':
+    $app = 'backend';
+    $env = 'dev';
+    $dbg = true;
+  break;
+
+  case 'dev':
+    $app = 'gamersassembly';
+    $env = 'dev';
+    $dbg = true;
+  break;
+
   default:
     $app = 'gamersassembly';
     $env = 'prod';

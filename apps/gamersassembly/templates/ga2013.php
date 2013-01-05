@@ -22,7 +22,7 @@
 
         <div id="container">
             <div id="prebody">
-                <img src="http://www.gamers-assembly.net/uploads/pub/bandeau-partner.png" />
+                <!-- Bandeau partenaire -->
             </div>
             <div id="body">
                 <div id="content">
@@ -33,10 +33,6 @@
                 </div>
             </div>
             <div id="postbody">
-<a href="http://goo.gl/ZHIia" target="_blank">
-<img src="http://www.gamers-assembly.net/uploads/pub/medion-erazer-2.jpg" border="0" />
-</a>
-<br/><br/>
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-4075508498526113";
 /* Annonce large */

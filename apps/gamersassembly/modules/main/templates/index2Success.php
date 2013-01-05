@@ -7,12 +7,18 @@
 <!--
 <div class="box" style="width: 515px; float:left;">
 -->
-<div class="box" style="width: 730px;">
+<div class="box" style="width: 490px; float: left;">
     <div class="title"><?=__('Actualite')?></div>
     <div class="content">
-        <?php include_component('news', 'actualite'); ?>
+        <?php include_component('news', 'actualitelight'); ?>
     </div>
 </div>
+
+<div class="box" style="width: 200px; float:left;">
+    <div class="title"><?=__('Galeries Dailymotion')?></div>
+    <object class="dm_videowall logo_bottom" width="200" height="398" data="http://www.dailymotion.com/videowall/user/gamersassembly&cols=2&rows=6&brand=bottom&space=6&shadow=0" type="application/x-shockwave-flash"><param name="movie" value="http://www.dailymotion.com/videowall/user/gamersassembly&cols=2&rows=6&brand=bottom&space=6&shadow=0"></param><param name="allowscriptaccess" value="always"></param><param name="wmode" value="transparent"></param></object>
+</div>
+
 <!--
 <div class="box" style="width: 175px; float:left;">
     <div class="title"><?=__('A l\'affiche')?></div>
@@ -22,10 +28,3 @@
 </div>
 <div style="clear: left;"></div>
 -->
-
-<div class="box"style="width: 730px;float:left;">
-    <div class="title"><?=__('Galeries Dailymotion')?></div>
-    <div class="content">
-        <div id="DMWidget"><script type="text/javascript" src="http://publishers.dailymotion.com/widgets/widgets.js?type=carousel&filters=creative-official&channel=videogames&user=GamersAssembly&limit=12"></script></div>
-    </div>
-</div>

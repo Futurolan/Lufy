@@ -19,11 +19,13 @@ h4 {
 a {
     color: #0f69a4; /* GA 2012 */
     color: #c63527; /* GA 2013 */
+    color: #111; /* GA 2013 */
     text-decoration: none;
 }
 a:hover {
     color: #189ecf; /* GA 2012 */
     color: #ffcd00; /* GA 2013 */
+    color: #c63527; /* GA 2013 */
     text-decoration: underline;
 }
 
@@ -91,7 +93,7 @@ fieldset legend {
 #header {
     background: url('ga2013/header.png') no-repeat;
     width: 1000px;
-    height: 120px;
+    height: 130px;
     margin: auto auto;
     z-index: 2;
 }
@@ -126,30 +128,41 @@ fieldset legend {
 
 #navigation {
     width: 1000px;
-    margin-top: 82px;
+    line-height: 26px;
+    background: #000;
+    margin-top: 85px;
+    padding-top: 4px;
+    padding-bottom: 3px;
     color: #fff;
     font-family: 'Electrolize';
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
+    text-align: center;
 }
 #navigation span {
-    margin-right: 20px;
-    margin-left: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 #navigation span a {
     color: #fff; /* GA 2012 */
     color: #ffcd00; /* GA 2013 */
     text-decoration: none;
+    padding: 3px;
+    border-radius: 5px;
 }
 #navigation span a:hover {
     color: #eacc0d; /* GA 2012 */
     color: #c63527; /* GA 2013 */
-    text-decoration: underline;
+    color: #ffcd00; /* GA 2013 */
+    color: #fff;
+    background: #c63527; /* GA 2013 */
+    text-decoration: none;
 }
 
 #container {
     width: 1000px;
     margin: auto auto;
+    margin-top: 10px;
 }
 
 #prebody {
@@ -169,7 +182,7 @@ fieldset legend {
     padding-top: 15px;
     float: left;
     z-index: 2;
-    box-shadow: 0px 0px 40px #666;
+    box-shadow: 0px 0px 80px #000;
 }
 
 #postbody {
@@ -191,12 +204,11 @@ fieldset legend {
 }
 .box .title {
     margin-bottom: 10px;
-    font-family: 'Electrolize';
     font-size: 14px;
 }
 .box .subtitle {
-    border-bottom: solid 1px #ddd;
-    font-size: 15px;
+    border-bottom: solid 1px #bbb;
+    font-size: 14px;
     margin: 20px 0px 10px 0px;
 }
 .box .content {
@@ -215,9 +227,13 @@ fieldset legend {
 #content .box .title {
     font-size: 16px;
     margin-bottom: 15px;
-    padding: 5px;
-    background-color: #e1e1e1; /* GA 2012 */
-    background: #ffcd00 url('ga2013/title.png') no-repeat center right; /* GA 2013 */
+    border-bottom: solid 1px #999;
+
+border: none;
+color: #fff;
+background: #c63527; /* GA 2013 */
+padding: 3px;
+border-radius: 3px;
 }
 #content .box .content {
 
@@ -247,9 +263,15 @@ fieldset legend {
     
 }
 #sidebar .box .title {
-    padding: 5px;
-    background-color: #e1e1e1; /* GA 2012 */
-    background: #ffcd00 url('ga2013/title.png') no-repeat center right; /* GA 2013 */
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-bottom: solid 1px #999;
+
+border: none;
+color: #fff;
+background: #c63527; /* GA 2013 */
+padding: 3px;
+border-radius: 3px;
 }
 #sidebar .box .content {
     width: 220px;
@@ -272,6 +294,17 @@ fieldset legend {
     min-height: 50px;
     background-color: #000;
 }
+#footer a {
+    color: #0f69a4; /* GA 2012 */
+    color: #c63527; /* GA 2013 */
+    text-decoration: none;
+}
+#footer a:hover {
+    color: #189ecf; /* GA 2012 */
+    color: #ffcd00; /* GA 2013 */
+    text-decoration: underline;
+}
+
 #footer-content {
     width: 1000px;
     margin: auto auto;
@@ -481,4 +514,14 @@ input.button:hover, .button:hover {
 }
 #DMWidget div#DM_infinite_carousel div.wrapper ul li.video div.thumb a img {
     width: 150px;
+}
+
+.nbComment {
+    background: url('ga2013/nb-comment.png') no-repeat;
+    height: 27px;
+    width: 25px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 11px;
+    color: #fff;
 }

@@ -1,10 +1,10 @@
 <div class="box">
     <div class="title"><?=__('Espace perso')?></div>
     <div class="content">
-<table width="100%">
+    <table width="100%">
     <tr>
-        <td><h4><?=__('Informations personnelles')?></h4></td>
-        <td><h4><?=__('Competition / Inscription')?></h4></td>
+        <td><div class="subtitle"><?=__('Informations personnelles')?></div></td>
+        <td><div class="subtitle"><?=__('Competition / Inscription')?></div></td>
     </tr>
     <tr valign="top">
         <td>
@@ -37,7 +37,6 @@
             </ul>
         </td>
     </tr>
-</table>
-
+    </table>
     </div>
 </div>

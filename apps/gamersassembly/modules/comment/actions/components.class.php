@@ -8,33 +8,42 @@ class commentComponents extends sfComponents
     $this->nb_comments = count($comments);
   }
 
-    public function executeComments(sfWebRequest $request) {
-        if ($this->getUser()->isAuthenticated()) {
-            $this->auth = true;
-            $this->form = new newCommentForm();
-            if ($request->isMethod(sfRequest::POST)) {
-                $this->processFormComment($request, $this->form);
-                $this->redirect('page/views?slug=' . $news->getSlug());
-            }
-        } else {
-          $this->auth = '0';
-        };
-}
+  public function executeNbCommentByNewsLight(sfWebRequest $request)
+  {
+    $comments = Doctrine::getTable('Comment')->findByNewsId($this->news_id);
+    $this->nb_comments = count($comments);
+  }
 
-    protected function processFormComment(sfWebRequest $request, sfForm $form) {
-mail ('gmarsay@gmail.com', 'TST-COMMENT', 'processFormComment Component(0)');
-        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-        if ($form->isValid()) {
-            //$team = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-mail ('gmarsay@gmail.com', 'TST-COMMENT', 'processFormComment Component (1)');
-            $comment = $form->save();
-            $comment->setNewsId($idnews);
-            $comment->setUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-            $comment->save();
-            $this->getUser()->setFlash('success', 'Le commentaire a bien ete poste.');
-            $this->redirect('test/views?slug=' . $slugnews);
-        }
-        $this->getUser()->setFlash('error', 'Le commentaire n\'a pas ete poste.');
+  public function executeComments(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated())
+    {
+      $this->auth = true;
+      $this->form = new newCommentForm();
+      if ($request->isMethod(sfRequest::POST))
+      {
+        $this->processFormComment($request, $this->form);
+        $this->redirect('page/views?slug=' . $news->getSlug());
+      }
     }
+    else
+    {
+      $this->auth = '0';
+    };
+  }
 
+  protected function processFormComment(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $comment = $form->save();
+      $comment->setNewsId($idnews);
+      $comment->setUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+      $comment->save();
+      $this->getUser()->setFlash('success', 'Le commentaire a bien ete poste.');
+      $this->redirect('test/views?slug=' . $slugnews);
+    }
+    $this->getUser()->setFlash('error', 'Le commentaire n\'a pas ete poste.');
+  }
 }
