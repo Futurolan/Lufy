@@ -227,13 +227,10 @@ fieldset legend {
 #content .box .title {
     font-size: 16px;
     margin-bottom: 15px;
-    border-bottom: solid 1px #999;
-
-border: none;
-color: #fff;
-background: #c63527; /* GA 2013 */
-padding: 3px;
-border-radius: 3px;
+    color: #fff;
+    background: #c63527; /* GA 2013 */
+    padding: 3px 5px 3px 5px;
+    border-radius: 3px;
 }
 #content .box .content {
 
@@ -265,13 +262,10 @@ border-radius: 3px;
 #sidebar .box .title {
     font-size: 16px;
     margin-bottom: 15px;
-    border-bottom: solid 1px #999;
-
-border: none;
-color: #fff;
-background: #c63527; /* GA 2013 */
-padding: 3px;
-border-radius: 3px;
+    color: #fff;
+    background: #c63527; /* GA 2013 */
+    padding: 3px 5px 3px 5px;
+    border-radius: 3px;
 }
 #sidebar .box .content {
     width: 220px;
@@ -466,17 +460,31 @@ table.form {
 }
 
 input.button, .button {
+    font-family: "Lucida Sans";
     padding: 10px;
-    background: #e9e9e9;
-    border: solid 1px #d5d5d5;
+    border: solid 1px #e1962d;
+    border-radius: 3px;
     margin: 5px;
     font-size: 11px;
-    color: #0f69a4;
+    color: #fff;
+    text-shadow: 0px 0px 5px #000;
     text-transform: uppercase;
+    background: -webkit-linear-gradient(top, #fbb34d, #f89407);
+    background: -moz-linear-gradient(top, #fbb34d, #f89407);
+    background: -webkit-gradient(linear, left top, left bottom, from(#fbb34d), to(#f89407));
+    background: -o-linear-gradient(top, #fbb34d, #f89407);
+    background: linear-gradient(top, #fbb34d, #f89407);
+
+
 }
 input.button:hover, .button:hover {
-    background: #e1e1e1;
-    color: #189ecf;
+    text-decoration: none;
+    color: #fff;
+    background: -webkit-linear-gradient(top, #de8405, #f29106);
+    background: -moz-linear-gradient(top, #de8405, #f29106);
+    background: -webkit-gradient(linear, left top, left bottom, from(#de8405), to(#f29106));
+    background: -o-linear-gradient(top, #de8405, #f29106);
+    background: linear-gradient(top, #de8405, #f29106);
 }
 
 .gallery-box {
