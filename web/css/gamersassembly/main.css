@@ -192,8 +192,6 @@ fieldset legend {
     position: absolute;
     top: 20px;
     float: left;
-//    opacity: 0.4;
-//    background: url('../../images/espace-annonceurs.jpg') no-repeat;
 }
 
 .box {
@@ -351,28 +349,28 @@ fieldset legend {
 
 /* CSS pour le lecteur video */
 ul.playlist{
-        width: 300px;
-        height: 297px;
-        overflow: auto;
-        margin: 0px;
-        margin-left: -10px;
-        padding: 0px;
+    width: 300px;
+    height: 297px;
+    overflow: auto;
+    margin: 0px;
+    margin-left: -10px;
+    padding: 0px;
 }
 ul.playlist li {
-        font-size: 10px;
-        height: 27px;
-        vertical-align: middle;
-        color: #333;
-        background: url('http://publishers.dailymotion.com/widgets/images/playMovie_tn.png') 4% 50% no-repeat #eee;
-        padding: 15px 5px 10px 50px;
-        margin: 0px;
-        border: solid 1px #ccc;
+    font-size: 10px;
+    height: 27px;
+    vertical-align: middle;
+    color: #333;
+    background: url('http://publishers.dailymotion.com/widgets/images/playMovie_tn.png') 4% 50% no-repeat #eee;
+    padding: 15px 5px 10px 50px;
+    margin: 0px;
+    border: solid 1px #ccc;
 }
 ul.playlist li:hover {
-        background-color: #e5e5e5;
+    background-color: #e5e5e5;
 }
 ul.playlist li:active {
-        background-color: #ddd;
+    background-color: #ddd;
 }
 
 /* CSS pour les messages flash */
@@ -429,10 +427,10 @@ ul.playlist li:active {
 }
 .triadix
 {
-        border-color: #b24a4a;
+    border-color: #b24a4a;
     background-color: #ff0000;
     color: #ffffff;
-        border-radius: 5px;
+    border-radius: 5px;
 }
 
 /* CSS pour les listes d'inscrits */
