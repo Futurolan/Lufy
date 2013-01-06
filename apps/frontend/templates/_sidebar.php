@@ -25,11 +25,15 @@
         <?=link_to(image_tag('../css/gamersassembly/img/info-transport.png'), 'page/view?slug=informations-pratiques-galloween-2012#plan') ?>
         <?=link_to(image_tag('../css/gamersassembly/img/info-hotel.png'), 'page/view?slug=informations-pratiques-galloween-2012#hotel') ?>
         <?=link_to(image_tag('../css/gamersassembly/img/info-restauration.png'), 'page/view?slug=informations-pratiques-galloween-2012#restauration') ?>
-	<br/>
+	<br/><br/>
         <?=link_to(image_tag('../css/gamersassembly/img/button-photos-videos.png'), 'gallery/index') ?>
         <br/>
         <?=link_to(image_tag('../css/gamersassembly/img/button-faq.png'), 'faq/index') ?>
         <br/>
         <?=link_to(image_tag('../css/gamersassembly/img/button-futurolan.png'), 'page/view?slug=decouvrez-l-association-futurolan') ?>
+	<br/><br/>
+	<a href="http://www.facebook.com/GamersAssembly" target="_blank"><?=image_tag('../css/gamersassembly/img/icone-facebook.jpg')?></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://twitter.com/GamersAssembly" target="_blank"><?=image_tag('../css/gamersassembly/img/icone-twitter.jpg')?></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="http://www.dailymotion.com/GamersAssembly" target="_blank"><?=image_tag('../css/gamersassembly/img/icone-dailymotion.jpg')?></a>
     </div>
 </div>

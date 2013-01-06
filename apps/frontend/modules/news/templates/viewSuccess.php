@@ -44,14 +44,14 @@
 </table>
 
 <? if ($sf_user->isAuthenticated()): ?>
-<h5>Ajouter un commentaire</h5>
+<div class="subtitle">Ajouter un commentaire</div>
 <form action="<?=url_for('comment/new')?>" method="POST" <?php $commentForm->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
     <input type="hidden" name="sf_method" value="put" />
     <input type="hidden" name="comment[news_id]" value="<?=$news->getIdNews()?>"/>
     <input type="hidden" name="comment[user_id]" value="<?=$user?>"/>
     <textarea name="comment[content]" rows="5" cols="80"></textarea>
     <br/>
-    <input type="submit" value="Envoyer" class="button"/>
+    <input type="submit" class="button"/>
 </form>
 <? else: ?>
     <div class="flashbox info">Vous devez &ecirc;tre identifi&eacute; pour ajouter un commentaire.</div>
