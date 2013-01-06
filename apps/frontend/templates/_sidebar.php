@@ -31,7 +31,12 @@
         <?=link_to(image_tag('../css/gamersassembly/img/button-faq.png'), 'faq/index') ?>
         <br/>
         <?=link_to(image_tag('../css/gamersassembly/img/button-futurolan.png'), 'page/view?slug=decouvrez-l-association-futurolan') ?>
-	<br/><br/>
+    </div>
+</div>
+
+<div class="box">
+    <div class="title"><?=__('Suivez la GA sur')?></div>
+    <div class="content" style="text-align: center;">
 	<a href="http://www.facebook.com/GamersAssembly" target="_blank"><?=image_tag('../css/gamersassembly/img/icone-facebook.jpg')?></a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href="https://twitter.com/GamersAssembly" target="_blank"><?=image_tag('../css/gamersassembly/img/icone-twitter.jpg')?></a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href="http://www.dailymotion.com/GamersAssembly" target="_blank"><?=image_tag('../css/gamersassembly/img/icone-dailymotion.jpg')?></a>
