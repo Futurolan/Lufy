@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="EN" target-language="fr" datatype="plaintext" original="messages" date="2012-09-30T20:54:41Z" product-name="messages">
+  <file source-language="EN" target-language="fr" datatype="plaintext" original="messages" date="2013-01-06T14:12:24Z" product-name="messages">
     <header/>
     <body>
       <trans-unit id="1">
@@ -47,10 +47,6 @@
       <trans-unit id="12">
         <source>Galeries Dailymotion</source>
         <target>Galeries Dailymotion</target>
-      </trans-unit>
-      <trans-unit id="13">
-        <source>Photos/Videos</source>
-        <target>Photos/Vid&amp;eacute;os</target>
       </trans-unit>
       <trans-unit id="15">
         <source>Mon equipe</source>
@@ -372,69 +368,13 @@
         <source>Retrouvez toutes les news</source>
         <target>Retrouvez toutes les news</target>
       </trans-unit>
-      <trans-unit id="503">
-        <source>Les news</source>
-        <target>Les news</target>
-      </trans-unit>
-      <trans-unit id="504">
-        <source>Page</source>
-        <target>Page</target>
-      </trans-unit>
-      <trans-unit id="505">
-        <source>Premiere</source>
-        <target>Premi&amp;egrave;re</target>
-      </trans-unit>
-      <trans-unit id="506">
-        <source>Derniere</source>
-        <target>Derni&amp;egrave;re</target>
-      </trans-unit>
       <trans-unit id="507">
         <source>Publie le</source>
         <target>Publi&amp;eacute; le</target>
       </trans-unit>
-      <trans-unit id="508">
-        <source>par</source>
-        <target>par</target>
-      </trans-unit>
-      <trans-unit id="509">
-        <source>/css/gamersassembly/img/postnews.gif</source>
-        <target>/css/gamersassembly/img/postnews.gif</target>
-      </trans-unit>
       <trans-unit id="510">
         <source>Commentaires</source>
         <target>Commentaires</target>
-      </trans-unit>
-      <trans-unit id="511">
-        <source>Poste le</source>
-        <target>Post&amp;eacute; le</target>
-      </trans-unit>
-      <trans-unit id="512">
-        <source>Ajouter un commentaire</source>
-        <target>Ajouter un commentaire</target>
-      </trans-unit>
-      <trans-unit id="513">
-        <source>Vous devez etre identifie pour ajouter un commentaire.</source>
-        <target>Vous devez &amp;ecirc;tre identifi&amp;eacute; pour ajouter un commentaire.</target>
-      </trans-unit>
-      <trans-unit id="514">
-        <source>Galeries photos, vid&amp;eacute;os et autres</source>
-        <target>Galeries photos, vid&amp;eacute;os et autres</target>
-      </trans-unit>
-      <trans-unit id="515">
-        <source>Photos</source>
-        <target>Photos</target>
-      </trans-unit>
-      <trans-unit id="516">
-        <source>Wallpapers</source>
-        <target>Wallpapers</target>
-      </trans-unit>
-      <trans-unit id="517">
-        <source>a venir</source>
-        <target>&amp;agrave; venir</target>
-      </trans-unit>
-      <trans-unit id="518">
-        <source>Replays</source>
-        <target>Replays</target>
       </trans-unit>
       <trans-unit id="519">
         <source>Paiement par Paypal</source>
@@ -644,136 +584,6 @@
         <source>Votre equipe a bien valide toutes les etapes de l inscription au tournoi</source>
         <target/>
       </trans-unit>
-      <trans-unit id="571">
-        <source>Devenir partenaire ?</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="572">
-        <source>La Gamers Assembly ne pourrait exister sans le soutien de ses nombreux partenaires, dont certains sont fideles maintenant depuis de longues annees.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="573">
-        <source>Vous souhaitez sponsoriser un tournoi, exposer lors de notre manifestation ou simplement associer votre image a la notre ?&#13;
-			Nous possedons de nombreuses solutions de communication et d entraide afin de creer des collaborations gagnant-gagnant. &#13;
-			Contactez nous en decrivant votre activite et votre projet, nous nous engageons a revenir vers vous rapidement pour definir la maniere dont nous pouvons travailler a vos cotes !</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="574">
-        <source>Confirmation d invitation</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="575">
-        <source>Le joueur a ete notifie de votre invitation, il rejoindra votre equipe après avoir accepte votre invitation.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="576">
-        <source>Rechercher un autre joueur</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="577">
-        <source>Ajouter un ami</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="578">
-        <source>Invitations en cours</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="579">
-        <source>vous invite dans son equipe, souhaitez vous la rejoindre ?</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="580">
-        <source>Oui</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="581">
-        <source>Non</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="582">
-        <source>vous invite a etre son ami(e)</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="583">
-        <source>Accepter</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="584">
-        <source>Refuser</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="585">
-        <source>Vous n avez aucune invitation actuellement.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="586">
-        <source>Historique</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="587">
-        <source>Vous avez rejoins l equipe</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="588">
-        <source>Vous avez refuse l invitation a rejoindre l equipe</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="589">
-        <source>est devenu votre ami.</source>
-        <target>est devenu votre ami.</target>
-      </trans-unit>
-      <trans-unit id="590">
-        <source>Vous avez refuse la demande d ami de</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="591">
-        <source>Foire aux questions</source>
-        <target>Foire aux questions</target>
-      </trans-unit>
-      <trans-unit id="592">
-        <source>Erreur 401</source>
-        <target>Erreur 401</target>
-      </trans-unit>
-      <trans-unit id="593">
-        <source>Vous n etes pas autorise a afficher cette page.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="594">
-        <source>Erreur 404</source>
-        <target>Erreur 404</target>
-      </trans-unit>
-      <trans-unit id="595">
-        <source>La page que vous recherchez n existe pas ou a ete deplace.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="596">
-        <source>Stream</source>
-        <target>Stream</target>
-      </trans-unit>
-      <trans-unit id="597">
-        <source>Resultats des tournois</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="598">
-        <source>Recherche d un joueur</source>
-        <target>Recherche d'un joueur</target>
-      </trans-unit>
-      <trans-unit id="599">
-        <source>Vous pouvez rechercher un joueur en tapant une partie ou la totalit&amp;eacute; de son pseudo. Vous devez utiliser 2 caractères au minimum.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="600">
-        <source>Resulats de la recherche</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="601">
-        <source>Aucun résultat.</source>
-        <target>Aucun r&amp;eacute;sultat.</target>
-      </trans-unit>
-      <trans-unit id="602">
-        <source>Relancer une nouvelle recherche</source>
-        <target>Relancer une nouvelle recherche</target>
-      </trans-unit>
       <trans-unit id="603">
         <source>Liste des inscrits</source>
         <target>Liste des inscrits</target>
@@ -789,10 +599,6 @@
       <trans-unit id="606">
         <source>Save</source>
         <target>Enregistrer</target>
-      </trans-unit>
-      <trans-unit id="607">
-        <source>Retour</source>
-        <target>Retour</target>
       </trans-unit>
       <trans-unit id="608">
         <source>slots</source>
@@ -838,10 +644,6 @@
         <source>Prix d entree (par joueur)</source>
         <target/>
       </trans-unit>
-      <trans-unit id="619">
-        <source>J inscris mon equipe</source>
-        <target/>
-      </trans-unit>
       <trans-unit id="620">
         <source>Les admins de ce tournoi sont</source>
         <target>Les admins de ce tournoi sont</target>
@@ -861,22 +663,6 @@
       <trans-unit id="624">
         <source>Je refuse et j annule mon inscription</source>
         <target>Je refuse et j'annule mon inscription</target>
-      </trans-unit>
-      <trans-unit id="625">
-        <source>Mes Amis</source>
-        <target>Mes amis</target>
-      </trans-unit>
-      <trans-unit id="626">
-        <source>Vous n avez pas d amis actuellement.</source>
-        <target>Vous n'avez pas d'amis actuellement.</target>
-      </trans-unit>
-      <trans-unit id="627">
-        <source>Liste d amis</source>
-        <target>Liste d'amis</target>
-      </trans-unit>
-      <trans-unit id="628">
-        <source>Ajouter le commentaire</source>
-        <target>Ajouter le commentaire</target>
       </trans-unit>
       <trans-unit id="629">
         <source>Creer une equipe</source>
@@ -1080,10 +866,6 @@ Les g&amp;eacute;rants, proprietaire et managers, peuvent modifier la compositio
         <source>Modifier mon equipe</source>
         <target>Modifier mon &amp;eacute;quipe</target>
       </trans-unit>
-      <trans-unit id="679">
-        <source>Publi&amp;eacute; le</source>
-        <target>Publi&eacute; le</target>
-      </trans-unit>
       <trans-unit id="680">
         <source>A l'affiche</source>
         <target>A l'affiche</target>
@@ -1099,6 +881,14 @@ Les g&amp;eacute;rants, proprietaire et managers, peuvent modifier la compositio
       <trans-unit id="683">
         <source>commentaires</source>
         <target>commentaires</target>
+      </trans-unit>
+      <trans-unit id="684">
+        <source>Go</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="685">
+        <source>Aucun r&amp;eacute;sultat pour cette recherche</source>
+        <target/>
       </trans-unit>
     </body>
   </file>
