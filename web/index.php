@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/../config/ProjectConfiguration.class.php');
 list($subdomain, $domain, $tld) = explode('.', $_SERVER['HTTP_HOST']);
 
 // Default values
-$app = 'gamersassembly';
+$app = 'frontend';
 $env = 'prod';
 $dbg = false;
 
@@ -38,13 +38,13 @@ switch($subdomain)
   break;
 
   case 'dev':
-    $app = 'gamersassembly';
+    $app = 'frontend';
     $env = 'dev';
     $dbg = true;
   break;
 
   default:
-    $app = 'gamersassembly';
+    $app = 'frontend';
     $env = 'prod';
     $dbg = false;
   break;
