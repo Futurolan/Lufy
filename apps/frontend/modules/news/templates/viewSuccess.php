@@ -1,23 +1,30 @@
 <? use_helper('bb') ?>
 <? use_helper('Date') ?>
 
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=183148825128872";
+  fjs.parentNode.insertBefore(js, fjs);
+}
+(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="box">
     <div class="title"><?=ucfirst($news->getTitle())?></div>
     <div class="content">
-                <span style="font-size: 10px; color: grey;">Publi&eacute; le <?=format_date($news->getPublishOn(), 'dd/MM/yyy')?> par <?=link_to($news->getSfGuardUser(), 'user/view?username='.$news->getSfGuardUser())?></span>
-    <?=bb_parse($news->getContent())?>
-<!--
-    <br/><br/>
-    <script src="http://connect.facebook.net/fr_FR/all.js#xfbml=1"></script><fb:like layout="button_count" show_faces="false" width="80" height="20" font="verdana"></fb:like>
-    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="GamersAssembly" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
--->
-    <br/><br/>
-    <?=image_tag('/css/gamersassembly/img/postnews.gif')?>
-    <a href="http://www.facebook.com/GamersAssembly" target="_blank"><?=image_tag('/css/gamersassembly/img/facebook.gif')?></a>
-    <a href="https://twitter.com/GamersAssembly" target="_blank"><?=image_tag('/css/gamersassembly/img/twitter.gif')?></a>
-    <a href="http://www.dailymotion.com/gamersassembly" target="_blank"><img src="/css/gamersassembly/img/dailymotion.gif" /></a>
+        <span style="font-size: 10px; color: grey;">Publi&eacute; le <?=format_date($news->getPublishOn(), 'dd/MM/yyy')?> par <?=link_to($news->getSfGuardUser(), 'user/view?username='.$news->getSfGuardUser())?></span>
+        <?=bb_parse($news->getContent())?>
+
+        <br/><br/>
+
+        <div class="fb-like" data-href="<?=url_for('news/view?slug='.$news->getSlug(), true)?>" data-send="true" data-width="720" data-show-faces="true" data-font="tahoma"></div>
     </div>
-<br/><br/>
+
+    <br/><br/>
 
     <div class="title"><a name="commentaires"></a><?=__('Commentaires')?></div>
     <div class="content">
