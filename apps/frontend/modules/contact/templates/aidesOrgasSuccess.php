@@ -1,8 +1,8 @@
 <div class="box">
-    <div class="title">Proposition d'aide pour la Gamers-Assembly 2012</div>
+    <div class="title">Proposition d'aide pour la Gamers-Assembly 2013</div>
     <div class="content">
 <p>
-    La Gamers Assembly se d&eacute;roulera du 7 au 9 avril 2012 au Palais des Congr&egrave;s du Futuroscope.
+    La Gamers Assembly se d&eacute;roulera du 30 mars au 1er avril 2013 au Palais des Congr&egrave;s du Futuroscope.
     Les aides orgas seront accueillis d&egrave;s le jeudi matin 9h pour l'installation des salles.<br/><br/>
     Merci de bien d&eacute;tailler le/les poste(s) que vous souhaitez occuper et de remplir soigneusement le formulaire ci dessous :
 </p>
