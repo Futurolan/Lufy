@@ -3,10 +3,10 @@
 
 prod:
   .settings:
-    no_script_name:         true
+    no_script_name:         false
     logging_enabled:        false
     cache:                  false
-    etag:                   false
+    etag:                   true
     i18n:                   false
 
 dev:
@@ -15,7 +15,7 @@ dev:
     web_debug:              true
     cache:                  false
     no_script_name:         false
-    etag:                   true
+    etag:                   false
 
 test:
   .settings:
