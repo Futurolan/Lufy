@@ -1228,3 +1228,90 @@ PokerTournamentPlayer:
       local: poker_tournament_id
       foreign: id_poker_tournament
       type: many
+
+
+Tshirt:
+  connection: doctrine
+  tableName: tshirt
+  columns:
+    id_tshirt:
+      type: integer(8)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(8)
+      notnull: true
+    size:
+      type: string(5)
+      notnull: true
+  relations:
+    SfGuardUser:
+      local: user_id
+      foreign: id
+      type: one
+
+
+Entree:
+  connection: doctrine
+  tableName: entree
+  actAs:
+    Timestampable: ~
+  columns:
+    id_entree:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(8)
+      notnull: true
+    is_enter:
+      type: integer(4)
+      notnull: false
+      default: 0
+    is_prepayed:
+      type: integer(4)
+      notnull: false
+      default: 0
+    payement_amount:
+      type: integer(4)
+      notnull: false
+    payement_type:
+      type: integer(4)
+      notnull: false
+    parental_consent:
+      type: integer(4)
+      notnull: true
+      default: 0
+    created_by:
+      type: integer(8)
+      notnull: true
+
+
+Gallery:
+  connection: doctrine
+  tableName: gallery
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      fields: [title]
+  columns:
+    id_gallery:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    title:
+      type: string(255)
+      notnull: false
+    album_id:
+      type! string(50)
+      notnull: true
+    description:
+      type: string(255)
+      notnull: false
+    position:
+      type: integer(4)
+      notnull: true
+      default: 99
+    status:
+      type: boolean
+      default: false
