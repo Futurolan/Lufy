@@ -24,6 +24,7 @@ class newsActions extends sfActions
         ->leftJoin('n.Comment c')
         ->where('n.slug LIKE "%-en"')
         ->andWhere('n.status = 1')
+        ->andWhere('n.publish_on < NOW()')
         ->groupBy('n.id_news')
         ->orderBy('n.publish_on DESC'));
     }
@@ -37,6 +38,7 @@ class newsActions extends sfActions
         ->leftJoin('n.Comment c')
         ->where('n.slug NOT LIKE "%-en"')
         ->andWhere('n.status = 1')
+        ->andWhere('n.publish_on < NOW()')
         ->groupBy('n.id_news')
         ->orderBy('n.publish_on DESC'));
     }
