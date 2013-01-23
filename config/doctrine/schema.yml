@@ -1303,7 +1303,7 @@ Gallery:
       type: string(255)
       notnull: false
     album_id:
-      type! string(50)
+      type: string(50)
       notnull: true
     description:
       type: string(255)
