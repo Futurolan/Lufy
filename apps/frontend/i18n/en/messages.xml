@@ -46,7 +46,7 @@
       </trans-unit>
       <trans-unit id="32">
         <source>Tournois</source>
-        <target>Tournament</target>
+        <target>Tournaments</target>
       </trans-unit>
       <trans-unit id="12">
         <source>Galeries Dailymotion</source>
@@ -534,7 +534,7 @@
       </trans-unit>
       <trans-unit id="146">
         <source>Votre equipe est inscrite au tournoi</source>
-        <target>Your team is registered in tournaments</target>
+        <target>Your team is registered in tournament</target>
       </trans-unit>
       <trans-unit id="147">
         <source>En tant que joueur pour cette equipe vous pouvez beneficier d une reduction de 5e sur votre inscription grace a votre licence Masters</source>
@@ -754,7 +754,7 @@
       </trans-unit>
       <trans-unit id="200">
         <source>Resultats des tournois</source>
-        <target>Tournament results</target>
+        <target>Tournaments results</target>
       </trans-unit>
       <trans-unit id="201">
         <source>Recherche d un joueur</source>
