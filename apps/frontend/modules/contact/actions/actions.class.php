@@ -104,8 +104,7 @@ class contactActions extends sfActions
 			$auteur_email= $contact['email'];
 			$auteur= $auteur_prenom.' '.$auteur_nom . (($auteur_email) ? ' ('. $auteur_email .') ' : '');
 
-			$plain = '<img src="http://www.futurolan.net/newsletters/20120131/bandeau.gif" /><br/><br/>';
-			$plain.= 'Le ' .date ('d/m/Y H:i'). "<br/><br/>\n\n".
+			$plain = 'Le ' .date ('d/m/Y H:i'). "<br/><br/>\n\n".
 			'Nom : '. $contact['nom']."<br/>\n".
 			'Pr&eacute;nom : '. $contact['prenom']."<br/>\n".
 			'Pseudo : '. $contact['pseudo']."<br/>\n".
@@ -123,7 +122,7 @@ class contactActions extends sfActions
 			$html=nl2br($plain);
 
             $message = $this->getMailer()->compose();
-            $message->setSubject('GA2012 - Nouvelle proposition d\'aide orga ('.$contact['prenom'].' '.$contact['nom'].')');
+            $message->setSubject('Nouvelle proposition d\'aide orga ('.$contact['prenom'].' '.$contact['nom'].')');
             $message->setTo($destinataire);
             $message->setFrom('noreply@gamers-assembly.net');
 	    $message->addReplyTo($contact['email']);
