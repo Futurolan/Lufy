@@ -42,7 +42,6 @@ class BasesfGuardAuthActions extends sfActions
         $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
 
         return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
-        //return $this->redirect('@homepage');
       }
     }
     else
@@ -51,7 +50,7 @@ class BasesfGuardAuthActions extends sfActions
       {
         $this->getResponse()->setHeaderOnly(true);
         $this->getResponse()->setStatusCode(401);
-        //$this->setFlash('error', 'coincoin');
+
         return sfView::NONE;
       }
 
@@ -64,6 +63,7 @@ class BasesfGuardAuthActions extends sfActions
       {
         return $this->redirect($module.'/'.sfConfig::get('sf_login_action'));
       }
+
       $this->getResponse()->setStatusCode(401);
     }
   }
@@ -72,10 +72,9 @@ class BasesfGuardAuthActions extends sfActions
   {
     $this->getUser()->signOut();
 
-    //$signoutUrl = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());
+    $signoutUrl = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());
 
-    //$this->redirect('' != $signoutUrl ? $signoutUrl : '@homepage');
-    $this->redirect('@homepage');
+    $this->redirect('' != $signoutUrl ? $signoutUrl : '@homepage');
   }
 
   public function executeSecure($request)

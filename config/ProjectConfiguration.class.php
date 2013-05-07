@@ -8,6 +8,10 @@ class ProjectConfiguration extends sfProjectConfiguration
   public function setup()
   {
     $this->enableAllPluginsExcept(array('sfPropelPlugin'));
+    $this->enablePlugins(array(
+      'sfDoctrinePlugin',
+      'sfDoctrineGuardPlugin',
+    ));
   }
 
   public function getApplicationLockFile()

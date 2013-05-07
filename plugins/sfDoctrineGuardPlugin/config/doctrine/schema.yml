@@ -69,34 +69,9 @@ sfGuardUser:
       notnull: true
     salt: string(128)
     password: string(128)
-    licence_masters:
-      type: string(32)
-    licence_ga:
-      type: string(32)
-    phone:
-      type: string(20)
-    birthdate:
-      type: string(10)
-    gender:
-      type: varchar(1)
-    address:
-      type: varchar(250)
-    zipcode:
-      type: varchar(10)
-    city:
-      type: varchar(50)
-    country:
-      type: varchar(50)
-    website:
-      type: varchar(250)
-    logourl:
-      type: varchar(250)
-    carrer:
-      type: text
-
     is_active:
       type: boolean
-      default: false
+      default: 1
     is_super_admin:
       type: boolean
       default: false

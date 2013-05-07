@@ -64,27 +64,7 @@ abstract class PluginsfGuardUser extends BasesfGuardUser
     }
     $this->setAlgorithm($algorithmAsStr);
 
-
-$bt = debug_backtrace();
-$is_importing = false;
-foreach ($bt as $cf):
-  if ($cf['function'] == 'loadData'):
-    $is_importing = true;
-    $fromdump = $this->isNew() && $this->getSalt();
-  endif;
-endforeach;
-
-if($fromdump)
-{
-	parent::_set('password',$password);
-}
-else
-{
-	parent::_set('password', call_user_func_array($algorithm, array($salt.$password)));
-}
-
-    
-   // $this->_set('password', call_user_func_array($algorithm, array($salt.$password)));
+    $this->_set('password', call_user_func_array($algorithm, array($salt.$password)));
   }
 
   /**

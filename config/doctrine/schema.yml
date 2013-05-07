@@ -16,7 +16,7 @@ Block:
       type: string(255)
     position:
       type: int(4)
-    is_active: 
+    is_active:
       type: integer(1)
       default: '0'
 
@@ -72,14 +72,14 @@ Event:
       type: timestamp(25)
       notnull: false
     start_registration_at:
-      type: timestamp(25)     
-      notnull: false     
+      type: timestamp(25)
+      notnull: false
     end_registration_at:
-      type: timestamp(25)     
-      notnull: false     
+      type: timestamp(25)
+      notnull: false
     slug:
-      type: string(250)      
-      notnull: true      
+      type: string(250)
+      notnull: true
   relations:
     Tournament:
       local: id_event
@@ -95,18 +95,14 @@ Friend:
       primary: true
       autoincrement: true
     user_id:
-      type: integer(8)     
-      notnull: true	  
+      type: integer(8)
+      notnull: true
     friend_id:
-      type: integer(8)      
-      notnull: true      
+      type: integer(8)
+      notnull: true
   relations:
     SfGuardUser:
       local: friend_id
-      foreign: id
-      type: one
-    SfGuardUser_2:
-      local: user_id
       foreign: id
       type: one
 
@@ -115,28 +111,28 @@ Game:
   tableName: game
   columns:
     id_game:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     game_type_id:
-      type: integer(4)      
+      type: integer(4)
       notnull: true
     plateform_id:
       type: integer(4)
       notnull: false
     label:
-      type: string(45)      
+      type: string(45)
       notnull: true
     editor:
       type: string(100)
     year:
         type: string(50)
     description:
-      type: string(255)      
-      notnull: true      
+      type: string(255)
+      notnull: true
     logourl:
-      type: string(255)      
-      notnull: false      
+      type: string(255)
+      notnull: false
   relations:
     GameType:
       local: game_type_id
@@ -156,46 +152,46 @@ GameType:
   tableName: game_type
   columns:
     id_game_type:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     label:
-      type: string(45)      
-      notnull: true      
+      type: string(45)
+      notnull: true
   relations:
     Game:
       local: id_game_type
       foreign: game_type_id
       type: many
-  
+
 Page:
   connection: doctrine
   tableName: page
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
     Sluggable:
       fields: [title]
   columns:
     id_page:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     title:
-      type: string(250)      
-      notnull: true      
+      type: string(250)
+      notnull: true
     content:
-      type: string()      
-      notnull: false      
+      type: string()
+      notnull: false
     status:
-      type: integer(4)      
+      type: integer(4)
       notnull: false
       default: 0
     publish_on:
-      type: timestamp(25)      
-      notnull: true     
+      type: timestamp(25)
+      notnull: true
     page_type_id:
-      type: integer(4)      
-      notnull: true      
+      type: integer(4)
+      notnull: true
   relations:
     PageType:
       local: page_type_id
@@ -207,18 +203,18 @@ PageType:
   tableName: page_type
   columns:
     id_page_type:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     label:
-      type: string(100)      
-      notnull: true      
+      type: string(100)
+      notnull: true
     description:
-      type: string()      
-      notnull: false      
+      type: string()
+      notnull: false
     permission:
-      type: integer(4)      
-      notnull: true      
+      type: integer(4)
+      notnull: true
   relations:
     Page:
       local: id_page_type
@@ -229,38 +225,38 @@ News:
   connection: doctrine
   tableName: news
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
     Sluggable:
       fields: [title]
   columns:
     id_news:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     user_id:
       type: integer(8)
       notnull: false
     title:
-      type: string(250)      
+      type: string(250)
       notnull: true
     summary:
       type: string()
-      notnull: false      
+      notnull: false
     content:
-      type: string()      
-      notnull: false      
+      type: string()
+      notnull: false
     status:
-      type: string(45)      
-      notnull: true      
+      type: string(45)
+      notnull: true
     publish_on:
-      type: timestamp(25)      
-      notnull: true      
+      type: timestamp(25)
+      notnull: true
     image:
-      type: string(250)      
-      notnull: false      
+      type: string(250)
+      notnull: false
     news_type_id:
-      type: integer(4)      
-      notnull: true      
+      type: integer(4)
+      notnull: true
   relations:
     NewsType:
       local: news_type_id
@@ -280,21 +276,21 @@ NewsType:
   tableName: news_type
   columns:
     id_news_type:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     label:
-      type: string(100)      
-      notnull: true      
+      type: string(100)
+      notnull: true
     description:
-      type: string()      
-      notnull: false      
+      type: string()
+      notnull: false
     logourl:
-      type: string(250)      
-      notnull: false      
+      type: string(250)
+      notnull: false
     is_special:
-      type: integer(4)      
-      notnull: true      
+      type: integer(4)
+      notnull: true
   relations:
     News:
       local: id_news_type
@@ -345,20 +341,20 @@ Mail:
       notnull: true
     content:
       type: string()
-      notnull: true 
+      notnull: true
 
 Commande:
   connection: doctrine
   tableName: commande
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
   columns:
     id_commande:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     tournament_slot_id:
-      type: integer(4)      
+      type: integer(4)
       notnull: true
     item_name:
       type: string(50)
@@ -379,30 +375,30 @@ Partner:
   tableName: partner
   columns:
     id_partner:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     name:
-      type: string(45)      
-      notnull: true      
+      type: string(45)
+      notnull: true
     description:
-      type: string()     
-      notnull: false      
+      type: string()
+      notnull: false
     logourl:
-      type: string(250)      
-      notnull: false      
+      type: string(250)
+      notnull: false
     website:
-      type: string(250)      
-      notnull: false      
+      type: string(250)
+      notnull: false
     status:
-      type: string(45)      
-      notnull: true      
+      type: string(45)
+      notnull: true
     position:
-      type: integer(4)      
-      notnull: false      
+      type: integer(4)
+      notnull: false
     partner_type_id:
-      type: integer(4)      
-      notnull: true      
+      type: integer(4)
+      notnull: true
   relations:
     PartnerType:
       local: partner_type_id
@@ -414,21 +410,21 @@ PartnerType:
   tableName: partner_type
   columns:
     id_partner_type:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     name:
-      type: string(100)      
-      notnull: true      
+      type: string(100)
+      notnull: true
     description:
-      type: string()      
-      notnull: false      
+      type: string()
+      notnull: false
     status:
-      type: string(45)      
-      notnull: false      
+      type: string(45)
+      notnull: false
     position:
-      type: integer(4)      
-      notnull: false      
+      type: integer(4)
+      notnull: false
   relations:
     Partner:
       local: id_partner_type
@@ -439,14 +435,14 @@ Payement:
   connection: doctrine
   tableName: payement
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
   columns:
     id_payement:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     commande_id:
-      type: integer(4)      
+      type: integer(4)
       notnull: true
     user_cashman_id:
       type: integer(8)
@@ -463,7 +459,7 @@ Payement:
       notnull: true
     is_paypal:
       type: int(2)
-      notnull: true     
+      notnull: true
   relations:
     Commande:
       local: commande_id
@@ -494,328 +490,35 @@ Plateform:
       foreign: plateform_id
       type: one
 
-SfGuardForgotPassword:
-  connection: doctrine
-  tableName: sf_guard_forgot_password
-  actAs:
-    Timestampable: ~ 
-  columns:
-    id:
-      type: integer(8)      
-      primary: true
-      autoincrement: true
-    user_id:
-      type: integer(8)      
-      notnull: true      
-    unique_key:
-      type: string(255)      
-      notnull: false      
-    expires_at:
-      type: timestamp(25)      
-      notnull: true      
-  relations:
-    SfGuardUser:
-      local: user_id
-      foreign: id
-      type: one
-
-SfGuardGroup:
-  connection: doctrine
-  tableName: sf_guard_group
-  actAs:
-    Timestampable: ~ 
-  columns:
-    id:
-      type: integer(8)      
-      primary: true
-      autoincrement: true
-    name:
-      type: string(255)      
-      notnull: false      
-    description:
-      type: string()      
-      notnull: false      
-  relations:
-    SfGuardGroupPermission:
-      local: id
-      foreign: group_id
-      type: many
-    SfGuardUserGroup:
-      local: id
-      foreign: group_id
-      type: many
-
-SfGuardGroupPermission:
-  connection: doctrine
-  tableName: sf_guard_group_permission
-  actAs:
-    Timestampable: ~ 
-  columns:
-    group_id:
-      type: integer(8)      
-      primary: true      
-    permission_id:
-      type: integer(8)      
-      primary: true      
-  relations:
-    SfGuardGroup:
-      local: group_id
-      foreign: id
-      type: one
-    SfGuardPermission:
-      local: permission_id
-      foreign: id
-      type: one
- 
-SfGuardPermission:
-  connection: doctrine
-  tableName: sf_guard_permission
-  actAs:
-    Timestampable: ~ 
-  columns:
-    id:
-      type: integer(8)      
-      primary: true
-      autoincrement: true
-    name:
-      type: string(255)      
-      notnull: false      
-    description:
-      type: string()      
-      notnull: false      
-  relations:
-    SfGuardGroupPermission:
-      local: id
-      foreign: permission_id
-      type: many
-    SfGuardUserPermission:
-      local: id
-      foreign: permission_id
-      type: many
-
-SfGuardRememberKey:
-  connection: doctrine
-  tableName: sf_guard_remember_key
-  actAs:
-    Timestampable: ~ 
-  columns:
-    id:
-      type: integer(8)      
-      primary: true
-      autoincrement: true
-    user_id:
-      type: integer(8)      
-      notnull: false      
-    remember_key:
-      type: string(32)      
-      notnull: false      
-    ip_address:
-      type: string(50)      
-      notnull: false      
-  relations:
-    SfGuardUser:
-      local: user_id
-      foreign: id
-      type: one
-
-SfGuardUser:
-  connection: doctrine
-  tableName: sf_guard_user
-  actAs:
-    Timestampable: ~ 
-  columns:
-    id:
-      type: integer(8)      
-      primary: true
-      autoincrement: true
-    first_name:
-      type: string(255)      
-      notnull: false      
-    last_name:
-      type: string(255)      
-      notnull: false      
-    email_address:
-      type: string(255)      
-      notnull: true      
-    username:
-      type: string(128)      
-      notnull: true      
-    algorithm:
-      type: string(128)      
-      default: sha1
-      notnull: true      
-    salt:
-      type: string(128)      
-      notnull: false      
-    password:
-      type: string(128)      
-      notnull: false
-    licence_masters:
-      type: string
-      length: '32'
-    licence_ga:
-      type: string
-      length: '32'
-    phone:
-      type: string
-      length: '20'
-    birthdate:
-      type: timestamp
-      length: '25'
-    gender:
-      type: varchar
-      length: '1'
-    address:
-      type: varchar
-      length: '250'
-    zipcode:
-      type: varchar
-      length: '10'
-    city:
-      type: varchar
-      length: '50'
-    country:
-      type: varchar
-      length: '50'
-    website:
-      type: varchar
-      length: '250'
-    logourl:
-      type: varchar
-      length: '250'
-    carrer:
-      type: text      
-    is_active:
-      type: integer(1)      
-      default: '0'
-      notnull: false      
-    is_super_admin:
-      type: integer(1)      
-      default: '0'
-      notnull: false      
-    last_login:
-      type: timestamp(25)      
-      notnull: false      
-  relations:
-    Comment:
-      local: id
-      foreign: user_id
-      type: one
-    Invite:
-      local: id
-      foreign: user_id
-      type: many
-    Invite_2:
-      local: id
-      foreign: friend_id
-      type: many
-    Friend:
-      local: id
-      foreign: friend_id
-      type: many
-    Payement:
-      local: id
-      foreign: user_cashman_id
-      type: many
-    Payement_3:
-      class: Payement
-      local: id
-      foreign: user_place_id
-      type: many
-    SfGuardForgotPassword:
-      local: id
-      foreign: user_id
-      type: many
-    SfGuardRememberKey:
-      local: id
-      foreign: user_id
-      type: many
-    SfGuardUserGroup:
-      local: id
-      foreign: user_id
-      type: many
-    SfGuardUserPermission:
-      local: id
-      foreign: user_id
-      type: many
-    TeamPlayer:
-      local: id
-      foreign: user_id
-      type: one
-
-SfGuardUserGroup:
-  connection: doctrine
-  tableName: sf_guard_user_group
-  actAs:
-    Timestampable: ~ 
-  columns:
-    user_id:
-      type: integer(8)      
-      primary: true      
-    group_id:
-      type: integer(8)      
-      primary: true      
-  relations:
-    SfGuardGroup:
-      local: group_id
-      foreign: id
-      type: one
-    SfGuardUser:
-      local: user_id
-      foreign: id
-      type: one
-
-SfGuardUserPermission:
-  connection: doctrine
-  tableName: sf_guard_user_permission
-  actAs:
-    Timestampable: ~ 
-  columns:
-    user_id:
-      type: integer(8)      
-      primary: true      
-    permission_id:
-      type: integer(8)      
-      primary: true      
-  relations:
-    SfGuardPermission:
-      local: permission_id
-      foreign: id
-      type: one
-    SfGuardUser:
-      local: user_id
-      foreign: id
-      type: one
-      
 Team:
   connection: doctrine
   tableName: team
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
     Sluggable:
       fields: [name]
   columns:
     id_team:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     adminteam_id:
-      type: integer(8)      
-      notnull: true      
+      type: integer(8)
+      notnull: true
     name:
-      type: string(45)      
-      notnull: true      
+      type: string(45)
+      notnull: true
     tag:
-      type: string(10)      
-      notnull: false  
+      type: string(10)
+      notnull: false
     country:
       type: string(10)
       notnull: false
     description:
-      type: string()      
-      notnull: false      
+      type: string()
+      notnull: false
     website:
-      type: string(250)      
+      type: string(250)
       notnull: false
     logourl:
       type: string(250)
@@ -844,15 +547,15 @@ TeamPlayer:
   tableName: team_player
   columns:
     id_team_player:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     user_id:
-      type: integer(8)      
+      type: integer(8)
       unique: true
-      notnull: true      
+      notnull: true
     team_id:
-      type: integer(4)      
+      type: integer(4)
       notnull: true
     is_captain:
       type: integer(1)
@@ -861,7 +564,7 @@ TeamPlayer:
     is_player:
       type: integer(1)
       default: '0'
-      notnull: true  
+      notnull: true
   relations:
     Team:
       local: team_id
@@ -880,52 +583,52 @@ Tournament:
       fields: [name]
   columns:
     id_tournament:
-      type: integer(4)      
+      type: integer(4)
       primary: true
       autoincrement: true
     game_id:
-      type: integer(4)      
-      notnull: true      
+      type: integer(4)
+      notnull: true
     event_id:
-      type: integer(4)      
-      notnull: true      
+      type: integer(4)
+      notnull: true
     name:
-      type: string(45)      
-      notnull: true      
+      type: string(45)
+      notnull: true
     number_team:
-      type: integer(4)      
+      type: integer(4)
       default: '1'
-      notnull: true      
+      notnull: true
     player_per_team:
-      type: integer(4)      
+      type: integer(4)
       default: '1'
-      notnull: true      
+      notnull: true
     cost_per_player:
-      type: 'decimal(10, 2)'      
+      type: 'decimal(10, 2)'
       default: '0.00'
-      notnull: true      
+      notnull: true
     reserved_slot:
-      type: integer(4)      
+      type: integer(4)
       default: '0'
-      notnull: true      
+      notnull: true
     start_at:
-      type: timestamp(25)      
-      notnull: false      
+      type: timestamp(25)
+      notnull: false
     end_at:
-      type: timestamp(25)      
-      notnull: false      
+      type: timestamp(25)
+      notnull: false
     logourl:
-      type: string(250)      
-      notnull: true      
+      type: string(250)
+      notnull: true
     rules_url:
-      type: string(255)      
-      notnull: false      
+      type: string(255)
+      notnull: false
     description:
-      type: string(255)      
+      type: string(255)
       notnull: false
     position:
       type: int(4)
-    is_active: 
+    is_active:
       type: integer(1)
       default: '0'
   relations:
@@ -949,7 +652,7 @@ Tournament:
       local: id_tournament
       foreign: tournament_id
       type: many
-  
+
 TournamentAdmin:
   connection: doctrine
   tableName: tournament_admin
@@ -959,12 +662,12 @@ TournamentAdmin:
       primary: true
       autoincrement: true
     user_id:
-      type: integer(4)
+      type: integer(8)
       notnull: true
     tournament_id:
-      type: integer(4)      
+      type: integer(4)
       default: '0'
-      notnull: true      
+      notnull: true
   relations:
     Tournament:
       local: tournament_id
@@ -1020,12 +723,12 @@ TournamentSlot:
       foreign: tournament_slot_id
       type: one
 
-      
+
 Invite:
   connection: doctrine
   tableName: invite
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
   columns:
     id_invite:
       type: integer(8)
@@ -1101,7 +804,7 @@ FileType:
   connection: doctrine
   tableName: file_type
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
     Sluggable:
       fields: [name]
   columns:
@@ -1119,7 +822,7 @@ FileCategory:
   connection: doctrine
   tableName: file_category
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
     Sluggable:
       fields: [name]
   columns:
@@ -1137,7 +840,7 @@ File:
   connection: doctrine
   tableName: file
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
     Sluggable:
       fields: [name]
   columns:
@@ -1200,28 +903,28 @@ PokerTournament:
     is_active:
       type: int(1)
       default: '0'
-    
+
 PokerTournamentPlayer:
   connection: doctrine
   tableName: poker_tournament_player
   actAs:
-    Timestampable: ~ 
+    Timestampable: ~
   columns:
     id_poker_tournament_player:
       type: integer(4)
       primary: true
       autoincrement: true
     user_id:
-      type: int(8)
+      type: integer(8)
       notnull: true
     poker_tournement_id:
-      type: int(4)
+      type: integer(4)
       notnull: true
     pseudo:
       type: string(50)
       notnull: true
     is_invite:
-      type: int(2)
+      type: integer(2)
       default: '0'
   relations:
     PokerTournament:
