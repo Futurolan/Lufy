@@ -13,10 +13,10 @@
     <div id="Page">
         <div id="header">
             <div id="userbar">
-                <? include_partial('global/userbar') ?>
+                <?php include_partial('global/userbar') ?>
             </div>
             <div id="navigation">
-                <? include_partial('global/navigation') ?>
+                <?php include_partial('global/navigation') ?>
             </div>
         </div>
 
@@ -26,10 +26,10 @@
             </div>
             <div id="body">
                 <div id="content">
-                    <?=$sf_content?>
+                    <?php echo $sf_content?>
                 </div>
                 <div id="sidebar">
-                    <? include_partial('global/sidebar') ?>
+                    <?php include_partial('global/sidebar') ?>
                 </div>
             </div>
             <div id="postbody">
@@ -53,27 +53,27 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         </div>
 
         <div id="footer">
-            <? include_partial('global/footer') ?>
+            <?php include_partial('global/footer') ?>
         </div>
     </div>
 
     <div id="lightoff" onclick="hideTopflashbox();">
-        <? if ($sf_user->isAuthenticated()): ?>
-            <? if ($sf_user->hasFlash('error') || $sf_user->hasFlash('success') || $sf_user->hasFlash('warning')): ?>
+        <?php if ($sf_user->isAuthenticated()): ?>
+            <?php if ($sf_user->hasFlash('error') || $sf_user->hasFlash('success') || $sf_user->hasFlash('warning')): ?>
                 <script>
                     $("#lightoff").show();
                 </script>
-            <? endif; ?>
-            <? if ($sf_user->hasFlash('error')): ?>
-                <div class="topflashbox toptriadix" ><?=$sf_user->getFlash('error')?></div>
-            <? endif; ?>
-            <? if ($sf_user->hasFlash('success')): ?>
-                <div class="topflashbox topsuccess"><?=$sf_user->getFlash('success')?></div>
-            <? endif; ?>
-            <? if ($sf_user->hasFlash('warning')): ?>
-                <div class="topflashbox topwarning"><?=$sf_user->getFlash('warning')?></div>
-           <? endif; ?>
-        <? endif; ?>
+            <?php endif; ?>
+            <?php if ($sf_user->hasFlash('error')): ?>
+                <div class="topflashbox toptriadix" ><?php echo $sf_user->getFlash('error')?></div>
+            <?php endif; ?>
+            <?php if ($sf_user->hasFlash('success')): ?>
+                <div class="topflashbox topsuccess"><?php echo $sf_user->getFlash('success')?></div>
+            <?php endif; ?>
+            <?php if ($sf_user->hasFlash('warning')): ?>
+                <div class="topflashbox topwarning"><?php echo $sf_user->getFlash('warning')?></div>
+           <?php endif; ?>
+        <?php endif; ?>
     </div>
 
   <script type="text/javascript">

@@ -1,12 +1,12 @@
-<? if ($name == 'ouikos-1' || $name == 'ouikos-2' || $name == 'ouikos-3'): ?>
+<?php if ($name == 'ouikos-1' || $name == 'ouikos-2' || $name == 'ouikos-3'): ?>
     <div class="box">
         <div class="title">Jeu concours Ouikos</div>
         <div class="content">
-            <iframe src="http://concours-ouikos.gamers-assembly.net/<?=$name?>/concours.php?e=1" width="720" height="550" frameborder="0" border="0"></iframe>
+            <iframe src="http://concours-ouikos.gamers-assembly.net/<?php echo $name?>/concours.php?e=1" width="720" height="550" frameborder="0" border="0"></iframe>
             <a href="http://goo.gl/1RKuh" target="_blank"><img src="/uploads/pub/ouikos-horizontal.png" border="0"/></a>
         </div>
     </div>
-<? else: ?>
+<?php else: ?>
     <div class="box">
         <div class="title">Jeux concours Ouikos</div>
         <div class="content">
@@ -32,4 +32,4 @@
             Ouikos s'adresse &agrave; celles et ceux qui ont envie d'une libert&eacute; de choix et de diff&eacute;rence.<br/><br/>
         </div>
    </div>
-<? endif; ?>
+<?php endif; ?>

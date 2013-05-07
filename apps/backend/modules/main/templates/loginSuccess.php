@@ -1,1 +1,1 @@
-<? include_component('sfGuardAuth', 'signin_form')?>
+<?php include_component('sfGuardAuth', 'signin_form')?>

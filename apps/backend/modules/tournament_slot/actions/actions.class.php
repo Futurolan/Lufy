@@ -284,7 +284,7 @@ class tournament_slotActions extends sfActions {
                         $nblibre--;
                     endif;
                 endforeach;
-                
+
                 foreach ($slots as $slot):
                     if ($slot->getStatus() == 'inscrit'):
                         Doctrine::getTable('tournamentSlot')

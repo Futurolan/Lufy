@@ -25,35 +25,35 @@
     <div id="Body-top">
       </div>
       <div id="Login">
-        <? if ($sf_user->isAuthenticated()): ?>
+        <?php if ($sf_user->isAuthenticated()): ?>
           <ul>
-	        <li><?=link_to(image_tag('13/house.png').' '.$sf_user->getUsername(), 'user/index')?> <?php include_component('invite', 'nbinvite') ?></li>
+	        <li><?php echo link_to(image_tag('13/house.png').' '.$sf_user->getUsername(), 'user/index')?> <?php include_component('invite', 'nbinvite') ?></li>
 <!--
-            <li><?=link_to(image_tag('13/group.png').' '.__('Mon équipe'), 'team/index')?></li>
-            <li><?=link_to(image_tag('13/star.png').' '.__('Mon inscription'), 'tournament_slot/index')?></li>
+            <li><?php echo link_to(image_tag('13/group.png').' '.__('Mon équipe'), 'team/index')?></li>
+            <li><?php echo link_to(image_tag('13/star.png').' '.__('Mon inscription'), 'tournament_slot/index')?></li>
 -->
-            <li><?=link_to(image_tag('13/key.png').' '.__('Deconnexion').' &nbsp;', 'sfGuardAuth/signout')?></li>
+            <li><?php echo link_to(image_tag('13/key.png').' '.__('Deconnexion').' &nbsp;', 'sfGuardAuth/signout')?></li>
           </ul>
-	    <? else: ?>
+	    <?php else: ?>
           <ul>
-            <li><?=link_to(image_tag('13/key.png').' '.__('Connexion'), 'sfGuardAuth/signin')?></li>
-            <li><?=link_to(image_tag('13/user.png').' '.__('Créer un compte').' &nbsp;', 'sfGuardRegister/index')?></li>
+            <li><?php echo link_to(image_tag('13/key.png').' '.__('Connexion'), 'sfGuardAuth/signin')?></li>
+            <li><?php echo link_to(image_tag('13/user.png').' '.__('Créer un compte').' &nbsp;', 'sfGuardRegister/index')?></li>
           </ul>
-        <? endif; ?>
+        <?php endif; ?>
        </div>
     <div id="Body">
       <div id="Content">
-        <? if ($sf_user->isAuthenticated()): ?>
-            <? if ($sf_user->hasFlash('error')): ?>
-                <div class="flashbox triadix" ><?=$sf_user->getFlash('error')?></div>
-            <? endif; ?>
-            <? if ($sf_user->hasFlash('success')): ?>
-                <div class="flashbox success"><?=$sf_user->getFlash('success')?></div>
-            <? endif; ?>
-            <? if ($sf_user->hasFlash('warning')): ?>
-                <div class="flashbox warning"><?=$sf_user->getFlash('warning')?></div>
-            <? endif; ?>
-        <? endif; ?>
+        <?php if ($sf_user->isAuthenticated()): ?>
+            <?php if ($sf_user->hasFlash('error')): ?>
+                <div class="flashbox triadix" ><?php echo $sf_user->getFlash('error')?></div>
+            <?php endif; ?>
+            <?php if ($sf_user->hasFlash('success')): ?>
+                <div class="flashbox success"><?php echo $sf_user->getFlash('success')?></div>
+            <?php endif; ?>
+            <?php if ($sf_user->hasFlash('warning')): ?>
+                <div class="flashbox warning"><?php echo $sf_user->getFlash('warning')?></div>
+            <?php endif; ?>
+        <?php endif; ?>
         <?php echo $sf_content ?>
       </div>
       <div id="Sidebar">
@@ -62,9 +62,9 @@
         <?php //include_component('partner', 'media');?>
         <div class="spacer-10"></div>
         -->
-        <h3><?=__('Tournois')?></h3>
+        <h3><?php echo __('Tournois')?></h3>
         <!--
-	<div style="text-align: right;"><span class="button"><?=link_to('Voir les &eacute;quipes inscrites', 'tournament/list?slug=none')?></span></div>
+	<div style="text-align: right;"><span class="button"><?php echo link_to('Voir les &eacute;quipes inscrites', 'tournament/list?slug=none')?></span></div>
 	-->
         <?php include_component('tournament', 'nexttournament');?>
         <!--
@@ -72,8 +72,8 @@
         -->
         <div class="spacer-10"></div>
         <div class="spacer-10"></div>
-        <?=link_to(image_tag('../css/gamersassembly/img/aide-faq.png'), 'faq/index') ?></a><br/><br/>
-        <?=link_to(image_tag('../css/gamersassembly/img/aide-contact.png'), 'page/view?slug=decouvrez-l-association-futurolan') ?></a>
+        <?php echo link_to(image_tag('../css/gamersassembly/img/aide-faq.png'), 'faq/index') ?></a><br/><br/>
+        <?php echo link_to(image_tag('../css/gamersassembly/img/aide-contact.png'), 'page/view?slug=decouvrez-l-association-futurolan') ?></a>
       </div>
       <div class="clear-left"></div>
       <div>

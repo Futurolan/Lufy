@@ -25,23 +25,23 @@ $nb_cols = 5;
 $j = 0;
 ?>
 <table width="100%">
-<? for ($i=0;$i<$result;$i++)
+<?php for ($i=0;$i<$result;$i++)
 {
   if ($j == $nb_cols):
     echo "</tr>";
     $j = 0;
   endif;
   if ($currentType != $var[$i][0]): ?>
-    <? $j = 0; ?>
-    <tr><td colspan="<?=$nb_cols?>"><div class="title"><?=$var[$i][1]?></div></td></tr><tr>
-  <? endif; 
+    <?php $j = 0; ?>
+    <tr><td colspan="<?php echo $nb_cols?>"><div class="title"><?php echo $var[$i][1]?></div></td></tr><tr>
+  <?php endif; 
   
   if ($j == 0) echo "<tr>";?>
-  <td valign="middle" align="center" style="text-align: center;"><a href="<?=$var[$i][2]?>"><?=image_tag('/uploads/partenaires/100/'.$var[$i][3], 'class="partnerLogo" alt="'.$var[$i][4].'" title="'.$var[$i][5].'"')?></a></td>
+  <td valign="middle" align="center" style="text-align: center;"><a href="<?php echo $var[$i][2]?>"><?php echo image_tag('/uploads/partenaires/100/'.$var[$i][3], 'class="partnerLogo" alt="'.$var[$i][4].'" title="'.$var[$i][5].'"')?></a></td>
   
-  <? $currentType = $var[$i][0]; ?>
-  <? $j++; ?>
-  <? if ($i == $result-1) echo "</tr>";?>
+  <?php $currentType = $var[$i][0]; ?>
+  <?php $j++; ?>
+  <?php if ($i == $result-1) echo "</tr>";?>
 <?php } ?>
 </table>
     </div>

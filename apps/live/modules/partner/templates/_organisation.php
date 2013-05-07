@@ -1,13 +1,13 @@
 <table class="table" width="100%">
   <tr>
-    <? $i=0; ?>
-    <? foreach ($partners as $partner): ?>
-    <? $i++; ?>
+    <?php $i=0; ?>
+    <?php foreach ($partners as $partner): ?>
+    <?php $i++; ?>
     <td align="center" style="text-align: center;">
-      <a href="<?=url_for('partner/index')?>">
-        <?=image_tag('/uploads/partenaires/100/' . $partner->getLogourl(), 'alt="' . $partner->getName() . '" class="partnerLogo"')?>
+      <a href="<?php echo url_for('partner/index')?>">
+        <?php echo image_tag('/uploads/partenaires/100/' . $partner->getLogourl(), 'alt="' . $partner->getName() . '" class="partnerLogo"')?>
       </a>
     </td>
-    <? endforeach; ?>
+    <?php endforeach; ?>
   </tr>
 </table>

@@ -1,109 +1,109 @@
 <div class="box">
-    <div class="title"><?=__('Fiche equipe')?> - <?=$team->getName()?></div>
+    <div class="title"><?php echo __('Fiche equipe')?> - <?php echo $team->getName()?></div>
 
             <table class="profil">
                 <tr>
                     <td align="center" valign="top" rowspan="5" width="160">
-                        <? if ($team->getLogourl()) { echo '<img src="'.$team->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?><br/><br/>
+                        <?php if ($team->getLogourl()) { echo '<img src="'.$team->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?><br/><br/>
                     </td>
-                    <td><?=__('Team')?></td>
-                    <td><?= $team->getName() ?></td>
+                    <td><?php echo __('Team')?></td>
+                    <td><?php echo  $team->getName() ?></td>
                 </tr>
                 <tr>
-                    <td><?=__('Tag')?></td>
-                    <td><?= $team->getTag() ?></td>
+                    <td><?php echo __('Tag')?></td>
+                    <td><?php echo  $team->getTag() ?></td>
                 </tr>
                 <tr>
-                    <td><?=__('Cree le')?></td>
-                    <td><?= $team->getCreatedAt() ?></td>
+                    <td><?php echo __('Cree le')?></td>
+                    <td><?php echo  $team->getCreatedAt() ?></td>
                 </tr>
                 <tr>
-                    <td><?=__('Site web')?></td>
-                    <td><?= $team->getWebsite() ?></td>
+                    <td><?php echo __('Site web')?></td>
+                    <td><?php echo  $team->getWebsite() ?></td>
                 </tr>
                 <tr>
-                    <td><?=__('Description')?></td>
-                    <td><?= $team->getdescription() ?></td>
+                    <td><?php echo __('Description')?></td>
+                    <td><?php echo  $team->getdescription() ?></td>
                 </tr>
 
-        <? $idTeam = $team['id_team']; ?>
-        <? $players = $team->TeamPlayer; ?>
+        <?php $idTeam = $team['id_team']; ?>
+        <?php $players = $team->TeamPlayer; ?>
         </table>
 
-    <? if (isset($idTeam)): ?>
+    <?php if (isset($idTeam)): ?>
         <br/><br/>
-        <div class="title"><?=__('Composition de l equipe')?></div>
-               <h4 class="H4Enhance"><?=__('Gerants')?> :</h4>
+        <div class="title"><?php echo __('Composition de l equipe')?></div>
+               <h4 class="H4Enhance"><?php echo __('Gerants')?> :</h4>
                 <table cellspacing="0px" cellpadding="0px" class="profil1" style="width: 90%;">
-                <? foreach ($admins as $player): ?>
+                <?php foreach ($admins as $player): ?>
                         <tr>
-                            <td style="width: 60px;"><? if ($player->logourl) { echo '<img src="'.$player->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
+                            <td style="width: 60px;"><?php if ($player->logourl) { echo '<img src="'.$player->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
                             <td>
-                                <?=image_tag('/css/img/flag/'.$player->country.'.png', array('height' => '15px'))?>  <?=link_to($player->username, 'user/view?username='.$player->username) ?><br/>
-                                <i><?= $player->getFirstName() ?> <?=substr($player->getLastName(), 0, 1);?>.</i>
+                                <?php echo image_tag('/css/img/flag/'.$player->country.'.png', array('height' => '15px'))?>  <?php echo link_to($player->username, 'user/view?username='.$player->username) ?><br/>
+                                <i><?php echo  $player->getFirstName() ?> <?php echo substr($player->getLastName(), 0, 1);?>.</i>
                             </td>
                         </tr>
-                <? endforeach; ?>
+                <?php endforeach; ?>
                 
-                <? $i = 0 ?>
-                <? foreach ($captains as $player): ?>
-                    <? if ($i == 0): ?>
+                <?php $i = 0 ?>
+                <?php foreach ($captains as $player): ?>
+                    <?php if ($i == 0): ?>
                         <tr>
-                    <? endif; ?>
-                    <? $i++; ?>
-                         <? if ($player->SfGuardUser->id != $admins[0]->id):?>
-                            <td style="width: 60px;"><? if ($player->SfGuardUser->logourl) { echo '<img src="'.$player->SfGuardUser->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
+                    <?php endif; ?>
+                    <?php $i++; ?>
+                         <?php if ($player->SfGuardUser->id != $admins[0]->id):?>
+                            <td style="width: 60px;"><?php if ($player->SfGuardUser->logourl) { echo '<img src="'.$player->SfGuardUser->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
                             <td>
-                                <?=image_tag('/css/img/flag/'.$player->SfGuardUser->country.'.png', array('height' => '15px'))?>  <?=link_to($player->SfGuardUser->username, 'user/view?username='.$player->SfGuardUser->username) ?><br/>
-                                <i><?= $player->getSfGuardUser()->getFirstName() ?> <?=substr($player->getSfGuardUser()->getLastName(), 0, 1);?>.</i>
+                                <?php echo image_tag('/css/img/flag/'.$player->SfGuardUser->country.'.png', array('height' => '15px'))?>  <?php echo link_to($player->SfGuardUser->username, 'user/view?username='.$player->SfGuardUser->username) ?><br/>
+                                <i><?php echo  $player->getSfGuardUser()->getFirstName() ?> <?php echo substr($player->getSfGuardUser()->getLastName(), 0, 1);?>.</i>
                             </td>
-                        <? if ($i%3 == 0): ?>
+                        <?php if ($i%3 == 0): ?>
                         </tr><tr>
-                        <? endif; ?>
-                         <? endif;?>
-                <? endforeach; ?>
+                        <?php endif; ?>
+                         <?php endif;?>
+                <?php endforeach; ?>
                 </table>
                 
-        <h4 class="H4Enhance"><?=__('Joueurs')?> :</h4>
+        <h4 class="H4Enhance"><?php echo __('Joueurs')?> :</h4>
                 <table cellspacing="0px" cellpadding="0px" class="profil2" style="width: 90%;">               
-                <? $i = 0 ?> 
-                <? foreach ($joueurs as $player): ?>
-                    <? if ($i == 0): ?>
+                <?php $i = 0 ?> 
+                <?php foreach ($joueurs as $player): ?>
+                    <?php if ($i == 0): ?>
                         <tr>
-                    <? endif; ?>
-                    <? $i++; ?>
-                            <td  style="width: 60px;"><? if ($player->SfGuardUser->logourl) { echo '<img src="'.$player->SfGuardUser->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
+                    <?php endif; ?>
+                    <?php $i++; ?>
+                            <td  style="width: 60px;"><?php if ($player->SfGuardUser->logourl) { echo '<img src="'.$player->SfGuardUser->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
                             <td>
-                                <?=image_tag('/css/img/flag/'.$player->SfGuardUser->country.'.png', array('height' => '15px'))?>  <?=link_to($player->SfGuardUser->username, 'user/view?username='.$player->SfGuardUser->username) ?><br/>
-                                <i><?= $player->getSfGuardUser()->getFirstName() ?> <?=substr($player->getSfGuardUser()->getLastName(), 0, 1);?>.</i>
+                                <?php echo image_tag('/css/img/flag/'.$player->SfGuardUser->country.'.png', array('height' => '15px'))?>  <?php echo link_to($player->SfGuardUser->username, 'user/view?username='.$player->SfGuardUser->username) ?><br/>
+                                <i><?php echo  $player->getSfGuardUser()->getFirstName() ?> <?php echo substr($player->getSfGuardUser()->getLastName(), 0, 1);?>.</i>
                             </td>
-                        <? if ($i%3 == 0): ?>
+                        <?php if ($i%3 == 0): ?>
                         </tr><tr>
-                        <? endif; ?>
-                <? endforeach; ?>
+                        <?php endif; ?>
+                <?php endforeach; ?>
                 </table>
-        <h4 class="H4Enhance"><?=__('Autres')?> :</h4>
+        <h4 class="H4Enhance"><?php echo __('Autres')?> :</h4>
                 <table cellspacing="0px" cellpadding="0px" class="profil3" style="width: 90%;">              
-                <? $i = 0 ?>
-                <? foreach ($autres as $player): ?>
-                    <? if ($i == 0): ?>
+                <?php $i = 0 ?>
+                <?php foreach ($autres as $player): ?>
+                    <?php if ($i == 0): ?>
                         <tr>
-                    <? endif; ?>
-                    <? $i++; ?>
-                    <? if ($player->SfGuardUser->id != $admins[0]->id):?>
-                            <td style="width: 60px;"><? if ($player->SfGuardUser->logourl) { echo '<img src="'.$player->SfGuardUser->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
+                    <?php endif; ?>
+                    <?php $i++; ?>
+                    <?php if ($player->SfGuardUser->id != $admins[0]->id):?>
+                            <td style="width: 60px;"><?php if ($player->SfGuardUser->logourl) { echo '<img src="'.$player->SfGuardUser->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
                             <td>
-                                <?=image_tag('/css/img/flag/'.$player->SfGuardUser->country.'.png', array('height' => '15px'))?>  <?=link_to($player->SfGuardUser->username, 'user/view?username='.$player->SfGuardUser->username) ?><br/>
-                                <i><?= $player->getSfGuardUser()->getFirstName() ?> <?=substr($player->getSfGuardUser()->getLastName(), 0, 1);?>.</i>
+                                <?php echo image_tag('/css/img/flag/'.$player->SfGuardUser->country.'.png', array('height' => '15px'))?>  <?php echo link_to($player->SfGuardUser->username, 'user/view?username='.$player->SfGuardUser->username) ?><br/>
+                                <i><?php echo  $player->getSfGuardUser()->getFirstName() ?> <?php echo substr($player->getSfGuardUser()->getLastName(), 0, 1);?>.</i>
                             </td>
-                        <? if ($i%3 == 0): ?>
+                        <?php if ($i%3 == 0): ?>
                         </tr><tr>
-                        <? endif; ?>
-                     <? endif; ?>
-                <? endforeach; ?>
+                        <?php endif; ?>
+                     <?php endif; ?>
+                <?php endforeach; ?>
                 </table>
 
                 <br/>
-               <? endif; ?>
+               <?php endif; ?>
         <br/><br/>
 </div>

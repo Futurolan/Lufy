@@ -1,30 +1,30 @@
 <ul>
-  <? $i = 0; ?>
-  <? $j = 0; ?>
-  <? foreach ($partners as $partner): ?>
-    <? if ($i == 0): ?>
-      <ul id="rolling-<?=$j?>" class="rolling-partner" style="list-style-type: none; height: 155px; width: 220px;">
-        <li style="width: 220px; text-align: center;line-height:100px;"><?=image_tag('/uploads/partenaires/150/'.$partner->getLogourl())?></li>
+  <?php $i = 0; ?>
+  <?php $j = 0; ?>
+  <?php foreach ($partners as $partner): ?>
+    <?php if ($i == 0): ?>
+      <ul id="rolling-<?php echo $j?>" class="rolling-partner" style="list-style-type: none; height: 155px; width: 220px;">
+        <li style="width: 220px; text-align: center;line-height:100px;"><?php echo image_tag('/uploads/partenaires/150/'.$partner->getLogourl())?></li>
       </ul>
-      <? $j++; ?>
-    <? elseif ($i != 0 && $i % 2 != 0): ?>
-      <ul id="rolling-<?=$j?>" class="rolling-partner" style="list-style-type: none; height: 155px; width: 220px;">
-        <li style="float: left; width: 110px; text-align: center;line-height:110px;"><?=image_tag('/uploads/partenaires/100/'.$partner->getLogourl())?></li>
-    <? elseif ($i != 0 && $i % 2 == 0): ?>
-        <li style="float:left; width: 110px; text-align: center;line-height:110px;"><?=image_tag('/uploads/partenaires/100/'.$partner->getLogourl())?></li>
+      <?php $j++; ?>
+    <?php elseif ($i != 0 && $i % 2 != 0): ?>
+      <ul id="rolling-<?php echo $j?>" class="rolling-partner" style="list-style-type: none; height: 155px; width: 220px;">
+        <li style="float: left; width: 110px; text-align: center;line-height:110px;"><?php echo image_tag('/uploads/partenaires/100/'.$partner->getLogourl())?></li>
+    <?php elseif ($i != 0 && $i % 2 == 0): ?>
+        <li style="float:left; width: 110px; text-align: center;line-height:110px;"><?php echo image_tag('/uploads/partenaires/100/'.$partner->getLogourl())?></li>
         <li style="clear:left;"></li>
       </ul>
-      <? $j++; ?>
-    <? endif; ?>
+      <?php $j++; ?>
+    <?php endif; ?>
 
-    <? $i++; ?>
-  <? endforeach; ?>
+    <?php $i++; ?>
+  <?php endforeach; ?>
 </ul>
 
 <script>
 $(document).ready(function() {
 $(".rolling-partner").hide();
-var max = <?=$j?>;
+var max = <?php echo $j?>;
 var min = 0;
 var i = 0;
 

@@ -1,4 +1,4 @@
-<? use_helper('Date') ?>
+<?php use_helper('Date') ?>
 <h2>&Eacute;v&egrave;nements</h2>
 
 <table class="table">

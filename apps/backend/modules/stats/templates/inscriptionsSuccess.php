@@ -1,6 +1,6 @@
 <h2>Statistiques inscriptions</h2>
 
-<? foreach ($tournaments as $tournament): 
+<?php foreach ($tournaments as $tournament): 
 
 $state_reserve = 0;
 $state_valide = 0;
@@ -9,7 +9,7 @@ $state_libre = 0;
 $state_total = 0;
 $state_max_slot = $tournament->getNumberTeam();
 ?>
-<? foreach ($tournament->getTournamentSlot() as $slot):
+<?php foreach ($tournament->getTournamentSlot() as $slot):
     if ($slot->getStatus() == 'reserve'):
       $state_reserve++;
       $state_valide++;
@@ -27,25 +27,25 @@ $state_max_slot = $tournament->getNumberTeam();
     $state_total++;
 endforeach; ?>
 <div style="width: 405px; float: left; margin: 5px 10px 10px 10px; background-color: #f2f2f2; border: solid 1px #ddd; padding: 10px;">
-<div style="font-size: 14px; border-bottom: solid 1px #ddd; margin-bottom: 10px;"><?=image_tag('/uploads/jeux/icones/'.$tournament->getLogourl(), array('width' => '12'))?> <?=$tournament->getName()?></div>
+<div style="font-size: 14px; border-bottom: solid 1px #ddd; margin-bottom: 10px;"><?php echo image_tag('/uploads/jeux/icones/'.$tournament->getLogourl(), array('width' => '12'))?> <?php echo $tournament->getName()?></div>
 <div style="text-shadow: 1px 1px 1px #000; font-size: 10px; text-transform: uppercase;">
-  <div style="color: #fff; text-align: right; height: 15px; padding: 3px 0px 3px 0px; width: <?=(($state_reserve*100)/$state_max_slot)*4.1?>px; background: #47a1c6;">
-    R&eacute;serv&eacute;s&nbsp;:&nbsp;<?=$state_reserve?>&nbsp;&nbsp;
+  <div style="color: #fff; text-align: right; height: 15px; padding: 3px 0px 3px 0px; width: <?php echo (($state_reserve*100)/$state_max_slot)*4.1?>px; background: #47a1c6;">
+    R&eacute;serv&eacute;s&nbsp;:&nbsp;<?php echo $state_reserve?>&nbsp;&nbsp;
   </div>
-  <div style="color: #fff; text-align: right; height: 15px; padding: 3px 0px 3px 0px; width: <?=(($state_valide*100)/$state_max_slot)*4.1?>px; max-width: 410px; background: #3892b7;">
-    Valid&eacute;s&nbsp;:&nbsp;<?=$state_valide?>&nbsp;&nbsp;
+  <div style="color: #fff; text-align: right; height: 15px; padding: 3px 0px 3px 0px; width: <?php echo (($state_valide*100)/$state_max_slot)*4.1?>px; max-width: 410px; background: #3892b7;">
+    Valid&eacute;s&nbsp;:&nbsp;<?php echo $state_valide?>&nbsp;&nbsp;
   </div>
-  <div style="color: #fff; text-align: right; height: 15px; padding: 3px 0px 3px 0px; width: <?=(($state_inscrit*100)/$state_max_slot)*4.1?>px; max-width: 410px; background: #2c85aa;">
-    Inscrits&nbsp;:&nbsp;<?=$state_inscrit?>&nbsp;&nbsp;
+  <div style="color: #fff; text-align: right; height: 15px; padding: 3px 0px 3px 0px; width: <?php echo (($state_inscrit*100)/$state_max_slot)*4.1?>px; max-width: 410px; background: #2c85aa;">
+    Inscrits&nbsp;:&nbsp;<?php echo $state_inscrit?>&nbsp;&nbsp;
   </div>
   <div style="color: #fff; padding: 3px 0px 3px 0px; text-align: right; height: 15px; width: 410px; background-color: #55add1;">
-    Total&nbsp;:&nbsp;<?=$state_max_slot?>&nbsp;&nbsp;
+    Total&nbsp;:&nbsp;<?php echo $state_max_slot?>&nbsp;&nbsp;
   </div>
 </div>
 <br/>
 </div>
 
-<? endforeach; ?>
+<?php endforeach; ?>
 
 <div style="clear: left;"></div>
 
@@ -61,19 +61,19 @@ endforeach;
 <table class="table">
     <tr>
         <th>Nb utilisateurs</th>
-        <td><?=count($users)?></td>
+        <td><?php echo count($users)?></td>
         <th>Nb joueurs</th>
-        <td><?=count($players)?></td>
+        <td><?php echo count($players)?></td>
     </tr>
     <tr>
         <th>Nb &eacute;quipes</th>
-        <td><?=count($teams)?></td>
+        <td><?php echo count($teams)?></td>
         <th>Nb slots valid&eacute;s</th>
-        <td><?=count($slotsValid)?></td>
+        <td><?php echo count($slotsValid)?></td>
     </tr>
     <tr>
         <th>Total paiements valid&eacute;s</th>
-        <td><?=$totalpayement?> &euro;</td>
+        <td><?php echo $totalpayement?> &euro;</td>
         <td></td>
         <td></td>
     </tr>
@@ -84,7 +84,7 @@ endforeach;
     foreach ($tournaments as $tournament):
     ?>
         <tr>
-            <th><?=$tournament->getName()?></th>
+            <th><?php echo $tournament->getName()?></th>
             <td>
                 <?
                 $nb['libre'] = 0;
@@ -104,8 +104,8 @@ endforeach;
                     if ($slot->getStatus() == 'valide') $nb['valide']++;
                 endforeach;
                 ?>
-                <?=$tournament->getNumberTeam()?> places pour <?=$totalteam?> &eacute;quipes<br/>
-                <?=$nb['libre']?> libres, <?=$nb['reserve']?> r&eacute;serv&eacute;s, <?=$nb['inscrit']?> inscrits, <?=$nb['valide']?> valid&eacute;s, <?=$nb['attente']?> en attente
+                <?php echo $tournament->getNumberTeam()?> places pour <?php echo $totalteam?> &eacute;quipes<br/>
+                <?php echo $nb['libre']?> libres, <?php echo $nb['reserve']?> r&eacute;serv&eacute;s, <?php echo $nb['inscrit']?> inscrits, <?php echo $nb['valide']?> valid&eacute;s, <?php echo $nb['attente']?> en attente
             </td>
         </tr>
     <?

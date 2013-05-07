@@ -10,7 +10,7 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          <input type="submit" value="<?=__('Ajouter l equipe')?>" class="button" />
+          <input type="submit" value="<?php echo __('Ajouter l equipe')?>" class="button" />
         </td>
       </tr>
     </tfoot>
@@ -18,7 +18,7 @@
       <?php echo $form->renderGlobalErrors() ?>
      
       <tr>
-        <th><?=__('Nom de l equipe')?></th>
+        <th><?php echo __('Nom de l equipe')?></th>
         <td>
           <?php echo $form['name']->renderError() ?>
           <?php echo $form['name'] ?>

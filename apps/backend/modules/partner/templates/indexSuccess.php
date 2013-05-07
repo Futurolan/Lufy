@@ -16,32 +16,32 @@
 
 <h2>Partenaires</h2>
 
-<form method="POST" action="<?=url_for('partner/updatePosition')?>">
+<form method="POST" action="<?php echo url_for('partner/updatePosition')?>">
 
 <input type="submit" value="Enregistrer les changements"  class="button save"/>
 <a href="<?php echo url_for('partner/new') ?>" class="button add">Ajouter un partenaire</a>
 <a href="<?php echo url_for('partner_type/index') ?>" class="button">G&eacute;rer les cat&eacute;gories</a>
 
 <ul id="jquery-ui-partner">
-  <? $i= 0; foreach ($partners as $partner): $i++; ?>
+  <?php $i= 0; foreach ($partners as $partner): $i++; ?>
     <?php
     if ($partner->getStatus() == '0'): ?>
         <li class="inactive" style="width: 260px; float: left; margin-right: 10px; height: 65px;">
-    <? else: ?>
+    <?php else: ?>
         <li style="width: 260px; float: left; margin-right: 10px; height: 65px;">
-    <? endif; ?>
+    <?php endif; ?>
         <table>
             <tr>
                 <td align="center" valign="center" width="80px" height="65px">
-                    <?=image_tag('/uploads/partenaires/100/'.$partner->getLogourl(), 'style="max-width: 70px; max-height: 50px;" alt="'.$partner->getName().'"')?>
-                    <input type="hidden" name="partner[<?=$i?>][id]" value="<?=$partner->getIdPartner()?>" />
-                    <input type="hidden" class="positionInput" name="partner[<?=$i?>][position]" value="<?=$partner->getPosition()?>" /> 
+                    <?php echo image_tag('/uploads/partenaires/100/'.$partner->getLogourl(), 'style="max-width: 70px; max-height: 50px;" alt="'.$partner->getName().'"')?>
+                    <input type="hidden" name="partner[<?php echo $i?>][id]" value="<?php echo $partner->getIdPartner()?>" />
+                    <input type="hidden" class="positionInput" name="partner[<?php echo $i?>][position]" value="<?php echo $partner->getPosition()?>" /> 
                 </td>
                 <td width="165px">
-                    <span style="font-size: 11px;"><?=ajax_link(substr($partner->getName(), 0, 27), 'partner/edit?id_partner='.$partner->getIdPartner()) ?></span><br/>
-                    <span style="font-style: italic; font-size: 10px; color: #888;"><?=$partner->getPartnerType()?></span><br/>
-		    <p style="font-size: 10px; text-transform: uppercase; text-align: right;"">
-			<? if ($partner->getStatus() == '0') { echo ajax_link('Afficher','partner/setStatus?id_partner='.$partner->getIdPartner()); } else { echo ajax_link('Cacher','partner/setStatus?id_partner='.$partner->getIdPartner()); } ?>
+                    <span style="font-size: 11px;"><?php echo ajax_link(substr($partner->getName(), 0, 27), 'partner/edit?id_partner='.$partner->getIdPartner()) ?></span><br/>
+                    <span style="font-style: italic; font-size: 10px; color: #888;"><?php echo $partner->getPartnerType()?></span><br/>
+		    <i style="font-size: 10px; text-transform: uppercase; text-align: right;"">
+			<?php if ($partner->getStatus() == '0') { echo ajax_link('Afficher','partner/setStatus?id_partner='.$partner->getIdPartner()); } else { echo ajax_link('Cacher','partner/setStatus?id_partner='.$partner->getIdPartner()); } ?>
 		    </p>
                 </td>
             </tr>
@@ -49,7 +49,7 @@
       
        
     </li>
-  <? endforeach; ?>
+  <?php endforeach; ?>
   <li style="clear: left; border: 0px;"></li>
 </ul>
 </form>

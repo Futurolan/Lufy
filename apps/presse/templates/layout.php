@@ -12,7 +12,7 @@
 <div id="header">
     <div style="width: 1100px; margin: auto auto;">
 	<div>
-	    <?=link_to('Presse & Partenaires', '@homepage', array('style' => 'color: #0195bb;'))?>
+	    <?php echo link_to('Presse & Partenaires', '@homepage', array('style' => 'color: #0195bb;'))?>
 	</div>
     </div>
 </div>
@@ -20,23 +20,23 @@
 <div id="Page">
   <div id="sidebar" style="float: left;">
     <ul>
-      <li><?=link_to('Accueil', '@homepage')?></li>
-      <li><?=link_to('Pr&eacute;sentation', 'page/view?slug=presentation')?></li>
-      <li><?=link_to('Devenir partenaire', 'page/view?slug=devenir-partenaire')?></li>
-      <li><?=link_to('Reporting et presse', 'page/view?slug=communiques')?></li>
-      <li><?=link_to('Galeries photos & vid&eacute;os', 'gallery/index')?></li>
-      <li><?=link_to('Logoth&egrave;que', 'page/view?slug=logotheque')?></li>
-      <li><?=link_to('Contact', 'page/view?slug=contact')?></li>
+      <li><?php echo link_to('Accueil', '@homepage')?></li>
+      <li><?php echo link_to('Pr&eacute;sentation', 'page/view?slug=presentation')?></li>
+      <li><?php echo link_to('Devenir partenaire', 'page/view?slug=devenir-partenaire')?></li>
+      <li><?php echo link_to('Reporting et presse', 'page/view?slug=communiques')?></li>
+      <li><?php echo link_to('Galeries photos & vid&eacute;os', 'gallery/index')?></li>
+      <li><?php echo link_to('Logoth&egrave;que', 'page/view?slug=logotheque')?></li>
+      <li><?php echo link_to('Contact', 'page/view?slug=contact')?></li>
       <li></li>
 <!--      <li><a href="http://www.gamers-assembly.net/fr">Gamers Assembly - Site officiel</a></li>-->
     </ul>
     <div style="margin-left: 10px;">
       Retrouvez nous aussi sur...<br/><br/>
-      <a href="http://www.facebook.com/GamersAssembly" target="_blank"><?=image_tag('icone-facebook.jpg', array('width' => 50))?></a>
+      <a href="http://www.facebook.com/GamersAssembly" target="_blank"><?php echo image_tag('icone-facebook.jpg', array('width' => 50))?></a>
       &nbsp;&nbsp;
-      <a href="https://twitter.com/GamersAssembly" target="_blank"><?=image_tag('icone-twitter.jpg', array('width' => 50))?></a>
+      <a href="https://twitter.com/GamersAssembly" target="_blank"><?php echo image_tag('icone-twitter.jpg', array('width' => 50))?></a>
       &nbsp;&nbsp;
-      <a href="http://www.dailymotion.com/gamersassembly" target="_blank"><?=image_tag('icone-dailymotion.jpg', array('width' => 50))?></a>
+      <a href="http://www.dailymotion.com/gamersassembly" target="_blank"><?php echo image_tag('icone-dailymotion.jpg', array('width' => 50))?></a>
     </div>
   </div>
 

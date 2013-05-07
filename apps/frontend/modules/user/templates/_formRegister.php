@@ -19,35 +19,35 @@
       <?php echo $form->renderGlobalErrors() ?>
 
       <tr>
-        <th><?=__('Prenom')?></th>
+        <th><?php echo __('Prenom')?></th>
         <td>
           <?php echo $form['first_name']->renderError() ?>
           <?php echo $form['first_name'] ?>
         </td>
       </tr>
       <tr>
-        <th><?=__('Nom')?></th>
+        <th><?php echo __('Nom')?></th>
         <td>
           <?php echo $form['last_name']->renderError() ?>
           <?php echo $form['last_name'] ?>
         </td>
       </tr>
       <tr>
-        <th><?=__('Adresse mail')?></i></th>
+        <th><?php echo __('Adresse mail')?></i></th>
         <td>
           <?php echo $form['email_address']->renderError() ?>
           <?php echo $form['email_address'] ?>
         </td>
       </tr>
       <tr>
-        <th><?=__('Pseudo')?></th>
+        <th><?php echo __('Pseudo')?></th>
         <td>
           <?php echo $form['username']->renderError() ?>
           <?php echo $form['username'] ?>
         </td>
       </tr>
       <tr>
-        <th><?=__('Password')?></th>
+        <th><?php echo __('Password')?></th>
         <td>
           <?php echo $form['password']->renderError() ?>
           <?php echo $form['password'] ?>

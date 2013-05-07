@@ -1,1 +1,1 @@
-<div class="nbComment"><?=$nb_comments?></div>
+<div class="nbComment"><?php echo $nb_comments?></div>

@@ -1,4 +1,4 @@
-<h2><?=$tournament->getEvent()->getName()?> - Slots <?=$tournament->getName()?></h2>
+<h2><?php echo $tournament->getEvent()->getName()?> - Slots <?php echo $tournament->getName()?></h2>
 
 <table class="table">
   <thead>
@@ -14,7 +14,7 @@
   <tbody>
     <?php foreach ($tournament_slots as $tournament_slot): ?>
     <tr>
-      <td><? if ($tournament_slot->getLocked() == 1) echo image_tag('16/lock.png'); else echo image_tag('16/unlock.png');?></td>
+      <td><?php if ($tournament_slot->getLocked() == 1) echo image_tag('16/lock.png'); else echo image_tag('16/unlock.png');?></td>
       <td><?php
       if ($tournament_slot->getTeamId() != '0' && $tournament_slot->getTeamId() != NULL):
         echo ajax_link($tournament_slot->teamName($tournament_slot->getTeamId()), 'team/view?id_team='.$tournament_slot->getTeamId());

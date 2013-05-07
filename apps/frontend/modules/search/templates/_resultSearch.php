@@ -1,34 +1,34 @@
-<? $has_results = false ?>
+<?php $has_results = false ?>
 
-<? if ($news->count() != 0): ?>
-<? $has_results = true ?>
+<?php if ($news->count() != 0): ?>
+<?php $has_results = true ?>
 
 <div class="subtitle">Actualit&eacute;s</div>
 <div>
-  <? foreach ($news as $actualite): ?>
-    <?=link_to($actualite, 'news/view?slug='.$actualite->getSlug())?><br/>
-  <? endforeach; ?>
+  <?php foreach ($news as $actualite): ?>
+    <?php echo link_to($actualite, 'news/view?slug='.$actualite->getSlug())?><br/>
+  <?php endforeach; ?>
 </div>
 <br/>
-<? endif; ?>
+<?php endif; ?>
 
 
-<? if ($pages->count() != 0): ?>
-<? $has_results = true ?>
+<?php if ($pages->count() != 0): ?>
+<?php $has_results = true ?>
 
 <div class="subtitle">Page</div>
 <div>
-  <? foreach ($pages as $page): ?>
-    <?=link_to($page, 'page/view?slug='.$page->getSlug())?><br/>
-  <? endforeach; ?>
+  <?php foreach ($pages as $page): ?>
+    <?php echo link_to($page, 'page/view?slug='.$page->getSlug())?><br/>
+  <?php endforeach; ?>
 </div>
 <br/>
-<? endif; ?>
+<?php endif; ?>
 
 
-<? if (!$has_results): ?>
-  <?=__('Aucun r&eacute;sultat pour cette recherche')?>
-<? endif; ?>
+<?php if (!$has_results): ?>
+  <?php echo __('Aucun r&eacute;sultat pour cette recherche')?>
+<?php endif; ?>
 
 <!--
 <div style="text-align: right; font-size: 10px;">

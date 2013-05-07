@@ -6,10 +6,10 @@
 			echo '';
 
 		else:?>
-			<?=image_tag('../uploads/events/'.$event->getImage())?>
+			<?php echo image_tag('../uploads/events/'.$event->getImage())?>
 
             
-            <? 	
+            <?php 	
             if ($event->getStartRegistrationAt() < $maintenant):
                 if ($maintenant < $event->getEndRegistrationAt()): 
                     //Inscriptions ouverte
@@ -30,7 +30,7 @@
 			echo 'aucun evenement';
 
 		else:?>
-			<h5><?=$event->getName()?></h5>
+			<h5><?php echo $event->getName()?></h5>
 			<?php
 			list($date, $time) = explode(' ', $event->getStartAt());
 			list($year, $month, $day) = explode('-', $date);
@@ -42,16 +42,16 @@
 			$endAt = mktime($hour, $minute, $second, $month, $day, $year);
 			?>
 			<i style="font-size: 10px;">
-        <?=format_date($event->getStartAt(), 'dd', 'fr_FR') ?> au <?=format_date($event->getEndAt(), 'dd MMMM yyyy', 'fr_FR') ?><br />
-				<?=$event->getDescription()?>
+        <?php echo format_date($event->getStartAt(), 'dd', 'fr_FR') ?> au <?php echo format_date($event->getEndAt(), 'dd MMMM yyyy', 'fr_FR') ?><br />
+				<?php echo $event->getDescription()?>
 			</i>
             
-            <? 	
+            <?php 	
             if ($event->getStartRegistrationAt() < $maintenant):
                 if ($maintenant < $event->getEndRegistrationAt()): ?>
                   <br/><br/>
-                  Inscriptions ouverte - <?=link_to('Liste des inscrits','tournament_slot/list')?>
-                <? endif;
+                  Inscriptions ouverte - <?php echo link_to('Liste des inscrits','tournament_slot/list')?>
+                <?php endif;
             endif;	
             
            // echo image_tag('/uploads/events/'.$event->getImage(), 'alt="'.$event->getName().'"');

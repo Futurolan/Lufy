@@ -14,10 +14,10 @@
   <tbody>
     <?php foreach ($games as $game): ?>
     <tr>
-      <td><a href="<?=url_for('game/edit?id_game='.$game->getIdGame())?>"><?=$game->getLabel()?></a></td>
-      <td><?=$game->getGameType()?></td>
-      <td><?=$game->getPlateform()?></td>
-      <td><a href="<?=url_for('game/edit?id_game='.$game->getIdGame())?>">Modifier</a></td>
+      <td><a href="<?php echo url_for('game/edit?id_game='.$game->getIdGame())?>"><?php echo $game->getLabel()?></a></td>
+      <td><?php echo $game->getGameType()?></td>
+      <td><?php echo $game->getPlateform()?></td>
+      <td><a href="<?php echo url_for('game/edit?id_game='.$game->getIdGame())?>">Modifier</a></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

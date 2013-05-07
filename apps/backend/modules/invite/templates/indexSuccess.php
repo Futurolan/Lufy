@@ -17,7 +17,7 @@
         <?php foreach ($invites as $invite): ?>
             <tr>
                 <td><a href="<?php echo url_for('invite/edit?id_invite=' . $invite->getIdInvite()) ?>"><?php echo $invite->getIdInvite() ?></a></td>
-                <td><?= $invite->getTeam()->name ?></td>
+                <td><?php echo  $invite->getTeam()->name ?></td>
                 <td><?php echo $invite->getUser($invite->getUserId()) ?></td>
                 <td><?php if ($invite->getFriendId()) echo $invite->getUser($invite->getFriendId()) ?></td>
                 <td><?php echo $invite->getAction() ?></td>

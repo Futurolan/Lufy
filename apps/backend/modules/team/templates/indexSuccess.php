@@ -1,7 +1,7 @@
 <h2>Equipes</h2>
 
 <div id="toolbox">
-<?=ajax_link('Ajouter une &eacute;quipe', 'team/new', array('class' => 'button add'))?>
+<?php echo ajax_link('Ajouter une &eacute;quipe', 'team/new', array('class' => 'button add'))?>
 </div>
 
 <table class="table" style="width: 620px; float: left;"">
@@ -12,15 +12,15 @@
     </tr>
   </thead>
   <tbody>
-    <? foreach ($teams as $team): ?>
+    <?php foreach ($teams as $team): ?>
     <tr>
-      <td><?=$team->getName() ?></td>
+      <td><?php echo $team->getName() ?></td>
       <td>
-        <?=ajax_link('D&eacute;tails', 'team/view?id_team='.$team->getIdTeam(), array('class' => 'button small'))?>
-        <?=ajax_link('Modifier', 'team/edit?id_team='.$team->getIdTeam(), array('class' => 'button small'))?>
+        <?php echo ajax_link('D&eacute;tails', 'team/view?id_team='.$team->getIdTeam(), array('class' => 'button small'))?>
+        <?php echo ajax_link('Modifier', 'team/edit?id_team='.$team->getIdTeam(), array('class' => 'button small'))?>
       </td>
     </tr>
-    <? endforeach; ?>
+    <?php endforeach; ?>
   </tbody>
 <tfoot>
 <tr>
@@ -29,12 +29,12 @@
 </tfoot>
 </table>
 
-<form action="<?=url_for('team/filter')?>" method="POST">
+<form action="<?php echo url_for('team/filter')?>" method="POST">
   <table class="table" width="300" style="width: 250px; float: left; margin-left: 30px;">
     <tr>
       <th colspan="2">Rechercher une &eacute;quipe</th>
     </tr>
-    <?=$form?>
+    <?php echo $form?>
     <tr>
       <td colspan="2" align="right"><input class="button" type="submit" value="Rechercher"/></td>
     </tr>
@@ -44,7 +44,7 @@
 <div style="clear: left;"></div>
 
 <div class="pager" style="width: 620px; text-align: center;">
-    <span class="page"><?=ajax_link('<<', 'team/index?page='.$teams->getFirstPage())?></span>
-    <? foreach ($teams->getLinks(10) as $page) echo ($page == ' '.$teams->getPage()) ? ' <span class="current">'.$page : '</span> <span class="page">'.ajax_link($page, 'team/index?page='.$page)?>
-    <span class="page"><?=ajax_link('>>', 'team/index?page='.$teams->getLastPage())?></span>
+    <span class="page"><?php echo ajax_link('<<', 'team/index?page='.$teams->getFirstPage())?></span>
+    <?php foreach ($teams->getLinks(10) as $page) echo ($page == ' '.$teams->getPage()) ? ' <span class="current">'.$page : '</span> <span class="page">'.ajax_link($page, 'team/index?page='.$page)?>
+    <span class="page"><?php echo ajax_link('>>', 'team/index?page='.$teams->getLastPage())?></span>
 </div>

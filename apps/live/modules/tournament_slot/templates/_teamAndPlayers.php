@@ -1,25 +1,25 @@
 <table class="listteam" cellspacing="0" cellpadding="5">
     <tr>
         <th>#</th>
-        <th><?=__('Nom de lequipe')?></th>
-        <th><?=__('Joueurs')?></th>
+        <th><?php echo __('Nom de lequipe')?></th>
+        <th><?php echo __('Joueurs')?></th>
     </tr>
-    <? $i = '0'; ?>
+    <?php $i = '0'; ?>
     <?php foreach ($slots as $slot): ?>
-    <? $i++ ?>
-    <? if ($i == $attente): ?>
-        <? break; ?>
-    <? endif; ?>
+    <?php $i++ ?>
+    <?php if ($i == $attente): ?>
+        <?php break; ?>
+    <?php endif; ?>
 
         <tr>
-            <td><?= $slot->getPosition() ?></td>
-            <td><? if (!$slot->getTeamId()): ?><?= $slot->getStatus() ?></td>
+            <td><?php echo  $slot->getPosition() ?></td>
+            <td><?php if (!$slot->getTeamId()): ?><?php echo  $slot->getStatus() ?></td>
                 <td>
-            <? else: ?>
-                <b><?=$slot->TeamName($slot->getTeamId()); ?></b>
+            <?php else: ?>
+                <b><?php echo $slot->TeamName($slot->getTeamId()); ?></b>
                 </td>
-        <? include_component('team', 'players', array('idteam' => $slot->getTeamId())) ?>
-        <? endif; ?>
+        <?php include_component('team', 'players', array('idteam' => $slot->getTeamId())) ?>
+        <?php endif; ?>
         </tr>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </table>

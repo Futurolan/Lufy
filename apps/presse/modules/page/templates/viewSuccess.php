@@ -1,11 +1,11 @@
-<? use_helper('bb') ?>
+<?php use_helper('bb') ?>
 <div class="box">
-    <div class="title"><?=$page->getTitle()?></div>
+    <div class="title"><?php echo $page->getTitle()?></div>
     <div class="content">
-        <?=$page->getContent(ESC_RAW)?>
+        <?php echo $page->getContent(ESC_RAW)?>
     </div>
 </div>
 
-<? slot('filename'); ?>
-        <? echo $page->getTitle(); ?>
-<? end_slot(); ?>
+<?php slot('filename'); ?>
+        <?php echo $page->getTitle(); ?>
+<?php end_slot(); ?>

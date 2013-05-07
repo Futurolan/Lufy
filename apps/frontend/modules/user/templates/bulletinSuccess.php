@@ -2,7 +2,7 @@
 <script src="http://www.gamers-assembly.net/js/jquery.barcode.js"></script>
 <script>
 	$(window).load(function() {
-        $(".barcode").barcode("<?=$user->getLicenceGa()?>", "ean13");
+        $(".barcode").barcode("<?php echo $user->getLicenceGa()?>", "ean13");
     }
     );
 </script>
@@ -45,40 +45,40 @@ body, tr, td {
 <table width="600px">
     <tr>
         <th>Nom</th>
-        <td><?=$user->getLastName()?></td>
+        <td><?php echo $user->getLastName()?></td>
         <th>Prenom</th>
-        <td><?=$user->getFirstName()?></td>
+        <td><?php echo $user->getFirstName()?></td>
     </tr>
     <tr>
         <th>Pseudo</th>
-        <td><?=$user->getUsername()?></td>
+        <td><?php echo $user->getUsername()?></td>
         <th>Date de naissance</th>
-        <td><?=$user->getBirthdate()?></td>
+        <td><?php echo $user->getBirthdate()?></td>
     </tr>
     <tr>
         <th>Equipe</th>
         <td>
-            <? foreach ($user->getTeam() as $team): ?>
-                <?=$team->getName()?>
-            <? endforeach; ?>
+            <?php foreach ($user->getTeam() as $team): ?>
+                <?php echo $team->getName()?>
+            <?php endforeach; ?>
         </td>
         <th>Tournoi</th>
         <td>
-            <? foreach ($tournaments as $tournament): ?>
-                <?=$tournament->getTournament()->getName()?>
-            <? endforeach; ?>
+            <?php foreach ($tournaments as $tournament): ?>
+                <?php echo $tournament->getTournament()->getName()?>
+            <?php endforeach; ?>
         </td>
     </tr>
     <tr>
         <th>Code equipe</th>
         <td>
-            <? foreach ($user->getTeam() as $team): ?>
-                <?=$team->getSlug()?>
-            <? endforeach; ?>
+            <?php foreach ($user->getTeam() as $team): ?>
+                <?php echo $team->getSlug()?>
+            <?php endforeach; ?>
         </td>
         <th>Code joueur</th>
-        <td><?=$user->getLicenceGa()?></td>
+        <td><?php echo $user->getLicenceGa()?></td>
     </tr>
 </table>
 <br><br>
-<div class="barcode" onload="javascript:$('.barcode').barcode('<?=$user->getLicenceGa()?>', 'ean13');">barcode</div>
+<div class="barcode" onload="javascript:$('.barcode').barcode('<?php echo $user->getLicenceGa()?>', 'ean13');">barcode</div>

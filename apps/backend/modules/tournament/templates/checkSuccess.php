@@ -17,14 +17,14 @@
     <tbody>
         <?php foreach ($tournaments as $tournament): ?>
             <tr>
-                <td><?= image_tag('/uploads/jeux/icones/' . $tournament->getLogourl()) ?></td>
-                <td><a href="<?= url_for('tournament/edit?id_tournament=' . $tournament->getIdTournament()) ?>"><?= $tournament->getName() ?></a></td>
+                <td><?php echo  image_tag('/uploads/jeux/icones/' . $tournament->getLogourl()) ?></td>
+                <td><a href="<?php echo  url_for('tournament/edit?id_tournament=' . $tournament->getIdTournament()) ?>"><?php echo  $tournament->getName() ?></a></td>
                 <td><?php include_component('tournament', 'check', array('idtournament' => $tournament->getIdTournament())) ?></td>
-                <td><a href="<?= url_for('tournament/edit?id_tournament=' . $tournament->getIdTournament()) ?>">Modifier</a></td>
+                <td><a href="<?php echo  url_for('tournament/edit?id_tournament=' . $tournament->getIdTournament()) ?>">Modifier</a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 <br />
 <a href="<?php echo url_for('tournament/index') ?>" class="button">Retourner &agrave; la liste des tournoi</a>
-<a href="<?= url_for('tournament/check') ?>" class="button">Verifier l'int&eacute;grit&eacute; des slots</a>
+<a href="<?php echo  url_for('tournament/check') ?>" class="button">Verifier l'int&eacute;grit&eacute; des slots</a>

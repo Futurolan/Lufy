@@ -40,17 +40,17 @@ class tournament_slotActions extends sfActions {
 
 
             $teamplayers = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-            
+
 			$b = Doctrine::getTable('team')->isAlreadyInTournament();
             if ($b == true):
                 $this->tournamentslot = Doctrine::getTable('tournamentSlot')->findOneByTeamId($teamplayers->getTeamId());
 				$this->tournament = Doctrine::getTable('tournament')->findOneByIdTournament($this->tournamentslot->getTournamentId());
-				
+
 				$teamplayer=new TeamPlayer();
 				$this->countplayer = $teamplayer->countPlayer($teamplayers->getTeamId());
 				$this->countTournamentPlayer = $this->tournament->getPlayerPerTeam();
-                
-				
+
+
 				$this->commande = Doctrine::getTable('commande')->findOneByTournamentSlotId($this->tournamentslot->getIdTournamentSlot());
                 $this->payment = doctrine::getTable('payement')->findByCommandeId($this->commande->getIdCommande());
                 foreach ($this->payment as $thispayment):
@@ -302,16 +302,16 @@ class tournament_slotActions extends sfActions {
     }
 
     public function executeCheque(sfWebRequest $request) {
-    
+
         $this->userinfo = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-    
+
 
         // verification du nombre de joueurs et des infos de ces derniers
         $teamplayers = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
         $this->team = $teamplayers->getTeam();
-		
-		
-		
+
+
+
 		$c = Doctrine::getTable('tournamentSlot')
                         ->countPlayer($teamplayers['team_id']);
         $t = Doctrine::getTable('tournamentSlot')
@@ -352,9 +352,9 @@ class tournament_slotActions extends sfActions {
     }
 
     public function executePaypal(sfWebRequest $request) {
-    
+
         $this->userinfo = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-    
+
         // verification du nombre de joueurs et des infos de ces derniers
         $teamplayers = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
         $c = Doctrine::getTable('tournamentSlot')
@@ -394,11 +394,11 @@ class tournament_slotActions extends sfActions {
 
         $this->price = $this->tournament->getPlayerPerTeam() * $this->tournament->getCostPerPlayer() - $reduction;
         $this->pricettc = $this->price;
-        
+
         Doctrine::getTable('payement')->insertPrepayment($this->commande->getIdCommande(), $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'), $this->pricettc);
-        
+
         $maildebug = $this->getMailer()->compose();
-        $maildebug->setSubject('GA PROD::Validation paypal'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); 
+        $maildebug->setSubject('GA PROD::Validation paypal'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com');
         $bodymail = "Paiement paypal a valider<br>
                     ID joueur : ".$this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')."<br>
                     Team : ".$teamplayers->getTeam()->getName()."<br><br>
@@ -441,7 +441,7 @@ class tournament_slotActions extends sfActions {
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('etape 0');
         $this->getMailer()->send($maildebug);
-        
+
         // lire le formulaire provenant du systeme PayPal et ajouter 'cmd'
         $req = 'cmd=_notify-validate';
 
@@ -449,12 +449,12 @@ class tournament_slotActions extends sfActions {
             $value = urlencode(stripslashes($value));
             $req .= "&$key=$value";
         }
-        
+
         // DEBUG
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('etape 1');
         $this->getMailer()->send($maildebug);
-        
+
 // renvoyer au systeme PayPal pour validation
         $header = "POST /cgi-bin/webscr HTTP/1.0\r\n";
         $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
@@ -475,7 +475,7 @@ class tournament_slotActions extends sfActions {
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('etape 2');
         $this->getMailer()->send($maildebug);
-        
+
         if (!$fp) {
 
         } else {
@@ -488,7 +488,7 @@ class tournament_slotActions extends sfActions {
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('etape 3');
         $this->getMailer()->send($maildebug);
-        
+
                         // vÃ¯erifier que txn_id n'a pas ete precedemment traite: Creez une fonction qui va interroger votre base de donnees
                         //if (VerifIXNID($txn_id) == 0) {
                         if ("futuro_1288270597_biz_1288272659_biz@gmail.com" == $receiver_email) {
@@ -498,7 +498,7 @@ class tournament_slotActions extends sfActions {
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('etape 4');
         $this->getMailer()->send($maildebug);
-        
+
                             $o = Doctrine::getTable('tournamentSlot')
                                             ->getTournamentSlot($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
                             $commande = Doctrine::getTable('commande')->findOneByTournamentSlotId($o->getIdTournamentSlot());
@@ -526,7 +526,7 @@ class tournament_slotActions extends sfActions {
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('etape 5');
         $this->getMailer()->send($maildebug);
-        
+
                             $payments = Doctrine_Query::create()
                                             ->select('amount')
                                             ->from('payement')
@@ -537,7 +537,7 @@ class tournament_slotActions extends sfActions {
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('etape 6');
         $this->getMailer()->send($maildebug);
-        
+
                             foreach ($payments as $payment) {
                                 $this->paid = $payment->getAmount() + $this->paid;
                             };
@@ -620,31 +620,31 @@ class tournament_slotActions extends sfActions {
 
                             //
                         } else {
-                            
+
         // DEBUG
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('Erreur de mail paypal');
         $this->getMailer()->send($maildebug);
-        
+
                         };
                         // } else {
                         // ID de transaction deja utilise
                         //}
                     } else {
-                        
+
         // DEBUG
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('Echec du paiement');
         $this->getMailer()->send($maildebug);
-        
+
                     }
                 } else if (strcmp($res, "INVALID") == 0) {
-                    
+
         // DEBUG
         $maildebug = $this->getMailer()->compose();
         $maildebug->setSubject('GA DEBUG::Validation'); $maildebug->setTo('gmarsay@gmail.com'); $maildebug->setFrom('gmarsay@gmail.com'); $maildebug->setBody('transaction invalide');
         $this->getMailer()->send($maildebug);
-        
+
                 }
             }
             fclose($fp);

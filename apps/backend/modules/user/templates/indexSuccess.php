@@ -1,5 +1,5 @@
 <h2>Liste des joueurs</h2>
-<?=ajax_link(image_tag('/css/img/backend/16excel.png').' Exporter au format Excel 2007', 'user/exportCsv', array('class' => 'button'))?>
+<?php echo ajax_link(image_tag('/css/img/backend/16excel.png').' Exporter au format Excel 2007', 'user/exportCsv', array('class' => 'button'))?>
 <table class="table">
   <thead>
     <tr>
@@ -12,15 +12,15 @@
     </tr>
   </thead>
   <tbody>
-    <? foreach ($users as $user): ?>
+    <?php foreach ($users as $user): ?>
     <tr>
-      <td>#<?=$user->getUserId()?></td>
-	  <td><?=$user->getSfGuardUser()->getName()?> (<?=$user->getSfGuardUser()->getUsername()?>)</td>
-	  <td><?=$user->getTeam()->getName()?></td>
-      <td><?=$user->getSfGuardUser()->getLicenceMasters()?></td>
-      <td><?=$user->getSfGuardUser()->getLicenceGa()?></td>
-      <td><a href="<?=url_for('user/view?user_id='.$user->getUserId())?>">Infos</a></td>
+      <td>#<?php echo $user->getUserId()?></td>
+	  <td><?php echo $user->getSfGuardUser()->getName()?> (<?php echo $user->getSfGuardUser()->getUsername()?>)</td>
+	  <td><?php echo $user->getTeam()->getName()?></td>
+      <td><?php echo $user->getSfGuardUser()->getLicenceMasters()?></td>
+      <td><?php echo $user->getSfGuardUser()->getLicenceGa()?></td>
+      <td><a href="<?php echo url_for('user/view?user_id='.$user->getUserId())?>">Infos</a></td>
     </tr>
-    <? endforeach; ?>
+    <?php endforeach; ?>
   </tbody>
 </table>

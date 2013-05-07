@@ -18,7 +18,7 @@
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
       <tr>
-        <th><?=__('Numero de licence Masters')?></th>
+        <th><?php echo __('Numero de licence Masters')?></th>
         <td>
           <?php echo $form['licence_masters']->renderError() ?>
           <?php echo $form['licence_masters'] ?>

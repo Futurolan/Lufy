@@ -17,7 +17,7 @@
     <?php foreach ($commandes as $commande): ?>
     <tr>
       <td><a href="<?php echo url_for('commande/edit?id_commande='.$commande->getIdCommande()) ?>"><?php echo $commande->getIdCommande() ?></a></td>
-      <td><?php echo ajax_link($commande->getTournamentSlotId(), 'tournament_slot/tournament?slug='.$commande->getTournamentSlot()->getTournament()->getSlug()) ?> (<?=$commande->getTournamentSlot()->getTournament()->getName()?>)</td>
+      <td><?php echo ajax_link($commande->getTournamentSlotId(), 'tournament_slot/tournament?slug='.$commande->getTournamentSlot()->getTournament()->getSlug()) ?> (<?php echo $commande->getTournamentSlot()->getTournament()->getName()?>)</td>
       <td><?php echo $commande->getItemName() ?></td>
       <td><?php echo $commande->getAmount() ?> &euro;</td>
       <td><?php echo $commande->getCreatedAt() ?></td>

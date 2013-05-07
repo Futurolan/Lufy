@@ -1,7 +1,7 @@
-<h2>Actualit&eacute;s > <?=$news->getTitle()?> > Aper&ccedil;u</h2>
+<h2>Actualit&eacute;s > <?php echo $news->getTitle()?> > Aper&ccedil;u</h2>
 
-<? use_helper('bb') ?>
-<? use_helper('Date') ?>
+<?php use_helper('bb') ?>
+<?php use_helper('Date') ?>
 
 <style>
 .box {
@@ -36,9 +36,9 @@
 }
 </style>
 <div class="box">
-    <div class="title"><?=ucfirst($news->getTitle())?></div>
+    <div class="title"><?php echo ucfirst($news->getTitle())?></div>
     <div class="content">
-                <span style="font-size: 10px; color: grey;">Publi&eacute; le <?=format_date($news->getPublishOn(), 'dd/MM/yyy')?> par <?=link_to($news->getSfGuardUser(), 'user/view?username='.$news->getSfGuardUser())?></span>
-    <?=bb_parse($news->getContent())?>
+                <span style="font-size: 10px; color: grey;">Publi&eacute; le <?php echo format_date($news->getPublishOn(), 'dd/MM/yyy')?> par <?php echo link_to($news->getSfGuardUser(), 'user/view?username='.$news->getSfGuardUser())?></span>
+    <?php echo bb_parse($news->getContent())?>
     </div>
 </div>

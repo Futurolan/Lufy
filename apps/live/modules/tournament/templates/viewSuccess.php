@@ -1,37 +1,37 @@
 <div class="box">
-    <div class="title"><?=$tournament->getName()?></div>
+    <div class="title"><?php echo $tournament->getName()?></div>
     <div class="content">
     <table>
         <tr>
-            <td valign="top"><?= image_tag('/uploads/jeux/images/' . $tournament->getGame()->getLogourl()) ?></td>
+            <td valign="top"><?php echo  image_tag('/uploads/jeux/images/' . $tournament->getGame()->getLogourl()) ?></td>
             <td valign="top">
-                <?= $tournament->getGame()->getDescription() ?><br/><br/>
-                <?=__('Type')?> : <?= $tournament->getGame()->getGameType() ?><br/>
-                <?=__('Editeur')?> : <?= $tournament->getGame()->getEditor() ?><br/>
-                <?=__('Plateforme')?> : <?= $tournament->getGame()->getPlateform()->getConstructor() ?> <?= $tournament->getGame()->getPlateform() ?>
+                <?php echo  $tournament->getGame()->getDescription() ?><br/><br/>
+                <?php echo __('Type')?> : <?php echo  $tournament->getGame()->getGameType() ?><br/>
+                <?php echo __('Editeur')?> : <?php echo  $tournament->getGame()->getEditor() ?><br/>
+                <?php echo __('Plateforme')?> : <?php echo  $tournament->getGame()->getPlateform()->getConstructor() ?> <?php echo  $tournament->getGame()->getPlateform() ?>
                 <br/><br/>
-                <?=__('Le tournoi se joue par equipe de')?> <?= $tournament->getPlayerPerTeam() ?> <?=__('joueur(s). Les inscriptions sont ouvertes pour')?> <?= $tournament->getNumberTeam() ?> &eacute;quipes.<br/><br/>
-                <?=__('Prix d entree (par joueur)')?> : <?= $tournament->getCostPerPlayer() ?> &euro;
+                <?php echo __('Le tournoi se joue par equipe de')?> <?php echo  $tournament->getPlayerPerTeam() ?> <?php echo __('joueur(s). Les inscriptions sont ouvertes pour')?> <?php echo  $tournament->getNumberTeam() ?> &eacute;quipes.<br/><br/>
+                <?php echo __('Prix d entree (par joueur)')?> : <?php echo  $tournament->getCostPerPlayer() ?> &euro;
                 <br/><br/>
-                <? $maintenant = date("Y-m-d H:i:s"); ?>
-                <? if ($event->getStartRegistrationAt() < $maintenant): ?>
-                <? if ($maintenant < $event->getEndRegistrationAt()): ?>
-				<? endif; ?>
-                <? endif; ?>
-                <p><?=__('Les admins de ce tournoi sont')?> :<br/>
-                <? foreach($tadmins as $tadmin):?>
-                    <a href="<?= url_for('user/view?username=' . $tadmin->getUsername($tadmin->getUserId())) ?>"><?=$tadmin->getUsername($tadmin->getUserId());?></a>
-                <? endforeach;?>
+                <?php $maintenant = date("Y-m-d H:i:s"); ?>
+                <?php if ($event->getStartRegistrationAt() < $maintenant): ?>
+                <?php if ($maintenant < $event->getEndRegistrationAt()): ?>
+				<?php endif; ?>
+                <?php endif; ?>
+                <p><?php echo __('Les admins de ce tournoi sont')?> :<br/>
+                <?php foreach($tadmins as $tadmin):?>
+                    <a href="<?php echo  url_for('user/view?username=' . $tadmin->getUsername($tadmin->getUserId())) ?>"><?php echo $tadmin->getUsername($tadmin->getUserId());?></a>
+                <?php endforeach;?>
                 </p>
 
                     </td>
                 </tr>
             </table>
 <br/>
-    <div class="title"><?=__('Informations')?></div>
-            <?=$page->getContent(ESC_RAW)?>
+    <div class="title"><?php echo __('Informations')?></div>
+            <?php echo $page->getContent(ESC_RAW)?>
 <br/>
-    <div class="title"><?=__('Liste des equipes inscrites')?></div>
+    <div class="title"><?php echo __('Liste des equipes inscrites')?></div>
     <?php include_component('tournament_slot', 'teamAndPlayers', array('idtournament' => $tournament['id_tournament'], 'numberteam' => $tournament['number_team'])) ?>
     </div>
 </div>

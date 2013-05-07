@@ -1,15 +1,15 @@
-<h2>Equipes > <?=$team->getName()?></h2>
+<h2>Equipes > <?php echo $team->getName()?></h2>
 
 <fieldset>
     <legend>Informations</legend>
     <table class="table">
         <tr>
             <th>Equipe</th>
-            <td><?=$team->getName()?></td>
+            <td><?php echo $team->getName()?></td>
         </tr>
         <tr>
             <th>Tag</th>
-            <td><?=$team->getTag()?></td>
+            <td><?php echo $team->getTag()?></td>
         </tr>
         <tr>
             <th>Pays</th>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <th>Site web</th>
-            <td><?=$team->getWebsite()?></td>
+            <td><?php echo $team->getWebsite()?></td>
         </tr>
 </table>
 </fieldset>
@@ -28,40 +28,40 @@
         <tr>
             <th>ID Slot</th>
             <td>
-              <? if ($team->getTournamentSlot()->getIdTournamentSlot()): ?>
-                <?=ajax_link($team->getTournamentSlot()->getIdTournamentSlot(), 'tournament_slot/tournament?slug='.$team->getTournamentSlot()->getTournament()->getSlug())?>
-              <? endif; ?>
+              <?php if ($team->getTournamentSlot()->getIdTournamentSlot()): ?>
+                <?php echo ajax_link($team->getTournamentSlot()->getIdTournamentSlot(), 'tournament_slot/tournament?slug='.$team->getTournamentSlot()->getTournament()->getSlug())?>
+              <?php endif; ?>
             </td>
         </tr>
         <tr>
             <th>Tournoi</th>
             <td>
-              <? if ($team->getTournamentSlot()->getTournament()->getName()): ?>
-                <?=ajax_link($team->getTournamentSlot()->getTournament()->getName(), 'tournament/edit?id_tournament='.$team->getTournamentSlot()->getTournamentId())?>
-              <? endif; ?>
+              <?php if ($team->getTournamentSlot()->getTournament()->getName()): ?>
+                <?php echo ajax_link($team->getTournamentSlot()->getTournament()->getName(), 'tournament/edit?id_tournament='.$team->getTournamentSlot()->getTournamentId())?>
+              <?php endif; ?>
             </td>
         </tr>
         <tr>
             <th>Statut</th>
-            <td><?=$team->getTournamentSlot()->getStatus()?></td>
+            <td><?php echo $team->getTournamentSlot()->getStatus()?></td>
         </tr>
         <tr>
             <th>ID commande</th>
             <td>
-              <? if ($team->getTournamentSlot()->getCommande()->getIdCommande()): ?>
-                <?=ajax_link($team->getTournamentSlot()->getCommande()->getIdCommande(), 'commande/edit?id_commande='.$team->getTournamentSlot()->getCommande()->getIdCommande())?>
-              <? endif; ?>
+              <?php if ($team->getTournamentSlot()->getCommande()->getIdCommande()): ?>
+                <?php echo ajax_link($team->getTournamentSlot()->getCommande()->getIdCommande(), 'commande/edit?id_commande='.$team->getTournamentSlot()->getCommande()->getIdCommande())?>
+              <?php endif; ?>
             </td>
         </tr>
         <tr>
             <th>Montant commande</th>
-            <td><?=$team->getTournamentSlot()->getCommande()->getAmount()?> &euro;</td>
+            <td><?php echo $team->getTournamentSlot()->getCommande()->getAmount()?> &euro;</td>
         </tr>
-        <? foreach ($team->getTournamentSlot()->getCommande()->getPayement() as $payement): ?>
-            <tr id="payement-<?=$payement->getIdPayement()?>">
+        <?php foreach ($team->getTournamentSlot()->getCommande()->getPayement() as $payement): ?>
+            <tr id="payement-<?php echo $payement->getIdPayement()?>">
                 <th>Montant paiement</th>
                 <td>
-                    <?=$payement->getAmount()?> &euro; 
+                    <?php echo $payement->getAmount()?> &euro; 
                     (
                     <?
                     if ($payement->getIsPaypal() == 1):
@@ -79,11 +79,11 @@
                     endif;
                     ?>
                     ) 
-                    <?=ajax_link('Voir le paiement', 'payement/edit?id_payement='.$payement->getIdPayement(), array('class' => 'button small'))?>
-                    <a class="button small" onclick="payement_delete(<?=$payement->getIdPayement()?>);">Supprimer le paiement</a>
+                    <?php echo ajax_link('Voir le paiement', 'payement/edit?id_payement='.$payement->getIdPayement(), array('class' => 'button small'))?>
+                    <a class="button small" onclick="payement_delete(<?php echo $payement->getIdPayement()?>);">Supprimer le paiement</a>
                 </td>
             </tr>
-        <? endforeach; ?>
+        <?php endforeach; ?>
 
     </table>
 </fieldset>
@@ -108,7 +108,7 @@
             ?>
             </th>
             <td>
-                <?=ajax_link($player->getSfGuardUser()->getUsername(), 'user/view?user_id='.$player->getSfGuardUser()->getId())?> (<?=$player->getSfGuardUser()->getFirstName()?> <?=$player->getSfGuardUser()->getLastName()?>)
+                <?php echo ajax_link($player->getSfGuardUser()->getUsername(), 'user/view?user_id='.$player->getSfGuardUser()->getId())?> (<?php echo $player->getSfGuardUser()->getFirstName()?> <?php echo $player->getSfGuardUser()->getLastName()?>)
             </td>
         </tr>
     <?

@@ -15,24 +15,24 @@
 <table class="listteam" cellspacing="0" cellpadding="5">
     <tr>
         <th>#</th>
-        <th><?=__('Nom de l equipe')?></th>
+        <th><?php echo __('Nom de l equipe')?></th>
     </tr>
-    <? $i = '0'; ?>
+    <?php $i = '0'; ?>
     <?php foreach ($slots as $slot): ?>
-    <? $i++ ?>
-    <? if ($i == $attente): ?>
+    <?php $i++ ?>
+    <?php if ($i == $attente): ?>
         <tr>
-            <th colspan="3"><?=__('Debut de la liste d attente')?></th>
+            <th colspan="3"><?php echo __('Debut de la liste d attente')?></th>
         </tr>
-    <? endif ?>
+    <?php endif ?>
         
-        <tr class="status_<?=$slot->getStatus(); ?>">
-            <td><?= $slot->getPosition() ?></td>
-            <td><? if (!$slot->getTeamId()): ?><?= $slot->getStatus() ?>
-            <? else: ?>
-                <b><?= link_to($slot->TeamName($slot->getTeamId()), 'team/view?slug=' . $slot->TeamSlug($slot->getTeamId())); ?></b>
+        <tr class="status_<?php echo $slot->getStatus(); ?>">
+            <td><?php echo  $slot->getPosition() ?></td>
+            <td><?php if (!$slot->getTeamId()): ?><?php echo  $slot->getStatus() ?>
+            <?php else: ?>
+                <b><?php echo  link_to($slot->TeamName($slot->getTeamId()), 'team/view?slug=' . $slot->TeamSlug($slot->getTeamId())); ?></b>
                 </td>
-        <? endif; ?>
+        <?php endif; ?>
         </tr>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </table>

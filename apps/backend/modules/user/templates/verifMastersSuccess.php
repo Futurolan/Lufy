@@ -10,23 +10,23 @@
     <tbody>
         <tr>
             <td>Test du num&eacute;ro de licence</td>
-            <td><?=$user->getLicenceMasters()?></td>
-            <td><?= $test1 ?></td>
+            <td><?php echo $user->getLicenceMasters()?></td>
+            <td><?php echo  $test1 ?></td>
         </tr>
         <tr>
             <td>Test du Pr&eacute;nom</td>
-            <td><?=$user->getFirstName()?></td>
-            <td><?= $test2 ?></td>
+            <td><?php echo $user->getFirstName()?></td>
+            <td><?php echo  $test2 ?></td>
         </tr>
         <tr>
             <td>Test du Nom</td>
-            <td><?=$user->getLastName()?></td>
-            <td><?= $test3 ?></td>
+            <td><?php echo $user->getLastName()?></td>
+            <td><?php echo  $test3 ?></td>
         </tr>
         <tr>
             <td>Test de la date de Naissance</td>
-            <td><?=$user->getBirthdate()?></td>
-            <td><?= $test4 ?></td>
+            <td><?php echo $user->getBirthdate()?></td>
+            <td><?php echo  $test4 ?></td>
         </tr>
     </tbody>
 </table>

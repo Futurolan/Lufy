@@ -16,31 +16,31 @@
 
 <h2>Gestion des tournois</h2>
 
-<form method="POST" action="<?=url_for('tournament/updatePosition')?>">
+<form method="POST" action="<?php echo url_for('tournament/updatePosition')?>">
 
 <input type="submit" value="Enregistrer les changements"  class="button save"/>
 <a href="<?php echo url_for('tournament/new') ?>" class="button add">Ajouter un tournois</a>
 
 <ul id="jquery-ui-tournament">
-  <? $i= 0; foreach ($tournaments as $tournament): $i++; ?>
+  <?php $i= 0; foreach ($tournaments as $tournament): $i++; ?>
     <?php
     if ($tournament->getIsActive() == '0'): ?>
         <li class="inactive">
-    <? else: ?>
+    <?php else: ?>
         <li>
-    <? endif; ?>
+    <?php endif; ?>
         <table width="800px;">
             <tr height="30">
                 <td width="30px" align="center" valign="center">
-                    <?=image_tag('/uploads/jeux/icones/'.$tournament->getLogourl())?>
-                    <input type="hidden" name="tournament[<?=$i?>][id]" value="<?=$tournament->getIdTournament()?>" />
-                    <input type="hidden" class="positionInput" name="tournament[<?=$i?>][position]" value="<?=$tournament->getPosition()?>" /> 
+                    <?php echo image_tag('/uploads/jeux/icones/'.$tournament->getLogourl())?>
+                    <input type="hidden" name="tournament[<?php echo $i?>][id]" value="<?php echo $tournament->getIdTournament()?>" />
+                    <input type="hidden" class="positionInput" name="tournament[<?php echo $i?>][position]" value="<?php echo $tournament->getPosition()?>" /> 
                 </td>
                 <td width="305">
-                    <a href="<?=url_for('tournament/view?slug='.$tournament->getSlug()) ?>"><?=$tournament->getName()?></a>
+                    <a href="<?php echo url_for('tournament/view?slug='.$tournament->getSlug()) ?>"><?php echo $tournament->getName()?></a>
                 </td>
                 <td>
-                    <?=$tournament->getEvent()?>
+                    <?php echo $tournament->getEvent()?>
                 </td>
                 <td width="150px">
                     <?php echo ajax_link('Modifier','tournament/edit?id_tournament='.$tournament->getIdTournament()) ?> - 
@@ -51,6 +51,6 @@
       
        
     </li>
-  <? endforeach; ?>
+  <?php endforeach; ?>
 </ul>
 </form>

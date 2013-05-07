@@ -38,10 +38,10 @@ class sfWidgetFormDate extends sfWidgetForm
    */
   protected function configure($options = array(), $attributes = array())
   {
-    $this->addOption('format', '%month%%day%%year%');
+    $this->addOption('format', '%month%/%day%/%year%');
     $this->addOption('days', parent::generateTwoCharsRange(1, 31));
     $this->addOption('months', parent::generateTwoCharsRange(1, 12));
-    $years = range(date('Y') - 1, date('Y') + 1);
+    $years = range(date('Y') - 5, date('Y') + 5);
     $this->addOption('years', array_combine($years, $years));
 
     $this->addOption('can_be_empty', true);

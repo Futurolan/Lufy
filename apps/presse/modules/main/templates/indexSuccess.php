@@ -1,10 +1,10 @@
 <div class="box">
-    <div class="title"><?=$homepage->getTitle()?></div>
+    <div class="title"><?php echo $homepage->getTitle()?></div>
   <div class="content">
 
     <div style="width: 425px; float: left; margin-right: 25px;">
       <div class="subtitle">Actualit&eacute;s</div>
-      <? include_component('news', 'actualite'); ?>
+      <?php include_component('news', 'actualite'); ?>
     </div>
 
     <div style="width: 325px; float: left; margin-left: 25px;">
@@ -16,7 +16,7 @@
 
     <div style="clear: left;">&nbsp;</div>
 
-    <?=$homepage->getContent(ESC_RAW)?>
+    <?php echo $homepage->getContent(ESC_RAW)?>
 
   </div>
 </div>

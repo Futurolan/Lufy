@@ -8,14 +8,14 @@
 <div class="box" style="width: 320px; float:left;">
     <div class="title">Nous sommes aussi sur...</div>
     <div class="content">
-        <a href="#" border="0"><?=image_tag('../uploads/encarts-special/millenium.png')?></a>
-        <a href="#" border="0"><?=image_tag('../uploads/encarts-special/frequence3.png')?></a>
+        <a href="#" border="0"><?php echo image_tag('../uploads/encarts-special/millenium.png')?></a>
+        <a href="#" border="0"><?php echo image_tag('../uploads/encarts-special/frequence3.png')?></a>
     </div>
 </div>
 <div style="clear: left;"></div>
 
 <div class="box" style="width: 400px; float:left;">
-    <div class="title"><?=__('Actualite')?></div>
+    <div class="title"><?php echo __('Actualite')?></div>
     <div class="content">
         <?php include_component('news', 'actualitelight'); ?>
     </div>

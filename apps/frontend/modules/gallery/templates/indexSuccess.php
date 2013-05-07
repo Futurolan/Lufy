@@ -9,19 +9,19 @@
 <div class="box" style="float: left; width: 460px;">
     <div class="title">Photos</div>
     <div class="content">
-        <? foreach ($gallerys as $gallery): ?>
+        <?php foreach ($gallerys as $gallery): ?>
             <ul class="gallery-box">
-                <li class="gallery-title"><?=link_to($gallery->getTitle(), 'gallery/view?slug='.$gallery->getSlug()) ?></li>
+                <li class="gallery-title"><?php echo link_to($gallery->getTitle(), 'gallery/view?slug='.$gallery->getSlug()) ?></li>
                 <li class="gallery-content"><?php echo $gallery->getDescription() ?></li>
             </ul>
-        <? endforeach; ?>
+        <?php endforeach; ?>
         <ul style="clear: left;"></ul>
     </div>
 </div>
 <div class="box" style="float: left; width: 230px;">
     <div class="title">Vid&eacute;os</div>
     <div class="content">
-        <? include_component('file', 'videos') ?>
+        <?php include_component('file', 'videos') ?>
     </div>
 </div>
 <div class="box" style="float: left; width: 220px;">

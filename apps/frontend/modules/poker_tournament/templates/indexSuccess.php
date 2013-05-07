@@ -9,5 +9,5 @@
     <br/>
     <?php endforeach; ?>
     <br/>
-    <div style="width: 600px; margin: auto auto;"><a href="http://www.arjel.fr/" target="_blank"><?=image_tag('mention-poker.png')?></a></div>
+    <div style="width: 600px; margin: auto auto;"><a href="http://www.arjel.fr/" target="_blank"><?php echo image_tag('mention-poker.png')?></a></div>
 </div>

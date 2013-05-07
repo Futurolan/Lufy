@@ -1,4 +1,4 @@
-<? use_helper('bb') ?>
+<?php use_helper('bb') ?>
 <div class="box">
     <div class="title">Foire aux questions</div>
     <div class="content">

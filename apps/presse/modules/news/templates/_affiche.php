@@ -10,8 +10,8 @@
 </script>
 <div id="slideshow">
           <?php foreach($affiches as $affiche):?>
-            <a href="<?=url_for('news/view?slug='.$affiche->getSlug())?>">
-              <?=image_tag('/uploads/news/affiche/'.$affiche->getImage(), 'alt="'.$affiche->getTitle().'" title="'.$affiche->getTitle().'" class="logo"') ?>
+            <a href="<?php echo url_for('news/view?slug='.$affiche->getSlug())?>">
+              <?php echo image_tag('/uploads/news/affiche/'.$affiche->getImage(), 'alt="'.$affiche->getTitle().'" title="'.$affiche->getTitle().'" class="logo"') ?>
             </a>
-          <? endforeach; ?>
+          <?php endforeach; ?>
 </div>

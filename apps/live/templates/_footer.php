@@ -14,14 +14,14 @@
 <div class="box">
   <div class="title">Menu</div>
   <div class="content">
-  - <?=link_to('Accueil', '@homepage')?><br/>
-  - <?=link_to('Informations', 'page/view?slug=informations-pratiques-ga-2011-fr')?><br/>
-  - <?=link_to('News', 'news/index')?><br/>
-  - <?=link_to('Palmarès', 'page/view?slug=palmares')?><br/>
-  - <?=link_to('Photos/Vidéos', 'gallery/index')?><br/>
-  - <?=link_to('Presse', 'page/view?slug=presse')?><br/>
-  - <?=link_to('Contact', 'page/view?slug=contact')?><br/>
-  - <?=link_to('Mentions l&eacute;gales', 'page/view?slug=mentions-legales')?>
+  - <?php echo link_to('Accueil', '@homepage')?><br/>
+  - <?php echo link_to('Informations', 'page/view?slug=informations-pratiques-ga-2011-fr')?><br/>
+  - <?php echo link_to('News', 'news/index')?><br/>
+  - <?php echo link_to('Palmarès', 'page/view?slug=palmares')?><br/>
+  - <?php echo link_to('Photos/Vidéos', 'gallery/index')?><br/>
+  - <?php echo link_to('Presse', 'page/view?slug=presse')?><br/>
+  - <?php echo link_to('Contact', 'page/view?slug=contact')?><br/>
+  - <?php echo link_to('Mentions l&eacute;gales', 'page/view?slug=mentions-legales')?>
   </div>
 </div>
 

@@ -4,16 +4,16 @@
 
 
 
-    <? if (count($friends) == 0): ?>
+    <?php if (count($friends) == 0): ?>
         <i><span class="grey">Vous n'avez pas d'amis actuellement.</span></i>
-    <? else: ?>
+    <?php else: ?>
         <p>Liste d'amis:<p/>
         <ul>
         <?php foreach ($friends as $friend): ?>
             <li>
-            <?= $friend->getSfGuardUser()->getUsername() ?>
+            <?php echo  $friend->getSfGuardUser()->getUsername() ?>
             </li>
         <?php endforeach; ?>
         </ul>
-     <? endif; ?>
+     <?php endif; ?>
 </div>
