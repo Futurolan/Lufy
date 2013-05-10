@@ -662,7 +662,7 @@ TournamentAdmin:
       primary: true
       autoincrement: true
     user_id:
-      type: integer(8)
+      type: integer(4)
       notnull: true
     tournament_id:
       type: integer(4)
@@ -915,16 +915,16 @@ PokerTournamentPlayer:
       primary: true
       autoincrement: true
     user_id:
-      type: integer(8)
+      type: int(8)
       notnull: true
     poker_tournement_id:
-      type: integer(4)
+      type: int(4)
       notnull: true
     pseudo:
       type: string(50)
       notnull: true
     is_invite:
-      type: integer(2)
+      type: int(2)
       default: '0'
   relations:
     PokerTournament:

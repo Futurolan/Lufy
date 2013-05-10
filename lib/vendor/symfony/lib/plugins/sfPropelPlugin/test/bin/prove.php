@@ -12,7 +12,7 @@ require_once dirname(__FILE__).'/../../../../../lib/vendor/lime/lime.php';
 require_once dirname(__FILE__).'/../../../../../lib/util/sfToolkit.class.php';
 require_once dirname(__FILE__).'/../../../../../lib/util/sfFinder.class.php';
 
-if ($files = glob(sfToolkit::getTmpDir().DIRECTORY_SEPARATOR.'/sf_autoload_unit_*'))
+if ($files = glob(sys_get_temp_dir().DIRECTORY_SEPARATOR.'/sf_autoload_unit_*'))
 {
   foreach ($files as $file)
   {
