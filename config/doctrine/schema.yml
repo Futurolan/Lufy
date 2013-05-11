@@ -15,7 +15,7 @@ Block:
     link:
       type: string(255)
     position:
-      type: int(4)
+      type: integer(4)
     is_active:
       type: integer(1)
       default: '0'
@@ -35,9 +35,9 @@ Comment:
     user_id:
       type: integer(8)
     content:
-      type: string()
+      type: text
     status:
-      type: int(2)
+      type: integer(2)
       default: 1
   relations:
     News:
@@ -45,6 +45,7 @@ Comment:
       foreign: id_news
       type: one
     SfGuardUser:
+      class: sfGuardUser
       local: user_id
       foreign: id
       type: one
@@ -61,7 +62,7 @@ Event:
       type: string(45)
       notnull: true
     description:
-      type: string()
+      type: text
       notnull: false
     image:
       type: string(255)
@@ -102,6 +103,7 @@ Friend:
       notnull: true
   relations:
     SfGuardUser:
+      class: sfGuardUser
       local: friend_id
       foreign: id
       type: one
@@ -180,7 +182,7 @@ Page:
       type: string(250)
       notnull: true
     content:
-      type: string()
+      type: text
       notnull: false
     status:
       type: integer(4)
@@ -210,7 +212,7 @@ PageType:
       type: string(100)
       notnull: true
     description:
-      type: string()
+      type: text
       notnull: false
     permission:
       type: integer(4)
@@ -240,10 +242,10 @@ News:
       type: string(250)
       notnull: true
     summary:
-      type: string()
+      type: text
       notnull: false
     content:
-      type: string()
+      type: text
       notnull: false
     status:
       type: string(45)
@@ -263,6 +265,7 @@ News:
       foreign: id_news_type
       type: one
     SfGuardUser:
+      class: sfGuardUser
       local: user_id
       foreign: id
       type: one
@@ -283,7 +286,7 @@ NewsType:
       type: string(100)
       notnull: true
     description:
-      type: string()
+      type: text
       notnull: false
     logourl:
       type: string(250)
@@ -314,7 +317,7 @@ Newsletter:
       type: string(255)
       notnull: true
     content:
-      type: string()
+      type: text
       notnull: true
 
 Mail:
@@ -340,7 +343,7 @@ Mail:
       type: string(255)
       notnull: true
     content:
-      type: string()
+      type: text
       notnull: true
 
 Commande:
@@ -363,7 +366,7 @@ Commande:
       type: integer(8)
       notnull: true
     reduction:
-      type: string()
+      type: text
   relations:
     TournamentSlot:
       local: tournament_slot_id
@@ -382,7 +385,7 @@ Partner:
       type: string(45)
       notnull: true
     description:
-      type: string()
+      type: text
       notnull: false
     logourl:
       type: string(250)
@@ -417,7 +420,7 @@ PartnerType:
       type: string(100)
       notnull: true
     description:
-      type: string()
+      type: text
       notnull: false
     status:
       type: string(45)
@@ -455,10 +458,10 @@ Payement:
       type: string(50)
       notnull: true
     is_valid:
-      type: int(2)
+      type: integer(2)
       notnull: true
     is_paypal:
-      type: int(2)
+      type: integer(2)
       notnull: true
   relations:
     Commande:
@@ -466,6 +469,7 @@ Payement:
       foreign: id_commande
       type: one
     SfGuardUser:
+      class: sfGuardUser
       local: user_cashman_id
       foreign: id
       type: one
@@ -515,7 +519,7 @@ Team:
       type: string(10)
       notnull: false
     description:
-      type: string()
+      type: text
       notnull: false
     website:
       type: string(250)
@@ -524,7 +528,7 @@ Team:
       type: string(250)
       notnull: false
     locked:
-      type: int(2)
+      type: integer(2)
       default: '0'
       notnull: true
   relations:
@@ -571,6 +575,7 @@ TeamPlayer:
       foreign: id_team
       type: one
     SfGuardUser:
+      class: sfGuardUser
       local: user_id
       foreign: id
       type: one
@@ -627,7 +632,7 @@ Tournament:
       type: string(255)
       notnull: false
     position:
-      type: int(4)
+      type: integer(4)
     is_active:
       type: integer(1)
       default: '0'
@@ -662,7 +667,7 @@ TournamentAdmin:
       primary: true
       autoincrement: true
     user_id:
-      type: integer(4)
+      type: integer(8)
       notnull: true
     tournament_id:
       type: integer(4)
@@ -715,6 +720,7 @@ TournamentSlot:
       foreign: id_tournament
       type: one
     SfGuardUser:
+      class: sfGuardUser
       local: user_id
       foreign: id
       type: one
@@ -753,10 +759,12 @@ Invite:
       foreign: id_team
       type: one
     SfGuardUser:
+      class: sfGuardUser
       local: user_id
       foreign: id
       type: one
     SfGuardUser_2:
+      class: sfGuardUser
       local: friend_id
       foreign: id
       type: one
@@ -863,7 +871,7 @@ File:
     position:
       type: integer(8)
     status:
-      type: int(2)
+      type: integer(2)
   relations:
     FileType:
       local: file_type_id
@@ -889,19 +897,19 @@ PokerTournament:
       type: string(50)
       notnull: true
     description:
-      type: string()
+      type: text
     image:
       type: string(255)
     number_slot:
-      type: int(4)
+      type: integer(4)
     slot_reserved:
-      type: int(4)
+      type: integer(4)
     start_at:
       type: timestamp(25)
     end_at:
       type: timestamp(25)
     is_active:
-      type: int(1)
+      type: integer(1)
       default: '0'
 
 PokerTournamentPlayer:
@@ -915,16 +923,16 @@ PokerTournamentPlayer:
       primary: true
       autoincrement: true
     user_id:
-      type: int(8)
+      type: integer(8)
       notnull: true
     poker_tournement_id:
-      type: int(4)
+      type: integer(4)
       notnull: true
     pseudo:
       type: string(50)
       notnull: true
     is_invite:
-      type: int(2)
+      type: integer(2)
       default: '0'
   relations:
     PokerTournament:
@@ -949,6 +957,7 @@ Tshirt:
       notnull: true
   relations:
     SfGuardUser:
+      class: sfGuardUser
       local: user_id
       foreign: id
       type: one
