@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class fileActions extends sfActions
+class fileActions extends FrontendActions
 {
  /**
   * Executes index action
@@ -19,7 +19,7 @@ class fileActions extends sfActions
   {
     //$this->forward('default', 'module');
   }
-  
+
   public function executeView(sfWebRequest $request)
   {
     $this->fileCategory = Doctrine::getTable('fileCategory')->findOneBySlug($request->getParameter('slug',''));

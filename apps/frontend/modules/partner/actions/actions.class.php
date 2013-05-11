@@ -7,7 +7,7 @@
  * @subpackage partner
  * @author     Guillaume Marsay <guillaume@futurolan.net>
  */
-class partnerActions extends sfActions
+class partnerActions extends FrontendActions
 {
   public function executeIndex(sfWebRequest $request)
   {

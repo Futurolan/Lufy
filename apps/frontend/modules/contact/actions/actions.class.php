@@ -8,47 +8,45 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class contactActions extends sfActions
+class contactActions extends FrontendActions
 {
+  public function executePresseAccred(sfWebRequest $request)
+  {
+  }
 
-	public function executePresseAccred(sfWebRequest $request)
-	{
-		
-	}
+  /**
+   * Executes Partner action
+   *
+   * @param sfRequest $request A request object
+   */
+  public function executePartner(sfWebRequest $request)
+  {
+    $this->form = new ContactPartnerForm();
+  }
 
-        /**
-         * Executes Partner action
-         *
-         * @param sfRequest $request A request object
-         */
-        public function executePartner(sfWebRequest $request)
-        {
-                $this->form = new ContactPartnerForm();
-        }
+  /**
+   * Executes SensContactPartner action
+   *
+   * @param sfRequest $request A request object
+   */
+  public function executeSendcontactpartner (sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod('post')) ;
+    $form = new ContactPartnerForm();
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
 
-	/**
-	 * Executes SensContactPartner action
-	 *
-	 * @param sfRequest $request A request object
-	 */
-	public function executeSendcontactpartner (sfWebRequest $request)
-	{
-		$this->forward404Unless($request->isMethod('post')) ;
-                $form = new ContactPartnerForm();
-                $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $destinataire='guillaume@futurolan.net';
 
-                if ($form->isValid())
-                {
-                        $destinataire='guillaume@futurolan.net';
+      $contact=$request->getParameters('contactPartner');
+      $auteur_nom = $contact['nom'];
+      $auteur_prenom = $contact['prenom'];
+      $auteur_email = $contact['email'];
 
-                        $contact=$request->getParameters('contactPartner');
-                        $auteur_nom= $contact['nom'];
-                        $auteur_prenom= $contact['prenom'];
-                        $auteur_email= $contact['email'];
+      $auteur = $auteur_prenom.' '.$auteur_nom . (($auteur_email) ? ' ('. $auteur_email .') ' : '');
 
-                        $auteur= $auteur_prenom.' '.$auteur_nom . (($auteur_email) ? ' ('. $auteur_email .') ' : '');
-
-                        $plain= $auteur .' a rempli le formulaire ci dessous sur le site Gamers Assembly le ' .date ('d/m/Y H:i'). "\n\n".str_repeat("--", 80)."\n".
+      $plain = $auteur .' a rempli le formulaire ci dessous sur le site Gamers Assembly le ' .date ('d/m/Y H:i'). "\n\n".str_repeat("--", 80)."\n".
 			'Societe : '. $contact['societe']."\n".
                         'Nom : '. $contact['nom']."\n".
                         'Prenom : '. $contact['prenom']."\n".
@@ -61,50 +59,50 @@ class contactActions extends sfActions
                         'Message : '. $contact['message']."\n".
 
 
-                        str_repeat("--", 80)."\n";
-                        $html=nl2br($plain);
+      str_repeat("--", 80)."\n";
+      $html=nl2br($plain);
 
-	            $message = $this->getMailer()->compose();
-	            $message->setSubject('Nouvelle proposition partenaire');
-	            $message->setTo($destinataire);
-	            $message->setFrom('noreply@futurolan.net');
-	            $message->setBody($plain);
-	            $this->getMailer()->send($message);
-		}
-		else
-		{
-			$this->form = new ContactPartnerForm($form);
-			$this->setTemplate('partner');
-		}
-	}
+      $message = $this->getMailer()->compose();
+      $message->setSubject('Nouvelle proposition partenaire');
+      $message->setTo($destinataire);
+      $message->setFrom('noreply@futurolan.net');
+      $message->setBody($plain);
+      $this->getMailer()->send($message);
+    }
+    else
+    {
+      $this->form = new ContactPartnerForm($form);
+      $this->setTemplate('partner');
+    }
+  }
 
-	/**
-	 * Executes AidesOrgas action
-	 *
-	 * @param sfRequest $request A request object
-	 */
-	public function executeAidesOrgas(sfWebRequest $request)
-	{
-		$this->form = new ContactForm();
-	}
+  /**
+   * Executes AidesOrgas action
+   *
+   * @param sfRequest $request A request object
+   */
+  public function executeAidesOrgas(sfWebRequest $request)
+  {
+    $this->form = new ContactForm();
+  }
 
-	public function executeSendcontact(sfWebRequest $request)
-	{
-		$this->forward404Unless($request->isMethod('post')) ;
-		$form = new ContactForm();
+  public function executeSendcontact(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod('post')) ;
+    $form = new ContactForm();
 
-		$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-		if ($form->isValid())
-		{
-			$destinataire=sfConfig::get('app_destinataire_contact');
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $destinataire=sfConfig::get('app_destinataire_contact');
 
-			$contact=$request->getParameter('contact');
-			$auteur_nom= $contact['nom'];
-			$auteur_prenom= $contact['prenom'];
-			$auteur_email= $contact['email'];
-			$auteur= $auteur_prenom.' '.$auteur_nom . (($auteur_email) ? ' ('. $auteur_email .') ' : '');
+      $contact = $request->getParameter('contact');
+      $auteur_nom = $contact['nom'];
+      $auteur_prenom = $contact['prenom'];
+      $auteur_email = $contact['email'];
+      $auteur = $auteur_prenom.' '.$auteur_nom . (($auteur_email) ? ' ('. $auteur_email .') ' : '');
 
-			$plain = 'Le ' .date ('d/m/Y H:i'). "<br/><br/>\n\n".
+      $plain = 'Le ' .date ('d/m/Y H:i'). "<br/><br/>\n\n".
 			'Nom : '. $contact['nom']."<br/>\n".
 			'Pr&eacute;nom : '. $contact['prenom']."<br/>\n".
 			'Pseudo : '. $contact['pseudo']."<br/>\n".
@@ -121,20 +119,16 @@ class contactActions extends sfActions
 			'<i style="color:#888;font-size:10px;">Mail envoy&eacute; depuis le formulaire aide orga.</i><br/>';
 			$html=nl2br($plain);
 
-            $message = $this->getMailer()->compose();
-            $message->setSubject('Nouvelle proposition d\'aide orga ('.$contact['prenom'].' '.$contact['nom'].')');
-            $message->setTo($destinataire);
-            $message->setFrom('noreply@gamers-assembly.net');
-	    $message->addReplyTo($contact['email']);
-	    $message->addCc('guillaume@futurolan.net');
-	    $message->addBcc('futurolan@gmail.com');
-            #$message->setBody($plain);
-            $message->setBody($plain, 'text/html');
-            $this->getMailer()->send($message);
-            
-            
-            
-/*
+      $message = $this->getMailer()->compose();
+      $message->setSubject('Nouvelle proposition d\'aide orga ('.$contact['prenom'].' '.$contact['nom'].')');
+      $message->setTo($destinataire);
+      $message->setFrom('noreply@gamers-assembly.net');
+      $message->addReplyTo($contact['email']);
+      $message->addCc('guillaume@futurolan.net');
+      $message->addBcc('futurolan@gmail.com');
+      $message->setBody($plain, 'text/html');
+      $this->getMailer()->send($message);
+			/*
 			$connection = new Swift_Connection_NativeMail();
 			$mailer = new Swift($connection);
 			$sender= $auteur_email ? $auteur_email : "noreply@gamers-assembly.net";
@@ -145,18 +139,15 @@ class contactActions extends sfActions
 			$message->attach(new Swift_Message_Part($html, 'text/html'));
 			$message->attach(new Swift_Message_Part($plain, 'text/plain'));
 
-	
 			$mailer->send($message, $destinataire, $sender );
-	
 
 			$mailer->disconnect();
-*/
-		}
-		else
-		{
-			$this->form=$form;
-			$this->setTemplate('aidesOrgas');
-		}
-	}
-
+			*/
+    }
+    else
+    {
+      $this->form = $form;
+      $this->setTemplate('aidesOrgas');
+    }
+  }
 }

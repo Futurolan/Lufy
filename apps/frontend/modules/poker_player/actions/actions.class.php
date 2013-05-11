@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class poker_playerActions extends sfActions
+class poker_playerActions extends FrontendActions
 {
 
   public function executeAddPlayer(sfWebRequest $request)
@@ -21,15 +21,15 @@ class poker_playerActions extends sfActions
     $player->setPokerTournementId($this->tournament->getIdPokerTournament());
     $player->setUserId($user->getId());
     $this->form = new AddPokerPlayerForm($player);
-    
+
     if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
     {
-        $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
-        if ($this->form->isValid())
-        {
-            $poker_tournament_player = $this->form->save();
-            $this->redirect('poker_tournament/view?slug='.$this->tournamentSlug);
-        }
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+      if ($this->form->isValid())
+      {
+        $poker_tournament_player = $this->form->save();
+        $this->redirect('poker_tournament/view?slug='.$this->tournamentSlug);
+      }
     }
   }
 

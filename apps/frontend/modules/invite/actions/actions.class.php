@@ -8,111 +8,119 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class inviteActions extends sfActions {
+class inviteActions extends FrontendActions
+{
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->invites = Doctrine::getTable('invite')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+    $this->friends = Doctrine::getTable('invite')->findByFriendId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+  }
 
-    public function executeIndex(sfWebRequest $request) {
-        $this->invites = Doctrine::getTable('invite')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-        $this->friends = Doctrine::getTable('invite')->findByFriendId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+  public function executeNew(sfWebRequest $request)
+  {
+    $this->form = new inviteForm();
+  }
+
+  public function executeCreate(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod(sfRequest::POST));
+    $this->form = new inviteForm();
+    $this->processForm($request, $this->form);
+    $this->getUser()->setTemplate('new');
+  }
+
+  public function executeAddPlayer(sfWebRequest $request)
+  {
+    $user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username', ''));
+    $this->forward404Unless($user);
+    $q = Doctrine::getTable('sfGuardUser')->isCaptain();
+    $a = Doctrine::getTable('sfGuardUser')->isAdmin();
+    if ($q == true || $a == true)
+    {
+      $team = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+      $invite = new Invite();
+      $invite->setUserId($user->getId());
+      $invite->setTeamId($team->getTeamId());
+      $invite->setAction('join');
+      $invite->save();
+
+      $link = 'http://www.gamers-assembly.net/invite';
+      $t = doctrine::getTable('team')->findOneByIdTeam($team->getTeamId());
+      $mail = Doctrine::getTable('mail')->findOneByName('mail_invite_addplayer');
+      $message = $this->getMailer()->compose();
+      $message->setSubject($mail->getSubject());
+      $message->setTo($user->getEmailAddress());
+      $message->setFrom($mail->getEmail());
+      $content = str_replace("%TEAM%", $t->getName(), $mail->getContent());
+      $content = str_replace("%LINK%", $link, $content);
+      $message->setBody($content);
+      $this->getMailer()->send($message);
+    }
+    else
+    {
+      $this->getUser()->setFlash('success', 'Vous n\'avez pas les droits pour cette action, vous devez etre Capitaine ou Admin de la team.');
+      $this->redirect('team/index');
     }
 
-    public function executeNew(sfWebRequest $request) {
-        $this->form = new inviteForm();
-    }
+    $this->getUser()->setFlash('success', 'Le joueur a ete invite a rejoindre l\'equipe. Un mail lui a ete envoye.');
+  }
 
-    public function executeCreate(sfWebRequest $request) {
-        $this->forward404Unless($request->isMethod(sfRequest::POST));
+  public function executeAcceptPlayer(sfWebRequest $request)
+  {
+    $invite = Doctrine::getTable('invite')->findOneByIdInvite($request->getParameter('id', ''));
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($invite->getTeamId());
+    $u = Doctrine::getTable('sfGuardUser')->getUser($invite->getUserId());
+    $isinteam = Doctrine::getTable('team')->isInTeam($invite->getUserId());
 
-        $this->form = new inviteForm();
+    if ( $isinteam == false)
+    {
+      $players = Doctrine_Query::create()
+        ->from('teamplayer')
+        ->where('team_id = ' . $invite->getTeamId())
+        ->execute();
+      $mail = Doctrine::getTable('mail')->findOneByName('mail_team_newplayer');
 
-        $this->processForm($request, $this->form);
-
-        $this->getUser()->setTemplate('new');
-    }
-
-    public function executeAddPlayer(sfWebRequest $request) {
-        $user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username', ''));
-        $this->forward404Unless($user);
-        $q = Doctrine::getTable('sfGuardUser')
-                        ->isCaptain();
-        $a = Doctrine::getTable('sfGuardUser')
-                        ->isAdmin();
-        if ($q == true || $a == true) {
-            $team = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-            $invite = new Invite();
-            $invite->setUserId($user->getId());
-            $invite->setTeamId($team->getTeamId());
-            $invite->setAction('join');
-            $invite->save();
-
-            $link = 'http://www.gamers-assembly.net/invite';
-            $t = doctrine::getTable('team')->findOneByIdTeam($team->getTeamId());
-            $mail = Doctrine::getTable('mail')->findOneByName('mail_invite_addplayer');
-            $message = $this->getMailer()->compose();
-            $message->setSubject($mail->getSubject());
-            $message->setTo($user->getEmailAddress());
-            $message->setFrom($mail->getEmail());
-            $content = str_replace("%TEAM%", $t->getName(), $mail->getContent());
-            $content = str_replace("%LINK%", $link, $content);
-            $message->setBody($content);
-            $this->getMailer()->send($message);
-        } else {
-            $this->getUser()->setFlash('success', 'Vous n\'avez pas les droits pour cette action, vous devez etre Capitaine ou Admin de la team.');
-            $this->redirect('team/index');
-        };
-        $this->getUser()->setFlash('success', 'Le joueur a ete invite a rejoindre l\'equipe. Un mail lui a ete envoye.');
-        //$this->redirect('user/view?username=' . $user->getUsername());
-    }
-
-    public function executeAcceptPlayer(sfWebRequest $request) {
-        $invite = Doctrine::getTable('invite')->findOneByIdInvite($request->getParameter('id', ''));
-        $team = Doctrine::getTable('Team')->findOneByIdTeam($invite->getTeamId());
-        $u = Doctrine::getTable('sfGuardUser')
-                        ->getUser($invite->getUserId());
-        $isinteam = Doctrine::getTable('team')->isInTeam($invite->getUserId());
-        if ( $isinteam == false):
-        $players = Doctrine_Query::create()
-                        ->from('teamplayer')
-                        ->where('team_id = ' . $invite->getTeamId())
-                        ->execute();
-        $mail = Doctrine::getTable('mail')->findOneByName('mail_team_newplayer');
-        foreach ($players as $player):
-            $message = $this->getMailer()->compose();
-            $message->setSubject($mail->getSubject());
-            $message->setTo($player->getSfGuardUser()->getEmailAddress());
-            $message->setFrom($mail->getEmail());
-            $content = str_replace("%TEAM%", $team->getName(), $mail->getContent());
-            $content = str_replace("%PSEUDO%", $u->getUsername(), $content);
-            $message->setBody($content);
-            $this->getMailer()->send($message);
-        endforeach;
-
-        $teamPlayer = new TeamPlayer();
-        $teamPlayer->setUserId($invite->getUserId());
-        $teamPlayer->setTeamId($invite->getTeamId());
-        $teamPlayer->save();
-        /*         * * */
-        $invite = new Invite();
-        $invite->setAcceptInvite($request->getParameter('id', ''));
-        $invite->setFalseInvite($request->getParameter('id', ''));
-        $this->getUser()->setFlash('success', 'Vous venez de rejoindre l\'equipe.');
-        
-
-        $mail = Doctrine::getTable('mail')->findOneByName('mail_invite_acceptplayer');
+      foreach ($players as $player)
+      {
         $message = $this->getMailer()->compose();
         $message->setSubject($mail->getSubject());
-        $message->setTo($u->getEmailAddress());
+        $message->setTo($player->getSfGuardUser()->getEmailAddress());
         $message->setFrom($mail->getEmail());
         $content = str_replace("%TEAM%", $team->getName(), $mail->getContent());
+        $content = str_replace("%PSEUDO%", $u->getUsername(), $content);
         $message->setBody($content);
         $this->getMailer()->send($message);
-        $this->redirect('team/index');
-        else:
-        $this->getUser()->setFlash('success', 'Vous devez quitter votre equipe actuelle pour pouvoir en rejoindre une autre.');
-        $this->redirect('invite/index');
-        endif;
-    }
+      }
 
-    public function executeRefusePlayer(sfWebRequest $request) {
+      $teamPlayer = new TeamPlayer();
+      $teamPlayer->setUserId($invite->getUserId());
+      $teamPlayer->setTeamId($invite->getTeamId());
+      $teamPlayer->save();
+
+      $invite = new Invite();
+      $invite->setAcceptInvite($request->getParameter('id', ''));
+      $invite->setFalseInvite($request->getParameter('id', ''));
+      $this->getUser()->setFlash('success', 'Vous venez de rejoindre l\'equipe.');
+
+      $mail = Doctrine::getTable('mail')->findOneByName('mail_invite_acceptplayer');
+      $message = $this->getMailer()->compose();
+      $message->setSubject($mail->getSubject());
+      $message->setTo($u->getEmailAddress());
+      $message->setFrom($mail->getEmail());
+      $content = str_replace("%TEAM%", $team->getName(), $mail->getContent());
+      $message->setBody($content);
+      $this->getMailer()->send($message);
+      $this->redirect('team/index');
+    }
+    else
+    {
+      $this->getUser()->setFlash('success', 'Vous devez quitter votre equipe actuelle pour pouvoir en rejoindre une autre.');
+      $this->redirect('invite/index');
+    }
+  }
+
+  public function executeRefusePlayer(sfWebRequest $request)
+  {
         $invite = new Invite();
         $invite = Doctrine::getTable('invite')->findOneByIdInvite($request->getParameter('id'));
         $invite->setRefuseInvite($request->getParameter('id', ''));
