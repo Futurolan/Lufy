@@ -5,11 +5,12 @@ Block:
     id_block:
       type: integer(4)
       primary: true
+      autoincrement: true
     title:
       type: string(50)
       notnull: true
     content:
-      type: varchar()
+      type: string()
     image:
       type: string(255)
     link:
