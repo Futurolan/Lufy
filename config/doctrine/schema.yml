@@ -18,8 +18,8 @@ Block:
     position:
       type: integer(4)
     is_active:
-      type: integer(1)
-      default: '0'
+      type: boolean
+      default: false
 
 Comment:
   connection: doctrine
@@ -563,13 +563,11 @@ TeamPlayer:
       type: integer(4)
       notnull: true
     is_captain:
-      type: integer(1)
-      default: '0'
-      notnull: true
+      type: boolean
+      default: false
     is_player:
-      type: integer(1)
-      default: '0'
-      notnull: true
+      type: boolean
+      default: false
   relations:
     Team:
       local: team_id
@@ -635,8 +633,8 @@ Tournament:
     position:
       type: integer(4)
     is_active:
-      type: integer(1)
-      default: '0'
+      type: boolean
+      default: false
   relations:
     Event:
       local: event_id
@@ -910,8 +908,8 @@ PokerTournament:
     end_at:
       type: timestamp(25)
     is_active:
-      type: integer(1)
-      default: '0'
+      type: boolean
+      default: false
 
 PokerTournamentPlayer:
   connection: doctrine
