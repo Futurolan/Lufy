@@ -997,7 +997,6 @@ Entree:
       type: integer(8)
       notnull: true
 
-
 Gallery:
   connection: doctrine
   tableName: gallery
@@ -1026,3 +1025,118 @@ Gallery:
     status:
       type: boolean
       default: false
+
+SfGuardUserProfile:
+  connection: doctrine
+  tableName: sf_guard_user_profile
+  columns:
+    id:
+      type: integer(8)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(8)
+      notnull: true
+    ean13:
+      type: string(13)
+      notnull: true
+    phone:
+      type: string(20)
+      notnull: false
+    birthdate:
+      type: date
+      notnull: false
+    gender:
+      type: enum
+      values: [unknow, female, male]
+      default: unknow
+    website:
+      type: string(250)
+      notnull: false
+    logourl:
+      type: string(250)
+      notnull: false
+    carrer:
+      type: string()
+      notnull: false
+  relations:
+    SfGuardUser:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+
+SfGuardUserLicenceMasters:
+  connection: doctrine
+  tableName: sf_guard_user_licence_masters
+  columns:
+    id:
+      type: integer(8)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(8)
+      notnull: true
+    licence_number:
+      type: string(40)
+      notnull: true
+    attributes:
+      type: string()
+      notnull: false
+  relations:
+    SfGuardUser:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+
+SfGuardUserAddress:
+  connection: doctrine
+  tableName: sf_guard_user_address
+  columns:
+    id:
+      type: integer(8)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(8)
+      notnull: true
+    name:
+      type: string(50)
+      notnull: true
+    complement:
+      type: string(50)
+      notnull: false
+    address:
+      type: string()
+      notnull: true
+    zipcode:
+      type: string(10)
+      notnull: true
+    city:
+      type: string(50)
+      notnull: true
+    country:
+      type: string(50)
+      notnull: true
+    latitude:
+      type: string(20)
+      notnull: false
+    longitude:
+      type: string(20)
+      notnull: false
+    is_default:
+      type: boolean
+      default: false
+    is_billing:
+      type: boolean
+      default: false
+    is_delivery:
+      type: boolean
+      default: false
+  relations:
+    SfGuardUser:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
