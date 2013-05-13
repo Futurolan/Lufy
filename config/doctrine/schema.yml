@@ -1134,6 +1134,7 @@ SfGuardUserAddress:
     is_delivery:
       type: boolean
       default: false
+
   relations:
     SfGuardUser:
       class: sfGuardUser
