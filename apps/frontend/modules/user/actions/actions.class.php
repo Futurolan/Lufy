@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class userActions extends BaseActions
+class userActions extends FrontendActions
 {
 
   public function executeIndex(sfWebRequest $request)
@@ -389,11 +389,13 @@ class userActions extends BaseActions
 
   public function executePassword(sfWebRequest $request)
   {
+    //$this->forward404Unless($request->isMethod(sfRequest::POST));
     $this->form = new passwordForm($this->user);
     if($this->embeddedProcessForm($request, 'password'))
     {
       $this->getUser()->setFlash('success', 'Le mot de passe a bien été modifié.');
     }
+
   }
 
 

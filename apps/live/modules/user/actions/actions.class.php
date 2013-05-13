@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class userActions extends BaseActions {
+class userActions extends FrontendActions {
 
     public function executeIndex(sfWebRequest $request) {
 	if ($this->getUser()->isAuthenticated() == true) {
@@ -29,13 +29,13 @@ class userActions extends BaseActions {
 	    }
 	}
     }
-    
+
     public function executeSuccess(sfWebRequest $request) {
 
     }
 /**
  * Return a printable entry
- */    
+ */
     public function executeBulletin(sfWebRequest $request) {
         if ($this->getUser()->isAuthenticated()) {
             $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
@@ -74,7 +74,7 @@ class userActions extends BaseActions {
             endforeach;
             $this->setLayout('print');
         }
-        
+
         # On génère un PDF ou une page web avec un layout "print"
     }
 
@@ -169,7 +169,7 @@ class userActions extends BaseActions {
             $this->used = $result->used;
         };
     }
-    
+
 
     public function executeNewLicenceGa(sfWebRequest $request) {
         if ($this->getUser()->isAuthenticated()) {
@@ -313,47 +313,42 @@ class userActions extends BaseActions {
             $this->redirect('main/index');
         endif;
     }
-    	
-	public function executePassword(sfWebRequest $request)
-	{
-		$this->form = new passwordForm($this->user);
-		if($this->embeddedProcessForm($request, 'password'))
-        {
-            $this->getUser()->setFlash('success', 'Le mot de passe a bien été modifié.');
-        }
-	}
+
+    public function executePassword(sfWebRequest $request){
+      $this->form = new passwordForm($this->user);
+      if($this->embeddedProcessForm($request, 'password')){
+          $this->getUser()->setFlash('success', 'Le mot de passe a bien été modifié.');
+      }
+    }
 
 /**
- * Return and set the tshirt size for the current user
- */
-	public function executeTshirt(sfWebRequest $request)
-	{
-		if ($this->getUser()->isAuthenticated()) {
-	            $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-		    $tshirt = Doctrine::getTable('Tshirt')->findOneByUserId($user->getId());
-		    if (!$tshirt) {
-			$tshirt = new Tshirt();
-			$tshirt->setUserId($user->getId());
-		    }
-	            $this->form = new TshirtSizeForm($tshirt);
-	            if ($request->isMethod(sfRequest::POST)) {
-	                $this->processFormTshirtSize($request, $this->form);
-	                $this->redirect('user/tshirt');
-	            };
-        	}
+* Return and set the tshirt size for the current user
+*/
+      public function executeTshirt(sfWebRequest $request){
+              if ($this->getUser()->isAuthenticated()) {
+                  $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+                  $tshirt = Doctrine::getTable('Tshirt')->findOneByUserId($user->getId());
+                  if (!$tshirt) {
+                      $tshirt = new Tshirt();
+                      $tshirt->setUserId($user->getId());
+                  }
+                  $this->form = new TshirtSizeForm($tshirt);
+                  if ($request->isMethod(sfRequest::POST)) {
+                      $this->processFormTshirtSize($request, $this->form);
+                      $this->redirect('user/tshirt');
+                  };
+              }
+      }
 
-	}
+      protected function processFormTshirtSize(sfWebRequest $request, sfForm $form){
+              $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+              if ($form->isValid()) {
+                  $form->save();
+                  $this->getUser()->setFlash('success', 'La taille de vote tee-shirt a ete enregistre');
+                  $this->redirect('user/tshirt');
+              }
 
-	protected function processFormTshirtSize(sfWebRequest $request, sfForm $form)
-	{
-		$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-	        if ($form->isValid()) {
-        	    $form->save();
-		    $this->getUser()->setFlash('success', 'La taille de vote tee-shirt a ete enregistre');
-		    $this->redirect('user/tshirt');
-		}
+      }
 
-	}
-    
 }
 
