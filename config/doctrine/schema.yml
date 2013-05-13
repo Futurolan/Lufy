@@ -17,11 +17,10 @@ TicketFlag:
       type: boolean
       default: false
   relations:
-    Ticket:
-      local: id
-      foreign: ticket_flag_id
-      type: one
-      foreignType: many
+    Tickets:
+      class: Ticket
+      foreignAlias: Tickets
+      refClass: TicketFlagTicket
 
 Ticket:
   connection: doctrine
@@ -64,11 +63,22 @@ Ticket:
       local: parent_id
       foreign: id 
       type: one
-    TicketFlag:
-      local: id
-      foreign: ticket_id
-      type: one
-      foreignType: many
+    Flags:
+      class: TicketFlag
+      foreignAlias: Flags 
+      refClass: TicketFlagTicket
+
+TicketFlagTicket:
+  columns:
+    ticket_flag_id:
+      type: integer(8)
+      primary: true
+    ticket_id:
+      type: integer(8)
+      primary: true
+  relations:
+    Flag: ~
+    Ticket: ~
 
 Block:
   connection: doctrine
