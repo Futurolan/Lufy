@@ -1,3 +1,75 @@
+TicketFlag:
+  connection: doctrine
+  tableName: ticket_flag
+  columns:
+    id:
+      type: integer(8)
+      primary: true
+      autoincrement: true
+    name:
+      type: string(20)
+      notnull: true
+    color:
+      type: string(6)
+      notnull: true
+      default: "000000"
+    is_closed:
+      type: boolean
+      default: false
+  relations:
+    Ticket:
+      local: id
+      foreign: ticket_flag_id
+      type: one
+      foreignType: many
+
+Ticket:
+  connection: doctrine
+  tableName: ticket
+  actAs:
+    Timestampable: ~
+  columns:
+    id:
+      type: integer(8)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(8)
+      notnull: true
+    assigned_at:
+      type: integer(8)
+      notnull: false
+    title:
+      type: string(50)
+      notnull: true
+    content:
+      type: string()
+      notnull: false
+    parent_id:
+      type: integer(8)
+      notnull: false
+  relations:
+    SfGuardUser:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+    Owner:
+      class: sfGuardUser
+      local: assigned_at
+      foreign: id
+      type: one
+    Parent:
+      class: Ticket
+      local: parent_id
+      foreign: id 
+      type: one
+    TicketFlag:
+      local: id
+      foreign: ticket_id
+      type: one
+      foreignType: many
+
 Block:
   connection: doctrine
   tableName: block
