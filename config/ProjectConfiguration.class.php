@@ -9,6 +9,7 @@ class ProjectConfiguration extends sfProjectConfiguration
   {
     $this->enableAllPluginsExcept(array('sfPropelPlugin'));
     $this->enablePlugins('csDoctrineActAsGeolocatablePlugin');
+    $this->enablePlugins('sfDoctrineGraphvizPlugin');
   }
 
   public function getApplicationLockFile()

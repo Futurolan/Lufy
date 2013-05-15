@@ -1,0 +1,564 @@
+graph G {
+	edge [ len=2 labeldistance=2 ];
+	overlap=false;
+	splines=true;
+
+	nodePokerTournament [
+		label="{<table>PokerTournament|<cols>name (string)\ldescription (text)\limage (string)\lnumber_slot (integer)\lslot_reserved (integer)\lstart_at (timestamp)\lend_at (timestamp)\lis_active (boolean)\lslug (string)}",
+		shape=record ];
+	nodeTeamPlayer [
+		label="{<table>TeamPlayer|<cols>is_captain (boolean)\lis_player (boolean)}",
+		shape=record ];
+	nodeComment [
+		label="{<table>Comment|<cols>content (text)\lstatus (integer)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodePayement [
+		label="{<table>Payement|<cols>txn_id (string)\lamount (integer)\lcurrency_code (string)\lis_valid (integer)\lis_paypal (integer)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodeInvite [
+		label="{<table>Invite|<cols>action (varchar)\lresponse (varchar)\lstatus (integer)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodeEvent [
+		label="{<table>Event|<cols>name (string)\ldescription (text)\limage (string)\lstart_at (timestamp)\lend_at (timestamp)\lstart_registration_at (timestamp)\lend_registration_at (timestamp)\lslug (string)}",
+		shape=record ];
+	nodeFile [
+		label="{<table>File|<cols>name (varchar)\lfile (text)\ldescription (text)\lposition (integer)\lstatus (integer)\lcreated_at (timestamp)\lupdated_at (timestamp)\lslug (string)}",
+		shape=record ];
+	nodePage [
+		label="{<table>Page|<cols>title (string)\lcontent (text)\lstatus (integer)\lpublish_on (timestamp)\lcreated_at (timestamp)\lupdated_at (timestamp)\lslug (string)}",
+		shape=record ];
+	nodeTeam [
+		label="{<table>Team|<cols>adminteam_id (integer)\lname (string)\ltag (string)\lcountry (string)\ldescription (text)\lwebsite (string)\llogourl (string)\llocked (integer)\lcreated_at (timestamp)\lupdated_at (timestamp)\lslug (string)}",
+		shape=record ];
+	nodeNewsletter [
+		label="{<table>Newsletter|<cols>recipient (string)\lsubject (string)\lcontent (text)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodeVarConfig [
+		label="{<table>VarConfig|<cols>name (varchar)\lvalue (text)\ldescription (varchar)}",
+		shape=record ];
+	nodeFriend [
+		label="{<table>Friend|<cols>user_id (integer)}",
+		shape=record ];
+	nodesfGuardGroupPermission [
+		label="{<table>sfGuardGroupPermission|<cols>created_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodesfGuardPermission [
+		label="{<table>sfGuardPermission|<cols>name (string)\ldescription (string)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodesfGuardUser [
+		label="{<table>sfGuardUser|<cols>first_name (string)\llast_name (string)\lemail_address (string)\lusername (string)\lalgorithm (string)\lsalt (string)\lpassword (string)\lis_active (boolean)\lis_super_admin (boolean)\llast_login (timestamp)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodesfGuardGroup [
+		label="{<table>sfGuardGroup|<cols>name (string)\ldescription (string)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodesfGuardUserGroup [
+		label="{<table>sfGuardUserGroup|<cols>created_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodesfGuardUserPermission [
+		label="{<table>sfGuardUserPermission|<cols>created_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodesfGuardForgotPassword [
+		label="{<table>sfGuardForgotPassword|<cols>unique_key (string)\lexpires_at (timestamp)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodesfGuardRememberKey [
+		label="{<table>sfGuardRememberKey|<cols>remember_key (string)\lip_address (string)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodeSfGuardUserLicenceMasters [
+		label="{<table>SfGuardUserLicenceMasters|<cols>licence_number (string)\lattributes (string)}",
+		shape=record ];
+	nodeGame [
+		label="{<table>Game|<cols>label (string)\leditor (string)\lyear (string)\ldescription (string)\llogourl (string)}",
+		shape=record ];
+	nodeEntree [
+		label="{<table>Entree|<cols>user_id (integer)\lis_enter (integer)\lis_prepayed (integer)\lpayement_amount (integer)\lpayement_type (integer)\lparental_consent (integer)\lcreated_by (integer)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodeBlock [
+		label="{<table>Block|<cols>title (string)\lcontent (string)\limage (string)\llink (string)\lposition (integer)\lis_active (boolean)}",
+		shape=record ];
+	nodeFileCategory [
+		label="{<table>FileCategory|<cols>name (varchar)\ldescription (text)\lcreated_at (timestamp)\lupdated_at (timestamp)\lslug (string)}",
+		shape=record ];
+	nodePageType [
+		label="{<table>PageType|<cols>label (string)\ldescription (text)\lpermission (integer)}",
+		shape=record ];
+	nodeTournamentSlot [
+		label="{<table>TournamentSlot|<cols>position (integer)\lstatus (varchar)\llocked (integer)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodePokerTournamentPlayer [
+		label="{<table>PokerTournamentPlayer|<cols>user_id (integer)\lpoker_tournement_id (integer)\lpseudo (string)\lis_invite (integer)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodePartner [
+		label="{<table>Partner|<cols>name (string)\ldescription (text)\llogourl (string)\lwebsite (string)\lstatus (string)\lposition (integer)}",
+		shape=record ];
+	nodeCommande [
+		label="{<table>Commande|<cols>item_name (string)\lamount (integer)\lreduction (text)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodeSfGuardUserProfile [
+		label="{<table>SfGuardUserProfile|<cols>ean13 (string)\lphone (string)\lbirthdate (date)\lgender (enum)\lwebsite (string)\llogourl (string)\lcarrer (string)}",
+		shape=record ];
+	nodeGallery [
+		label="{<table>Gallery|<cols>title (string)\lalbum_id (string)\ldescription (string)\lposition (integer)\lstatus (boolean)\lcreated_at (timestamp)\lupdated_at (timestamp)\lslug (string)}",
+		shape=record ];
+	nodeSfGuardUserAddress [
+		label="{<table>SfGuardUserAddress|<cols>name (string)\lcomplement (string)\laddress (string)\lzipcode (string)\lcity (string)\lcountry (string)\llatitude (string)\llongitude (string)\lis_default (boolean)\lis_billing (boolean)\lis_delivery (boolean)}",
+		shape=record ];
+	nodePartnerType [
+		label="{<table>PartnerType|<cols>name (string)\ldescription (text)\lstatus (string)\lposition (integer)}",
+		shape=record ];
+	nodeTournamentAdmin [
+		label="{<table>TournamentAdmin|<cols>user_id (integer)}",
+		shape=record ];
+	nodeGameType [
+		label="{<table>GameType|<cols>label (string)}",
+		shape=record ];
+	nodeTshirt [
+		label="{<table>Tshirt|<cols>size (string)}",
+		shape=record ];
+	nodeTournament [
+		label="{<table>Tournament|<cols>name (string)\lnumber_team (integer)\lplayer_per_team (integer)\lcost_per_player (decimal)\lreserved_slot (integer)\lstart_at (timestamp)\lend_at (timestamp)\llogourl (string)\lrules_url (string)\ldescription (string)\lposition (integer)\lis_active (boolean)\lslug (string)}",
+		shape=record ];
+	nodeFileType [
+		label="{<table>FileType|<cols>name (varchar)\ldescription (text)\lcreated_at (timestamp)\lupdated_at (timestamp)\lslug (string)}",
+		shape=record ];
+	nodeFaq [
+		label="{<table>Faq|<cols>request (text)\lanswer (text)\lstatus (integer)\lposition (integer)}",
+		shape=record ];
+	nodePlateform [
+		label="{<table>Plateform|<cols>name (varchar)\ltag (varchar)\lconstructor (varchar)}",
+		shape=record ];
+	nodeMail [
+		label="{<table>Mail|<cols>name (string)\ldescription (string)\lemail (string)\lsubject (string)\lcontent (text)\lcreated_at (timestamp)\lupdated_at (timestamp)}",
+		shape=record ];
+	nodeNewsType [
+		label="{<table>NewsType|<cols>label (string)\ldescription (text)\llogourl (string)\lis_special (integer)}",
+		shape=record ];
+	nodeNews [
+		label="{<table>News|<cols>title (string)\lsummary (text)\lcontent (text)\lstatus (string)\lpublish_on (timestamp)\limage (string)\lcreated_at (timestamp)\lupdated_at (timestamp)\lslug (string)}",
+		shape=record ];
+
+	nodesfGuardGroupPermission [
+		label="{<table>sfGuardGroupPermission|<cols>created_at (timestamp)\lupdated_at (timestamp)}",
+		shape=Mrecord ];
+	nodesfGuardUserPermission [
+		label="{<table>sfGuardUserPermission|<cols>created_at (timestamp)\lupdated_at (timestamp)}",
+		shape=Mrecord ];
+	nodesfGuardUserGroup [
+		label="{<table>sfGuardUserGroup|<cols>created_at (timestamp)\lupdated_at (timestamp)}",
+		shape=Mrecord ];
+	nodeTeamPlayerTeam [
+		label="{<table>TeamPlayerTeam|<cols>}",
+		shape=Mrecord ];
+	nodeTeamPlayersfGuardUser [
+		label="{<table>TeamPlayersfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodeCommentsfGuardUser [
+		label="{<table>CommentsfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodePayementCommande [
+		label="{<table>PayementCommande|<cols>}",
+		shape=Mrecord ];
+	nodePayementsfGuardUser [
+		label="{<table>PayementsfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodeInviteTeam [
+		label="{<table>InviteTeam|<cols>}",
+		shape=Mrecord ];
+	nodeInvitesfGuardUser [
+		label="{<table>InvitesfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodeEvent [
+		label="{<table>Event|<cols>}",
+		shape=Mrecord ];
+	nodeFileFileType [
+		label="{<table>FileFileType|<cols>}",
+		shape=Mrecord ];
+	nodeFileFileCategory [
+		label="{<table>FileFileCategory|<cols>}",
+		shape=Mrecord ];
+	nodePagePageType [
+		label="{<table>PagePageType|<cols>}",
+		shape=Mrecord ];
+	nodeTeam [
+		label="{<table>Team|<cols>}",
+		shape=Mrecord ];
+	nodeFriendsfGuardUser [
+		label="{<table>FriendsfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodesfGuardPermission [
+		label="{<table>sfGuardPermission|<cols>}",
+		shape=Mrecord ];
+	nodesfGuardUser [
+		label="{<table>sfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodesfGuardGroup [
+		label="{<table>sfGuardGroup|<cols>}",
+		shape=Mrecord ];
+	nodeSfGuardUserLicenceMasterssfGuardUser [
+		label="{<table>SfGuardUserLicenceMasterssfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodeGameGameType [
+		label="{<table>GameGameType|<cols>}",
+		shape=Mrecord ];
+	nodeGame [
+		label="{<table>Game|<cols>}",
+		shape=Mrecord ];
+	nodeFileCategory [
+		label="{<table>FileCategory|<cols>}",
+		shape=Mrecord ];
+	nodePageType [
+		label="{<table>PageType|<cols>}",
+		shape=Mrecord ];
+	nodeTournamentSlotTournament [
+		label="{<table>TournamentSlotTournament|<cols>}",
+		shape=Mrecord ];
+	nodeTournamentSlotsfGuardUser [
+		label="{<table>TournamentSlotsfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodePokerTournamentPlayer [
+		label="{<table>PokerTournamentPlayer|<cols>}",
+		shape=Mrecord ];
+	nodePartnerPartnerType [
+		label="{<table>PartnerPartnerType|<cols>}",
+		shape=Mrecord ];
+	nodeCommande [
+		label="{<table>Commande|<cols>}",
+		shape=Mrecord ];
+	nodeSfGuardUserProfilesfGuardUser [
+		label="{<table>SfGuardUserProfilesfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodeSfGuardUserAddresssfGuardUser [
+		label="{<table>SfGuardUserAddresssfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodePartnerType [
+		label="{<table>PartnerType|<cols>}",
+		shape=Mrecord ];
+	nodeTournamentAdminTournament [
+		label="{<table>TournamentAdminTournament|<cols>}",
+		shape=Mrecord ];
+	nodeGameType [
+		label="{<table>GameType|<cols>}",
+		shape=Mrecord ];
+	nodeTshirtsfGuardUser [
+		label="{<table>TshirtsfGuardUser|<cols>}",
+		shape=Mrecord ];
+	nodeTournamentEvent [
+		label="{<table>TournamentEvent|<cols>}",
+		shape=Mrecord ];
+	nodeTournamentGame [
+		label="{<table>TournamentGame|<cols>}",
+		shape=Mrecord ];
+	nodeTournament [
+		label="{<table>Tournament|<cols>}",
+		shape=Mrecord ];
+	nodeFileType [
+		label="{<table>FileType|<cols>}",
+		shape=Mrecord ];
+	nodeNewsType [
+		label="{<table>NewsType|<cols>}",
+		shape=Mrecord ];
+	nodeNewsNewsType [
+		label="{<table>NewsNewsType|<cols>}",
+		shape=Mrecord ];
+	nodeNewssfGuardUser [
+		label="{<table>NewssfGuardUser|<cols>}",
+		shape=Mrecord ];
+
+	nodesfGuardGroupPermission -- nodesfGuardGroup [
+		headlabel="0,n",
+		label="(Group)",
+		labeldistance=3 ];
+	nodesfGuardGroupPermission -- nodesfGuardPermission [
+		headlabel="0,n",
+		label="(Permission)",
+		labeldistance=3 ];
+	nodesfGuardUserPermission -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(User)",
+		labeldistance=3 ];
+	nodesfGuardUserPermission -- nodesfGuardPermission [
+		headlabel="0,n",
+		label="(Permission)",
+		labeldistance=3 ];
+	nodesfGuardUserGroup -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(User)",
+		labeldistance=3 ];
+	nodesfGuardUserGroup -- nodesfGuardGroup [
+		headlabel="0,n",
+		label="(Group)",
+		labeldistance=3 ];
+	nodeTeamPlayerTeam -- nodeTeam [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeTeamPlayersfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodeCommentsfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodePayementCommande -- nodeCommande [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodePayementsfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodeInviteTeam -- nodeTeam [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeInvitesfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodeInvitesfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser_2)",
+		labeldistance=3 ];
+	nodeEvent -- nodeTournament [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeFileFileType -- nodeFileType [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeFileFileCategory -- nodeFileCategory [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodePagePageType -- nodePageType [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeTeam -- nodeInvite [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeTeam -- nodeTeamPlayer [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeFriendsfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodesfGuardPermission -- nodesfGuardGroupPermission [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardPermission -- nodesfGuardUserPermission [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodesfGuardUserPermission [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodesfGuardUserGroup [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeComment [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeNews [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeTournamentSlot [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeTshirt [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeSfGuardUserProfile [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeSfGuardUserLicenceMasters [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeSfGuardUserAddress [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeFriend [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodePayement [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodePayement [
+		headlabel="0,1",
+		label="(Payement_3)",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeSfGuardForgotPassword [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeSfGuardRememberKey [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeSfGuardUserGroup [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeSfGuardUserPermission [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeTeam [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeTeamPlayer [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardUser -- nodeInvite [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardGroup -- nodesfGuardGroupPermission [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodesfGuardGroup -- nodesfGuardUserGroup [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeSfGuardUserLicenceMasterssfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodeGameGameType -- nodeGameType [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeGame -- nodeTournament [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeFileCategory -- nodeFile [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodePageType -- nodePage [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeTournamentSlotTournament -- nodeTournament [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeTournamentSlotsfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodePokerTournamentPlayer -- nodePokerTournament [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodePartnerPartnerType -- nodePartnerType [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeCommande -- nodePayement [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeSfGuardUserProfilesfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodeSfGuardUserAddresssfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodePartnerType -- nodePartner [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeTournamentAdminTournament -- nodeTournament [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeGameType -- nodeGame [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeTshirtsfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+	nodeTournamentEvent -- nodeEvent [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeTournamentGame -- nodeGame [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeTournament -- nodeTournamentAdmin [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeTournament -- nodeTournamentSlot [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeFileType -- nodeFile [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeNewsType -- nodeNews [
+		headlabel="0,1",
+		label="",
+		labeldistance=3 ];
+	nodeNewsNewsType -- nodeNewsType [
+		headlabel="0,n",
+		label="",
+		labeldistance=3 ];
+	nodeNewssfGuardUser -- nodesfGuardUser [
+		headlabel="0,n",
+		label="(SfGuardUser)",
+		labeldistance=3 ];
+
+	nodePokerTournament -- nodePokerTournamentPlayer [
+		arrowhead=normal ];
+	nodeTeam -- nodeTournamentSlot [
+		arrowhead=normal ];
+	nodesfGuardUser -- nodesfGuardRememberKey [
+		arrowhead=normal ];
+	nodesfGuardUser -- nodesfGuardForgotPassword [
+		arrowhead=normal ];
+	nodeTournamentSlot -- nodeCommande [
+		arrowhead=normal ];
+	nodePlateform -- nodeGame [
+		arrowhead=normal ];
+	nodeNews -- nodeComment [
+		arrowhead=normal ];
+	nodesfGuardPermission -- nodeBasesfGuardPermission [
+		arrowhead=normal ];
+	nodesfGuardUser -- nodeBasesfGuardUser [
+		arrowhead=normal ];
+	nodesfGuardGroup -- nodeBasesfGuardGroup [
+		arrowhead=normal ];
+	nodesfGuardForgotPassword -- nodeBasesfGuardForgotPassword [
+		arrowhead=normal ];
+	nodesfGuardRememberKey -- nodeBasesfGuardRememberKey [
+		arrowhead=normal ];
+
+}

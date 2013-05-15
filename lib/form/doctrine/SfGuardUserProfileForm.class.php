@@ -12,5 +12,8 @@ class SfGuardUserProfileForm extends BaseSfGuardUserProfileForm
 {
   public function configure()
   {
+
   }
+
+
 }

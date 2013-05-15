@@ -12,5 +12,6 @@ class SfGuardUserAddressForm extends BaseSfGuardUserAddressForm
 {
   public function configure()
   {
+    #$this->useFields(array('name','address','zipcode','city','country'));
   }
 }
