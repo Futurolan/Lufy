@@ -37,17 +37,13 @@ class userActions extends FrontendActions
     }
   }
 
-
   public function executeSuccess(sfWebRequest $request)
   {
 
   }
 
-
   public function executeBulletin(sfWebRequest $request)
   {
-    if ($this->getUser()->isAuthenticated())
-    {
       $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
       if (!$this->user->getLicenceGa())
       {
@@ -88,8 +84,7 @@ class userActions extends FrontendActions
         $this->redirect('user/bulletin');
       }
 
-      foreach ($this->user->getTeam() as $team)
-      {
+      foreach ($this->user->getTeam() as $team){
         $this->tournaments = Doctrine_Query::create()
           ->select('*')
           ->from('tournamentSlot t1, tournament t2')
@@ -99,7 +94,6 @@ class userActions extends FrontendActions
       }
 
       $this->setLayout('print');
-    }
   }
 
 
@@ -144,20 +138,14 @@ class userActions extends FrontendActions
 
   public function executeProfil(sfWebRequest $request)
   {
-    if ($this->getUser()->isAuthenticated())
-    {
       $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-    }
   }
 
 
   public function executeEdit(sfWebRequest $request)
   {
-    if ($this->getUser()->isAuthenticated())
-    {
       $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
       $this->form = new profilForm($user);
-    }
   }
 
 
@@ -171,7 +159,27 @@ class userActions extends FrontendActions
     $this->setTemplate('edit');
   }
 
+  public function executeAddress(sfWebRequest $request){
+    $this->$address = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+    if(!$this->$address){
+      $this->$address = new SfGuardUserAddress;
+      $this->$address->setUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+    }
+  }
 
+  public function executeEditAddress(sfWebRequest $request)
+  {
+      //$this->forward404Unless();
+      $address = Doctrine::getTable('SfGuardUserAddress')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+      $this->form = new SfGuardUserAddressForm();
+  }
+
+
+  /**
+   *
+   * @param sfWebRequest $request
+   * @param sfForm $form
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -202,10 +210,7 @@ class userActions extends FrontendActions
   }
 
 
-  public function executeNewLicenceGa(sfWebRequest $request)
-  {
-    if ($this->getUser()->isAuthenticated())
-    {
+  public function executeNewLicenceGa(sfWebRequest $request){
       // on recupere l'user
       $id = $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
 
@@ -255,56 +260,39 @@ class userActions extends FrontendActions
 
       $this->getUser()->setFlash('success', 'La generation de votre nouvelle licence GA est un succes.');
       $this->redirect('user/profil');
-    }
-
     $this->redirect('login');
   }
 
 
   // Permet de d'utiliser une licence masters pour la reduction, stockage de la licence dans commande.reduction
   // A TESTER !!!
-  public function executeUseLicenceMasters(sfWebRequest $request)
-  {
-    if ($this->getUser()->isAuthenticated())
-    {
+  public function executeUseLicenceMasters(sfWebRequest $request){
       $user = Doctrine::getTable('sfGuardUser')->getUser($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
       $slot = Doctrine::getTable('tournamentSlot')->getTournamentSlot($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
       $commande = Doctrine::getTable('commande')->findOneByTournamentSlotId($slot->getIdTournamentSlot());
-
-      if ($user->getLicenceMasters())
-      {
+      if ($user->getLicenceMasters()){
         Doctrine::getTable('commande')->AddReduction($commande->getIdCommande(), $user->getLicenceMasters());
       }
-      else
-      {
+      else{
         $this->getUser()->setFlash('error', 'Vous devez configurer votre licence masters.');
         $this->redirect('user/licence');
       }
-
       $this->getUser()->setFlash('success', 'Votre coupon de reduction a ete utilise pour cet evenement.');
       $this->redirect('tournament_slot/index');
-    }
-
-    $this->redirect('login');
+      $this->redirect('login');
   }
 
 
 /**
  * Add a Masters licence on the current user
  */
-  public function executeAddMasters(sfWebRequest $request)
-  {
-    if ($this->getUser()->isAuthenticated())
-    {
+  public function executeAddMasters(sfWebRequest $request){
       $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
       $this->form = new licenceMastersForm($user);
-
-      if ($request->isMethod(sfRequest::POST))
-      {
+      if ($request->isMethod(sfRequest::POST)){
         $this->processFormLicenceMasters($request, $this->form);
         $this->redirect('user/licence');
       }
-    }
   }
 
 
@@ -404,25 +392,20 @@ class userActions extends FrontendActions
  */
   public function executeTshirt(sfWebRequest $request)
   {
-    if ($this->getUser()->isAuthenticated())
-    {
       $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
       $tshirt = Doctrine::getTable('Tshirt')->findOneByUserId($user->getId());
 
-      if (!$tshirt)
-      {
+      if (!$tshirt){
         $tshirt = new Tshirt();
         $tshirt->setUserId($user->getId());
       }
 
       $this->form = new TshirtSizeForm($tshirt);
 
-      if ($request->isMethod(sfRequest::POST))
-      {
+      if ($request->isMethod(sfRequest::POST)){
         $this->processFormTshirtSize($request, $this->form);
         $this->redirect('user/tshirt');
       }
-    }
   }
 
 

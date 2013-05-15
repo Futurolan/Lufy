@@ -10,6 +10,7 @@
         <td>
             <ul>
                 <li><?php echo link_to(__('Modifier mes informations'), 'user/edit')?></li>
+                <li><?php echo link_to(__(' Mes adresses'), 'user/address')?></li>
                 <li><?php echo link_to(__('Voir mon profil public'), 'user/'.$sf_user->getUsername())?></li>
 <!--                <li><?php echo link_to(__('Taille du tee-shirt'), 'user/tshirt')?></li> -->
                 <li><?php echo link_to(__('Mes invitations'), 'invite/index')?> <?php include_component('invite', 'nbinvite') ?></li>
@@ -21,7 +22,7 @@
 <!--                <li><?php echo link_to(__('Ma licence Masters'), 'user/licence')?></li> -->
 		<?php if ($isInscrit == true) { ?>
 		    <li><a href="<?php echo url_for('tournament_slot/index')?>"><?php echo __('Gerer mon inscription')?></a></li>
-		<?php } 
+		<?php }
 		else { ?>
 		    <li><a href="<?php echo url_for('tournament/index')?>"><?php echo __('Inscription a la Gamers Assembly')?></a></li>
 		<?php } ?>

@@ -13,17 +13,16 @@ class profilForm extends sfGuardUserForm
 
   public function configure()
   {
-//    parent::configure();
-//    unset(
-//          $this["username"]
-//            );
-//
-//    $addressForm = new SfGuardUserAddressForm();
-//    $profileForm = new SfGuardUserProfileForm();
-//
-//
-//    $this->embedForm("Adress", $addressForm);
-//    $this->embedForm("Profile", $profileForm);
+    parent::configure();
+    unset(
+          $this["username"]
+            );
+
+    $addressForm = new SfGuardUserAddressForm();
+    $profileForm = new SfGuardUserProfileForm();
+
+    $this->embedForm("Address", $addressForm);
+    $this->embedForm("Profile", $profileForm);
   }
 
 }

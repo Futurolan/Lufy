@@ -5,7 +5,7 @@
 sf_guard_register:
   url:   /:sf_culture/register
   param: { module: sfGuardRegister, action: index }
-  
+
 sf_guard_signin:
   url:   /:sf_culture/login
   param: { module: sfGuardAuth, action: signin }
@@ -73,6 +73,12 @@ user_view:
 user_edit:
   url: /:sf_culture/profil/edit
   param: { module: user, action: edit }
+user_address:
+  url: /:sf_culture/user/address/list
+  param: { module: user, action: address }
+user_edit_address:
+  url: /:sf_culture/user/address/edit
+  param: { module: user, action: editAddress }
 user_tshirt:
   url: /:sf_culture/profil/tshirt
   param: { module: user, action: tshirt }

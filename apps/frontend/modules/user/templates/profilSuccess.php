@@ -2,9 +2,6 @@
 <div class="box">
     <div class="title"><?php echo __('Mon profil')?></div>
     <div class="content">
-    <?php if ($sf_user->isAuthenticated()) {
-    ?>
-    
             <h4><?php echo image_tag('/css/img/flag/'.$user->getCountry().'.png')?> <?php echo  $user->getFirstName() ?> "<?php echo  $user->getUsername() ?>" <?php echo  $user->getLastName() ?></h4>
             <table class="profil">
                 <tr>
@@ -55,10 +52,8 @@
             </tr>
         </table>
         <br /><br />
-        <a class="button" href="<?php echo  url_for('user/edit') ?>"><?php echo __('Editer mon profil')?></a> 
+        <a class="button" href="<?php echo  url_for('user/edit') ?>"><?php echo __('Editer mon profil')?></a>
         <a class="button" href="<?php echo  url_for('user/view?username=' . $user->username) ?>"><?php echo __('Voir mon profil publique')?></a>
         
-    <?
-                } ?>
     </div>
 </div>

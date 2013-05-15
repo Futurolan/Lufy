@@ -31,21 +31,6 @@
           <?php echo $form['last_name']->renderError() ?>
           <?php echo $form['last_name'] ?>        </td>
       </tr>
-      <tr>
-        <th><?php echo __('Code Postal')?> <span style="font-size: 10px; color: red;">*</span></th>
-        <td>
-          <?php echo $form['Address']['zipcode']->renderError() ?>
-          <?php echo $form['zipcode'] ?>
-        </td>
-      </tr>
-      <tr>
-        <th><?php echo __('Ville')?> <span style="font-size: 10px; color: red;">*</span></th>
-        <td>
-          <?php echo $form['city']->renderError() ?>
-          <?php echo $form['city'] ?>
-        </td>
-      </tr>
-
     </tbody>
   </table>
 </form>
