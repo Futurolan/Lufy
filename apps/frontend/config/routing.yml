@@ -66,13 +66,13 @@ user_activate:
   param: { module: user, action: activate }
 user_profil:
   url: /:sf_culture/profil
-  param: { module: user, action: profil }
+  param: { module: user, action: profile }
 user_view:
   url: /:sf_culture/user/:username
   param: { module: user, action: view }
 user_edit:
   url: /:sf_culture/profil/edit
-  param: { module: user, action: edit }
+  param: { module: user, action: editProfile }
 user_address:
   url: /:sf_culture/user/address/list
   param: { module: user, action: address }

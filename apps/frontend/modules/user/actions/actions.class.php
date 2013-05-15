@@ -136,16 +136,24 @@ class userActions extends FrontendActions
   }
 
 
-  public function executeProfil(sfWebRequest $request)
+  public function executeProfile(sfWebRequest $request)
   {
       $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
   }
 
 
-  public function executeEdit(sfWebRequest $request)
+  public function executeEditProfile(sfWebRequest $request)
   {
-      $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-      $this->form = new profilForm($user);
+    $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+    $this->form = new profilForm($user);
+
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+    {
+      if ($this->processForm($request, $this->form))
+      {
+        $this->redirect('user/profile');
+      }
+    }
   }
 
 
@@ -169,28 +177,12 @@ class userActions extends FrontendActions
     }
   }
 
+
   public function executeEditAddress(sfWebRequest $request)
   {
       //$this->forward404Unless();
       $address = Doctrine::getTable('SfGuardUserAddress')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
       $this->form = new SfGuardUserAddressForm();
-  }
-
-
-  /**
-   *
-   * @param sfWebRequest $request
-   * @param sfForm $form
-   */
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $user = $form->save();
-      $this->getUser()->setFlash('success', 'Votre profil a ete mis a jour.');
-      $this->redirect('user/profil');
-    }
   }
 
 

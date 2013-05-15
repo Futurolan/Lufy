@@ -12,8 +12,9 @@ class SfGuardUserProfileForm extends BaseSfGuardUserProfileForm
 {
   public function configure()
   {
-
+    unset(
+      $this['user_id'],
+      $this['ean13']
+    );
   }
-
-
 }
