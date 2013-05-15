@@ -160,10 +160,12 @@ class userActions extends FrontendActions
   }
 
   public function executeAddress(sfWebRequest $request){
-    $this->$address = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-    if(!$this->$address){
-      $this->$address = new SfGuardUserAddress;
-      $this->$address->setUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+    $this->address = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+
+    if(!$this->address)
+    {
+      $this->address = new SfGuardUserAddress;
+      $this->address->setUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
     }
   }
 

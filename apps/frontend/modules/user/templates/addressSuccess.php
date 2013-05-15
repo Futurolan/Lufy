@@ -2,6 +2,6 @@
     <div class="title"><?php echo __('Vos adresses')?></div>
     <div class="content">
     <li><?php echo link_to(__('Ajouter une adresse'), 'user/editAddress')?></li>
-    <?php print_r($this->$address) ?>
+    <?php print_r($this->address) ?>
     </div>
 </div>
