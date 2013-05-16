@@ -25,5 +25,7 @@ class SfGuardUserProfileForm extends BaseSfGuardUserProfileForm
      'default' => '1 January '.(date('Y')-10),
      'can_be_empty' => false)
     );
+
+    $this->setValidator('birthdate', new sfValidatorDate(array('required' => true)));
   }
 }

@@ -156,16 +156,6 @@ class userActions extends FrontendActions
     }
   }
 
-//  public function executeUpdate(sfWebRequest $request)
-//  {
-//    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-//    $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-//    $this->form = new profilForm($user);
-//    $this->processForm($request, $this->form);
-//    $this->getUser()->setFlash('error', 'Verifier les erreurs');
-//    $this->setTemplate('edit');
-//  }
-
   public function executeAddress(sfWebRequest $request){
     $this->address = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
 
