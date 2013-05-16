@@ -1147,6 +1147,7 @@ SfGuardUserProfile:
       local: user_id
       foreign: id
       type: one
+      foreignType: one
 
 SfGuardUserLicenceMasters:
   connection: doctrine
@@ -1171,6 +1172,7 @@ SfGuardUserLicenceMasters:
       local: user_id
       foreign: id
       type: one
+      foreignType: one
 
 SfGuardUserAddress:
   connection: doctrine

@@ -1,0 +1,100 @@
+sfGuardUser:
+  sfGuardUser_1:
+    first_name: Chuck
+    last_name: Norris
+    email_address: lufy_superadmin@yopmail
+    username: superadmin
+    password: superadmin
+    is_active: 1
+    is_super_admin: 1
+    Groups: [Group_ChuckNorris]
+  sfGuardUser_2:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_editor@yopmail
+    username: editor
+    password: editor
+    is_active: 1
+    is_super_admin: 0
+    Groups: [Group_Editor]
+  sfGuardUser_3:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_viewer@yopmail
+    username: viewer
+    password: viewer
+    is_active: 1
+    is_super_admin: 0
+    Groups: [Group_Viewer]
+  sfGuardUser_4:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_1@yopmail
+    username: user_1
+    password: user_1
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_5:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_2@yopmail
+    username: user_2
+    password: user_2
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_6:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_3@yopmail
+    username: user_3
+    password: user_3
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_7:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_4@yopmail
+    username: user_4
+    password: user_4
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_8:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_5@yopmail
+    username: user_5
+    password: user_5
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_9:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_6@yopmail
+    username: user_6
+    password: user_6
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_10:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_7@yopmail
+    username: user_7
+    password: user_7
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_11:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_8@yopmail
+    username: user_8
+    password: user_8
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_12:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_9@yopmail
+    username: user_9
+    password: user_9
+    is_active: 1
+    is_super_admin: 0
