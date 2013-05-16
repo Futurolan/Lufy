@@ -33,39 +33,4 @@ class profilForm extends sfGuardUserForm
     $this->mergeForm(new SfGuardUserProfileForm());
   }
 
-//  public function setup()
-//  {
-//    $this->setWidgets(array(
-//      'id'        => new sfWidgetFormInputHidden(),
-//      'user_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('SfGuardUser'), 'add_empty' => false)),
-//      'ean13'     => new sfWidgetFormInputText(),
-//      'phone'     => new sfWidgetFormInputText(),
-//      'birthdate' => new sfWidgetFormI18nDate(array('culture'=> 'fr')),
-//      'gender'    => new sfWidgetFormChoice(array('choices' => array('unknow' => 'unknow', 'female' => 'female', 'male' => 'male'))),
-//      'website'   => new sfWidgetFormInputText(),
-//      'logourl'   => new sfWidgetFormInputText(),
-//      'carrer'    => new sfWidgetFormTextarea(),
-//    ));
-//
-//    $this->setValidators(array(
-//      'id'        => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-//      'user_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('SfGuardUser'))),
-//      'ean13'     => new sfValidatorString(array('max_length' => 13)),
-//      'phone'     => new sfValidatorString(array('max_length' => 20, 'required' => false)),
-//      'birthdate' => new sfValidatorDate(array('required' => false)),
-//      'gender'    => new sfValidatorChoice(array('choices' => array(0 => 'unknow', 1 => 'female', 2 => 'male'), 'required' => false)),
-//      'website'   => new sfValidatorString(array('max_length' => 250, 'required' => false)),
-//      'logourl'   => new sfValidatorString(array('max_length' => 250, 'required' => false)),
-//      'carrer'    => new sfValidatorString(array('required' => false)),
-//    ));
-//
-//    $this->widgetSchema->setNameFormat('sf_guard_user_profile[%s]');
-//
-//    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
-//
-//    $this->setupInheritance();
-//
-//    parent::setup();
-//  }
-
 }
