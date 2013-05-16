@@ -13,23 +13,4 @@ abstract class BaseFormDoctrine extends sfFormDoctrine
   public function setup()
   {
   }
-
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind(
-      $request->getParameter($form->getName()),
-      $request->getFiles($form->getName())
-    );
-
-    if ($form->isValid())
-    {
-      $form->save();
-
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
 }

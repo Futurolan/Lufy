@@ -16,6 +16,7 @@ class profilForm extends sfGuardUserForm
     parent::configure();
 
     unset(
+      $this['id'],
       $this['username'],
       $this['email_address'],
       $this['algorithm'],

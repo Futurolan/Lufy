@@ -12,7 +12,7 @@ class sfGuardUserForm extends PluginsfGuardUserForm
 {
   public function configure()
   {
-    $this->setValidator('firstname', new sfValidatorString(array('required' => true)));
-    $this->setValidator('lastname', new sfValidatorString(array('required' => true)));
+    $this->setValidator('first_name', new sfValidatorString(array('required' => true)));
+    $this->setValidator('last_name', new sfValidatorString(array('required' => true)));
   }
 }
