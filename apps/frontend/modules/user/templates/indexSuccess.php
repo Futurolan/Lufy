@@ -9,7 +9,7 @@
     <tr valign="top">
         <td>
             <ul>
-                <li><?php echo link_to(__('Modifier mes informations'), 'user/edit')?></li>
+                <li><?php echo link_to(__('Modifier mes informations'), 'user/editProfile')?></li>
                 <li><?php echo link_to(__(' Mes adresses'), 'user/address')?></li>
                 <li><?php echo link_to(__('Voir mon profil public'), 'user/'.$sf_user->getUsername())?></li>
 <!--                <li><?php echo link_to(__('Taille du tee-shirt'), 'user/tshirt')?></li> -->
