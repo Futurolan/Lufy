@@ -18,48 +18,15 @@
     </tfoot>
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
-      <tr>
-        <th><?php echo __("Nom pour l'adresse")?> <span style="font-size: 10px; color: red;">*</span></th>
-        <td>
-          <?php echo $form['name']->renderError() ?>
-          <?php echo $form['name'] ?>
-        </td>
-      </tr>
-      <th><?php echo __("Complememt d'Adresse")?></th>
-        <td>
-          <?php echo $form['complement']->renderError() ?>
-          <?php echo $form['complement'] ?>
-        </td>
-      </tr>
-      <tr>
-        <th><?php echo __("Adresse")?> <span style="font-size: 10px; color: red;">*</span></th>
-        <td>
-          <?php echo $form['address']->renderError() ?>
-          <?php echo $form['address'] ?>
-        </td>
-      </tr>
-      <tr>
-      <tr>
-        <th><?php echo __('Code Postal')?> <span style="font-size: 10px; color: red;">*</span></th>
-        <td>
-          <?php echo $form['zipcode']->renderError() ?>
-          <?php echo $form['zipcode'] ?>
-        </td>
-      </tr>
-      <tr>
-        <th><?php echo __('Ville')?> <span style="font-size: 10px; color: red;">*</span></th>
-        <td>
-          <?php echo $form['city']->renderError() ?>
-          <?php echo $form['city'] ?>
-        </td>
-      </tr>
-      <tr>
-        <th><?php echo __('Pays')?> <span style="font-size: 10px; color: red;">*</span></th>
-        <td>
-          <?php echo $form['country']->renderError() ?>
-          <?php echo $form['country'] ?>
-        </td>
-      </tr>
+
+      <?php echo $form['name']->renderRow(); ?>
+      <?php echo $form['complement']->renderRow(); ?>
+      <?php echo $form['address']->renderRow(); ?>
+      <?php echo $form['zipcode']->renderRow(); ?>
+      <?php echo $form['city']->renderRow(); ?>
+      <?php echo $form['country']->renderRow(); ?>
+
+      <?php echo $form->renderHiddenFields() ?>
     </tbody>
   </table>
 </form>

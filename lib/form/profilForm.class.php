@@ -14,7 +14,7 @@ class profilForm extends sfGuardUserForm
   public function configure()
   {
     parent::configure();
-
+    $this->widgetSchema->setFormFormatterName('list');
     unset(
       $this['id'],
       $this['username'],

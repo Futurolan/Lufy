@@ -40,8 +40,8 @@
             </tr>
         </table>
         <br /><br />
-        <a class="button" href="<?php echo  url_for('user/edit') ?>"><?php echo __('Editer mon profil')?></a>
+        <a class="button" href="<?php echo  url_for('user/editProfile') ?>"><?php echo __('Editer mon profil')?></a>
         <a class="button" href="<?php echo  url_for('user/view?username=' . $user->username) ?>"><?php echo __('Voir mon profil publique')?></a>
-        
+
     </div>
 </div>

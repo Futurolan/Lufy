@@ -12,6 +12,7 @@ class SfGuardUserProfileForm extends BaseSfGuardUserProfileForm
 {
   public function configure()
   {
+  //$this->widgetSchema->setFormFormatterName('list');
     unset(
       $this['user_id'],
       $this['ean13']

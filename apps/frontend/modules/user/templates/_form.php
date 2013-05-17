@@ -19,6 +19,7 @@
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
 
+
       <?php echo $form['first_name']->renderRow(); ?>
       <?php echo $form['last_name']->renderRow(); ?>
       <?php echo $form['birthdate']->renderRow(); ?>

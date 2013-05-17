@@ -12,6 +12,7 @@ class SfGuardUserAddressForm extends BaseSfGuardUserAddressForm
 {
   public function configure()
   {
+   //$this->widgetSchema->setFormFormatterName('list');
     unset(
           $this["id"],$this["user_id"],
             $this["latitude"],$this["longitude"],

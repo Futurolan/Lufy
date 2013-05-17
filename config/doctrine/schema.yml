@@ -61,11 +61,11 @@ Ticket:
     Parent:
       class: Ticket
       local: parent_id
-      foreign: id 
+      foreign: id
       type: one
     Flags:
       class: TicketFlag
-      foreignAlias: Flags 
+      foreignAlias: Flags
       refClass: TicketFlagTicket
 
 TicketFlagTicket:
@@ -1112,12 +1112,9 @@ SfGuardUserProfile:
   connection: doctrine
   tableName: sf_guard_user_profile
   columns:
-    id:
-      type: integer(8)
-      primary: true
-      autoincrement: true
     user_id:
       type: integer(8)
+      primary: true
       notnull: true
     ean13:
       type: string(13)
