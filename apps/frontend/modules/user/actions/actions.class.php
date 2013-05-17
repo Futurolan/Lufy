@@ -145,6 +145,7 @@ class userActions extends FrontendActions
   public function executeEditProfile(sfWebRequest $request)
   {
     $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+
     $this->form = new profilForm($user);
 
     if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))

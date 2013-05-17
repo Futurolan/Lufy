@@ -31,7 +31,7 @@ class profilForm extends sfGuardUserForm
       $this['permissions_list']
     );
 
-    $this->mergeForm(new SfGuardUserProfileForm());
+    $this->mergeForm(new SfGuardUserProfileForm($this->getSfGuardUserProfile()));
   }
 
   /**
