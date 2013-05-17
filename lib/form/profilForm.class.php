@@ -31,14 +31,14 @@ class profilForm extends sfGuardUserForm
       $this['permissions_list']
     );
 
-    $this->mergeForm(new SfGuardUserProfileForm());
+    $this->mergeForm(new SfGuardUserProfileForm($this->getSfGuardUserProfile()));
   }
 
   /**
   * Override the save method to save the merged user info form.
   */
   public function doSave($con = null) {
-    parent::DoSave();
+    parent::doSave();
 
     $this->updateSfGuardUserProfile();
 
@@ -57,7 +57,8 @@ class profilForm extends sfGuardUserForm
         $values['user_id'] = $this->object->getId();
       }
 
-      $sfGuardUserProfile->fromArray($values, Base::TYPE_FIELDNAME);
+//      $sfGuardUserProfile->fromArray($values, Base::TYPE_FIELDNAME);
+      $sfGuardUserProfile->fromArray($values, 'user_id');
 
       $sfGuardUserProfile->save();
     }
