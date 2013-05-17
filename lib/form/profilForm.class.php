@@ -34,4 +34,48 @@ class profilForm extends sfGuardUserForm
     $this->mergeForm(new SfGuardUserProfileForm());
   }
 
+  /**
+  * Override the save method to save the merged user info form.
+  */
+  public function doSave($con = null) {
+    parent::DoSave();
+
+    $this->updateSfGuardUserProfile();
+
+    return $this->object;
+  }
+
+  /**
+  * Updates the user info merged form.
+  */
+  protected function updateSfGuardUserProfile() {
+    // update user info
+    if (!is_null($sfGuardUserProfile = $this->getSfGuardUserProfile())) {
+
+      $values = $this->getValues();
+      if ( $sfGuardUserProfile->isNew() ) {
+        $values['user_id'] = $this->object->getId();
+      }
+
+      $sfGuardUserProfile->fromArray($values, Base::TYPE_FIELDNAME);
+
+      $sfGuardUserProfile->save();
+    }
+  }
+
+  /**
+  * Returns the user info object. If it does
+  * not exist return a new instance.
+  *
+  * @return UserInfo
+  */
+  protected function getSfGuardUserProfile() {
+
+  if (!$this->object->getSfGuardUserProfile()) {
+    return new SfGuardUserProfile();
+  }
+
+  return $this->object->getSfGuardUserProfile();
+  }
+
 }
