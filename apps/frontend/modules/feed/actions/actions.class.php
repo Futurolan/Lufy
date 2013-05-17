@@ -9,7 +9,7 @@
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 
-class feedActions extends FrontendActions
+class feedActions extends sfActions
 {
  /**
   * Executes rss2 action
@@ -18,6 +18,10 @@ class feedActions extends FrontendActions
   */
   public function executeRss2()
   {
+    sfApplicationConfiguration::getActive()->loadHelpers('bb');
+    sfApplicationConfiguration::getActive()->loadHelpers('Url');
+    sfApplicationConfiguration::getActive()->loadHelpers('Asset');
+
     $feed = new sfRss201Feed();
 
     $feed->setTitle('Gamers Assembly');
@@ -41,7 +45,7 @@ class feedActions extends FrontendActions
       $item->setLink('news/view?slug='.$news->getSlug());
       $item->setPubdate(strtotime($news->getPublishOn()));
       $item->setUniqueId($news->getSlug());
-      $item->setDescription(substr($news->getContent(), 0, 400));
+      $item->setDescription(substr(bb_parse($news->getContent()), 0, 400));
 
       $feed->addItem($item);
     }
