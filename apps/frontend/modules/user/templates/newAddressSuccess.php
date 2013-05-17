@@ -3,4 +3,5 @@
     <div class="content">
 	<?php include_partial('formAddress', array('form' => $form)) ?>
     </div>
+
 </div>
