@@ -158,24 +158,46 @@ class userActions extends FrontendActions
   }
 
   public function executeAddress(sfWebRequest $request){
-    $this->address = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+    $this->addresses = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+  }
 
-    if(!$this->address)
+  public function executeNewAddress(sfWebRequest $request)
+  {
+  $object = new SfGuardUserAddress();
+  $object->setUserId($this->getUser()->getGuardUser()->getId());
+  $this->form = new SfGuardUserAddressForm($object);
+
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
     {
-      $this->address = new SfGuardUserAddress;
-      $this->address->setUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+      if ($this->processForm($request, $this->form))
+      {
+        $this->redirect('user/address');
+      }
     }
   }
 
   public function executeEditAddress(sfWebRequest $request)
   {
-      //$this->forward404Unless();
-      $address = Doctrine::getTable('SfGuardUserAddress')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-      $this->form = new SfGuardUserAddressForm();
+    $this->forward404Unless($address = Doctrine::getTable('SfGuardUserAddress')->findOneByIdAndUserId($request->getParameter('id'), $this->getUser()->getGuardUser()->getId()));
+
+    $this->form = new SfGuardUserAddressForm($address);
+
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+    {
+      if ($this->processForm($request, $this->form))
+      {
+        $this->redirect('user/address');
+      }
+    }
   }
 
+  public function executeDeleteAddress(sfWebRequest $request){
 
-  public function executeLicence(sfWebRequest $request)
+    $address->delete();
+    $this->redirect('user/address');
+  }
+
+    public function executeLicence(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Doctrine_Core::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')));
     $mfjv = new mfjv();

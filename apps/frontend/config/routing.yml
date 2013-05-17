@@ -76,6 +76,9 @@ user_edit:
 user_address:
   url: /:sf_culture/user/address/list
   param: { module: user, action: address }
+user_new_address:
+  url: /:sf_culture/user/address/new
+  param: { module: user, action: newAddress }
 user_edit_address:
   url: /:sf_culture/user/address/edit
   param: { module: user, action: editAddress }
