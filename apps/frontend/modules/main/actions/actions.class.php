@@ -17,9 +17,8 @@ class mainActions extends FrontendActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-   $this->setTemplate('index2');
   }
-  
+
  /**
   * Executes language action
   *
@@ -27,11 +26,10 @@ class mainActions extends FrontendActions
   */
   public function executeLanguage(sfWebRequest $request)
   {
-    # Définition de la langue par defaut
     $this->getUser()->setCulture('fr');
     $this->redirect('main/index');
   }
-  
+
 
  /**
   * Executes changeLanguage action
@@ -40,7 +38,6 @@ class mainActions extends FrontendActions
   */
   public function executeChangeLanguage(sfWebRequest $request)
   {
-    # Définition de la langue par defaut
     $culture = $request->getParameter('culture');
     $this->getUser()->setCulture($culture);
     $this->redirect('main/index');
@@ -54,9 +51,8 @@ class mainActions extends FrontendActions
   */
   public function executeError404(sfWebRequest $request)
   {
-    
   }
-  
+
  /**
   * Executes error401 action
   *
@@ -64,7 +60,5 @@ class mainActions extends FrontendActions
   */
   public function executeError401(sfWebRequest $request)
   {
-    
   }
-
 }

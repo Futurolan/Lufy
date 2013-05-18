@@ -1,5 +1,9 @@
 <h2><?php echo __('Mes adresses')?></h2>
 
+<?php if (count($addresses) == 0): ?>
+  <div class="alert alert-info"><?php echo __('Vous n\'avez aucune adresse pour le moment.'); ?></div>
+<?php endif; ?>
+
 <?php foreach ($addresses as $address): ?>
   <address>
     <strong><?php echo $address->getName(); ?></strong>
@@ -22,17 +26,17 @@
     <?php echo $address->getZipcode(); ?> <?php echo $address->getCity(); ?><br/>
     <?php echo $address->getCountry(); ?><br/>
 
-    <?php echo link_to('<i class="icon-pencil"></i> Modifier', 'user/editAddress?id='.$address->getId(), array('class' => 'btn')); ?>
+    <?php echo link_to('<i class="icon-pencil"></i> '.__('Modifier'), 'user/editAddress?id='.$address->getId(), array('class' => 'btn')); ?>
     <div class="btn-group">
-      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> Definir comme <span class="caret"></span></a>
+      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> <?php echo __('Definir comme') ?> <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><?php echo link_to(__('Adresse par defaut'), 'user/setDefaultAddress?id='.$address->getId()); ?></li>
         <li><?php echo link_to(__('Adresse de facturation'), 'user/setBillingAddress?id='.$address->getId()); ?></li>
         <li><?php echo link_to(__('Adresse de livraison'), 'user/setDeliveryAddress?id='.$address->getId()); ?></li>
       </ul>
     </div>
-    <?php echo link_to('<i class="icon-remove"></i> Supprimer', 'user/deleteAddress?id='.$address->getId(), array('class' => 'btn')); ?> <br/>
+    <?php echo link_to('<i class="icon-remove"></i> '.__('Supprimer'), 'user/deleteAddress?id='.$address->getId(), array('class' => 'btn')); ?> <br/>
   </address>
 <?php endforeach;?>
 
-<?php echo link_to('<i class="icon-plus"></i> '.__('Ajouter une adresse'), 'user/newAddress', array('class' => 'btn'))?>
+<?php echo link_to('<i class="icon-plus"></i> '.__('Ajouter une adresse'), 'user/newAddress', array('class' => 'btn btn-primary'))?>

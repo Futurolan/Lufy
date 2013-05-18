@@ -17,33 +17,7 @@ class userActions extends FrontendActions
 
   public function executeIndex(sfWebRequest $request)
   {
-    if ($this->getUser()->isAuthenticated() == true)
-    {
-      $teamplayer = Doctrine_Core::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-
-      if ($teamplayer)
-      {
-        $tournamentslot = Doctrine_Core::getTable('tournamentSlot')->findOneByTeamId($teamplayer->getTeamId());
-
-        if ($tournamentslot)
-        {
-          $this->isInscrit = true;
-        }
-        else
-        {
-          $this->isInscrit = false;
-        }
-      }
-      else
-      {
-        $this->isInscrit = false;
-      }
-    }
-  }
-
-  public function executeSuccess(sfWebRequest $request)
-  {
-
+    $this->redirect('user/profile');
   }
 
   public function executeBulletin(sfWebRequest $request)
@@ -171,6 +145,10 @@ class userActions extends FrontendActions
   {
   $object = new SfGuardUserAddress();
   $object->setUserId($this->getUser()->getGuardUser()->getId());
+  $object->setIsDefault(1);
+  $object->setIsBilling(1);
+  $object->setIsDelivery(1);
+
   $this->form = new SfGuardUserAddressForm($object);
 
     if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
@@ -306,79 +284,6 @@ class userActions extends FrontendActions
   }
 
 
-  public function executeNewLicenceGa(sfWebRequest $request){
-      // on recupere l'user
-      $id = $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
-
-      // on recupere la prochaine licence
-      $l = Doctrine::getTable('varConfig')->getEanNextPlayer();
-
-      // on assigne la licence a l'utilisateur
-      Doctrine::getTable('sfGuardUser')->setLicenceGa($l, $id);
-
-
-      // algo de calcul de la nouvelle licence
-
-      // on retire le dernier chiffre, la cle
-      $k = substr($l, 0, 12);
-      $k = $k + 1;
-
-      //Transformation de la chaine en tableau
-      for ($i = 0; $i < 12; $i++)
-      {
-        $EAN13[$i] = substr($k, $i, 1);
-      }
-
-      // calcul chiffre pair
-      $pair = 0;
-      for ($u = 0; $u < 12; $u = $u + 2)
-      {
-        $pair = $pair + $EAN13[$u];
-      }
-
-      // calcul chiffre impair
-      $impair = 0;
-      for ($y = 1; $y < 12; $y = $y + 2)
-      {
-        $impair = $impair + $EAN13[$y] * 3;
-      }
-      $total = $pair + $impair;
-
-      //calcul du reste du total divise par 10
-      $r = fmod($total, 10);
-      $controlkey = 10 - $r;
-
-      // on ajoute la cle de controle a la nouvelle licence
-      $n = str_pad($k, 13, $controlkey, STR_PAD_RIGHT);
-
-      // on met a jour le numero de la prochaine licence
-      Doctrine::getTable('varConfig')->UpdateEanNextPlayer($n);
-
-      $this->getUser()->setFlash('success', 'La generation de votre nouvelle licence GA est un succes.');
-      $this->redirect('user/profil');
-    $this->redirect('login');
-  }
-
-
-  // Permet de d'utiliser une licence masters pour la reduction, stockage de la licence dans commande.reduction
-  // A TESTER !!!
-  public function executeUseLicenceMasters(sfWebRequest $request){
-      $user = Doctrine::getTable('sfGuardUser')->getUser($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-      $slot = Doctrine::getTable('tournamentSlot')->getTournamentSlot($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-      $commande = Doctrine::getTable('commande')->findOneByTournamentSlotId($slot->getIdTournamentSlot());
-      if ($user->getLicenceMasters()){
-        Doctrine::getTable('commande')->AddReduction($commande->getIdCommande(), $user->getLicenceMasters());
-      }
-      else{
-        $this->getUser()->setFlash('error', 'Vous devez configurer votre licence masters.');
-        $this->redirect('user/licence');
-      }
-      $this->getUser()->setFlash('success', 'Votre coupon de reduction a ete utilise pour cet evenement.');
-      $this->redirect('tournament_slot/index');
-      $this->redirect('login');
-  }
-
-
 /**
  * Add a Masters licence on the current user
  */
@@ -424,50 +329,6 @@ class userActions extends FrontendActions
 
     $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Veuillez reessayer.');
     $this->redirect('user/licence');
-  }
-
-
-/**
- * Activate user account after registration
- */
-  public function executeActivate(sfWebRequest $request)
-  {
-    $key = $request->getParameter('key', '');
-    $id = substr($key, 40);
-    $user = Doctrine::getTable('sfGuardUser')->findOneById($id);
-
-    if ($user)
-    {
-      if ($user->getIsActive() == 1 && $user->getLicenceGa() != '')
-      {
-        $this->getUser()->setFlash('success', 'Votre compte a deja ete valide. Vous pouvez desormais vous connecter.');
-        $this->redirect('sfGuardAuth/signin');
-      }
-
-      $verified = sha1($user->getFirstName() . $user->getLastName() . $user->getEmailAddress());
-      $toverify = substr($key, 0, 40);
-
-      if ($verified == $toverify)
-      {
-        Doctrine::getTable('sfGuardUser')->active($id);
-        $l = Doctrine::getTable('varConfig')->getEanNextPlayer();
-        Doctrine::getTable('sfGuardUser')->setLicenceGa($l, $id);
-        $newLicence = new Ean13Tool;
-        Doctrine::getTable('varConfig')->UpdateEanNextPlayer($newLicence->nextEan($l));
-        $this->getUser()->setFlash('success', 'Votre compte a ete valide. Vous pouvez desormais vous connecter.');
-        $this->redirect('sfGuardAuth/signin');
-      }
-      else
-      {
-        $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Contactez un admin si ce probleme persiste.');
-        $this->redirect('main/index');
-      }
-    }
-    else
-    {
-      $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Contactez un admin si ce probleme persiste.');
-      $this->redirect('main/index');
-    }
   }
 
 

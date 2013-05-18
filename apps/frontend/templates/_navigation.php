@@ -1,5 +1,5 @@
 <div class="navbar-inner">
-  <a href="<?php echo url_for('@homepage'); ?>" class="brand">GA</a>
+  <a href="<?php echo url_for('@homepage'); ?>" class="brand"></a>
   <ul class="nav">
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations <b class="caret"></b></A>

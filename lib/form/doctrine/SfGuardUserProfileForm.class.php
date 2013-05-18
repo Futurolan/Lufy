@@ -12,19 +12,19 @@ class SfGuardUserProfileForm extends BaseSfGuardUserProfileForm
 {
   public function configure()
   {
-  //$this->widgetSchema->setFormFormatterName('list');
     unset(
       $this['user_id'],
       $this['ean13']
     );
 
-    $years = range(date('Y')-120, date('Y')-1);
+    $years = range(date('Y')-90, date('Y')-10);
 
     $this->widgetSchema['birthdate'] = new sfWidgetFormI18nDate(array(
-     'culture' => sfContext::getInstance()->getUser()->getCulture(),
-     'years' => array_combine($years, $years),
-     'default' => '1 January '.(date('Y')-10),
-     'can_be_empty' => false)
+      'culture' => sfContext::getInstance()->getUser()->getCulture(),
+      'month_format' => 'short_name',
+      'years' => array_combine($years, $years),
+      'default' => '1 January '.(date('Y')-18),
+      'can_be_empty' => false)
     );
 
     $this->setValidator('birthdate', new sfValidatorDate(array('required' => true)));

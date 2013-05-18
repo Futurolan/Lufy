@@ -13,7 +13,7 @@ class newsActions extends FrontendActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->pager = new sfDoctrinePager('News', '8');
+    $this->pager = new sfDoctrinePager('News', '15');
     if ($this->getUser()->getCulture() == 'en')
     {
       $this->pager->setQuery(Doctrine_Query::create()

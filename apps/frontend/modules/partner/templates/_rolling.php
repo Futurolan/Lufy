@@ -9,7 +9,7 @@
 <script type="text/javascript">
 $(function(){
   setInterval(function(){
-    $("ul#rolling").animate({marginLeft:-130},800,function(){
+    $("ul#rolling").animate({marginLeft:-120},800,function(){
       $(this).css({marginLeft:0}).find("li:last").after($(this).find("li:first"));
     })
   }, 2000);
@@ -18,7 +18,7 @@ $(function(){
 
 <style>
 #partner_rolling {
-  width: 260px;
+  width: 240px;
   height: 100px;
   overflow: hidden;
   margin: auto auto;
@@ -39,7 +39,7 @@ ul#rolling li {
   display: block;
   float: left;
   background: #fff;
-  margin: 0px 15px 0px 15px;
+  margin: 0px 10px 0px 10px;
   text-align: center;
   line-height: 100px;
 }

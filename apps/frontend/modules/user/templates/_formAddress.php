@@ -13,7 +13,7 @@
         <td colspan="3">
           <?php echo $form->renderHiddenFields(false) ?>
           &nbsp;<a class="btn" href="<?php echo url_for('user/address') ?>"><?php echo __('Retour')?></a>
-          <input class="btn" type="submit" value="<?php echo __('Enregistrer')?>" />        </td>
+          <input class="btn btn-primary" type="submit" value="<?php echo __('Enregistrer')?>" />        </td>
       </tr>
     </tfoot>
     <tbody>

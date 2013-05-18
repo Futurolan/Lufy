@@ -17,7 +17,7 @@ class newsComponents extends sfComponents
         ->andWhere('n.publish_on < NOW()')
         ->groupBy('n.id_news')
         ->orderBy('n.publish_on DESC')
-        ->limit(5)
+        ->limit(7)
         ->execute();
     }
     else
@@ -33,7 +33,7 @@ class newsComponents extends sfComponents
         ->andWhere('n.publish_on < NOW()')
         ->groupBy('n.id_news')
         ->orderBy('n.publish_on DESC')
-        ->limit(5)
+        ->limit(7)
         ->execute();
     }
   }

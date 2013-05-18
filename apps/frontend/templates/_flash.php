@@ -15,7 +15,7 @@ endif;
 <?php if ($type != ''): ?>
   <?php $content = $sf_user->getFlash($type); ?>
   <script>
-    $('#content h2').after('<div class="alert alert-<?php echo $type; ?>"><?php echo $content; ?></div>');
+    $('#content h2').after('<div class="alert alert-<?php echo $type; ?>"><button type="button" class="close" data-dismiss="alert">&times;</button><?php echo $content; ?></div>');
   </script>
 <?php endif; ?>
 

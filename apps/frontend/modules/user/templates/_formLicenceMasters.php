@@ -10,7 +10,7 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          
+
           <input type="submit" value="Enregister" />
         </td>
       </tr>
