@@ -10,6 +10,10 @@
  */
 class userActions extends FrontendActions
 {
+  public function postExecute()
+  {
+    $this->setLayout('user');
+  }
 
   public function executeIndex(sfWebRequest $request)
   {
@@ -157,9 +161,11 @@ class userActions extends FrontendActions
     }
   }
 
+
   public function executeAddress(sfWebRequest $request){
-    $this->addresses = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+    $this->addresses = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getGuardUser()->getId());
   }
+
 
   public function executeNewAddress(sfWebRequest $request)
   {
@@ -176,6 +182,7 @@ class userActions extends FrontendActions
     }
   }
 
+
   public function executeEditAddress(sfWebRequest $request)
   {
     $this->forward404Unless($address = Doctrine::getTable('SfGuardUserAddress')->findOneByIdAndUserId($request->getParameter('id'), $this->getUser()->getGuardUser()->getId()));
@@ -191,13 +198,97 @@ class userActions extends FrontendActions
     }
   }
 
-  public function executeDeleteAddress(sfWebRequest $request){
 
-    $address->delete();
+  public function executeSetDefaultAddress(sfWebRequest $request)
+  {
+    $address = Doctrine::getTable('SfGuardUserAddress')->findOneByIdAndUserId($request->getParameter('id'), $this->getUser()->getGuardUser()->getId());
+    $this->forward404Unless($address);
+
+    $addresses = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getGuardUser()->getId());
+    foreach ($addresses as $other_address)
+    {
+      $other_address->setIsDefault(0);
+      $other_address->save();
+    }
+
+    $address->setIsDefault(1);
+    $address->save();
+
     $this->redirect('user/address');
   }
 
-    public function executeLicence(sfWebRequest $request)
+
+  public function executeSetBillingAddress(sfWebRequest $request)
+  {
+    $address = Doctrine::getTable('SfGuardUserAddress')->findOneByIdAndUserId($request->getParameter('id'), $this->getUser()->getGuardUser()->getId());
+    $this->forward404Unless($address);
+
+    $addresses = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getGuardUser()->getId());
+    foreach ($addresses as $other_address)
+    {
+      $other_address->setIsBilling(0);
+      $other_address->save();
+    }
+
+    $address->setIsBilling(1);
+    $address->save();
+
+    $this->redirect('user/address');
+  }
+
+
+  public function executeSetDeliveryAddress(sfWebRequest $request)
+  {
+    $address = Doctrine::getTable('SfGuardUserAddress')->findOneByIdAndUserId($request->getParameter('id'), $this->getUser()->getGuardUser()->getId());
+    $this->forward404Unless($address);
+
+    $addresses = Doctrine::getTable('SfGuardUserAddress')->findByUserId($this->getUser()->getGuardUser()->getId());
+    foreach ($addresses as $other_address)
+    {
+      $other_address->setIsDelivery(0);
+      $other_address->save();
+    }
+
+    $address->setIsDelivery(1);
+    $address->save();
+
+    $this->redirect('user/address');
+  }
+
+
+  public function executeDeleteAddress(sfWebRequest $request)
+  {
+    $address = Doctrine::getTable('SfGuardUserAddress')->findOneByIdAndUserId($request->getParameter('id'), $this->getUser()->getGuardUser()->getId());
+    $this->forward404Unless($address);
+
+    if ($address->getIsDefault())
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Impossible de supprimer une adresse par defaut.'));
+      $this->redirect('user/address');
+    }
+
+    if ($address->getIsBilling())
+    {
+      $default_address = $this->getUser()->getGuardUser()->getDefaultAddress();
+      $default_address->setIsBilling(1);
+      $default_address->save();
+    }
+
+    if ($address->getIsDelivery())
+    {
+      $default_address = $this->getUser()->getGuardUser()->getDefaultAddress();
+      $default_address->setIsDelivery(1);
+      $default_address->save();
+    }
+
+    $address->delete();
+
+    $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('L\adresse selectionnee a ete supprimee.'));
+    $this->redirect('user/address');
+  }
+
+
+  public function executeLicence(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Doctrine_Core::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')));
     $mfjv = new mfjv();

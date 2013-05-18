@@ -1,48 +1,46 @@
-<ul>
-  <?php $i = 0; ?>
-  <?php $j = 0; ?>
+<div id="partner_rolling">
+  <ul id="rolling">
   <?php foreach ($partners as $partner): ?>
-    <?php if ($i == 0): ?>
-      <ul id="rolling-<?php echo $j?>" class="rolling-partner" style="list-style-type: none; height: 155px; width: 220px;">
-        <li style="width: 220px; text-align: center;line-height:100px;"><?php echo image_tag('/uploads/partenaires/150/'.$partner->getLogourl())?></li>
-      </ul>
-      <?php $j++; ?>
-    <?php elseif ($i != 0 && $i % 2 != 0): ?>
-      <ul id="rolling-<?php echo $j?>" class="rolling-partner" style="list-style-type: none; height: 155px; width: 220px;">
-        <li style="float: left; width: 110px; text-align: center;line-height:110px;"><?php echo image_tag('/uploads/partenaires/100/'.$partner->getLogourl())?></li>
-    <?php elseif ($i != 0 && $i % 2 == 0): ?>
-        <li style="float:left; width: 110px; text-align: center;line-height:110px;"><?php echo image_tag('/uploads/partenaires/100/'.$partner->getLogourl())?></li>
-        <li style="clear:left;"></li>
-      </ul>
-      <?php $j++; ?>
-    <?php endif; ?>
-
-    <?php $i++; ?>
+    <li><?php echo image_tag('/uploads/partenaires/100/'.$partner->getLogourl())?></li>
   <?php endforeach; ?>
-</ul>
+  </ul>
+</div>
 
-<script>
-$(document).ready(function() {
-$(".rolling-partner").hide();
-var max = <?php echo $j?>;
-var min = 0;
-var i = 0;
-
-function rolling(min, max, i) {
-  if (i == max) {
-    i = min;
-  }
-
-  $(".rolling-partner").hide();
-  $("#rolling-"+i).fadeIn(200);
-  i++;
-  setTimeout(function(){
-    rolling(min, max, i);
-  },  3000);
-}
-
-rolling(min, max, i);
-
+<script type="text/javascript">
+$(function(){
+  setInterval(function(){
+    $("ul#rolling").animate({marginLeft:-130},800,function(){
+      $(this).css({marginLeft:0}).find("li:last").after($(this).find("li:first"));
+    })
+  }, 2000);
 });
 </script>
-<br/>
+
+<style>
+#partner_rolling {
+  width: 260px;
+  height: 100px;
+  overflow: hidden;
+  margin: auto auto;
+  margin-bottom: 10px;
+  text-align: center;
+}
+ul#rolling {
+  width: 200%;
+  height: 100px;
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+ul#rolling li {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: block;
+  float: left;
+  background: #fff;
+  margin: 0px 15px 0px 15px;
+  text-align: center;
+  line-height: 100px;
+}
+</style>

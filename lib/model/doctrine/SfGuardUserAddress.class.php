@@ -13,4 +13,4 @@
 class SfGuardUserAddress extends BaseSfGuardUserAddress
 {
 
-}  
+}

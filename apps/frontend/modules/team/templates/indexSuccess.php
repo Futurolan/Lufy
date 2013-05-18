@@ -1,56 +1,57 @@
-<div class="box">
-    <div class="title"><?php echo __('Mon equipe')?></div>
-    <div class="content">
-    <?php if ($sf_user->isAuthenticated()) { ?>
-    <?php if ($team) { ?>
-            <h4><?php echo $team->getTeam()->getName()?></h4>
-            <table class="profil">
-                <tr>
-            <td align="center" valign="top" rowspan="5" width="160">
-                <?php if ($team->getTeam()->getLogourl()) { echo '<img src="'.$team->getTeam()->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?><br/><br/>
-            </td>
-            <th><?php echo __('Nom de l equipe')?></th>
-                    <td><?php echo $team->getTeam()->getName()?></td>
-                </tr>
-                <tr>
-                    <th><?php echo __('Tag')?></th>
-                    <td><?php echo $team->getTeam()->getTag()?></td>
-                </tr>
-                <tr>
-                    <th><?php echo __('Cree le')?></th>
-                    <td><?php echo $team->getTeam()->getCreatedAt()?></td>
-                </tr>
-                <tr>
-                    <th><?php echo __('Site web')?></th>
-                    <td><?php echo $team->getTeam()->getWebsite()?></td>
-                </tr>
-                <tr>
-                    <th><?php echo __('Description')?></th>
-                    <td><?php echo $team->getTeam()->getDescription()?></td>
-                </tr>
+<h2><?php echo __('Mon equipe')?></h2>
 
-        <?php $idTeam = $team->getTeam()->getIdTeam(); ?>
-        </table><br/>
-    <?php if($droits=='1'):?>
-        <?php echo link_to(__('Modifier'), 'team/edit', array('class' => 'button')) ?>
-        <?php echo link_to(__('Supprimer'), 'team/deleteTeam', array('class' => 'button', 'method' => 'delete', 'confirm' => __('Etes vous sur de vouloir definitivement supprimer votre team (historique, place dans le tournoi) ?'))) ?>
-    <?endif;?>
-    <?php if (isset($idTeam)): ?>
-        </div>
-        <br/><br/>
-        <div class="title"><?php echo __('Composition de l equipe')?></div>
-        <div class="content">
-        <div class="flashbox info">
-        <?php echo __('Pour valider votre inscription a un tournoi vous devez posseder autant de joueur que necessaire.<br/>
-        Les gerants, proprietaire et managers, peuvent modifier la composition d une equipe et inviter de nouveaux joueurs.')?>
-        </div>
-        <h4 class="H4Enhance"><?php echo __('Gerants')?> :</h4>
-                <table cellspacing="0px" cellpadding="0px" class="profil1">
-                <?php foreach ($admins as $player): ?>
+<?php if ($team) { ?>
+
+  <h3><?php echo $team->getTeam()->getName()?></h3>
+  <table class="table">
+    <tr>
+      <td align="center" valign="top" rowspan="6" width="160">
+        <?php if ($team->getTeam()->getLogourl()) { echo '<img src="'.$team->getTeam()->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?><br/><br/>
+      </td>
+    </tr>
+    <tr>
+      <th><?php echo __('Nom de l equipe')?></th>
+      <td><?php echo $team->getTeam()->getName()?></td>
+    </tr>
+    <tr>
+      <th><?php echo __('Tag')?></th>
+      <td><?php echo $team->getTeam()->getTag()?></td>
+    </tr>
+    <tr>
+      <th><?php echo __('Cree le')?></th>
+      <td><?php echo $team->getTeam()->getCreatedAt()?></td>
+    </tr>
+    <tr>
+      <th><?php echo __('Site web')?></th>
+      <td><?php echo $team->getTeam()->getWebsite()?></td>
+    </tr>
+    <tr>
+      <th><?php echo __('Description')?></th>
+      <td><?php echo $team->getTeam()->getDescription()?></td>
+    </tr>
+  </table>
+
+  <?php $idTeam = $team->getTeam()->getIdTeam(); ?>
+
+  <?php if($droits=='1'):?>
+    <?php echo link_to('<i class="icon-pencil"></i> '.__('Modifier'), 'team/edit', array('class' => 'btn')) ?>
+    <?php echo link_to('<i class="icon-remove"></i> '.__('Supprimer'), 'team/deleteTeam', array('class' => 'btn', 'method' => 'delete', 'confirm' => __('Etes vous sur de vouloir definitivement supprimer votre team (historique, place dans le tournoi) ?'))) ?>
+  <?php endif; ?>
+
+  <?php if (isset($idTeam)): ?>
+
+  <h2><?php echo __('Composition de l equipe')?></h2>
+  <div class="alert alert-info">
+    <?php echo __('Les fondateurs et managers, peuvent modifier la composition d une equipe et inviter de nouveaux joueurs.')?>
+  </div>
+
+  <h3><?php echo __('Gerants')?></h3>
+  <table cellspacing="0px" cellpadding="0px">
+  <?php foreach ($admins as $player): ?>
                         <tr>
-                            <td style="width:60px;"><?php if ($player->logourl) { echo '<img src="'.$player->logourl.'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
+                            <td style="width:60px;"><?php if ($player->getSfGuardUserProfile()->getLogourl()) { echo '<img src="'.$player->getSfGuardUserProfile()->getLogourl().'" width="50">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '50')); }?> </td>
                             <td>
-                                <?php echo image_tag('/css/img/flag/'.$player->country.'.png', array('height' => '15px'))?>  <?php echo link_to($player->username, 'user/view?username='.$player->username) ?><br/>
+                                <?php echo link_to($player->username, 'user/view?username='.$player->username) ?><br/>
                                 <i><?php echo $player->name ?></i>
                             </td>
                         </tr>
@@ -68,7 +69,7 @@
                         <?php endif; ?>
                 <?php endforeach; ?>
                 </table>
-        <h4 class="H4Enhance"><?php echo __('Joueurs composant votre &eacute;quipe')?> :</h4>
+        <h3><?php echo __('Joueurs')?></h3>
                 <table cellspacing="0px" cellpadding="0px" class="profil2">
                 <?php foreach ($joueurs as $player): ?>
                         <tr>
@@ -80,7 +81,7 @@
                         </tr>
                 <?php endforeach; ?>
                 </table>
-        <h4 class="H4Enhance"><?php echo __('Membres (Non-joueur)')?> :</h4>
+        <h3><?php echo __('Membres non joueur')?></h3>
                 <table  cellspacing="0px" cellpadding="0px" class="profil3">
                 <?php foreach ($autres as $player): ?>
                         <?php if ($player->SfGuardUser->id != $admins[0]->id):?>
@@ -98,12 +99,12 @@
                 <br/>
                <br/>
            <?php if($droits=='1'):?>
-               <?php echo link_to(__('Gerer la composition de l equipe'), 'team/management', array('class' => 'button'))?>
-               <?php echo link_to(__('Rechercher un joueur'), 'search/user', array('class' => 'button')) ?>
+               <?php echo link_to(__('Modifier la composition'), 'team/management', array('class' => 'btn'))?>
+               <?php echo link_to(__('Rechercher un joueur'), 'search/user', array('class' => 'btn')) ?>
            <?php endif; ?>
                <br/><br/><br/>
 
-        <div class="title"><?php echo __('Tournoi')?></div>
+        <h2><?php echo __('Tournoi')?></h2>
         <?
         if ($alreadyInTournament) {?>
 		<table  cellspacing="0px" cellpadding="0px" class="profil4">
@@ -117,9 +118,8 @@
 	       </td>
 	       <td style="width:100px;text-align:right;">
                     <?php echo link_to('D&eacute;sinscrire', 'tournament_slot/leaveTournament',array('class' => 'button')); ?>
-	       </td>	       
+	       </td>
 		<?php endif; ?>
-	       
 	      </tr>
 	    <?php endforeach; ?>
             </table>
@@ -143,7 +143,7 @@
     else {
 ?> <p>
         <?php echo __('Vous n appartenez a aucune equipe pour le moment.')?>
-        
+
         <?php echo __('Deux possibilites s offrent a vous')?> :
 		<div class="subtitle"><?php echo __('Se faire inviter par une equipe')?> :</div>
 		<div class="flashbox info"><?php echo __('Si votre equipe a ete creee par votre manager, indiquez lui votre	pseudo afin qu il vous invite a la rejoindre.')?></div>
@@ -153,10 +153,7 @@
 
 
         <br/>
-        
     </p>
-<?php echo  link_to(__('Creer une equipe'), 'team/new', array('class' => 'button')); ?>
-<?php echo  link_to(__('Changer de tournoi'), 'tournament/index', array('class' => 'button')); ?>
-  <?php } } ?>
-</div>
-</div>
+<?php echo  link_to('<i class="icon-plus"></i> '.__('Creer une equipe'), 'team/new', array('class' => 'btn')); ?>
+<?php echo  link_to('<i class="icon-rotate-right"></i> '.__('Changer de tournoi'), 'tournament/index', array('class' => 'btn')); ?>
+  <?php }  ?>

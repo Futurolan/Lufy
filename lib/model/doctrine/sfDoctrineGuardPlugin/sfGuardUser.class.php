@@ -60,6 +60,21 @@ class sfGuardUser extends PluginsfGuardUser {
       return $this->getUsername();
     }
 
+  public function getDefaultAddress()
+  {
+    return SfGuardUserAddressTable::getDefaultAddressByUserId($this->getId());
+  }
+
+  public function getBillingAddress()
+  {
+    return SfGuardUserAddressTable::getDefaultAddressByUserId($this->getId());
+  }
+
+  public function getDeliveryAddress()
+  {
+    return SfGuardUserAddressTable::getDefaultAddressByUserId($this->getId());
+  }
+
 /*
     public function postSave($event)
     {

@@ -73,6 +73,7 @@ user_view:
 user_edit:
   url: /:sf_culture/profil/edit
   param: { module: user, action: editProfile }
+
 user_address:
   url: /:sf_culture/user/address/list
   param: { module: user, action: address }
@@ -80,8 +81,21 @@ user_new_address:
   url: /:sf_culture/user/address/new
   param: { module: user, action: newAddress }
 user_edit_address:
-  url: /:sf_culture/user/address/edit
+  url: /:sf_culture/user/address/edit/:id
   param: { module: user, action: editAddress }
+user_delete_address:
+  url: /:sf_culture/user/address/delete/:id
+  param: { module: user, action: deleteAddress }
+user_set_default_address:
+  url: /:sf_culture/user/address/setDefault/:id
+  param: { module: user, action: setDefaultAddress }
+user_set_billing_address:
+  url: /:sf_culture/user/address/setBilling/:id
+  param: { module: user, action: setBillingAddress }
+user_set_delivery_address:
+  url: /:sf_culture/user/address/setDelivery/:id
+  param: { module: user, action: setDeliveryAddress }
+
 user_tshirt:
   url: /:sf_culture/profil/tshirt
   param: { module: user, action: tshirt }

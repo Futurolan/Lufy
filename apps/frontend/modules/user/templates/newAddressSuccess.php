@@ -1,7 +1,3 @@
-<div class="box">
-    <div class="title"><?php echo __('Edition de votre profil')?></div>
-    <div class="content">
-	<?php include_partial('formAddress', array('form' => $form)) ?>
-    </div>
+<h2><?php echo __('Ajouter une adresse')?></h2>
 
-</div>
+<?php include_partial('formAddress', array('form' => $form)) ?>

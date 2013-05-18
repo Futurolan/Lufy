@@ -1,9 +1,9 @@
 <?php use_helper('Date') ?>
-<div class="box">
-    <div class="title"><?php echo __('Mon profil')?></div>
-    <div class="content">
-            <h4><?php echo  $user->getFirstName() ?> "<?php echo  $user->getUsername() ?>" <?php echo  $user->getLastName() ?></h4>
-            <table class="profil">
+
+<h2><?php echo __('Mon profil')?></h2>
+
+<h3><?php echo  $user->getFirstName() ?> "<?php echo  $user->getUsername() ?>" <?php echo  $user->getLastName() ?></h3>
+            <table class="table">
                 <tr>
             <td align="center" valign="top" rowspan="9" width="160">
                 <?php if ($user->getSfGuardUserProfile()->getLogourl()) { echo '<img src="'.$user->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?><br/><br/>
@@ -40,8 +40,6 @@
             </tr>
         </table>
         <br /><br />
-        <a class="button" href="<?php echo  url_for('user/editProfile') ?>"><?php echo __('Editer mon profil')?></a>
-        <a class="button" href="<?php echo  url_for('user/view?username=' . $user->username) ?>"><?php echo __('Voir mon profil publique')?></a>
+        <a class="btn" href="<?php echo  url_for('user/editProfile') ?>"><?php echo __('Editer mon profil')?></a>
+        <a class="btn" href="<?php echo  url_for('user/view?username=' . $user->username) ?>"><?php echo __('Voir mon profil publique')?></a>
 
-    </div>
-</div>

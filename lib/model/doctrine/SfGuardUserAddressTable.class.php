@@ -7,13 +7,50 @@
  */
 class SfGuardUserAddressTable extends Doctrine_Table
 {
-    /**
-     * Returns an instance of this class.
-     *
-     * @return object SfGuardUserAddressTable
-     */
-    public static function getInstance()
-    {
-        return Doctrine_Core::getTable('SfGuardUserAddress');
-    }
+  /**
+   * Returns an instance of this class.
+   *
+   * @return object SfGuardUserAddressTable
+   */
+  public static function getInstance()
+  {
+    return Doctrine_Core::getTable('SfGuardUserAddress');
+  }
+
+  public static function getDefaultAddressByUserId($user_id)
+  {
+    $query = Doctrine_Query::create()
+      ->from('SfGuardUserAddress a')
+      ->where('a.user_id = ?', $user_id)
+      ->andWhere('a.is_default = 1')
+      ->limit(1)
+      ->execute();
+
+    return $query->getFirst();
+  }
+
+  public static function getBillingAddressByUserId($user_id)
+  {
+    $query = Doctrine_Query::create()
+      ->from('SfGuardUserAddress a')
+      ->where('a.user_id = ?', $user_id)
+      ->andWhere('a.is_billing = 1')
+      ->limit(1)
+      ->execute();
+
+    return $query->getFirst();
+  }
+
+  public static function getDeliveryAddressByUserId($user_id)
+  {
+    $query = Doctrine_Query::create()
+      ->from('SfGuardUserAddress a')
+      ->where('a.user_id = ?', $user_id)
+      ->andWhere('a.is_delivery = 1')
+      ->limit(1)
+      ->execute();
+
+    return $query->getFirst();
+  }
+
 }

@@ -1,7 +1,4 @@
-<div class="box">
-    <div class="content">
-
-<div class="title">Devenir partenaire ?</div>
+<h2>Partenaires</h2>
 <p>
     La Gamers Assembly ne pourrait exister sans le soutien de ses nombreux partenaires, dont certains sont fidèles maintenant depuis de longues années.
 </p>
@@ -33,7 +30,7 @@ $j = 0;
   endif;
   if ($currentType != $var[$i][0]): ?>
     <?php $j = 0; ?>
-    <tr><td colspan="<?php echo $nb_cols?>"><div class="title"><?php echo $var[$i][1]?></div></td></tr><tr>
+    <tr><td colspan="<?php echo $nb_cols?>"><h3><?php echo $var[$i][1]?></h3></td></tr><tr>
   <?php endif; 
   
   if ($j == 0) echo "<tr>";?>
@@ -44,5 +41,3 @@ $j = 0;
   <?php if ($i == $result-1) echo "</tr>";?>
 <?php } ?>
 </table>
-    </div>
-</div>

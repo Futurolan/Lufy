@@ -18,11 +18,20 @@
     </nav>
 
     <div id="wrap" class="row">
-      <div id="content" class="span9">
-        <?php echo $sf_content?>
+      <div class="span2">
+        <div id="sidebar_user">
+          <?php include_partial('global/user') ?>
+        </div>
       </div>
-      <div id="sidebar" class="span3">
-        <?php include_partial('global/sidebar') ?>
+      <div class="span7">
+        <div id="content">
+          <?php echo $sf_content?>
+        </div>
+      </div>
+      <div class="span3">
+        <div id="sidebar">
+          <?php include_partial('global/sidebar') ?>
+        </div>
       </div>
     </div>
   </div>

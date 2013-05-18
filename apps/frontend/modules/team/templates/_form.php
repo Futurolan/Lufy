@@ -10,20 +10,13 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          <input type="submit" value="<?php echo __('Ajouter l equipe')?>" class="button" />
+          <input class="btn" type="submit" value="<?php echo __('Valider')?>" class="button" />
         </td>
       </tr>
     </tfoot>
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
-     
-      <tr>
-        <th><?php echo __('Nom de l equipe')?></th>
-        <td>
-          <?php echo $form['name']->renderError() ?>
-          <?php echo $form['name'] ?>
-        </td>
-      </tr>
+      <?php echo $form['name']->renderRow() ?>
     </tbody>
   </table>
 </form>

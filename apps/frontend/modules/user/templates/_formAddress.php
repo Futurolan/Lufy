@@ -1,19 +1,19 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
- <span style="font-size: 10px; color: red;"><?php echo __('Les champs marques * sont obligatoires pour valider votre inscription a un tournoi.')?></span>
+<div class="alert alert-info"><?php echo __('Les champs marques * sont obligatoires pour valider votre inscription a un tournoi.')?></div>
 
 <form action="<?php echo url_for('user/'.($form->getObject()->isNew() ? 'newAddress' : 'editAddress').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : ''))?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
-  <table>
+  <table class="table">
     <tfoot>
       <tr>
         <td colspan="3">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a class="button" href="<?php echo url_for('user/index') ?>"><?php echo __('Revenir sur mon espace')?></a>
-          <input class="button" type="submit" value="<?php echo __('Enregistrer')?>" />        </td>
+          &nbsp;<a class="btn" href="<?php echo url_for('user/address') ?>"><?php echo __('Retour')?></a>
+          <input class="btn" type="submit" value="<?php echo __('Enregistrer')?>" />        </td>
       </tr>
     </tfoot>
     <tbody>
