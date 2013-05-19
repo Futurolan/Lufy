@@ -10,87 +10,25 @@
  */
 class searchActions extends FrontendActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    //$this->forward('default', 'module');
-  }
-  
-
   public function executeUser(sfWebRequest $request)
   {
-    $this->form = new searchForm();
-
-    if($this->processForm($request, 'search'))
+    if ($request->getParameter('byUsername'))
     {
-	$values = $this->form->getValues();
-	$q = Doctrine::getTable('sfGuardUser')->searchQuery($values['pattern']);
-	$this->users = $q->execute();
+      $byUsername = $request->getParameter('byUsername');
+      $byUsername = str_replace('%', '', $byUsername);
+      $byUsername = str_replace('__', '', $byUsername);
 
-	return sfView::SUCCESS;
-    }
-
-    return 'Form';
-  }
-
-
-  protected function processForm(sfWebRequest $request, $parameterName)
-  {
-    if($request->isMethod('post'))
-    {
-      $this->form->bind($request->getParameter($parameterName));
-      if($this->form->isValid())
+      if (strlen($byUsername) >= 2)
       {
-	if(method_exists($this->form, 'save')) $this->form->save();
-
-        return True;
+        $this->users = Doctrine_Query::create()
+          ->from('sfGuardUser u')
+          ->where('u.username LIKE ?', '%'.$request->getParameter('byUsername').'%')
+          ->execute();
       }
-    }
-
-    return False;
-  }
-
-  public function executeSearch(sfWebRequest $request)
-  {
-    if ($request->getParameter('query') != '')
-    {
-      $query = '%'.$request->getParameter('query').'%';
-
-      $this->news = Doctrine_Query::create()
-        ->select('n.title, n.content, n.status')
-        ->from('news n')
-        ->where('n.status = ?', 1)
-        ->andWhere('n.content LIKE ?', $query)
-        ->orWhere('n.title LIKE ?', $query)
-        ->orderBy('created_at DESC')
-        ->execute();
-
-      $this->pages = Doctrine_Query::create()
-        ->select('p.title, p.content, p.status')
-        ->from('page p')
-        ->where('p.status = ?', 1)
-        ->andWhere('p.content LIKE ?', $query)
-        ->orWhere('p.title LIKE ?', $query)
-        ->orderBy('created_at DESC')
-        ->execute();
-
-
-      if ($request->isXmlHttpRequest())
+      else
       {
-        if ('%%' != $query && strlen($query) >= 5)
-        {
-          return $this->renderPartial(
-            'search/resultSearch',
-            array(
-              'news' => $this->news,
-              'pages' => $this->pages,
-            )
-          );
-        }
+        $this->getUser()->setFlash('error', 'Vous devez utiliser 2 caracteres minimum.');
+        $this->redirect('search/user');
       }
     }
   }

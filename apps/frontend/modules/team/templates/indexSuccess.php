@@ -35,7 +35,7 @@
 
   <?php if($droits=='1'):?>
     <?php echo link_to('<i class="icon-pencil"></i> '.__('Modifier'), 'team/edit', array('class' => 'btn')) ?>
-    <?php echo link_to('<i class="icon-remove"></i> '.__('Supprimer'), 'team/deleteTeam', array('class' => 'btn', 'method' => 'delete', 'confirm' => __('Etes vous sur de vouloir definitivement supprimer votre team (historique, place dans le tournoi) ?'))) ?>
+    <?php echo link_to('<i class="icon-remove"></i> '.__('Supprimer'), 'team/deleteTeam', array('class' => 'btn btn-danger', 'method' => 'delete', 'confirm' => __('Etes vous sur de vouloir definitivement supprimer votre team (historique, place dans le tournoi) ?'))) ?>
   <?php endif; ?>
 
   <?php if (isset($idTeam)): ?>
