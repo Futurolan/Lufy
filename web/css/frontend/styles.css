@@ -90,3 +90,16 @@ footer {
 footer h3 {
   font-size: 16px;
 }
+
+
+/** Class **/
+.news-list {
+  font-size: 12px;
+  border-bottom: solid 1px #ddd;
+}
+.news-list:last-child {
+  border: none;
+}
+.news-list .label {
+  font-size: 10px;
+}

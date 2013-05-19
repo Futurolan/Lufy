@@ -1,6 +1,6 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
-    $("#slideshoww").slideshow({
+    $("#slideshow").slideshow({
         pauseSeconds: 4,
         height: 200,
         width: 470,
@@ -10,7 +10,7 @@ $(document).ready(function(){
 });
 </script>
 
-<div id="slideshoww">
+<div id="slideshow">
     <?php foreach($affiches as $affiche):?>
         <a href="<?php echo url_for('news/view?slug='.$affiche->getSlug())?>">
             <?php echo image_tag('/uploads/news/affiche/'.$affiche->getImage(), 'alt="'.$affiche->getTitle().'" title="'.$affiche->getTitle().'"') ?>

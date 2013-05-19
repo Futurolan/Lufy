@@ -35,7 +35,7 @@
         <li><?php echo link_to(__('Adresse de livraison'), 'user/setDeliveryAddress?id='.$address->getId()); ?></li>
       </ul>
     </div>
-    <?php echo link_to('<i class="icon-remove"></i> '.__('Supprimer'), 'user/deleteAddress?id='.$address->getId(), array('class' => 'btn')); ?> <br/>
+    <?php echo link_to('<i class="icon-remove"></i> '.__('Supprimer'), 'user/deleteAddress?id='.$address->getId(), array('class' => 'btn btn-danger')); ?> <br/>
   </address>
 <?php endforeach;?>
 

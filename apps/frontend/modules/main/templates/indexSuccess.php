@@ -1,5 +1,5 @@
 <div class="row-fluid">
-  <div class="span7" style="background-color: yellow;">
+  <div class="span7">
     <?php  include_component('news', 'affiche'); ?>
   </div>
 

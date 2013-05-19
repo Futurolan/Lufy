@@ -2,12 +2,29 @@
   <a href="<?php echo url_for('@homepage'); ?>" class="brand"></a>
   <ul class="nav">
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations <b class="caret"></b></A>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li><a href="#">GA'lloween 2013</a></li>
         <li><?php echo link_to(__('Informations pratiques'), 'page/view?slug=informations-pratiques')?></li>
-        <li><a href="#">Les Gamers-Assembly</a></li>
-        <li><a href="#">Association Futurolan</a></li>
+        <li><?php echo link_to(__('Les Gamers Assembly'), 'page/view?slug=presentation')?></li>
+        <li><?php echo link_to(__('Association Futurolan'), 'page/view?slug=decouvrez-l-association-futurolan')?></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galeries <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a href="#">Photos</a>
+          <ul class="dropdown-menu">
+            <?php include_component('gallery', 'list'); ?>
+          </ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a href="#">Videos</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">A venir</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><?php echo link_to(__('Palmares'), 'page/view?slug=palmares')?></li>
@@ -26,3 +43,5 @@
     <?php endif; ?>
   </ul>
 </div>
+
+
