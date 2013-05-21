@@ -1,0 +1,7 @@
+# Gestion du mode maintenance
+
+Le mode maintenance peut etre active pour chaque application.
+
+L'ajout d'un fichier nomme <name_of_app>.lck dans ce repertoire passera l'application en mode maintenance, sa suppression desactivera ce mode.
+
+Il est possible d'utilise la commande `php symfony lufy:maintenance <name_of_app>` pour activer/desactiver le mode maintenance.
