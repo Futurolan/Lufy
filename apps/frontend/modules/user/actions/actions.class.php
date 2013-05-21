@@ -353,11 +353,11 @@ class userActions extends FrontendActions
       $tshirt = $user->getSfGuardUserTshirt();
 
       if (!$tshirt){
-        $tshirt = new sfGuardUserTshirt();
+        $tshirt = new SfGuardUserTshirt();
         $tshirt->setUserId($user->getId());
       }
 
-      $this->form = new sfGuardUserTshirtForm($tshirt);
+      $this->form = new SfGuardUserTshirtForm($tshirt);
 
       if ($request->isMethod(sfRequest::POST)){
         $this->processForm($request, $this->form);
