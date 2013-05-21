@@ -99,9 +99,9 @@ user_set_delivery_address:
 user_tshirt:
   url: /:sf_culture/profil/tshirt
   param: { module: user, action: tshirt }
-user_licence:
-  url: /:sf_culture/licence
-  param: { module: user, action: licence }
+user_masters:
+  url: /:sf_culture/user/licence/masters
+  param: { module: user, action: licenceMasters }
 user_newLicenceGa:
   url: /:sf_culture/licence/ga
   param: { module: user, action: newLicenceGa }

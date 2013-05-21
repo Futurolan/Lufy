@@ -265,7 +265,7 @@ class userActions extends FrontendActions
     $this->redirect('user/address');
   }
 
-
+/*
   public function executeLicence(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Doctrine_Core::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')));
@@ -281,22 +281,30 @@ class userActions extends FrontendActions
       $this->username = $result->username;
       $this->used = $result->used;
     };
-  }
+  }*/
 
 
 /**
  * Add a Masters licence on the current user
  */
-  public function executeAddMasters(sfWebRequest $request){
-      $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-      $this->form = new licenceMastersForm($user);
+  public function executeLicenceMasters(sfWebRequest $request){
+      $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
+      $this->licence = $user->getSfGuardUserLicenceMasters();
+
+      if(!$this->licence){
+        $this->licence = new SfGuardUserLicenceMasters();
+        $this->licence->setUserId($user->getId());
+      }
+
+      $this->form = new SfGuardUserLicenceMastersForm($this->licence);
+
       if ($request->isMethod(sfRequest::POST)){
-        $this->processFormLicenceMasters($request, $this->form);
-        $this->redirect('user/licence');
+        $this->processForm/*LicenceMasters*/($request, $this->form);
+        $this->redirect('user/licenceMasters');
       }
   }
 
-
+/*
   protected function processFormLicenceMasters(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -308,7 +316,7 @@ class userActions extends FrontendActions
       $mfjv->setCriteria('last_name', $user->getLastName());
       //$mfjv->setCriteria('birthdate', $user->getBirthdate());
 
-      $result = $mfjv->check($user->getLicenceMasters());
+      $result = $mfjv->check($form->getSerial());
       if ($result)
       {
         //  La requete a abouti et la licence est valide,
@@ -329,19 +337,7 @@ class userActions extends FrontendActions
 
     $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Veuillez reessayer.');
     $this->redirect('user/licence');
-  }
-
-
-  public function executePassword(sfWebRequest $request)
-  {
-    //$this->forward404Unless($request->isMethod(sfRequest::POST));
-    $this->form = new passwordForm($this->user);
-    if($this->embeddedProcessForm($request, 'password'))
-    {
-      $this->getUser()->setFlash('success', 'Le mot de passe a bien été modifié.');
-    }
-
-  }
+  }*/
 
 
 /**
@@ -364,5 +360,21 @@ class userActions extends FrontendActions
         $this->redirect('user/tshirt');
       }
   }
+
+
+    public function executePassword(sfWebRequest $request)
+  {
+    //$this->forward404Unless($request->isMethod(sfRequest::POST));
+    $this->form = new passwordForm($this->user);
+    if($this->embeddedProcessForm($request, 'password'))
+    {
+      $this->getUser()->setFlash('success', 'Le mot de passe a bien été modifié.');
+    }
+
+  }
+
+
+
+
 }
 

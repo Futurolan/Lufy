@@ -1,7 +1,7 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
-<form action="<?php echo url_for('licence/masters');?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form action="<?php echo url_for('user/licenceMasters');?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 
 <input type="hidden" name="sf_method" value="post" />
 
@@ -20,11 +20,11 @@
       <tr>
         <th><?php echo __('Numero de licence Masters')?></th>
         <td>
-          <?php echo $form['licence_masters']->renderError() ?>
-          <?php echo $form['licence_masters'] ?>
+          <?php echo $form->renderGlobalErrors() ?>
+
+          <?php echo $form['serial']->renderRow(); ?>
         </td>
       </tr>
-
     </tbody>
   </table>
 </form>

@@ -1,7 +1,7 @@
 <ul class="nav nav-list">
   <li class="nav-header"><?php echo $sf_user->getUsername(); ?></li>
   <li><?php echo link_to(__('Mon profil'), 'user/profile'); ?></li>
-  <li><a href="#"><?php echo __('Licence Masters'); ?></a></li>
+  <li><?php echo link_to(__('Licence Masters'), 'user/licenceMasters'); ?></li>
   <li><?php echo link_to(__('Mes adresses'), 'user/address'); ?></li>
   <li><?php echo link_to(__('Taille de tshirt'), 'user/tshirt'); ?></li>
 

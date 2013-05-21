@@ -1127,18 +1127,24 @@ SfGuardUserLicenceMasters:
   connection: doctrine
   tableName: sf_guard_user_licence_masters
   columns:
-    id:
-      type: integer(8)
-      primary: true
-      autoincrement: true
     user_id:
       type: integer(8)
       notnull: true
-    licence_number:
+      primary: true
+    type:
+      type: string(15)
+      notnull: false
+    serial:
       type: string(40)
       notnull: true
-    attributes:
-      type: string()
+    season:
+      type: string(9)
+      notnull: false
+    username:
+      type: string(50)
+      notnull: false
+    used:
+      type: integer(4)
       notnull: false
   relations:
     SfGuardUser:
