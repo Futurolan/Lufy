@@ -1218,3 +1218,4 @@ SfGuardUserTshirt:
       local: user_id
       foreign: id
       type: one
+      foreignType: one

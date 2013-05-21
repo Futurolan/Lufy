@@ -350,7 +350,7 @@ class userActions extends FrontendActions
   public function executeTshirt(sfWebRequest $request)
   {
       $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-      $tshirt = Doctrine::getTable('sfGuardUserTshirt')->findOneByUserId($user->getId());
+      $tshirt = $user->getSfGuardUserTshirt();
 
       if (!$tshirt){
         $tshirt = new sfGuardUserTshirt();
@@ -360,23 +360,9 @@ class userActions extends FrontendActions
       $this->form = new sfGuardUserTshirtForm($tshirt);
 
       if ($request->isMethod(sfRequest::POST)){
-        $this->processFormTshirtSize($request, $this->form);
+        $this->processForm($request, $this->form);
         $this->redirect('user/tshirt');
       }
   }
-
-
-  protected function processFormTshirtSize(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-
-    if ($form->isValid())
-    {
-      $form->save();
-      $this->getUser()->setFlash('success', 'La taille de vote tee-shirt a ete enregistre');
-      $this->redirect('user/tshirt');
-    }
-  }
-
 }
 
