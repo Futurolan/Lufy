@@ -350,14 +350,14 @@ class userActions extends FrontendActions
   public function executeTshirt(sfWebRequest $request)
   {
       $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-      $tshirt = Doctrine::getTable('Tshirt')->findOneByUserId($user->getId());
+      $tshirt = Doctrine::getTable('sfGuardUserTshirt')->findOneByUserId($user->getId());
 
       if (!$tshirt){
-        $tshirt = new Tshirt();
+        $tshirt = new sfGuardUserTshirt();
         $tshirt->setUserId($user->getId());
       }
 
-      $this->form = new TshirtSizeForm($tshirt);
+      $this->form = new sfGuardUserTshirtForm($tshirt);
 
       if ($request->isMethod(sfRequest::POST)){
         $this->processFormTshirtSize($request, $this->form);

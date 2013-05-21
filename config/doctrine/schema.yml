@@ -1021,29 +1021,6 @@ PokerTournamentPlayer:
       foreign: id_poker_tournament
       type: many
 
-
-Tshirt:
-  connection: doctrine
-  tableName: tshirt
-  columns:
-    id_tshirt:
-      type: integer(8)
-      primary: true
-      autoincrement: true
-    user_id:
-      type: integer(8)
-      notnull: true
-    size:
-      type: string(5)
-      notnull: true
-  relations:
-    SfGuardUser:
-      class: sfGuardUser
-      local: user_id
-      foreign: id
-      type: one
-
-
 Entree:
   connection: doctrine
   tableName: entree
@@ -1216,6 +1193,25 @@ SfGuardUserAddress:
       type: boolean
       default: false
 
+  relations:
+    SfGuardUser:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+
+SfGuardUserTshirt:
+  connection: doctrine
+  tableName: sf_guard_user_tshirt
+  columns:
+    user_id:
+      type: integer(8)
+      notnull: true
+      primary: true
+    size:
+      type: enum
+      values: [XS, S, M, L, XL, XXL, XXXL]
+      default: M
   relations:
     SfGuardUser:
       class: sfGuardUser
