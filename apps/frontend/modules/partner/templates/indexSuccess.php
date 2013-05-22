@@ -1,43 +1,54 @@
 <h2>Partenaires</h2>
+
 <p>
     La Gamers Assembly ne pourrait exister sans le soutien de ses nombreux partenaires, dont certains sont fidèles maintenant depuis de longues années.
 </p>
 <p>
     Vous souhaitez sponsoriser un tournoi, exposer lors de notre manifestation ou simplement associer votre image &agrave; la notre ?
-    Nous poss&egrave;dons de nombreuses solutions de communication et d'entraide afin de cr&eacute;er des collaborations "gagnant-gagnant". 
+    Nous poss&egrave;dons de nombreuses solutions de communication et d'entraide afin de cr&eacute;er des collaborations "gagnant-gagnant".
     Contactez nous en d&eacute;crivant votre activit&eacute; et votre projet, nous nous engageons &agrave; revenir vers vous rapidement pour d&eacute;finir la mani&egrave;re dont nous pouvons travailler &agrave; vos c&ocirc;t&eacute;s !
 </p>
+
 <?php
-
+$current_type = '';
 foreach ($partners as $partner):
-  if ($partner->PartnerType->status == 1):
-    $var[] = array($partner->PartnerType->position, $partner->PartnerType->name, $partner->getWebsite(), $partner->getLogourl(), $partner->getName(), $partner->getDescription());
+  if ($partner->getPartnerType()->getName() != $current_type):
+    echo '<h3>'.$partner->getPartnerType()->getName().'</h3>';
   endif;
+  ?>
+  <div class="logo-partner" style="background-image: url('/uploads/partenaires/100/<?php echo $partner->getLogourl(); ?>');" data-location="<?php echo $partner->getWebsite(); ?>" data-toggle="tooltip"title="<?php echo $partner->getDescription(); ?>"></div>
+  <?php
+  $current_type = $partner->getPartnerType()->getName();
 endforeach;
-
-$result = count($var);
-$currentType = 0;
-
-$nb_cols = 5;
-$j = 0;
 ?>
-<table width="100%">
-<?php for ($i=0;$i<$result;$i++)
-{
-  if ($j == $nb_cols):
-    echo "</tr>";
-    $j = 0;
-  endif;
-  if ($currentType != $var[$i][0]): ?>
-    <?php $j = 0; ?>
-    <tr><td colspan="<?php echo $nb_cols?>"><h3><?php echo $var[$i][1]?></h3></td></tr><tr>
-  <?php endif; 
-  
-  if ($j == 0) echo "<tr>";?>
-  <td valign="middle" align="center" style="text-align: center;"><a href="<?php echo $var[$i][2]?>"><?php echo image_tag('/uploads/partenaires/100/'.$var[$i][3], 'class="partnerLogo" alt="'.$var[$i][4].'" title="'.$var[$i][5].'"')?></a></td>
-  
-  <?php $currentType = $var[$i][0]; ?>
-  <?php $j++; ?>
-  <?php if ($i == $result-1) echo "</tr>";?>
-<?php } ?>
-</table>
+
+<style>
+.logo-partner {
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 1px;
+  padding: 15px;
+  height: 100px;
+  width: 100px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px #ddd inset;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.logo-partner:hover {
+  box-shadow: 0px 0px 50px #bbb inset;
+  transition: 0.5s;
+}
+</style>
+
+<script>
+$('.logo-partner').tooltip({
+  'placement': 'right',
+  'html': true
+});
+$('.logo-partner').bind('click', function() {
+  window.open($(this).data('location'), '_blank');
+});
+</script>
