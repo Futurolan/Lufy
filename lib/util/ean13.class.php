@@ -6,14 +6,29 @@
  * Association Futurolan <contact@futurolan.net>
  */
 
-class Ean13Tool {
+class Ean13Tool{
+	public static $lastreneger = '1000000000001';
+	private $myEan;
 
-    /**
-     * Generate next EAN13 with control key
-     * @param : current EAN13
-     * @return : next EAN13
-     */
-    public function nextEan($string) {
+	public function __construct() {
+		/*$this->myEan = '1000000000014';*/
+		$this->myEan = $this->nextEan($lastgener);
+		Ean::$lastgener = $this->myEan;
+	}
+
+	static function initialisation () {
+
+	}
+
+	static function raz(){
+		Ean::$lastgener = 1000000000001;
+	}
+
+	public function getEan() {
+		return $this->myEan;
+	}
+
+   public function nextEan($string) {
         $k = substr($string, 0, 12);
         $k = $k + 1;
         for ($i = 0; $i < 12; $i++) {
@@ -30,8 +45,10 @@ class Ean13Tool {
         $total = $pair + $impair;
         $r = fmod($total, 10);
         $controlkey = 10 - $r;
-        $n = str_pad($k, 13, $controlkey, STR_PAD_RIGHT);
-        
+        $n = \str_pad($k, 13, $controlkey, STR_PAD_RIGHT);
+
         return $n;
     }
 }
+
+?>
