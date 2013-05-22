@@ -1,14 +1,14 @@
-<div class="box">
-    <h3>
+
+    <h2>
         <?
-//        if ($licence->getSerial()) :
-//            echo image_tag('/css/img/gamersassembly/icones/masters.png', array('title' => 'Licenci&eacute;', 'class' => 'licencelogo'));
-//        else :
-//            echo image_tag('/css/img/gamersassembly/icones/masters_nb.png', array('title' => 'Non licenci&eacute;', 'class' => 'licencelogo'));
-//        endif;
-//        ?>
+        if ($licence->getSerial()) :
+            echo image_tag('/css/img/gamersassembly/icones/masters.png', array('title' => 'Licenci&eacute;', 'class' => 'licencelogo'));
+        else :
+            echo image_tag('/css/img/gamersassembly/icones/masters_nb.png', array('title' => 'Non licenci&eacute;', 'class' => 'licencelogo'));
+        endif;
+        ?>
         <?php echo __('Gestion de la licence Masters')?>
-    </h3>
+    </h2>
     <p>
         <?php echo __('Si vous ne possedez pas de licence Masters du Jeu Video vous devez créer un compte sur le site')?>
         <a href="http://www.mastersjeuvideo.org" target="_blank">www.mastersjeuvideo.org</a>, <?php echo __('rendez-vous ensuite a la page')?>
@@ -23,4 +23,3 @@
     <?php else: ?>
         <?php include_partial('user/formLicenceMasters', array('form' => $form)); ?>
     <?php endif; ?>
-</div>
