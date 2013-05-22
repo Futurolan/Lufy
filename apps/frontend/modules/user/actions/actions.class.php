@@ -5,7 +5,7 @@
  *
  * @package    lufy
  * @subpackage user
- * @author     Your name here
+ * @author     Lufy, HumanG33k
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class userActions extends FrontendActions
@@ -141,23 +141,26 @@ class userActions extends FrontendActions
   }
 
 
-  public function executeNewAddress(sfWebRequest $request)
-  {
+public function executeNewAddress(sfWebRequest $request)
+{
   $object = new SfGuardUserAddress();
   $object->setUserId($this->getUser()->getGuardUser()->getId());
-  $object->setIsDefault(1);
-  $object->setIsBilling(1);
-  $object->setIsDelivery(1);
-
+   $first = $this->getUser()->getGuardUser()->getSfGuardUserAddress()->count();
+  if ($first == 0 )
+  {
+    $object->setIsDefault(1);
+    $object->setIsBilling(1);
+    $object->setIsDelivery(1);
+  }
   $this->form = new SfGuardUserAddressForm($object);
 
-    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+  if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+  {
+    if ($this->processForm($request, $this->form))
     {
-      if ($this->processForm($request, $this->form))
-      {
-        $this->redirect('user/address');
-      }
+      $this->redirect('user/address');
     }
+  }
   }
 
 
@@ -265,97 +268,74 @@ class userActions extends FrontendActions
     $this->redirect('user/address');
   }
 
-/*
-  public function executeLicence(sfWebRequest $request)
-  {
-    $this->forward404Unless($this->user = Doctrine_Core::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')));
-    $mfjv = new mfjv();
-    $result = $mfjv->check($this->user->getLicenceMasters());
-    if ($result)
-    {
-      // La requete a abouti et la licence est valide,
-      // on peut donc exploiter les resultats
-      $this->type = $result->type;
-      $this->serial = $result->serial;
-      $this->season = $result->season;
-      $this->username = $result->username;
-      $this->used = $result->used;
-    };
-  }
-
-    $mfjv->setCriteria('username', 'Syam');
-    $mfjv->setCriteria('first_name', 'Jean Christophe');
-    $mfjv->setCriteria('last_name', 'Huwette');
-    $mfjv->setCriteria('birthdate', '1981-04-01');
- */
-
-
-/**
+  /**
  * Add a Masters licence on the current user
  */
-  public function executeLicenceMasters(sfWebRequest $request){
+  public function executeLicenceMasters(sfWebRequest $request)
+  {
       $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
       $this->licence = $user->getSfGuardUserLicenceMasters();
 
-      if(!$this->licence){
+      if(!$this->licence)
+      {
         $this->licence = new SfGuardUserLicenceMasters();
         $this->licence->setUserId($user->getId());
       }
 
       $this->form = new SfGuardUserLicenceMastersForm($this->licence);
 
-      if ($request->isMethod(sfRequest::POST)){
+      if ($request->isMethod(sfRequest::POST))
+      {
         $this->processFormLicenceMasters($request, $this->form);
-        $this->redirect('user/licenceMasters');
+        //$this->redirect('user/licenceMasters');
       }
   }
 
-
+/*
+ *
+ *
+ */
   protected function processFormLicenceMasters(sfWebRequest $request, sfForm $form)
   {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
+    $mfjv = new mfjv();
+    $mfjv->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
+    $serial = $request->getPostParameter('sf_guard_user_licence_masters[serial]');
+    $result = $mfjv->check($serial);
+    if( $result )
     {
-      $user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId());
-      $licence = $user->getSfGuardUserLicenceMasters();
-      $mfjv = new mfjv();
-      /*$mfjv->setCriteria('first_name', $user->getFirstName());
-      $mfjv->setCriteria('last_name', $user->getLastName());*/
-      //$mfjv->setCriteria('birthdate', $user->getBirthdate());
-
-      $result = $mfjv->check($form->getObject()->getSerial()/*"11G39-HNKPSQ-1897M"*/);
-      if ($result)
+      $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+      if ($result->season == '2012-2013')
       {
-        //  La requete a abouti et la licence est valide,
-        // on peut donc exploiter les resultats
-        if ($result->season == '2012-2013')
+        if ($this->licence)
         {
-          $licence->setType($result->type);
-          $licence->setSerial($result->serial);
-          $licence->setUsername($result->username);
-          $licence->setSeason($result->season);
-          $licence->setUsed($result->Used);
-          $licence->save();
+          $this->licence->setType($result->type);
+          $this->licence->setSerial($result->serial);
+          $this->licence->setUsername($result->username);
+          $this->licence->setSeason($result->season);
+          $this->licence->setUsed($result->used);
+          $this->licence->save();
 
-          // On verifie que la licence a ete souscrite pour la bonne saison
-          $this->getUser()->setFlash('success', 'Votre Licence Masters a ete verifiee. Les reductions seront automatiquement appliquees.');
+          $this->getUser()->setFlash('success','Votre Licence Masters a ete verifiee.');
           $this->redirect('user/licenceMasters');
-        }else{
-          $this->getUser()->setFlash('error', 'Problème avec la saison');
         }
-      } else {
-        /*$user->setLicenceMasters(NULL);
-        $user->save();*/
-        $this->getUser()->setFlash('error', 'Votre numero de licence et/ou les informations relatives a votre profil (nom ou prenom) sont erronees.');
-        $this->redirect('user/licenceMasters');
+        else
+        {
+          $this->getUser()->setFlash('error','humm comment dire erreur de developpement');
+          $this->redirect('user/licenceMasters');
+        }
       }
-
-
+      else
+      {
+        $this->getUser()->setFlash('error','Votre licence n\'est pas valide pour la saison en cours');
+      }
     }
-
-    $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Veuillez reessayer.');
-    $this->redirect('user/licenceMasters');
+    else
+    {
+      $this->getUser()->setFlash('error','Licence inexistante et/ou nom ne correspondant pas, si les informations sont correctement remplis le site des masters est peut etre injoingnable, veuillez reessayer ulterieurement');
+    }
   }
+
+
 
 
 /**
