@@ -1,3 +1,9 @@
+<?php
+header('HTTP/1.1 503 Service Temporarily Unavailable');
+header('Status: 503 Service Temporarily Unavailable');
+header('Retry-After: 1800');
+header('X-Powered-By:');
+?>
 <!DOCTYPE html>
 <html>
 <head>
