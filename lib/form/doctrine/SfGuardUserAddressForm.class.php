@@ -20,6 +20,7 @@ class SfGuardUserAddressForm extends BaseSfGuardUserAddressForm
       $this["is_default"],
       $this["is_billing"],
       $this["is_delivery"]
-    );
+      );
+    $this->setWidget('country', new sfWidgetFormI18nChoiceCountry());
   }
 }

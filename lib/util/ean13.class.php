@@ -130,6 +130,5 @@
       	$controlkey = 10 - $r;
       	$this->current = \str_pad($number, 13, $controlkey, STR_PAD_RIGHT);
       }
-
     }
 ?>
