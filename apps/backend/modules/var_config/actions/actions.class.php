@@ -8,8 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class var_configActions extends BackendActions
-{
+class var_configActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
         $this->var_configs = Doctrine::getTable('varConfig')

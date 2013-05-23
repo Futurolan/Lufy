@@ -28,7 +28,7 @@ foreach ($files as $file): ?>
             if ($last_dir !=0):
                 echo '</p></div>';
             endif;
-            echo '<div id="rep-'.$i.'"><h3 style="width: 90%; padding: 10px; border: solid 1px #ccc; background: #efefea;"><a href="#" onclick="javascript:fade('.$i.');">+</a> '.$file.'</h3><i style="display: none; margin-bottom: 30px;">';
+            echo '<div id="rep-'.$i.'"><h3 style="width: 90%; padding: 10px; border: solid 1px #ccc; background: #efefea;"><a href="#" onclick="javascript:fade('.$i.');">+</a> '.$file.'</h3><p style="display: none; margin-bottom: 30px;">';
         endif;
         $last_dir = $explode;
     elseif (is_file(sfConfig::get('sf_upload_dir').'/'.$file)):
@@ -36,4 +36,4 @@ foreach ($files as $file): ?>
     endif;
     $i++;
     ?>
-<?php endforeach; ?>
+<? endforeach; ?>

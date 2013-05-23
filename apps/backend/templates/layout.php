@@ -12,58 +12,60 @@
         <div id="header">
             <h1>Administration</h1>
             <div id="subHeader">
-                <?php echo ajax_link('Vider le cache', 'main/clearCache')?> | 
-                <?php echo ajax_link('Param&egrave;tres', 'main/parameters')?> | 
-                <?php echo ajax_link('Deconnexion', 'sfGuardAuth/signout')?>
+                <?=ajax_link('Vider le cache', 'main/clearCache')?> | 
+                <?=ajax_link('Param&egrave;tres', 'main/parameters')?> | 
+                <?=ajax_link('Deconnexion', 'sfGuardAuth/signout')?>
             </div>
         </div>
         <div id="body">
             <div id="navigation">
                 <h2>NAVIGATION</h2>
-                <?php echo  ajax_link('Tableau de bord', 'main/gamersassembly') ?>
+                <?= ajax_link('Tableau de bord', 'main/gamersassembly') ?>
                 <h3>CMS</h3>
                 <ul class="list">
-                    <li><?php echo  ajax_link('Actualit&eacute;s', 'news/index') ?></li>
-                    <li><?php echo  ajax_link('Pages de contenu', 'page/index') ?></li>
-                    <li><?php echo  ajax_link('Encarts', 'block/index') ?></li>
-                    <li><?php echo  ajax_link('Partenaires', 'partner/index') ?></li>
-                    <li><?php echo  ajax_link('Galeries photos', 'gallery/index') ?></li>
-                    <li><?php echo  ajax_link('Vid&eacute;os et autres', 'file/index') ?></li>
-                    <li><?php echo  ajax_link('Foire aux questions', 'faq/index') ?></li>
+                    <li><?= ajax_link('Actualit&eacute;s', 'news/index') ?></li>
+                    <li><?= ajax_link('Pages de contenu', 'page/index') ?></li>
+                    <li><?= ajax_link('Encarts', 'block/index') ?></li>
+                    <li><?= ajax_link('Partenaires', 'partner/index') ?></li>
+                    <li><?= ajax_link('Galeries photos', 'gallery/index') ?></li>
+                    <li><?= ajax_link('Vid&eacute;os et autres', 'file/index') ?></li>
+                    <li><?= ajax_link('Foire aux questions', 'faq/index') ?></li>
                 </ul>
 
                 <h3>Evenements</h3>
                 <ul class="list">
-                    <li><?php echo  ajax_link('Joueurs', 'user/index') ?></li>
-                    <li><?php echo  ajax_link('Equipes', 'team/index') ?></li>
-                    <li><?php echo  ajax_link('Tournois', 'tournament_slot/index') ?></li>
-                    <li><?php echo  ajax_link('Joueurs Poker', 'poker_tournament_player/index') ?></li>
-                    <li><?php echo  ajax_link('Tournois Poker', 'poker_tournament/index') ?></li>
-                    <li><?php echo  ajax_link('Evenements', 'event/index') ?></li>
+                    <li><?= ajax_link('Joueurs', 'user/index') ?></li>
+                    <li><?= ajax_link('Equipes', 'team/index') ?></li>
+                    <li><?= ajax_link('Tournois', 'tournament_slot/index') ?></li>
+                    <li><?= ajax_link('Joueurs Poker', 'poker_tournament_player/index') ?></li>
+                    <li><?= ajax_link('Tournois Poker', 'poker_tournament/index') ?></li>
+                    <li><?= ajax_link('Evenements', 'event/index') ?></li>
                 </ul>
 
                 <h3>Paiements</h3>
                 <ul class="list">
-                    <li><?php echo  ajax_link('Commandes', 'commande/index') ?></li>
-                    <li><?php echo  ajax_link('Paiements', 'payement/index') ?></li>
-                    <li><?php echo  ajax_link('IPN Paypal', 'ipn/index') ?></li>
+                    <li><?= ajax_link('Commandes', 'commande/index') ?></li>
+                    <li><?= ajax_link('Paiements', 'payement/index') ?></li>
+                    <li><?= ajax_link('IPN Paypal', 'ipn/index') ?></li>
                 </ul>
 
                 <h3>Autres</h3>
                 <ul class="list">
-                    <li><s><?php echo  ajax_link('Newsletter', 'newsletter/index') ?></s></li>
-                    <li><?php echo  ajax_link('Statistiques', 'stats/index') ?></li>
+                    <li><?= ajax_link('Tickets', 'ticket/index') ?></li>
+                    <li><?= link_to('Carte des joueurs valid&eacute;s', 'user/map', array('target' => '_blank')) ?></s></li>
+                    <li><s><?= ajax_link('Newsletter', 'newsletter/index') ?></s></li>
+                    <li><?= ajax_link('Statistiques', 'stats/index') ?></li>
                     <li>&nbsp;</li>
-                    <li><?php echo ajax_link('Param&egrave;tres', 'main/parameters')?></li>
-                    <li><?php echo ajax_link('Deconnexion', 'sfGuardAuth/signout')?></li>
+                    <li><?=ajax_link('Param&egrave;tres', 'main/parameters')?></li>
+                    <li><?=ajax_link('Deconnexion', 'sfGuardAuth/signout')?></li>
                 </ul>
 
             </div>
             <div id="content">
-                <?php if ($sf_user->hasFlash('success')) echo '<div class="flashbox success">'.$sf_user->getFlash('success').'</div>'; ?>
-                <?php if ($sf_user->hasFlash('info')) echo '<div class="flashbox info">'.$sf_user->getFlash('info').'</div>'; ?>
-                <?php if ($sf_user->hasFlash('warning')) echo '<div class="flashbox warning">'.$sf_user->getFlash('warning').'</div>'; ?>
-                <?php if ($sf_user->hasFlash('error')) echo '<div class="flashbox error">'.$sf_user->getFlash('error').'</div>'; ?>
+                <? if ($sf_user->hasFlash('success')) echo '<div class="flashbox success">'.$sf_user->getFlash('success').'</div>'; ?>
+                <? if ($sf_user->hasFlash('info')) echo '<div class="flashbox info">'.$sf_user->getFlash('info').'</div>'; ?>
+                <? if ($sf_user->hasFlash('warning')) echo '<div class="flashbox warning">'.$sf_user->getFlash('warning').'</div>'; ?>
+                <? if ($sf_user->hasFlash('error')) echo '<div class="flashbox error">'.$sf_user->getFlash('error').'</div>'; ?>
               <?php echo $sf_content ?>
             </div>
         </div>
@@ -86,7 +88,7 @@ $(window).ready(function() {
 
         <div id="loader" style="display: none; width: 100%; height: 100%; text-align: center; z-index: 10; background: url('/images/black-px-40.png') repeat; position: absolute; margin-top: -40px;">
           <div style="width: 300px; text-align: center; padding: 30px; border: solid 2px #888; margin: auto auto; background: #fff;font-size: 18px; color: #666; margin-top: 200px;">
-            <?php echo image_tag('ajax-loader.gif', array('width' => 16))?> Chargement en cours...
+            <?=image_tag('ajax-loader.gif', array('width' => 16))?> Chargement en cours...
           </div>
         </div>
 

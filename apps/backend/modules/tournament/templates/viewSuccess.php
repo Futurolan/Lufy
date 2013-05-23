@@ -1,33 +1,33 @@
-<h2><?php echo $tournament->getName()?></h2>
+<h2><?=$tournament->getName()?></h2>
 
 <table class="table">
     <tr>
         <th>Tournois</th>
-        <td><?php echo $tournament->getName()?></td>
+        <td><?=$tournament->getName()?></td>
         <th>Jeu</th>
-        <td><?php echo $tournament->getGame()->getLabel()?></td>
+        <td><?=$tournament->getGame()->getLabel()?></td>
     </tr>
     <tr>
         <th>Ev&egrave;nement</th>
-        <td><?php echo $tournament->getEvent()->getName()?></td>
+        <td><?=$tournament->getEvent()->getName()?></td>
         <th>Plateforme</th>
-        <td><?php echo $tournament->getGame()->getPlateform()->getName()?></td>
+        <td><?=$tournament->getGame()->getPlateform()->getName()?></td>
     </tr>
     <tr>
         <th>Nb joueurs</th>
-        <td><?php echo $tournament->getNumberTeam()*$tournament->getPlayerPerTeam()?></td>
+        <td><?=$tournament->getNumberTeam()*$tournament->getPlayerPerTeam()?></td>
         <th>Nb &eacute;quipes</th>
-        <td><?php echo $tournament->getNumberTeam()?></td>
+        <td><?=$tournament->getNumberTeam()?></td>
     </tr>
     <tr>
         <th>Nb slots r&eacute;serv&eacute;s</th>
-        <td><?php echo $tournament->getReservedSlot()?></td>
+        <td><?=$tournament->getReservedSlot()?></td>
         <th>Prix</th>
-        <td><?php echo $tournament->getCostPerPlayer()?></td>
+        <td><?=$tournament->getCostPerPlayer()?></td>
     </tr>
     <tr>
         <th>Description</th>
-        <td colspan="3"><?php echo $tournament->getDescription()?></td>
+        <td colspan="3"><?=$tournament->getDescription()?></td>
     </tr>
 </table>
 
@@ -43,7 +43,7 @@ $state_libre = 0;
 $state_total = 0;
 $state_max_slot = $tournament->getNumberTeam();
 ?>
-<?php foreach ($tournament->getTournamentSlot() as $slot): 
+<? foreach ($tournament->getTournamentSlot() as $slot): 
     if ($slot->getStatus() == 'reserve'):
       $state_reserve++;
       $state_valide++;
@@ -97,17 +97,17 @@ $percent_reserve = round($state_reserve*100/$state_max_slot);
                         series: [{
                             type: "donut",
                             data: [{
-                                category: "<?php echo $state_reserve?> reserv&eacute;s",
-                                value: <?php echo $percent_reserve?>
+                                category: "<?=$state_reserve?> reserv&eacute;s",
+                                value: <?=$percent_reserve?>
                             }, {
-                                category: "<?php echo $state_valide-$state_reserve?> valid&eacute;s",
-                                value: <?php echo $percent_valide?>
+                                category: "<?=$state_valide-$state_reserve?> valid&eacute;s",
+                                value: <?=$percent_valide?>
                             }, {
-                                category: "<?php echo $state_inscrit-$state_reserve-$state_valide?> en attente",
-                                value: <?php echo $percent_inscrit?>
+                                category: "<?=$state_inscrit-$state_reserve-$state_valide?> en attente",
+                                value: <?=$percent_inscrit?>
                             }, {
-                                category: "<?php echo $state_libre?> libres",
-                                value: <?php echo $percent_libre?>
+                                category: "<?=$state_libre?> libres",
+                                value: <?=$percent_libre?>
                             }]
                         }],
                         tooltip: {
@@ -145,10 +145,10 @@ $i=0;
 foreach ($admins as $admin):
 ?>
     <tr>
-        <td><?php echo $admin->getUsername($admin->getUserId())?></td>
+        <td><?=$admin->getUsername($admin->getUserId())?></td>
         <!--<td><?//=$admin->getLastName($admin->getUserId())?></td>
         <td><?//=$admin->getSfGuardUser()->getFirstName()?></td>-->
-        <td><a href="<?php echo url_for('tournament_admin/delete?id_tournament_admin='.$admin->getIdTournamentAdmin()) ?>">Supprimer</a></td>
+        <td><a href="<?php echo url_for('tournament_admin/delete?user_id='.$admin->getIdTournamentAdmin()) ?>">Supprimer</a></td>
     </tr>
 <?php
 endforeach;

@@ -8,7 +8,7 @@
  * @author     Guillaume Marsay <guillaume@futurolan.net>
  */
 
-class galleryActions extends BackendActions
+class galleryActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {

@@ -16,28 +16,28 @@
 
 <h2>Cat&eacute;gorie des partenaires</h2>
 
-<form method="POST" action="<?php echo url_for('partner_type/updatePosition')?>">
+<form method="POST" action="<?=url_for('partner_type/updatePosition')?>">
 
 <input type="submit" value="Enregistrer les changements"  class="button save"/>
 <a href="<?php echo url_for('partner_type/new') ?>" class="button add">Ajouter une cat&eacute;gorie</a>
 <a href="<?php echo url_for('partner/index') ?>" class="button">Retour aux partenaires</a>
 
 <ul id="jquery-ui-partner-type">
-  <?php $i= 0; foreach ($partners_types as $partner_type): $i++; ?>
+  <? $i= 0; foreach ($partners_types as $partner_type): $i++; ?>
     <?php
     if ($partner_type->getStatus() == '0'): ?>
         <li class="inactive">
-    <?php else: ?>
+    <? else: ?>
         <li>
-    <?php endif; ?>
+    <? endif; ?>
         <table width="800px;">
             <tr height="25">
                 <td width="20px" align="center" valign="center">
-                    <input type="hidden" name="partner_type[<?php echo $i?>][id]" value="<?php echo $partner_type->getIdPartnerType()?>" />
-                    <input type="hidden" class="positionInput" name="partner_type[<?php echo $i?>][position]" value="<?php echo $partner_type->getPosition()?>" /> 
+                    <input type="hidden" name="partner_type[<?=$i?>][id]" value="<?=$partner_type->getIdPartnerType()?>" />
+                    <input type="hidden" class="positionInput" name="partner_type[<?=$i?>][position]" value="<?=$partner_type->getPosition()?>" /> 
                 </td>
                 <td width="490px">
-                    <span style="font-size: 14px;"><?php echo strtoupper($partner_type->getName())?></span>
+                    <span style="font-size: 14px;"><?=strtoupper($partner_type->getName())?></span>
                 </td>
                 <td width="150px">
                     <?php echo ajax_link('Modifier','partner_type/edit?id_partner_type='.$partner_type->getIdPartnerType()) ?>
@@ -48,6 +48,6 @@
       
        
     </li>
-  <?php endforeach; ?>
+  <? endforeach; ?>
 </ul>
 </form>

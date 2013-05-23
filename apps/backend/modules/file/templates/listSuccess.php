@@ -1,4 +1,4 @@
-<h2>Galeries > <?php echo $file_category->getName()?></h2>
+<h2>Galeries > <?=$file_category->getName()?></h2>
 
 <table class="table">
   <thead>
@@ -11,9 +11,9 @@
   <tbody>
     <?php foreach ($files as $file): ?>
     <tr>
-      <td><?php if ($file->status == 1): echo image_tag('/css/img/backend/8green.png'); else: echo image_tag('/css/img/backend/8red.png'); endif;?></td>
+      <td><? if ($file->status == 1): echo image_tag('/css/img/backend/8green.png'); else: echo image_tag('/css/img/backend/8red.png'); endif;?></td>
       <td><a href="<?php echo url_for('file/edit?id_file='.$file->getIdFile()) ?>"><?php echo $file->getName() ?></a></td>
-      <td><a href="http://www.dailymotion.com/video/<?php echo $file->file?>" target="_blank"><?php echo $file->getFile() ?></a></td>
+      <td><a href="http://www.dailymotion.com/video/<?=$file->file?>" target="_blank"><?php echo $file->getFile() ?></a></td>
       <td><?php echo $file->getFileType() ?></td>
     </tr>
     <?php endforeach; ?>

@@ -33,7 +33,7 @@
           <?php echo $form['file']->renderError() ?>
           <?php echo $form['file'] ?>
           <br/>
-          <span style="font-size:10px; font-weight:normal; font-style: italic; color:#888;">Exemple : http://www.dailymotion.com/video/<i style="color: #333;">k172VBFPNL3B6T2hAeh</b></span>
+          <span style="font-size:10px; font-weight:normal; font-style: italic; color:#888;">Exemple : http://www.dailymotion.com/video/<b style="color: #333;">k172VBFPNL3B6T2hAeh</b></span>
         </td>
       </tr>
       <tr>

@@ -62,6 +62,10 @@
           <?php echo $form['is_paypal'] ?>
         </td>
       </tr>
+      <tr>
+        <th>Date cr&eacute;ation / &Eacute;dition</th>
+        <td><?=$form->getObject()->getCreatedAt()?>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;<?=$form->getObject()->getUpdatedAt()?></td>
+      </tr>
     </tbody>
   </table>
 </form>

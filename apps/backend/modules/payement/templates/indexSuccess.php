@@ -25,18 +25,18 @@
       <td><?php echo $payement->getTxnId() ?></td>
       <td><?php echo $payement->getAmount() ?> &euro;</td>
       <td>
-        <?php if ($payement->getIsValid() == 1): ?>
+        <? if ($payement->getIsValid() == 1): ?>
           oui
-        <?php else: ?>
+        <? else: ?>
           non
-        <?php endif; ?>
+        <? endif; ?>
       </td>
       <td>
-        <?php if ($payement->getIsPaypal() == 1): ?>
+        <? if ($payement->getIsPaypal() == 1): ?>
           oui
-        <?php else: ?>
+        <? else: ?>
           non
-        <?php endif; ?>
+        <? endif; ?>
       </td>
       <td><?php echo $payement->getCreatedAt() ?></td>
       <td><?php echo $payement->getUpdatedAt() ?></td>

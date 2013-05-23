@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class payementActions extends BackendActions
+class payementActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
@@ -89,5 +89,26 @@ class payementActions extends BackendActions
 
       $this->redirect('payement/edit?id_payement='.$payement->getIdPayement());
     }
+  }
+
+  public function executeValidateIpn(sfWebRequest $request)
+  {
+    $id_payement = $request->getParameter('id_payement');
+    $id_txn = $request->getParameter('id_txn');
+
+    if ((!$id_payement) || (!$id_txn))
+    {
+      $this->forward404('Parametre(s) manquant.');
+    }
+    else
+    {
+      $this->forward404Unless($payement = Doctrine_Core::getTable('payement')->findOneByIdPayement($id_payement));
+      $payement->setTxnId($id_txn);
+      $payement->setIsValid(1);
+      $payement->setIsPaypal(1);
+      $payement->save();
+    }
+
+    $this->setLayout('popup');
   }
 }

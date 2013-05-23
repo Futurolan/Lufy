@@ -12,17 +12,17 @@
   <tbody>
     <?php foreach ($file_categorys as $file_category): ?>
     <tr>
-      <td id="fileCategory_status_<?php echo $file_category->getIdFileCategory()?>">
-        <?php if ($file_category->getStatus() == 1): ?>
-          <?php $img = '/css/img/backend/8green.png'; ?>
-        <?php else: ?>
-          <?php $img = '/css/img/backend/8red.png'; ?>
-        <?php endif; ?>
-        <i style="cursor: pointer;" onclick="fileCategory_switchStatus('<?php echo $file_category->getIdFileCategory()?>');"><?php echo image_tag($img)?></a>
+      <td id="fileCategory_status_<?=$file_category->getIdFileCategory()?>">
+        <? if ($file_category->getStatus() == 1): ?>
+          <? $img = '/css/img/backend/8green.png'; ?>
+        <? else: ?>
+          <? $img = '/css/img/backend/8red.png'; ?>
+        <? endif; ?>
+        <a style="cursor: pointer;" onclick="fileCategory_switchStatus('<?=$file_category->getIdFileCategory()?>');"><?=image_tag($img)?></a>
       </td>
       <td>
         <a href="<?php echo url_for('file/list?file_category='.$file_category->getIdFileCategory()) ?>"><?php echo $file_category->getName() ?></a><br/>
-        <i style="font-size: 11px; color:#666;"><?php echo $file_category['nb_file']?> &eacute;l&eacute;ments</i>
+        <i style="font-size: 11px; color:#666;"><?=$file_category['nb_file']?> &eacute;l&eacute;ments</i> 
       </td>
       <td><?php echo $file_category->getDescription() ?></td>
       <td><a href="<?php echo url_for('file_category/edit?id_file_category='.$file_category->getIdFileCategory()) ?>">Modifier</a></td>
@@ -35,7 +35,7 @@
 
 <script>
 function fileCategory_switchStatus(id) {
-  $.get('<?php echo url_for('file_category/switchStatus')?>',
+  $.get('<?=url_for('file_category/switchStatus')?>',
     { 'id_file_category': id },
     function success(data) {
       if ($('#fileCategory_status_'+id+' a img').attr('src') == '/css/img/backend/8green.png') {

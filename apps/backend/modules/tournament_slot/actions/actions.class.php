@@ -8,8 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class tournament_slotActions extends BackendActions
-{
+class tournament_slotActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
 
@@ -285,7 +284,7 @@ class tournament_slotActions extends BackendActions
                         $nblibre--;
                     endif;
                 endforeach;
-
+                
                 foreach ($slots as $slot):
                     if ($slot->getStatus() == 'inscrit'):
                         Doctrine::getTable('tournamentSlot')

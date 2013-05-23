@@ -1,14 +1,14 @@
 <?php
 
 /**
-* ipn actions.
-*
-* @package lufy
-* @subpackage ipn
-* @author Guillaume Marsay <guillaume@futurolan.net>
-* @version SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
-*/
-class IpnActions extends BackendActions
+ * ipn actions.
+ *
+ * @package    lufy
+ * @subpackage ipn
+ * @author     Guillaume Marsay <guillaume@futurolan.net>
+ * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ */
+class IpnActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
@@ -41,7 +41,11 @@ class IpnActions extends BackendActions
 
   public function executeListNotChecked(sfWebRequest $request)
   {
-    $this->ipns = Doctrine_Core::getTable('IpnPaypal')->findByIsChecked(0);
+    $this->ipns = Doctrine_Query::create()
+      ->select('*')
+      ->from('IpnPaypal i')
+      ->where('i.is_checked = ?', 0)
+      ->orderBy('created_at ASC')
+      ->execute();
   }
 }
-?>

@@ -1,0 +1,24 @@
+<h2>Ticket > Suivis du ticket #<?php echo $ticket->getId(); ?></h2>
+
+<div style="background-color: yellow; border: solid 1px #ccc; padding: 0px 10px 0px 10px;">
+<p style="font-size: 14px; font-weight: bold;">
+  #<?php echo $ticket->getId(); ?> <?php echo $ticket->getTitle(); ?>
+</p>
+<p><?php echo $ticket->getContent(); ?></p>
+<p style="text-align: right; font-size: 11px;">Post&eacute; par <?php echo $ticket->getSfGuardUser(); ?> le <?php echo $ticket->getCreatedAt(); ?></p>
+</div>
+
+<?php foreach ($ticket->getTicketFlag()->getTicket as $flag): ?>
+  <span style="padding: 3px 5px 3px 5px; border-radius: 5px; background-color: #<?php echo $flag->getColor(); ?>; color: #fff; text-shadow: 0px 0px 1px #000000;"><?php echo $flag->getName(); ?></span>
+<?php endforeach; ?>
+<br/>
+<br/>
+
+<?php foreach ($replys as $reply): ?>
+  <div style="border: solid 1px #ccc; margin-top: 20px; padding: 10px;">
+    <?php echo $reply->getContent(); ?>
+    <div style="text-align: right;">
+      Post&eacute; par <?php echo $reply->getSfGuardUser()->getUsername(); ?> le <?php echo $reply->getCreatedAt(); ?>
+    </div>
+  </div>
+<?php endforeach; ?>

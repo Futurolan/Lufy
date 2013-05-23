@@ -10,10 +10,10 @@
     </head>
     <body>
         <div id="body" style="margin: auto auto;">
-            <?php if ($sf_user->hasFlash('success')) echo '<div class="flashbox success">'.$sf_user->getFlash('success').'</div>'; ?>
-            <?php if ($sf_user->hasFlash('info')) echo '<div class="flashbox info">'.$sf_user->getFlash('info').'</div>'; ?>
-            <?php if ($sf_user->hasFlash('warning')) echo '<div class="flashbox warning">'.$sf_user->getFlash('warning').'</div>'; ?>
-            <?php if ($sf_user->hasFlash('error')) echo '<div class="flashbox error">'.$sf_user->getFlash('error').'</div>'; ?>
+            <? if ($sf_user->hasFlash('success')) echo '<div class="flashbox success">'.$sf_user->getFlash('success').'</div>'; ?>
+            <? if ($sf_user->hasFlash('info')) echo '<div class="flashbox info">'.$sf_user->getFlash('info').'</div>'; ?>
+            <? if ($sf_user->hasFlash('warning')) echo '<div class="flashbox warning">'.$sf_user->getFlash('warning').'</div>'; ?>
+            <? if ($sf_user->hasFlash('error')) echo '<div class="flashbox error">'.$sf_user->getFlash('error').'</div>'; ?>
             <div style="background: #fff; border: solid 1px #ccc; height: 180px; width: 300px; margin: 200px auto; padding: 7px 19px 20px 19px; box-shadow: 0px 0px 20px #ccc;">
                 <h2>Administration > Identification</h2>
 

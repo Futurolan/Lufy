@@ -6,8 +6,8 @@
     <link href="http://cdn.kendostatic.com/2012.2.913/styles/kendo.default.min.css" rel="stylesheet" />
     <link href="http://cdn.kendostatic.com/2012.2.913/styles/kendo.dataviz.min.css" rel="stylesheet" />
 
-<?php $i = 0; ?>
-<?php foreach ($tournaments as $tournament): ?>
+<? $i = 0; ?>
+<? foreach ($tournaments as $tournament): ?>
 
 <?
 $state_reserve = 0;
@@ -17,7 +17,7 @@ $state_libre = 0;
 $state_total = 0;
 $state_max_slot = $tournament->getNumberTeam();
 ?>
-<?php foreach ($tournament->getTournamentSlot() as $slot): 
+<? foreach ($tournament->getTournamentSlot() as $slot): 
     if ($slot->getStatus() == 'reserve'):
       $state_reserve++;
       $state_valide++;
@@ -45,17 +45,17 @@ $percent_reserve = round($state_reserve*100/$state_max_slot);
 
 $i++;
 ?>
-<div style="width: 32%; float: left; margin-left: 10px;">
-    <div id="example<?php echo $i?>" class="k-content">
+<div style="width: 24%; float: left; margin-left: 10px;">
+    <div id="example<?=$i?>" class="k-content">
             <div class="chart-wrapper">
-                <div id="chart<?php echo $i?>"></div>
+                <div id="chart<?=$i?>"></div>
             </div>
             <script>
-                function createChart<?php echo $i?>() {
-                    $("#chart<?php echo $i?>").kendoChart({
+                function createChart<?=$i?>() {
+                    $("#chart<?=$i?>").kendoChart({
                         theme: $(document).data("kendoSkin") || "blueopal",
                         title: {
-                            text: "<?php echo $tournament->getName()?>"
+                            text: "<?=$tournament->getName()?>"
                         },
                         legend: {
                             position: "bottom",
@@ -73,17 +73,17 @@ $i++;
                         series: [{
                             type: "donut",
                             data: [{
-                                category: "<?php echo $state_reserve?> reserv&eacute;s",
-                                value: <?php echo $percent_reserve?>
+                                category: "<?=$state_reserve?> reserv&eacute;s",
+                                value: <?=$percent_reserve?>
                             }, {
-                                category: "<?php echo $state_valide-$state_reserve?> valid&eacute;s",
-                                value: <?php echo $percent_valide?>
+                                category: "<?=$state_valide-$state_reserve?> valid&eacute;s",
+                                value: <?=$percent_valide?>
                             }, {
-                                category: "<?php echo $state_libre?> libres",
-                                value: <?php echo $percent_libre?>
+                                category: "<?=$state_libre?> libres",
+                                value: <?=$percent_libre?>
                             }, {
-                                category: "<?php echo ($state_inscrit-$state_reserve-$state_valide)<0?0:($state_inscrit-$state_reserve-$state_valide) ?> en attente",
-                                value: <?php echo $percent_inscrit?>
+                                category: "<?=($state_inscrit-$state_reserve-$state_valide)<0?0:($state_inscrit-$state_reserve-$state_valide) ?> en attente",
+                                value: <?=$percent_inscrit?>
                             }]
                         }],
                         tooltip: {
@@ -98,15 +98,15 @@ $i++;
                     setTimeout(function() {
                         // Initialize the chart with a delay to make sure
                         // the initial animation is visible
-                        createChart<?php echo $i?>();
+                        createChart<?=$i?>();
 
-                        $("#example<?php echo $i?>").bind("kendo:skinChange", function(e) {
-                            createChart<?php echo $i?>();
+                        $("#example<?=$i?>").bind("kendo:skinChange", function(e) {
+                            createChart<?=$i?>();
                         });
                     }, 400);
                 });
             </script>
         </div>
 </div>
-<?php endforeach; ?>
+<? endforeach; ?>
 <div style="clear: left;"></div>

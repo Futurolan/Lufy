@@ -1,7 +1,7 @@
 <h2>Actualit&eacute;s</h2>
 
  <a href="<?php echo url_for('news/new') ?>" class="button add">Ajouter une news</a>
-<?php echo ajax_link('G&eacute;rer les cat&eacute;gories', 'news_type/index', array('class' => 'button'))?>
+<?=ajax_link('G&eacute;rer les cat&eacute;gories', 'news_type/index', array('class' => 'button'))?>
 
 <table class="table">
   <thead>
@@ -16,13 +16,13 @@
   <tbody>
     <?php foreach ($pager->getResults() as $news): ?>
     <tr>
-      <td id="news_status_<?php echo $news->getIdNews()?>">
-        <?php if ($news->getStatus() == 1): ?>
-          <?php $img = '/css/img/backend/8green.png'; ?>
-        <?php else: ?>
-          <?php $img = '/css/img/backend/8red.png'; ?>
-        <?php endif; ?>
-        <i style="cursor: pointer;" onclick="news_switchStatus('<?php echo $news->getIdNews()?>');"><?php echo image_tag($img)?></a>
+      <td id="news_status_<?=$news->getIdNews()?>">
+        <? if ($news->getStatus() == 1): ?>
+          <? $img = '/css/img/backend/8green.png'; ?>
+        <? else: ?>
+          <? $img = '/css/img/backend/8red.png'; ?>
+        <? endif; ?>
+        <a style="cursor: pointer;" onclick="news_switchStatus('<?=$news->getIdNews()?>');"><?=image_tag($img)?></a>
       <td>
 	<?php
         if (substr($news->getSlug(), -3, 3) == '-en') {
@@ -33,9 +33,9 @@
         }
         echo image_tag('/css/img/flag/'.$lang.'.png');
          ?>
-	<?php echo ajax_link(substr($news->getTitle(), 0, 70).'...', 'news/edit?id_news='.$news->getIdNews())?><br/>
+	<?=ajax_link(substr($news->getTitle(), 0, 70).'...', 'news/edit?id_news='.$news->getIdNews())?><br/>
 	<i style="font-size: 11px; color:#666;">Definir cette news comme etant en 
-	<?php if ($lang == 'GB') {
+	<? if ($lang == 'GB') {
 	    echo ajax_link('francais', 'news/set?id_news='.$news->getIdNews().'&lang=fr', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
 	}
 	else {
@@ -47,8 +47,8 @@
       <td style="font-size: 11px;"><?php echo date('d/m/Y', strtotime($news->getPublishOn())) ?></td>
       <td style="font-size: 11px;"><?php echo $news->getNewsType() ?></td>
       <td style="font-size: 11px;">
-       <?php echo ajax_component('Apercu', 'news/preview?id_news='.$news->getIdNews(), array('class' => 'button small','width' => 760))?>
-       <?php echo ajax_component($news['nb_comment'].' commentaires', 'news/comments?id_news='.$news->getIdNews(), array('class' => 'button small'))?>
+       <?=ajax_component('Apercu', 'news/preview?id_news='.$news->getIdNews(), array('class' => 'button small','width' => 760))?>
+       <?=ajax_component($news['nb_comment'].' commentaires', 'news/comments?id_news='.$news->getIdNews(), array('class' => 'button small'))?>
       </td>
     </tr>
     <?php endforeach; ?>
@@ -57,14 +57,14 @@
 
 <div class="pager pager-bottom">
     Page :
-    <span class="page"><?php echo ajax_link('Premi&egrave;re', 'news/index?page='.$pager->getFirstPage())?></span>
-    <?php foreach ($pager->getLinks(10) as $page) echo ($page == ' '.$pager->getPage()) ? ' <span class="current">'.$page : '</span> <span class="page">'.ajax_link($page, 'news/index?page='.$page)?>
-    <span class="page"><?php echo ajax_link('Derni&egrave;re', 'news/index?page='.$pager->getLastPage())?></span>
+    <span class="page"><?=ajax_link('Premi&egrave;re', 'news/index?page='.$pager->getFirstPage())?></span>
+    <? foreach ($pager->getLinks(10) as $page) echo ($page == ' '.$pager->getPage()) ? ' <span class="current">'.$page : '</span> <span class="page">'.ajax_link($page, 'news/index?page='.$page)?>
+    <span class="page"><?=ajax_link('Derni&egrave;re', 'news/index?page='.$pager->getLastPage())?></span>
 </div>
 
 <script>
 function news_switchStatus(id) {
-  $.get('<?php echo url_for('news/switchStatus')?>',
+  $.get('<?=url_for('news/switchStatus')?>',
     { 'id_news': id },
     function success(data) {
       if ($('#news_status_'+id+' a img').attr('src') == '/css/img/backend/8green.png') {

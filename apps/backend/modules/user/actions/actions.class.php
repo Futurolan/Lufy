@@ -8,8 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class userActions extends BackendActions
-{
+class userActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
         $this->users = Doctrine::getTable('teamPlayer')
@@ -79,7 +78,17 @@ class userActions extends BackendActions
     }
 
     public function executeMap(sfWebRequest $request) {
-        $this->users = Doctrine::getTable('sfGuardUser')->findAll();
+/*        $this->users = Doctrine::getTable('sfGuardUser')->findAll();
+        $this->users = Doctrine_Query::create()
+          ->select('u.username, u.address, u.zipcode, u.city')
+          ->from('sfGuardUser u')
+          ->where('u.address IS NOT NULL')
+          ->andWhere('u.zipcode IS NOT NULL')
+          ->andWhere('u.city IS NOT NULL')
+          ->orderBy('u.city DESC')
+          ->execute();
+*/
+$this->setLayout('nologin');
     }
 
     public function executeSendActivation(sfWebRequest $request) {
