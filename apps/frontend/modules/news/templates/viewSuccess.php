@@ -7,6 +7,12 @@
 
 <br/>
 
+<small class="pull-right">
+    <?php echo __('Redige par %1% le %2%', array('%1%' => $news->getSfGuardUser(), '%2%' => format_date($news->getPublishOn(), 'dd MMMM yyyy'))); ?>
+</small>
+
+<br/>
+
 <div id="fb-root"></div>
 <script>
 (function(d, s, id) {
@@ -21,30 +27,28 @@
 
 <div class="fb-like" data-href="<?php echo url_for('news/view?slug='.$news->getSlug(), true)?>" data-send="true" data-width="720" data-show-faces="true" data-font="tahoma"></div>
 
+<hr />
 
 <h3><a name="commentaires"></a><?php echo __('Commentaires')?></h3>
 
 <?php foreach ($comments as $comment): ?>
-  <?php
-  if (!$comment->getSfGuardUser()->getSfGuardUserProfile()->getLogourl()):
-    $image = '/uploads/profils/no-profil.png';
-  else:
-    $image = $comment->getSfGuardUser()->getSfGuardUserProfile()->getLogourl();
-  endif;
-  ?>
-  <div class="row-fluid">
-    <div class="span2"><?php echo image_tag($image) ?></div>
-    <div class="span10">
-      <?php echo $comment->getContent() ?>
-      <br/><br/>
-      <span style="font-size: 11px; color: #888;">Post&eacute; le <?php echo format_date($comment->getCreatedAt(), 'dd-MM-yyy') ?> par <a href="<?php echo  url_for('user/view?username='. $comment->getSfGuardUser()->getUsername());?>"><?php echo $comment->getSfGuardUser() ?></a></span>
-    </div>
+  <div class="well well-small">
+    <?php echo $comment->getContent() ?>
+    <br />
+    <small>
+      <?php echo __('Poste par %1% le %2% a %3%', array(
+        '%1%' => link_to($comment->getSfGuardUser(), 'user/view?username='.$comment->getSfGuardUser()),
+        '%2%' => format_date($comment->getCreatedAt(), 'dd MMMM yyyy'),
+        '%3%' => format_date($comment->getCreatedAt(), 'HH:mm')
+      )); ?>
+    </small>
   </div>
-  <br/><br/>
 <?php endforeach; ?>
 
+<br />
+
 <?php if ($sf_user->isAuthenticated()): ?>
-<div class="subtitle">Ajouter un commentaire</div>
+<h4><?php echo __('Ajouter un commentaire'); ?></h4>
   <form action="<?php echo url_for('comment/new')?>" method="POST" <?php $commentForm->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
     <input type="hidden" name="sf_method" value="put" />
     <input type="hidden" name="comment[news_id]" value="<?php echo $news->getIdNews()?>"/>
@@ -54,5 +58,5 @@
     <input type="submit" class="btn btn-primary"/>
   </form>
 <?php else: ?>
-  <div class="alert alert-info">Vous devez &ecirc;tre identifi&eacute; pour ajouter un commentaire.</div>
+  <div class="alert alert-info"><?php echo __('Vous devez etre identifie pour ajouter un commentaire.'); ?></div>
 <?php endif; ?>
