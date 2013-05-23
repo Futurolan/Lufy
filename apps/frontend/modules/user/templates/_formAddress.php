@@ -3,17 +3,18 @@
 
 <div class="alert alert-info"><?php echo __('Les champs marques * sont obligatoires pour valider votre inscription a un tournoi.')?></div>
 
-<form action="<?php echo url_for('user/'.($form->getObject()->isNew() ? 'newAddress' : 'editAddress').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : ''))?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>
-<?php if (!$form->getObject()->isNew()): ?>
-<input type="hidden" name="sf_method" value="put" />
-<?php endif; ?>
+<form action="<?php echo url_for('user/'.($form->getObject()->isNew() ? 'newAddress' : 'editAddress').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : ''))?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+  <?php if (!$form->getObject()->isNew()): ?>
+  <input type="hidden" name="sf_method" value="put" />
+  <?php endif; ?>
+
   <table class="table">
     <tfoot>
       <tr>
         <td colspan="3">
-          <?php echo $form->renderHiddenFields(false) ?>
           &nbsp;<a class="btn" href="<?php echo url_for('user/address') ?>"><?php echo __('Retour')?></a>
-          <input class="btn btn-primary" type="submit" value="<?php echo __('Enregistrer')?>" />        </td>
+          <input class="btn btn-primary" type="submit" value="<?php echo __('Enregistrer')?>" />
+        </td>
       </tr>
     </tfoot>
     <tbody>

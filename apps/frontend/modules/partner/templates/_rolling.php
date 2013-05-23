@@ -17,6 +17,7 @@ $(function(){
 </script>
 
 <style>
+
 #partner_rolling {
   width: 240px;
   height: 100px;

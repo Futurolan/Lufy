@@ -9,7 +9,7 @@
 </div>
 
 <div class="row-fluid">
-  <div class="span12" style="background-color: red;">
+  <div class="span12">
     <?php include_component('block', 'list'); ?>
   </div>
 </div>
