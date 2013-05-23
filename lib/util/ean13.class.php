@@ -18,7 +18,7 @@
           // Definition de $current
           if ($this->isvalid($ean))
           {
-          	$this->current = $ean
+          	$this->current = $ean;
           }
         }
         else
@@ -103,7 +103,7 @@
       	$total = $pair + $impair;
       	$r = fmod($total, 10);
       	$controlkey = 10 - $r;
-      	if($controlkey ==substr($ean, -1, $length = null);) {
+      	if($controlkey == substr($ean, -1, $length = null)){
           $result = true;
       	}
       	return $result;
