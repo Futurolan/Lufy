@@ -105,15 +105,3 @@
     }
   }
 ?>
-
-<?php
-  // Test de la classe
-  $var = 100000000001;
-
-  for ($i=$var; $i<$var+20; $i++)
-  {
-    $ean = new Ean13($i);
-    echo '<b>Test de '.$i.'</b><br/>Current : '.$ean->get().'<br/>Next : '.$ean->next()->get().'<br/>Prev : '.$ean->prev()->prev()->get().'<br/><br/>';
-  }
- ?>
-
