@@ -5,9 +5,11 @@
  *
  * @package    lufy
  * @subpackage user
- * @author     Lufy, HumanG33k
+ * @author     Guillaume Marsay <guillaume@futurolan.net>
+ * @author     HumanG33k
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
+
 class userActions extends FrontendActions
 {
   public function postExecute()
@@ -15,63 +17,28 @@ class userActions extends FrontendActions
     $this->setLayout('user');
   }
 
+
   public function executeIndex(sfWebRequest $request)
   {
     $this->redirect('user/profile');
   }
 
+
   public function executeBulletin(sfWebRequest $request)
   {
-      $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId());
-      if (!$this->user->getLicenceGa())
-      {
-        $id = $this->getUser()->getGuardUser()->getId();
-        $l = Doctrine::getTable('varConfig')->getEanNextPlayer();
+    $this->forward404Unless($this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
 
-        Doctrine::getTable('sfGuardUser')->setLicenceGa($l, $id);
+    foreach ($this->user->getTeam() as $team)
+    {
+      $this->tournaments = Doctrine_Query::create()
+        ->select('*')
+        ->from('tournamentSlot t1, tournament t2')
+        ->where('t1.tournament_id = t2.id_tournament')
+        ->andWhere('t1.team_id = ' . $team->getIdTeam())
+        ->execute();
+    }
 
-        $k = substr($l, 0, 12);
-        $k = $k + 1;
-
-        for ($i = 0; $i < 12; $i++)
-        {
-          $EAN13[$i] = substr($k, $i, 1);
-        }
-
-        $pair = 0;
-
-        for ($u = 0; $u < 12; $u = $u + 2)
-        {
-          $pair = $pair + $EAN13[$u];
-        }
-
-        $impair = 0;
-
-        for ($y = 1; $y < 12; $y = $y + 2)
-        {
-          $impair = $impair + $EAN13[$y] * 3;
-        }
-
-        $total = $pair + $impair;
-        $r = fmod($total, 10);
-        $controlkey = 10 - $r;
-        $n = str_pad($k, 13, $controlkey, STR_PAD_RIGHT);
-
-        Doctrine::getTable('varConfig')->UpdateEanNextPlayer($n);
-
-        $this->redirect('user/bulletin');
-      }
-
-      foreach ($this->user->getTeam() as $team){
-        $this->tournaments = Doctrine_Query::create()
-          ->select('*')
-          ->from('tournamentSlot t1, tournament t2')
-          ->where('t1.tournament_id = t2.id_tournament')
-          ->andWhere('t1.team_id = ' . $team->getIdTeam())
-          ->execute();
-      }
-
-      $this->setLayout('print');
+    $this->setLayout('print');
   }
 
   public function executeView(sfWebRequest $request)
@@ -79,11 +46,9 @@ class userActions extends FrontendActions
     $this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username', ''));
     $this->forward404Unless($this->user);
 
-    // team : notinteam, notininvitationteam,
     $t = Doctrine::getTable('invite')->isInvitedInTeam($this->user->getId());
     $t2 = Doctrine::getTable('team')->isInTeam($this->user->getId());
 
-    // droits : adminteam ou captain
     $d = Doctrine::getTable('sfGuardUser')->isCaptain();
     $d2 = Doctrine::getTable('sfGuardUser')->isAdmin();
     $this->inviteteam = '0';
@@ -96,7 +61,6 @@ class userActions extends FrontendActions
       }
     }
 
-    // friend : notFriend, notininvitationfriend,
     $f = Doctrine::getTable('invite')->isInvitedFriend($this->user->getId());
     $f2 = Doctrine::getTable('friend')->isFriend($this->user->getId());
 
@@ -115,7 +79,7 @@ class userActions extends FrontendActions
 
   public function executeProfile(sfWebRequest $request)
   {
-      $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId());
+    $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId());
   }
 
 
@@ -140,26 +104,28 @@ class userActions extends FrontendActions
   }
 
 
-public function executeNewAddress(sfWebRequest $request)
-{
-  $object = new SfGuardUserAddress();
-  $object->setUserId($this->getUser()->getGuardUser()->getId());
-  $first = $this->getUser()->getGuardUser()->getSfGuardUserAddress()->count();
-  if ($first == 0 )
+  public function executeNewAddress(sfWebRequest $request)
   {
-    $object->setIsDefault(1);
-    $object->setIsBilling(1);
-    $object->setIsDelivery(1);
-  }
-  $this->form = new SfGuardUserAddressForm($object);
+    $object = new SfGuardUserAddress();
+    $object->setUserId($this->getUser()->getGuardUser()->getId());
+    $first = $this->getUser()->getGuardUser()->getSfGuardUserAddress()->count();
 
-  if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
-  {
-    if ($this->processForm($request, $this->form))
+    if ($first == 0 )
     {
-      $this->redirect('user/address');
+      $object->setIsDefault(1);
+      $object->setIsBilling(1);
+      $object->setIsDelivery(1);
     }
-  }
+
+    $this->form = new SfGuardUserAddressForm($object);
+
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+    {
+      if ($this->processForm($request, $this->form))
+      {
+        $this->redirect('user/address');
+      }
+    }
   }
 
 
@@ -264,36 +230,42 @@ public function executeNewAddress(sfWebRequest $request)
     $address->delete();
 
     $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('L\adresse selectionnee a ete supprimee.'));
+
     $this->redirect('user/address');
   }
 
-  /**
- * Add a Masters licence on the current user
- */
+
   public function executeLicenceMasters(sfWebRequest $request)
   {
-      $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
-      $this->licence = $user->getSfGuardUserLicenceMasters();
+    $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
+    $this->licence = $user->getSfGuardUserLicenceMasters();
 
-      if(!$this->licence)
-      {
-        $this->licence = new SfGuardUserLicenceMasters();
-        $this->licence->setUserId($user->getId());
-      }
+    if(!$this->licence)
+    {
+      $this->licence = new SfGuardUserLicenceMasters();
+      $this->licence->setUserId($user->getId());
+    }
 
-      $this->form = new SfGuardUserLicenceMastersForm($this->licence);
+    $this->form = new SfGuardUserLicenceMastersForm($this->licence);
 
-      if ($request->isMethod(sfRequest::POST))
-      {
-        $this->processFormLicenceMasters($request, $this->form, $this->licence);
-        $this->redirect('user/licenceMasters');
-      }
+    if ($request->isMethod(sfRequest::POST))
+    {
+      $this->processFormLicenceMasters($request, $this->form, $this->licence);
+
+      $this->redirect('user/licenceMasters');
+    }
   }
 
-/*
- *
- *
- */
+
+  public function executeDeleteLicenceMasters(sfWebRequest $request)
+  {
+    $this->redirectUnless($licence = Doctrine::getTable('SfGuardUserLicenceMasters')->findOneByUserId($this->getUser()->getGuardUser()->getId()), 'user/licenceMasters');
+    $licence->delete();
+
+    $this->redirect('user/licenceMasters');
+  }
+
+
   protected function processFormLicenceMasters(sfWebRequest $request, sfForm $form,SfGuardUserLicenceMasters $licence)
   {
     $mfjv = new mfjv();
@@ -312,54 +284,38 @@ public function executeNewAddress(sfWebRequest $request)
       $licence->save();
 
       $this->getUser()->setFlash('success',$this->getContext()->getI18n()->__('Votre Licence Masters a ete verifiee.'));
+
       $this->redirect('user/licenceMasters');
 
     }
     else
     {
       $this->getUser()->setFlash('error',$this->getContext()->getI18n()->__('La licence est inexistante et/ou le nom saisi sur votre profil ne correspond pas.'));
+
       $this->redirect('user/licenceMasters');
     }
   }
 
 
-
-
-/**
- * Return and set the tshirt size for the current user
- */
   public function executeTshirt(sfWebRequest $request)
   {
-      $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getGuardUser()->getId())), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-      $tshirt = $user->getSfGuardUserTshirt();
+    $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getGuardUser()->getId())), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+    $tshirt = $user->getSfGuardUserTshirt();
 
-      if (!$tshirt){
-        $tshirt = new SfGuardUserTshirt();
-        $tshirt->setUserId($user->getId());
-      }
-
-      $this->form = new SfGuardUserTshirtForm($tshirt);
-
-      if ($request->isMethod(sfRequest::POST)){
-        $this->processForm($request, $this->form);
-        $this->redirect('user/tshirt');
-      }
-  }
-
-
-    public function executePassword(sfWebRequest $request)
-  {
-    //$this->forward404Unless($request->isMethod(sfRequest::POST));
-    $this->form = new passwordForm($this->user);
-    if($this->embeddedProcessForm($request, 'password'))
+    if (!$tshirt)
     {
-      $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Le mot de passe a bien été modifié.'));
+      $tshirt = new SfGuardUserTshirt();
+      $tshirt->setUserId($user->getId());
     }
 
+    $this->form = new SfGuardUserTshirtForm($tshirt);
+
+    if ($request->isMethod(sfRequest::POST))
+    {
+      $this->processForm($request, $this->form);
+
+      $this->redirect('user/tshirt');
+    }
   }
-
-
-
-
 }
 

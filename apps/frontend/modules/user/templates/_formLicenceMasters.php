@@ -3,28 +3,21 @@
 
 <form action="<?php echo url_for('user/licenceMasters');?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 
-<input type="hidden" name="sf_method" value="post" />
+  <input type="hidden" name="sf_method" value="post" />
+
+  <?php echo $form->renderGlobalErrors() ?>
 
   <table>
     <tfoot>
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-
           <input class="btn btn-primary" type="submit" value="Enregister" />
         </td>
       </tr>
     </tfoot>
     <tbody>
-      <?php echo $form->renderGlobalErrors() ?>
-      <tr>
-        <th><?php echo __('Numero de licence Masters')?></th>
-        <td>
-          <?php echo $form->renderGlobalErrors() ?>
-
-          <?php echo $form['serial']->renderRow(); ?>
-        </td>
-      </tr>
+      <?php echo $form['serial']->renderRow(); ?>
     </tbody>
   </table>
 </form>

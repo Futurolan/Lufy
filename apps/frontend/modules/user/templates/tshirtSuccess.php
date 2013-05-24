@@ -11,7 +11,7 @@
   <?php echo $form['size']->renderRow()?>
   <tr>
     <td colspan="2" class="actions">
-      <input type="submit" class="btn" value="<?php echo __('Valider')?>"/>
+      <input type="submit" class="btn btn-primary" value="<?php echo __('Valider')?>"/>
     </td>
   </tr>
 </table>

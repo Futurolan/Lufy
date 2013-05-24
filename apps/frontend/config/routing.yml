@@ -22,22 +22,24 @@ sf_guard_forgot_password:
   url: /:sf_culture/forgot_password
   param: { module: sfGuardForgotPassword, action: index }
 
-###
 
 # Galerie video
 file_view:
   url: /:sf_culture/gallery/video/:slug
   param: { module: file, action: view }
 
+
 # News
 news_view:
   url: /:sf_culture/news/:slug
   param: { module: news, action: view }
 
+
 # Page
 page_view:
   url: /:sf_culture/page/:slug
   param: { module: page, action: view }
+
 page_concours_ouikos:
   url: /:sf_culture/concours-ouikos/:name
   param: { module: page, action: concoursOuikos }
@@ -47,6 +49,7 @@ page_concours_ouikos:
 team_index:
   url: /:sf_culture/team
   param: { module: team, action: index }
+
 team_view:
   url: /:sf_culture/team/view/:slug
   param: { module: team, action: view }
@@ -55,21 +58,27 @@ team_view:
 user_success:
   url: /:sf_culture/user/success
   param: { module: user, action: success }
+
 user_password:
   url: /:sf_culture/user/password
   param: { module: user, action: password }
+
 user_bulletin:
   url: /:sf_culture/bulletin
   param: { module: user, action: bulletin }
+
 user_activate:
   url: /:sf_culture/activate/:key
   param: { module: user, action: activate }
+
 user_profil:
   url: /:sf_culture/profil
   param: { module: user, action: profile }
+
 user_view:
   url: /:sf_culture/user/:username
   param: { module: user, action: view }
+
 user_edit:
   url: /:sf_culture/profil/edit
   param: { module: user, action: editProfile }
@@ -77,21 +86,27 @@ user_edit:
 user_address:
   url: /:sf_culture/user/address/list
   param: { module: user, action: address }
+
 user_new_address:
   url: /:sf_culture/user/address/new
   param: { module: user, action: newAddress }
+
 user_edit_address:
   url: /:sf_culture/user/address/edit/:id
   param: { module: user, action: editAddress }
+
 user_delete_address:
   url: /:sf_culture/user/address/delete/:id
   param: { module: user, action: deleteAddress }
+
 user_set_default_address:
   url: /:sf_culture/user/address/setDefault/:id
   param: { module: user, action: setDefaultAddress }
+
 user_set_billing_address:
   url: /:sf_culture/user/address/setBilling/:id
   param: { module: user, action: setBillingAddress }
+
 user_set_delivery_address:
   url: /:sf_culture/user/address/setDelivery/:id
   param: { module: user, action: setDeliveryAddress }
@@ -99,26 +114,25 @@ user_set_delivery_address:
 user_tshirt:
   url: /:sf_culture/profil/tshirt
   param: { module: user, action: tshirt }
+
 user_masters:
   url: /:sf_culture/user/licence/masters
   param: { module: user, action: licenceMasters }
-user_newLicenceGa:
-  url: /:sf_culture/licence/ga
-  param: { module: user, action: newLicenceGa }
-user_addMasters:
-  url: /:sf_culture/licence/masters
-  param: { module: user, action: addMasters }
-user_useLicenceMasters:
-  url: /:sf_culture/licence/usemasters
-  param: { module: user, action: useLicenceMasters }
+
+user_delete_masters:
+  url: /:sf_culture/user/licence/masters/delete
+  param: { module: user, action: deleteLicenceMasters }
+
 
 # Tournois
 tournament_index:
   url: /:sf_culture/tournament
   param: { module: tournament, action: index }
+
 tournament_list:
   url: /:sf_culture/tournament/list/:slug
   param: { module: tournament, action: list }
+
 tournament_view:
   url: /:sf_culture/tournament/:slug
   param: { module: tournament, action: view }
@@ -128,6 +142,7 @@ tournament_view:
 gallery_index:
   url: /:sf_culture/gallery
   param: { module: gallery, action: index }
+
 gallery_view:
   url: /:sf_culture/gallery/:slug
   param: { module: gallery, action: view }
@@ -137,15 +152,19 @@ gallery_view:
 contact_aideOrga:
   url: /:sf_culture/contact/aide-orga
   param: { module: contact, action: aidesOrgas }
+
 contact_send_aideOrga:
   url: /:sf_culture/contact/send/aide-orga
   param: { module: contact, action: sendcontact }
+
 contact_partner:
   url: /:sf_culture/contact/partner
   param: { module: contact, action: partner }
+
 contact_send_partner:
   url: /:sf_culture/contact/send/partner
   param: { module: contact, action: sendcontactpartner }
+
 
 # default rules
 homepage:
