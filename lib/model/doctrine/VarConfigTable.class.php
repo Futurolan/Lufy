@@ -6,30 +6,16 @@ class VarConfigTable extends Doctrine_Table {
         return Doctrine_Core::getTable('VarConfig');
     }
 
-    public function setFfa() {
-        Doctrine_Query::create()
-                ->update('varConfig')
-                ->set('value', '?', 'ffa')
-                ->where('name = "inscription_mode"')
-                ->execute();
-    }
-
-    public function setRotation() {
-        Doctrine_Query::create()
-                ->update('varConfig')
-                ->set('value', '?', 'rotation')
-                ->where('name = "inscription_mode"')
-                ->execute();
-    }
-
     public function getEanNextPlayer() {
         $q = Doctrine_Query::create()
+                        ->select('value')
                         ->from('VarConfig')
                         ->where('name = "ean_next_player"')
+                        ->limit(1)
                         ->execute();
-        return $q[0]->getValue();
+        return $q->getFirst();
     }
-    
+
     public function updateEanNextPlayer($licence) {
         Doctrine_Query::create()
                 ->update('varConfig')

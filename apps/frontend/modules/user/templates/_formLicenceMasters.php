@@ -11,7 +11,7 @@
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
 
-          <input type="submit" value="Enregister" />
+          <input class="btn btn-primary" type="submit" value="Enregister" />
         </td>
       </tr>
     </tfoot>

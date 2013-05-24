@@ -287,7 +287,7 @@ public function executeNewAddress(sfWebRequest $request)
       if ($request->isMethod(sfRequest::POST))
       {
         $this->processFormLicenceMasters($request, $this->form);
-        //$this->redirect('user/licenceMasters');
+        $this->redirect('user/licenceMasters');
       }
   }
 
@@ -304,34 +304,28 @@ public function executeNewAddress(sfWebRequest $request)
     if( $result )
     {
       $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-      if ($result->season == '2012-2013')
+      if ($this->licence)
       {
-        if ($this->licence)
-        {
-          $this->licence->setType($result->type);
-          $this->licence->setSerial($result->serial);
-          $this->licence->setUsername($result->username);
-          $this->licence->setSeason($result->season);
-          $this->licence->setUsed($result->used);
-          $this->licence->save();
+        $this->licence->setType($result->type);
+        $this->licence->setSerial($result->serial);
+        $this->licence->setUsername($result->username);
+        $this->licence->setSeason($result->season);
+        $this->licence->setUsed($result->used);
+        $this->licence->save();
 
-          $this->getUser()->setFlash('success','Votre Licence Masters a ete verifiee.');
-          $this->redirect('user/licenceMasters');
-        }
-        else
-        {
-          $this->getUser()->setFlash('error','humm comment dire erreur de developpement');
-          $this->redirect('user/licenceMasters');
-        }
+        $this->getUser()->setFlash('success','Votre Licence Masters a ete verifiee.');
+        $this->redirect('user/licenceMasters');
       }
       else
       {
-        $this->getUser()->setFlash('error','Votre licence n\'est pas valide pour la saison en cours');
+        $this->getUser()->setFlash('error','humm comment dire erreur de developpement');
+        $this->redirect('user/licenceMasters');
       }
     }
     else
     {
       $this->getUser()->setFlash('error','Licence inexistante et/ou nom ne correspondant pas, si les informations sont correctement remplis le site des masters est peut etre injoingnable, veuillez reessayer ulterieurement');
+      $this->redirect('user/licenceMasters');
     }
   }
 
