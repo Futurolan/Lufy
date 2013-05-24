@@ -115,5 +115,5 @@
     $ean = new Ean13($i);
     echo '<b>Test de '.$i.'</b><br/>Current : '.$ean->get().'<br/>Next : '.$ean->next()->get().'<br/>Prev : '.$ean->prev()->prev()->get().'<br/><br/>';
   }
-?>
+ ?>
 

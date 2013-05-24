@@ -22,10 +22,10 @@ class userActions extends FrontendActions
 
   public function executeBulletin(sfWebRequest $request)
   {
-      $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+      $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId());
       if (!$this->user->getLicenceGa())
       {
-        $id = $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
+        $id = $this->getUser()->getGuardUser()->getId();
         $l = Doctrine::getTable('varConfig')->getEanNextPlayer();
 
         Doctrine::getTable('sfGuardUser')->setLicenceGa($l, $id);
@@ -74,7 +74,6 @@ class userActions extends FrontendActions
       $this->setLayout('print');
   }
 
-
   public function executeView(sfWebRequest $request)
   {
     $this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username', ''));
@@ -107,7 +106,7 @@ class userActions extends FrontendActions
       $this->invitefriend = '1';
     }
 
-    if ($this->user->getId() == $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser') || $this->getUser()->isAuthenticated() == false)
+    if ($this->user->getId() == $this->getUser()->getGuardUser()->getId() || $this->getUser()->isAuthenticated() == false)
     {
       $this->invitefriend = '0';
     }
@@ -116,13 +115,13 @@ class userActions extends FrontendActions
 
   public function executeProfile(sfWebRequest $request)
   {
-      $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+      $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId());
   }
 
 
   public function executeEditProfile(sfWebRequest $request)
   {
-    $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getGuardUser()->getId())), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
 
     $this->form = new profilForm($user);
 
@@ -145,7 +144,7 @@ public function executeNewAddress(sfWebRequest $request)
 {
   $object = new SfGuardUserAddress();
   $object->setUserId($this->getUser()->getGuardUser()->getId());
-   $first = $this->getUser()->getGuardUser()->getSfGuardUserAddress()->count();
+  $first = $this->getUser()->getGuardUser()->getSfGuardUserAddress()->count();
   if ($first == 0 )
   {
     $object->setIsDefault(1);
@@ -286,7 +285,7 @@ public function executeNewAddress(sfWebRequest $request)
 
       if ($request->isMethod(sfRequest::POST))
       {
-        $this->processFormLicenceMasters($request, $this->form);
+        $this->processFormLicenceMasters($request, $this->form, $this->licence);
         $this->redirect('user/licenceMasters');
       }
   }
@@ -295,7 +294,7 @@ public function executeNewAddress(sfWebRequest $request)
  *
  *
  */
-  protected function processFormLicenceMasters(sfWebRequest $request, sfForm $form)
+  protected function processFormLicenceMasters(sfWebRequest $request, sfForm $form,SfGuardUserLicenceMasters $licence)
   {
     $mfjv = new mfjv();
     $mfjv->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
@@ -304,27 +303,21 @@ public function executeNewAddress(sfWebRequest $request)
     if( $result )
     {
       $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-      if ($this->licence)
-      {
-        $this->licence->setType($result->type);
-        $this->licence->setSerial($result->serial);
-        $this->licence->setUsername($result->username);
-        $this->licence->setSeason($result->season);
-        $this->licence->setUsed($result->used);
-        $this->licence->save();
 
-        $this->getUser()->setFlash('success','Votre Licence Masters a ete verifiee.');
-        $this->redirect('user/licenceMasters');
-      }
-      else
-      {
-        $this->getUser()->setFlash('error','humm comment dire erreur de developpement');
-        $this->redirect('user/licenceMasters');
-      }
+      $licence->setType($result->type);
+      $licence->setSerial($result->serial);
+      $licence->setUsername($result->username);
+      $licence->setSeason($result->season);
+      $licence->setUsed($result->used);
+      $licence->save();
+
+      $this->getUser()->setFlash('success',$this->getContext()->getI18n()->__('Votre Licence Masters a ete verifiee.'));
+      $this->redirect('user/licenceMasters');
+
     }
     else
     {
-      $this->getUser()->setFlash('error','Licence inexistante et/ou nom ne correspondant pas, si les informations sont correctement remplis le site des masters est peut etre injoingnable, veuillez reessayer ulterieurement');
+      $this->getUser()->setFlash('error',$this->getContext()->getI18n()->__('La licence est inexistante et/ou le nom saisi sur votre profil ne correspond pas.'));
       $this->redirect('user/licenceMasters');
     }
   }
@@ -337,7 +330,7 @@ public function executeNewAddress(sfWebRequest $request)
  */
   public function executeTshirt(sfWebRequest $request)
   {
-      $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+      $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getGuardUser()->getId())), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
       $tshirt = $user->getSfGuardUserTshirt();
 
       if (!$tshirt){
@@ -360,7 +353,7 @@ public function executeNewAddress(sfWebRequest $request)
     $this->form = new passwordForm($this->user);
     if($this->embeddedProcessForm($request, 'password'))
     {
-      $this->getUser()->setFlash('success', 'Le mot de passe a bien été modifié.');
+      $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Le mot de passe a bien été modifié.'));
     }
 
   }
