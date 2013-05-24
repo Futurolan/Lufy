@@ -12,9 +12,9 @@
  */
 class SfGuardUserProfile extends BaseSfGuardUserProfile
 {
-  public function save(Doctrine_Connection $con = NULL)
+  public function save(Doctrine_Connection $conn = null)
   {
-    if ($this->isNew() && !$this->getEan13())
+    if ($this->isNew() || !$this->getEan13())
     {
       $varConfig = Doctrine::getTable('VarConfig')->findOneByName('ean_next_player');
       $current_ean = new Ean13($varConfig->getValue());
@@ -24,6 +24,6 @@ class SfGuardUserProfile extends BaseSfGuardUserProfile
       $varConfig->setValue($current_ean->next()->get());
       $varConfig->save();
     }
-    return parent::save($con = null);
+    return parent::save($conn = null);
   }
 }
