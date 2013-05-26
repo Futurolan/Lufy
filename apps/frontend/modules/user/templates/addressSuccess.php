@@ -39,4 +39,4 @@
   </address>
 <?php endforeach;?>
 
-<?php echo link_to('<i class="icon-plus"></i> '.__('Ajouter une adresse'), 'user/newAddress', array('class' => 'btn btn-primary'))?>
+<?php echo link_to('<i class="icon-plus"></i> '.__('Ajouter'), 'user/newAddress', array('class' => 'btn btn-success'))?>

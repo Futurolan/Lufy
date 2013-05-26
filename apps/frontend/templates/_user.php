@@ -1,14 +1,26 @@
 <ul class="nav nav-list">
   <li class="nav-header"><?php echo $sf_user->getUsername(); ?></li>
   <li><?php echo link_to(__('Mon profil'), 'user/profile'); ?></li>
-  <li><?php echo link_to(__('Licence Masters'), 'user/licenceMasters'); ?></li>
   <li><?php echo link_to(__('Mes adresses'), 'user/address'); ?></li>
+  <li><?php echo link_to(__('Licence Masters'), 'user/licenceMasters'); ?></li>
   <li><?php echo link_to(__('Taille de tshirt'), 'user/tshirt'); ?></li>
 
   <li class="divider"></li>
 
+  <li class="nav-header"><?php echo __('Mes equipes'); ?></li>
+  <?php if (count($sf_user->getGuardUser()->getTeamPlayer()) > 0): ?>
+    <?php foreach ($sf_user->getGuardUser()->getTeamPlayer() as $player): ?>
+      <li><?php echo link_to($player->getTeam()->getName(), 'team/view?slug='.$player->getTeam()->getSlug()); ?></li>
+    <?php endforeach; ?>
+  <?php else: ?>
+      <li><em><?php echo __('Aucune equipe'); ?></em></li>
+  <?php endif; ?>
+  <li> </li>
+  <li style="margin-top: 10px;"><?php echo link_to('Creer une equipe', 'team/new'); ?></li>
+
+  <li class="divider"></li>
+
   <li class="nav-header"><?php echo __('Competition'); ?></li>
-  <li><?php echo link_to(__('Mon equipe'), 'team/index'); ?></li>
   <li><?php echo link_to(__('Inscription'), 'tournament/index'); ?></li>
 
   <li class="divider"></li>

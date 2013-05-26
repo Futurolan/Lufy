@@ -589,9 +589,6 @@ Team:
       type: integer(4)
       primary: true
       autoincrement: true
-    adminteam_id:
-      type: integer(8)
-      notnull: true
     name:
       type: string(45)
       notnull: true
@@ -610,10 +607,9 @@ Team:
     logourl:
       type: string(250)
       notnull: false
-    locked:
-      type: integer(2)
-      default: '0'
-      notnull: true
+    is_locked:
+      type: boolean
+      default: false
   relations:
     Invite:
       local: id_team
@@ -633,17 +629,14 @@ TeamPlayer:
   connection: doctrine
   tableName: team_player
   columns:
-    id_team_player:
-      type: integer(4)
-      primary: true
-      autoincrement: true
-    user_id:
-      type: integer(8)
-      unique: true
-      notnull: true
     team_id:
       type: integer(4)
       notnull: true
+      primary: true
+    user_id:
+      type: integer(8)
+      notnull: true
+      primary: true
     is_captain:
       type: boolean
       default: false

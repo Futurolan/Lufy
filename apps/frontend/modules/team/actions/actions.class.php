@@ -5,46 +5,26 @@
  *
  * @package    lufy
  * @subpackage team
- * @author     Your name here
+ * @author     Guillaume Marsay <guillaume@futurolan.net>
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class teamActions extends FrontendActions {
+class teamActions extends FrontendActions
+{
+  public function executeView(sfWebRequest $request)
+  {
+    $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
+    $this->forward404Unless($this->team);
 
-    public function executeView(sfWebRequest $request) {
-        $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug', ''));
-        $this->forward404Unless($this->team);
-        $this->alreadyInTournament = Doctrine::getTable('team')
-                        ->isAlreadyInTournament();
-
-        $this->admins = Doctrine::getTable('team')
-                        ->getAdminTeam($this->team->getIdTeam());
-
-
-        $this->captains = Doctrine_Query::create()
-                        ->from('teamPlayer')
-                        ->where('is_captain = 1')
-                        ->andWhere('team_id = ' . $this->team->getIdTeam())
-                        ->execute();
-
-        $this->joueurs = Doctrine_Query::create()
-                        ->from('teamPlayer')
-                        ->where('is_player = 1')
-                        ->andWhere('team_id = ' . $this->team->getIdTeam())
-                        ->execute();
-
-        $this->autres = Doctrine_Query::create()
-                        ->from('teamPlayer')
-                        ->where('is_player = 0')
-                        ->andWhere('is_captain = 0')
-                        ->andWhere('team_id = ' . $this->team->getIdTeam())
-                        ->execute();
-        $this->tournaments = Doctrine_Query::create()
-                        ->select('*')
-                        ->from('tournamentSlot t1, tournament t2')
-                        ->where('t1.tournament_id = t2.id_tournament')
-                        ->andWhere('t1.team_id = ' . $this->team->getIdTeam())
-                        ->execute();
+    if ($this->getUser()->isAuthenticated())
+    {
+      $this->isCaptain = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($this->team->getIdTeam(), $this->getUser()->getGuardUser()->getId())->getIsCaptain();
     }
+    else
+    {
+      $this->isCaptain = false;
+    }
+  }
+
 
     public function executeIndex(sfWebRequest $request) {
 
@@ -107,26 +87,92 @@ class teamActions extends FrontendActions {
         }
     }
 
-    public function executeDeletePlayer(sfWebRequest $request) {
-        $request->checkCSRFProtection();
 
-        $this->forward404Unless($team_player = Doctrine::getTable('teamPlayer')->findOneByUserId(array($request->getParameter('user_id'))), sprintf('Object team_player does not exist (%s).', $request->getParameter('id_team_player')));
-        $team = doctrine::getTable('team')->findOneByIdTeam($team_player->getTeamId());
-
-        $mail = Doctrine::getTable('mail')->findOneByName('mail_team_deleteplayer');
-        $message = $this->getMailer()->compose();
-        $message->setSubject($mail->getSubject());
-        $message->setTo($team_player->getSfGuardUser()->getEmailAddress());
-        $message->setFrom($mail->getEmail());
-        $content = str_replace("%TEAM%", $team->getName(), $mail->getContent());
-        $content = str_replace("%PSEUDO%", $team_player->getSfGuardUser()->getUsername(), $content);
-        $message->setBody($content);
-        $this->getMailer()->send($message);
-
-        $team_player->delete();
-        $this->getUser()->setFlash('success', 'L\'utilisateur a ete supprime de l\'equipe, ce dernier a recu un mail.');
-        $this->redirect('team/index');
+  public function executePlayers(sfWebRequest $request)
+  {
+    if ($this->getUser()->getTeamPlayer()->getIsCaptain() != 1)
+    {
+      $this->getUser()->setFlash('error', 'Vous n\'avez pas les droits pour gerer cette equipe');
+      $this->redirect('team/view?id_team='.$request->getParameter('team_id'));
     }
+
+    $this->team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
+    $this->players = Doctrine::getTable('TeamPlayer')->findByTeamId($request->getParameter('team_id'));
+    // TODO: Tri des utilisateurs par manager, joueur, membre
+  }
+
+
+  public function executeAddMember(sfWebRequest $request)
+  {
+    if (!$request->getParameter('user_id'))
+    {
+      $this->getUser()->setFlash('error', 'Vous devez selectionner un utilisateur');
+      $this->redirect('team/players');
+    }
+
+    $team_player = new TeamPlayer;
+    $team_player->setTeamId($request->getParameter('team_id'));
+    $team_player->setUserId($request->getParameter('user_id'));
+    $team_player->setIsPlayer(0);
+    $team_player->setIsCaptain(0);
+    $team_player->save();
+
+    $this->getUser()->setFlash('success', 'Vous avez ajoute un membre a votre equipe');
+    $this->redirect('team/players');
+  }
+
+
+  public function executeDeleteMember(sfWebRequest $request)
+  {
+    $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
+    $team_player->delete();
+
+    $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername().' a ete supprime de l\'equipe');
+    $this->redirect('team/players');
+  }
+
+
+  public function executeSetPlayer(sfWebRequest $request)
+  {
+    $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
+
+    if ($team_player->getIsPlayer() == 0)
+    {
+      $team_player->setIsPlayer(1);
+      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername().' ne fait plus parti des joueurs');
+    }
+    else
+    {
+      $team_player->setIsPlayer(0);
+      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername().' est maintenant joueur de l\'equipe');
+    }
+
+    $team_player->save();
+
+    $this->redirect('user/players');
+  }
+
+
+  public function executeSetCaptain(sfWebRequest $request)
+  {
+    $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
+
+    if ($team_player->getIsCaptain() == 0)
+    {
+      $team_player->setIsCaptain(1);
+      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername().' ne fait plus parti des capitaines');
+    }
+    else
+    {
+      $team_player->setIsCaptain(0);
+      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername().' est maintenant capitaine de l\'equipe');
+    }
+
+    $team_player->save();
+
+    $this->redirect('user/players');
+  }
+
 
     public function executeDeleteTeam(sfWebRequest $request) {
         $request->checkCSRFProtection();
