@@ -12,5 +12,10 @@ class TeamForm extends BaseTeamForm
 {
   public function configure()
   {
+    unset($this['adminteam_id'], $this['created_at'], $this['updated_at'], $this['slug'], $this['locked']);
+
+        $this->setWidget('country', new sfWidgetFormI18nChoiceCountry());
+
   }
+
 }

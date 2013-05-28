@@ -49,6 +49,10 @@ page_concours_ouikos:
 team_index:
   url: /:sf_culture/team
   param: { module: team, action: index }
+  
+team_new:
+  url: /:sf_culture/team/new
+  param: { module: team, action: new }
 
 team_view:
   url: /:sf_culture/team/view/:slug
