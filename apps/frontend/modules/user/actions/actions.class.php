@@ -50,7 +50,6 @@ class userActions extends FrontendActions
     $t2 = Doctrine::getTable('team')->isInTeam($this->user->getId());
 
     $d = Doctrine::getTable('sfGuardUser')->isCaptain();
-    $d2 = Doctrine::getTable('sfGuardUser')->isAdmin();
     $this->inviteteam = '0';
 
     if ($t == false && $t2 == false)

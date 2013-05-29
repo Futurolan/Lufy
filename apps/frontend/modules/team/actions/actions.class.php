@@ -113,6 +113,7 @@ class teamActions extends FrontendActions
       $this->getUser()->setFlash('error', 'Vous devez selectionner un utilisateur');
       $this->redirect('team/players');
     }
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
 
     $team_player = new TeamPlayer;
     $team_player->setTeamId($request->getParameter('team_id'));
@@ -122,8 +123,30 @@ class teamActions extends FrontendActions
     $team_player->save();
 
     $this->getUser()->setFlash('success', 'Vous avez ajoute un membre a votre equipe');
-    $this->redirect('team/players');
+
+    $this->redirect('team/view?slug='.$team->getSlug());
   }
+
+
+   public function executeInviteMember(sfWebRequest $request)
+  {
+    if (!$request->getParameter('user_id'))
+    {
+      $this->getUser()->setFlash('error', 'Vous devez selectionner un utilisateur');
+      $this->redirect('team/players');
+    }
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
+
+    $invite = new Invite;
+    $invite->setTeamId($request->getParameter('team_id'));
+    $invite->setUserId($request->getParameter('user_id'));
+    $team_player->save();
+
+    $this->getUser()->setFlash('success', 'Vous avez ajoute un membre a votre equipe');
+
+    $this->redirect('team/view?slug='.$team->getSlug());
+  }
+
 
   public function executeDeleteMember(sfWebRequest $request)
   {
@@ -306,29 +329,24 @@ class teamActions extends FrontendActions
     }
   }
 
-  public function isGoodNbPlayer($nbPlayerTeam, $nbPlayerTournament)
-  {
-    if ($nbPlayerTeam > $nbPlayerTournament)
-    {
-      return false;
-    }
-    else
-    {
-      return true;
-    }
-  }
-
   public function executeSearchPlayers(sfWebRequest $request)
   {
-    $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
-    $this->forward404Unless($this->team);
-        if ($this->getUser()->isAuthenticated())
+    if ($request->isXmlHttpRequest())
     {
-      $this->isCaptain = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($this->team->getIdTeam(), $this->getUser()->getGuardUser()->getId())->getIsCaptain();
+      $this->results = Doctrine_Query::create()
+        ->select('u.id, u.username')
+        ->from('sfGuardUser u')
+        ->where('u.username LIKE ?', $request->getParameter('query').'%')
+        ->execute();
+
+      $this->setLayout(false);
+     echo json_encode($this->results->toArray());
+     exit;
     }
     else
     {
-      $this->isCaptain = false;
+      $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
+      $this->forward404Unless($this->team);
     }
   }
 

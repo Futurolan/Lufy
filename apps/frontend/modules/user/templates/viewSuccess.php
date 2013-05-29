@@ -1,4 +1,4 @@
-1300008569<h2><?php echo __('Fiche joueur')?></h2>
+<h2><?php echo __('Fiche joueur')?></h2>
 
 <h3><?php echo $user->getFirstName() ?> "<?php echo $user->getUsername() ?>" <?php echo substr($user->getLastName(), 0, 1);?>.</h3>
 

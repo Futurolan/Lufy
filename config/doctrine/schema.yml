@@ -818,15 +818,10 @@ Invite:
       type: integer(4)
     user_id:
       type: integer(8)
-    friend_id:
-      type: integer(8)
-    action:
-      type: varchar(50)
-    response:
-      type: varchar(50)
-    status:
-      type: integer(2)
-      default: '0'
+    is_accepted:
+      type: boolean
+      default: null
+      notnull: false
   relations:
     Team:
       local: team_id
@@ -835,11 +830,6 @@ Invite:
     SfGuardUser:
       class: sfGuardUser
       local: user_id
-      foreign: id
-      type: one
-    SfGuardUser_2:
-      class: sfGuardUser
-      local: friend_id
       foreign: id
       type: one
 
