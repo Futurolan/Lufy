@@ -128,10 +128,12 @@ class teamActions extends FrontendActions
   public function executeDeleteMember(sfWebRequest $request)
   {
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
-    $team_player->delete();
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
 
+    $team_player->delete();
     $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' a ete supprime de l\'equipe');
-    $this->redirect('team/players');
+
+    $this->redirect('team/view?slug='.$team->getSlug());
   }
 
   public function executeSetPlayer(sfWebRequest $request)
@@ -150,8 +152,8 @@ class teamActions extends FrontendActions
     }
 
     $team_player->save();
-
-    $this->redirect('user/players');
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
+    $this->redirect('team/view?slug='.$team->getSlug());
   }
 
   public function executeSetCaptain(sfWebRequest $request)
@@ -171,8 +173,15 @@ class teamActions extends FrontendActions
 
     $team_player->save();
 
-    $this->redirect('user/players');
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
+    $this->redirect('team/view?slug='.$team->getSlug());
   }
+
+//  public function executeSetPlayerAndCaptain(sfWebRequest $request)
+//  {
+//    $this->executeSetCaptain($request);
+//    $this->executeSetPlayer($request);
+//  }
 
   public function executeDeleteTeam(sfWebRequest $request)
   {
@@ -183,7 +192,6 @@ class teamActions extends FrontendActions
             ->from('teamplayer')
             ->where('team_id = ' . $team->getIdTeam())
             ->execute();
-
 
     $mail = Doctrine::getTable('mail')->findOneByName('mail_team_delete');
     foreach ($players as $player):
@@ -298,88 +306,6 @@ class teamActions extends FrontendActions
     }
   }
 
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
-
-    $this->form = new createTeamForm();
-
-    $this->processNewTeamForm($request, $this->form);
-
-    $this->setTemplate('new');
-  }
-
-  public function executeEdit(sfWebRequest $request)
-  {
-    if ($this->getUser()->isAuthenticated())
-    {
-
-      $q = Doctrine::getTable('sfGuardUser')
-              ->isCaptain();
-      $a = Doctrine::getTable('sfGuardUser')
-              ->isAdmin();
-      if ($q == true || $a == true)
-      {
-        $team = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-        $this->forward404Unless($teamObject = Doctrine::getTable('team')->findOneByIdTeam($team->getTeamId()));
-        $this->form = new editTeamForm($teamObject);
-      }
-      else
-      {
-        $this->getUser()->setFlash('error', 'Vous n\'avez pas les droits pour cette action, vous devez etre Capitaine ou Admin de la team.');
-        $this->redirect('team/index');
-      };
-    }
-    else
-    {
-      $this->getUser()->setFlash('error', 'Vous devez etre authentifie pour continuer');
-      $this->redirect('/login');
-    };
-  }
-
-  public function executeUpdate(sfWebRequest $request)
-  {
-
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
-    $team = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-    $this->forward404Unless($teamObject = Doctrine::getTable('team')->findOneByIdTeam($team->getTeamId()));
-
-
-
-    $this->form = new editTeamForm($teamObject);
-
-    $this->processForm($request, $this->form);
-    $this->setTemplate('edit');
-  }
-
-  protected function processNewTeamForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $team = $form->save();
-      $team->setAdminteamId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-      $team->save();
-
-      Doctrine::getTable('teamPlayer')
-              ->addPlayer($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'), $team->getIdTeam());
-
-
-
-      $y = Doctrine::getTable('sfGuardUser')->getUser($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-      $mail = Doctrine::getTable('mail')->findOneByName('mail_team_new');
-      $message = $this->getMailer()->compose();
-      $message->setSubject($mail->getSubject());
-      $message->setTo($y->getEmailAddress());
-      $message->setFrom($mail->getEmail());
-      $content = str_replace("%TEAM%", $team->getName(), $mail->getContent());
-      $content = str_replace("%PSEUDO%", $y->getUsername(), $content);
-      $message->setBody($content);
-      $this->getMailer()->send($message);
-      $this->redirect('team/index');
-    }
-  }
-
   public function isGoodNbPlayer($nbPlayerTeam, $nbPlayerTournament)
   {
     if ($nbPlayerTeam > $nbPlayerTournament)
@@ -389,6 +315,20 @@ class teamActions extends FrontendActions
     else
     {
       return true;
+    }
+  }
+
+  public function executeSearchPlayers(sfWebRequest $request)
+  {
+    $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
+    $this->forward404Unless($this->team);
+        if ($this->getUser()->isAuthenticated())
+    {
+      $this->isCaptain = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($this->team->getIdTeam(), $this->getUser()->getGuardUser()->getId())->getIsCaptain();
+    }
+    else
+    {
+      $this->isCaptain = false;
     }
   }
 

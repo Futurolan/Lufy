@@ -26,26 +26,14 @@
     <td><?php echo  $team->getdescription() ?></td>
   </tr>
 </table>
+<?php
+  if ($isCaptain)
+  {
+    include_partial('playersAdmin', array('team' => $team));
+  }
+  else
+  {
+    include_partial('players', array('team' => $team));
+  }
+?>
 
-<?php if ($isCaptain): ?>
-  <?php echo link_to('<i class="icon-pencil"></i> '.__('Modifier'), 'team/edit?slug='.$team->getSlug(), array('class' => 'btn btn-primary')); ?>
-  <?php echo link_to('<i class="icon-trash"></i> '.__('Supprimer'), 'team/delete?slug='.$team->getSlug(), array('class' => 'btn btn-danger')); ?>
-<?php endif; ?>
-
-<h3><?php echo __('Composition'); ?></h3>
-<table class="table">
-<?php foreach ($team->getTeamPlayer() as $player): ?>
-  <tr>
-    <td><?php echo $player->getSfGuardUser()->getUsername(); ?></td>
-    <td><?php echo $player->getSfGuardUser()->getFirstName(); ?> <?php echo substr($player->getSfGuardUser()->getFirstName(), 0, 1); ?>.</td>
-    <td>
-      <?php if ($player->getIsCaptain() == 1) echo __('Manager'); ?>
-      <?php if ($player->getIsPlayer() == 1) echo __('Joueur'); ?>
-    </td>
-  </tr>
-<?php endforeach; ?>
-</table>
-
-<?php if ($isCaptain): ?>
-  <?php echo link_to('<i class="icon-exchange"></i> '.__('Modifier la composition'), 'team/players?slug='.$team->getSlug(), array('class' => 'btn btn-primary')); ?>
-<?php endif; ?>

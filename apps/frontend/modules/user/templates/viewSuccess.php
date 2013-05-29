@@ -42,7 +42,7 @@
   <?php echo link_to(__('Inviter dans mon equipe'),'invite/addPlayer?username='.$user->getUsername(), array('class' => 'btn btn-primary'))?><br/>
 <?php else: ?>
   <div class="alert alert-info">
-    <?php echo __('Pour inviter ce joueur a rejoindre votre equipe vous devez etre fondateur ou manager.'); ?>
+    <?php echo __('Pour inviter ce joueur a rejoindre votre equipe vous devez etre manager.'); ?>
   </div>
   <div class="alert">
     <?php echo __('Vous ne pouvez pas inviter un joueur si celui ci appartient deja a une autre equipe.')?>
