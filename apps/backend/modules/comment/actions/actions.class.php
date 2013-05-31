@@ -10,14 +10,25 @@
  */
 class commentActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->comments = Doctrine::getTable('comment')
-      ->createQuery('a')
-      ->orderBy('created_at DESC')
-      ->execute();
+            ->createQuery('a')
+            ->orderBy('created_at DESC')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSwitchStatus(sfWebRequest $request)
   {
     $this->forward404Unless($comment = Doctrine::getTable('comment')->findOneByIdComment($request->getParameter('id_comment')));
@@ -32,16 +43,24 @@ class commentActions extends sfActions
     }
     $comment->save();
 
-    $this->redirect('news/comments?id_news='.$comment->getNewsId());
-
+    $this->redirect('news/comments?id_news=' . $comment->getNewsId());
   }
 
-
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new commentForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -53,12 +72,22 @@ class commentActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($comment = Doctrine::getTable('comment')->find(array($request->getParameter('id_comment'))), sprintf('Object comment does not exist (%s).', $request->getParameter('id_comment')));
     $this->form = new commentForm($comment);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -70,14 +99,24 @@ class commentActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $this->forward404Unless($comment = Doctrine::getTable('comment')->find(array($request->getParameter('id_comment'))), sprintf('Object comment does not exist (%s).', $request->getParameter('id_comment')));
     $comment->delete();
 
-    $this->redirect('news/comments?id_news='.$comment->getNewsId());
+    $this->redirect('news/comments?id_news=' . $comment->getNewsId());
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -85,7 +124,8 @@ class commentActions extends sfActions
     {
       $comment = $form->save();
 
-      $this->redirect('comment/edit?id_comment='.$comment->getIdComment());
+      $this->redirect('comment/edit?id_comment=' . $comment->getIdComment());
     }
   }
+
 }

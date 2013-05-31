@@ -10,18 +10,34 @@
  */
 class commandeActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->commandes = Doctrine::getTable('commande')
-      ->createQuery('a')
-      ->execute();
+            ->createQuery('a')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new commandeForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -33,12 +49,22 @@ class commandeActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($commande = Doctrine::getTable('commande')->find(array($request->getParameter('id_commande'))), sprintf('Object commande does not exist (%s).', $request->getParameter('id_commande')));
     $this->form = new commandeForm($commande);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -50,6 +76,11 @@ class commandeActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -60,6 +91,11 @@ class commandeActions extends sfActions
     $this->redirect('commande/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -67,7 +103,8 @@ class commandeActions extends sfActions
     {
       $commande = $form->save();
 
-      $this->redirect('commande/edit?id_commande='.$commande->getIdCommande());
+      $this->redirect('commande/edit?id_commande=' . $commande->getIdCommande());
     }
   }
+
 }

@@ -10,19 +10,35 @@
  */
 class partnerActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->partners = Doctrine::getTable('partner')
-      ->createQuery('a')
-      ->orderBy('position')
-      ->execute();
+            ->createQuery('a')
+            ->orderBy('position')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new partnerForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -34,12 +50,22 @@ class partnerActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($this->partner = Doctrine::getTable('partner')->find(array($request->getParameter('id_partner'))), sprintf('Object partner does not exist (%s).', $request->getParameter('id_partner')));
     $this->form = new partnerForm($this->partner);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -50,7 +76,12 @@ class partnerActions extends sfActions
 
     $this->setTemplate('edit');
   }
-  
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdatePosition(sfWebRequest $request)
   {
     $partner = new Partner();
@@ -58,7 +89,12 @@ class partnerActions extends sfActions
     $this->getUser()->setFlash('success', 'L\'ordre des partenaires a ete mis a jour.');
     $this->redirect('partner/index');
   }
-  
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSetStatus(sfWebRequest $request)
   {
     $id_partner = $request->getParameter('id_partner');
@@ -73,6 +109,11 @@ class partnerActions extends sfActions
     $this->redirect('partner/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -83,6 +124,11 @@ class partnerActions extends sfActions
     $this->redirect('partner/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -91,6 +137,8 @@ class partnerActions extends sfActions
       $partner = $form->save();
 
       //$this->redirect('partner/edit?id_partner='.$partner->getIdPartner());
-      $this->redirect('partner/index');    }
+      $this->redirect('partner/index');
+    }
   }
+
 }

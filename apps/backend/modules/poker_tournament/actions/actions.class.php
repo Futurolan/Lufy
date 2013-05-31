@@ -10,18 +10,34 @@
  */
 class poker_tournamentActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->poker_tournaments = Doctrine_Core::getTable('pokerTournament')
-      ->createQuery('a')
-      ->execute();
+            ->createQuery('a')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new pokerTournamentForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -33,12 +49,22 @@ class poker_tournamentActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($poker_tournament = Doctrine_Core::getTable('pokerTournament')->find(array($request->getParameter('id_poker_tournament'))), sprintf('Object poker_tournament does not exist (%s).', $request->getParameter('id_poker_tournament')));
     $this->form = new pokerTournamentForm($poker_tournament);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -50,6 +76,11 @@ class poker_tournamentActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -60,6 +91,11 @@ class poker_tournamentActions extends sfActions
     $this->redirect('poker_tournament/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -67,7 +103,8 @@ class poker_tournamentActions extends sfActions
     {
       $poker_tournament = $form->save();
 
-      $this->redirect('poker_tournament/edit?id_poker_tournament='.$poker_tournament->getIdPokerTournament());
+      $this->redirect('poker_tournament/edit?id_poker_tournament=' . $poker_tournament->getIdPokerTournament());
     }
   }
+
 }

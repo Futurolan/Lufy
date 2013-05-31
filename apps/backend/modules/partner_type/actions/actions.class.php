@@ -10,19 +10,35 @@
  */
 class partner_typeActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->partners_types = Doctrine::getTable('partnerType')
-      ->createQuery('a')
-      ->orderBy('position ASC')
-      ->execute();
+            ->createQuery('a')
+            ->orderBy('position ASC')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new partnerTypeForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -34,12 +50,22 @@ class partner_typeActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($partner_type = Doctrine::getTable('partnerType')->find(array($request->getParameter('id_partner_type'))), sprintf('Object partner_type does not exist (%s).', $request->getParameter('id_partner_type')));
     $this->form = new partnerTypeForm($partner_type);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -50,7 +76,12 @@ class partner_typeActions extends sfActions
 
     $this->setTemplate('edit');
   }
-    
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdatePosition(sfWebRequest $request)
   {
     $partner_type = new PartnerType();
@@ -58,7 +89,12 @@ class partner_typeActions extends sfActions
     $this->getUser()->setFlash('success', 'L\'ordre des partenaires a ete mis a jour.');
     $this->redirect('partner_type/index');
   }
-  
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSetStatus(sfWebRequest $request)
   {
     $id_partner_type = $request->getParameter('id_partner_type');
@@ -73,6 +109,11 @@ class partner_typeActions extends sfActions
     $this->redirect('partner_type/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -83,6 +124,11 @@ class partner_typeActions extends sfActions
     $this->redirect('partner_type/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -90,7 +136,8 @@ class partner_typeActions extends sfActions
     {
       $partner_type = $form->save();
 
-      $this->redirect('partner_type/edit?id_partner_type='.$partner_type->getIdPartnerType());
+      $this->redirect('partner_type/edit?id_partner_type=' . $partner_type->getIdPartnerType());
     }
   }
+
 }

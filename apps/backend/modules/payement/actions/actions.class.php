@@ -10,35 +10,55 @@
  */
 class payementActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
-/*
-    $this->payements = Doctrine::getTable('payement')
+    /*
+      $this->payements = Doctrine::getTable('payement')
       ->createQuery('a')
       ->execute();
-*/
+     */
 
     $this->payements = Doctrine_Query::create()
-      ->select('p.txn_id, p.amount, p.is_valid, p.is_paypal, p.created_at, p.updated_at, u.username, c.id_commande')
-      ->from('Payement p')
-      ->leftJoin('p.SfGuardUser u')
-      ->leftJoin('p.Commande c')
-      ->orderBy('p.id_payement DESC')
-      ->execute();
-
+            ->select('p.txn_id, p.amount, p.is_valid, p.is_paypal, p.created_at, p.updated_at, u.username, c.id_commande')
+            ->from('Payement p')
+            ->leftJoin('p.SfGuardUser u')
+            ->leftJoin('p.Commande c')
+            ->orderBy('p.id_payement DESC')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeShow(sfWebRequest $request)
   {
     $this->payement = Doctrine::getTable('payement')->find(array($request->getParameter('id_payement')));
     $this->forward404Unless($this->payement);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new payementForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -50,12 +70,22 @@ class payementActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($payement = Doctrine::getTable('payement')->find(array($request->getParameter('id_payement'))), sprintf('Object payement does not exist (%s).', $request->getParameter('id_payement')));
     $this->form = new payementForm($payement);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -67,6 +97,11 @@ class payementActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
 //    $request->checkCSRFProtection();
@@ -80,6 +115,11 @@ class payementActions extends sfActions
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -87,10 +127,15 @@ class payementActions extends sfActions
     {
       $payement = $form->save();
 
-      $this->redirect('payement/edit?id_payement='.$payement->getIdPayement());
+      $this->redirect('payement/edit?id_payement=' . $payement->getIdPayement());
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeValidateIpn(sfWebRequest $request)
   {
     $id_payement = $request->getParameter('id_payement');
@@ -111,4 +156,5 @@ class payementActions extends sfActions
 
     $this->setLayout('popup');
   }
+
 }

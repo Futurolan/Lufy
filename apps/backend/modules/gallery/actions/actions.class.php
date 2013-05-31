@@ -7,22 +7,37 @@
  * @subpackage gallery
  * @author     Guillaume Marsay <guillaume@futurolan.net>
  */
-
 class galleryActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->galleries = Doctrine::getTable('gallery')
-      ->createQuery('a')
-      ->orderBy('title ASC')
-      ->execute();
+            ->createQuery('a')
+            ->orderBy('title ASC')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new galleryForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -34,12 +49,22 @@ class galleryActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($gallery = Doctrine::getTable('gallery')->find(array($request->getParameter('id_gallery'))), sprintf('Object file_type does not exist (%s).', $request->getParameter('id_gallery')));
     $this->form = new galleryForm($gallery);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -51,6 +76,11 @@ class galleryActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -61,6 +91,11 @@ class galleryActions extends sfActions
     $this->redirect('gallery/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -68,7 +103,8 @@ class galleryActions extends sfActions
     {
       $gallery = $form->save();
 
-      $this->redirect('gallery/edit?id_gallery='.$gallery->getIdGallery());
+      $this->redirect('gallery/edit?id_gallery=' . $gallery->getIdGallery());
     }
   }
+
 }
