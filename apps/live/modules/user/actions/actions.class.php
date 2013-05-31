@@ -8,347 +8,454 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class userActions extends FrontendActions {
+class userActions extends FrontendActions
+{
 
-    public function executeIndex(sfWebRequest $request) {
-	if ($this->getUser()->isAuthenticated() == true) {
-	    $teamplayer = Doctrine_Core::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-	    //$team = Doctrine_Core::getTable('team')->findOneByIdTeam($teamplayer->getTeamId());
-            if ($teamplayer) {
-		    $tournamentslot = Doctrine_Core::getTable('tournamentSlot')->findOneByTeamId($teamplayer->getTeamId());
-		    if ($tournamentslot) {
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeIndex(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated() == true)
+    {
+      $teamplayer = Doctrine_Core::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+      //$team = Doctrine_Core::getTable('team')->findOneByIdTeam($teamplayer->getTeamId());
+      if ($teamplayer)
+      {
+        $tournamentslot = Doctrine_Core::getTable('tournamentSlot')->findOneByTeamId($teamplayer->getTeamId());
+        if ($tournamentslot)
+        {
 
-			$this->isInscrit = true;
-		    }
-		    else {
-			$this->isInscrit = false;
-		    }
-	    }
-	    else {
-		$this->isInscrit = false;
-	    }
-	}
-    }
-
-    public function executeSuccess(sfWebRequest $request) {
-
-    }
-/**
- * Return a printable entry
- */
-    public function executeBulletin(sfWebRequest $request) {
-        if ($this->getUser()->isAuthenticated()) {
-            $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
-            if (!$this->user->getLicenceGa()) :
-                $id = $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
-                $l = Doctrine::getTable('varConfig')->getEanNextPlayer();
-                Doctrine::getTable('sfGuardUser')->setLicenceGa($l, $id);
-                $k = substr($l, 0, 12);
-                $k = $k + 1;
-                for ($i = 0; $i < 12; $i++) {
-                    $EAN13[$i] = substr($k, $i, 1);
-                }
-                $pair = 0;
-                for ($u = 0; $u < 12; $u = $u + 2) {
-                    $pair = $pair + $EAN13[$u];
-                }
-                $impair = 0;
-                for ($y = 1; $y < 12; $y = $y + 2) {
-                    $impair = $impair + $EAN13[$y] * 3;
-                }
-                $total = $pair + $impair;
-                $r = fmod($total, 10);
-                $controlkey = 10 - $r;
-                $n = str_pad($k, 13, $controlkey, STR_PAD_RIGHT);
-                Doctrine::getTable('varConfig')
-                        ->UpdateEanNextPlayer($n);
-                $this->redirect('user/bulletin');
-            endif;
-            foreach ($this->user->getTeam() as $team):
-                $this->tournaments = Doctrine_Query::create()
-                            ->select('*')
-                            ->from('tournamentSlot t1, tournament t2')
-                            ->where('t1.tournament_id = t2.id_tournament')
-                            ->andWhere('t1.team_id = ' . $team->getIdTeam())
-                            ->execute();
-            endforeach;
-            $this->setLayout('print');
+          $this->isInscrit = true;
         }
-
-        # On génère un PDF ou une page web avec un layout "print"
-    }
-
-/**
- * Return a profil of selected user
- */
-    public function executeView(sfWebRequest $request) {
-        $this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username', ''));
-        $this->forward404Unless($this->user);
-        // team : notinteam, notininvitationteam,
-        $t = Doctrine::getTable('invite')
-                        ->isInvitedInTeam($this->user->getId());
-        $t2 = Doctrine::getTable('team')
-                        ->isInTeam($this->user->getId());
-        // droits : adminteam ou captain
-        $d = Doctrine::getTable('sfGuardUser')
-                        ->isCaptain();
-        $d2 = Doctrine::getTable('sfGuardUser')
-                        ->isAdmin();
-        $this->inviteteam = '0';
-        if ($t == false && $t2 == false):
-            if ($d == true || $d2 == true):
-                $this->inviteteam = '1';
-            endif;
-        endif;
-        // friend : notFriend, notininvitationfriend,
-        $f = Doctrine::getTable('invite')
-                        ->isInvitedFriend($this->user->getId());
-        $f2 = Doctrine::getTable('friend')
-                        ->isFriend($this->user->getId());
-
-        $this->invitefriend = '0';
-        if ($f == false && $f2 == false):
-            $this->invitefriend = '1';
-        endif;
-        if ($this->user->getId() == $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser') || $this->getUser()->isAuthenticated() == false) {
-            $this->invitefriend = '0';
+        else
+        {
+          $this->isInscrit = false;
         }
+      }
+      else
+      {
+        $this->isInscrit = false;
+      }
     }
+  }
 
-/**
- * Return the profil of current user
- */
-    public function executeProfil(sfWebRequest $request) {
-        if ($this->getUser()->isAuthenticated()) {
-            $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeSuccess(sfWebRequest $request)
+  {
+
+  }
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeBulletin(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated())
+    {
+      $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+      if (!$this->user->getLicenceGa()) :
+        $id = $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
+        $l = Doctrine::getTable('varConfig')->getEanNextPlayer();
+        Doctrine::getTable('sfGuardUser')->setLicenceGa($l, $id);
+        $k = substr($l, 0, 12);
+        $k = $k + 1;
+        for ($i = 0; $i < 12; $i++)
+        {
+          $EAN13[$i] = substr($k, $i, 1);
         }
-    }
-
-/**
- * Return form for edit a selected user
- */
-    public function executeEdit(sfWebRequest $request) {
-        if ($this->getUser()->isAuthenticated()) {
-            $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-            $this->form = new profilForm($user);
+        $pair = 0;
+        for ($u = 0; $u < 12; $u = $u + 2)
+        {
+          $pair = $pair + $EAN13[$u];
         }
-    }
-
-    public function executeUpdate(sfWebRequest $request) {
-        $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-        $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-        $this->form = new profilForm($user);
-        $this->processForm($request, $this->form);
-        $this->getUser()->setFlash('error', 'Verifier les erreurs');
-        $this->setTemplate('edit');
-    }
-
-    protected function processForm(sfWebRequest $request, sfForm $form) {
-        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-        if ($form->isValid()) {
-            $user = $form->save();
-            $this->getUser()->setFlash('success', 'Votre profil a ete mis a jour.');
-            $this->redirect('user/profil');
+        $impair = 0;
+        for ($y = 1; $y < 12; $y = $y + 2)
+        {
+          $impair = $impair + $EAN13[$y] * 3;
         }
+        $total = $pair + $impair;
+        $r = fmod($total, 10);
+        $controlkey = 10 - $r;
+        $n = str_pad($k, 13, $controlkey, STR_PAD_RIGHT);
+        Doctrine::getTable('varConfig')
+                ->UpdateEanNextPlayer($n);
+        $this->redirect('user/bulletin');
+      endif;
+      foreach ($this->user->getTeam() as $team):
+        $this->tournaments = Doctrine_Query::create()
+                ->select('*')
+                ->from('tournamentSlot t1, tournament t2')
+                ->where('t1.tournament_id = t2.id_tournament')
+                ->andWhere('t1.team_id = ' . $team->getIdTeam())
+                ->execute();
+      endforeach;
+      $this->setLayout('print');
     }
 
-/**
- * Return informations on Masters licence of selected user
- */
-    public function executeLicence(sfWebRequest $request) {
-        $this->forward404Unless($this->user = Doctrine_Core::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')));
-        $mfjv = new mfjv();
-        $result = $mfjv->check($this->user->getLicenceMasters());
-        if ($result) {
-            // La requete a abouti et la licence est valide,
-            // on peut donc exploiter les resultats
-            $this->type = $result->type;
-            $this->serial = $result->serial;
-            $this->season = $result->season;
-            $this->username = $result->username;
-            $this->used = $result->used;
-        };
+    # On génère un PDF ou une page web avec un layout "print"
+  }
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeView(sfWebRequest $request)
+  {
+    $this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username', ''));
+    $this->forward404Unless($this->user);
+    // team : notinteam, notininvitationteam,
+    $t = Doctrine::getTable('invite')
+            ->isInvitedInTeam($this->user->getId());
+    $t2 = Doctrine::getTable('team')
+            ->isInTeam($this->user->getId());
+    // droits : adminteam ou captain
+    $d = Doctrine::getTable('sfGuardUser')
+            ->isCaptain();
+    $d2 = Doctrine::getTable('sfGuardUser')
+            ->isAdmin();
+    $this->inviteteam = '0';
+    if ($t == false && $t2 == false):
+      if ($d == true || $d2 == true):
+        $this->inviteteam = '1';
+      endif;
+    endif;
+    // friend : notFriend, notininvitationfriend,
+    $f = Doctrine::getTable('invite')
+            ->isInvitedFriend($this->user->getId());
+    $f2 = Doctrine::getTable('friend')
+            ->isFriend($this->user->getId());
+
+    $this->invitefriend = '0';
+    if ($f == false && $f2 == false):
+      $this->invitefriend = '1';
+    endif;
+    if ($this->user->getId() == $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser') || $this->getUser()->isAuthenticated() == false)
+    {
+      $this->invitefriend = '0';
     }
+  }
 
 
-    public function executeNewLicenceGa(sfWebRequest $request) {
-        if ($this->getUser()->isAuthenticated()) {
-            // on recupere l'user
-            $id = $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
-            // on recupere la prochaine licence
-            $l = Doctrine::getTable('varConfig')
-                            ->getEanNextPlayer();
-            // on assigne la licence a l'utilisateur
-            Doctrine::getTable('sfGuardUser')
-                    ->setLicenceGa($l, $id);
-
-            // algo de calcul de la nouvelle licence *            // on retire le dernier chiffre, la cle
-            $k = substr($l, 0, 12);
-            $k = $k + 1;
-            //Transformation de la chaine en tableau
-            for ($i = 0; $i < 12; $i++) {
-                $EAN13[$i] = substr($k, $i, 1);
-            }
-            // calcul chiffre pair
-            $pair = 0;
-            for ($u = 0; $u < 12; $u = $u + 2) {
-                $pair = $pair + $EAN13[$u];
-            }
-            // calcul chiffre impair
-            $impair = 0;
-            for ($y = 1; $y < 12; $y = $y + 2) {
-                $impair = $impair + $EAN13[$y] * 3;
-            }
-            $total = $pair + $impair;
-            //calcul du reste du total divise par 10
-            $r = fmod($total, 10);
-
-            $controlkey = 10 - $r;
-            // on ajoute la cle de controle a la nouvelle licence
-            $n = str_pad($k, 13, $controlkey, STR_PAD_RIGHT);
-
-            Doctrine::getTable('varConfig')
-                    ->UpdateEanNextPlayer($n);
-
-            $this->getUser()->setFlash('success', 'La generation de votre nouvelle licence GA est un succes.');
-            $this->redirect('user/profil');
-        }
-        $this->redirect('login');
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeProfil(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated())
+    {
+      $this->user = Doctrine::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
     }
+  }
 
 
-    //  Permet de d'utiliser une licence masters pour la reduction, stockage de la licence dans commande.reduction
-      public function executeUseLicenceMasters(sfWebRequest $request) {
-      if ($this->getUser()->isAuthenticated()) {
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeEdit(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated())
+    {
+      $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+      $this->form = new profilForm($user);
+    }
+  }
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+    $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+    $this->form = new profilForm($user);
+    $this->processForm($request, $this->form);
+    $this->getUser()->setFlash('error', 'Verifier les erreurs');
+    $this->setTemplate('edit');
+  }
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  protected function processForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $user = $form->save();
+      $this->getUser()->setFlash('success', 'Votre profil a ete mis a jour.');
+      $this->redirect('user/profil');
+    }
+  }
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeLicence(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->user = Doctrine_Core::getTable('sfGuardUser')->findOneById($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')));
+    $mfjv = new mfjv();
+    $result = $mfjv->check($this->user->getLicenceMasters());
+    if ($result)
+    {
+      // La requete a abouti et la licence est valide,
+      // on peut donc exploiter les resultats
+      $this->type = $result->type;
+      $this->serial = $result->serial;
+      $this->season = $result->season;
+      $this->username = $result->username;
+      $this->used = $result->used;
+    };
+  }
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeNewLicenceGa(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated())
+    {
+      // on recupere l'user
+      $id = $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
+      // on recupere la prochaine licence
+      $l = Doctrine::getTable('varConfig')
+              ->getEanNextPlayer();
+      // on assigne la licence a l'utilisateur
+      Doctrine::getTable('sfGuardUser')
+              ->setLicenceGa($l, $id);
+
+      // algo de calcul de la nouvelle licence *            // on retire le dernier chiffre, la cle
+      $k = substr($l, 0, 12);
+      $k = $k + 1;
+      //Transformation de la chaine en tableau
+      for ($i = 0; $i < 12; $i++)
+      {
+        $EAN13[$i] = substr($k, $i, 1);
+      }
+      // calcul chiffre pair
+      $pair = 0;
+      for ($u = 0; $u < 12; $u = $u + 2)
+      {
+        $pair = $pair + $EAN13[$u];
+      }
+      // calcul chiffre impair
+      $impair = 0;
+      for ($y = 1; $y < 12; $y = $y + 2)
+      {
+        $impair = $impair + $EAN13[$y] * 3;
+      }
+      $total = $pair + $impair;
+      //calcul du reste du total divise par 10
+      $r = fmod($total, 10);
+
+      $controlkey = 10 - $r;
+      // on ajoute la cle de controle a la nouvelle licence
+      $n = str_pad($k, 13, $controlkey, STR_PAD_RIGHT);
+
+      Doctrine::getTable('varConfig')
+              ->UpdateEanNextPlayer($n);
+
+      $this->getUser()->setFlash('success', 'La generation de votre nouvelle licence GA est un succes.');
+      $this->redirect('user/profil');
+    }
+    $this->redirect('login');
+  }
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeUseLicenceMasters(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated())
+    {
       $user = Doctrine::getTable('sfGuardUser')->getUser($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
       $slot = Doctrine::getTable('tournamentSlot')->getTournamentSlot($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
       $commande = Doctrine::getTable('commande')->findOneByTournamentSlotId($slot->getIdTournamentSlot());
 
       if ($user->getLicenceMasters()):
-      Doctrine::getTable('commande')->AddReduction($commande->getIdCommande(), $user->getLicenceMasters());
+        Doctrine::getTable('commande')->AddReduction($commande->getIdCommande(), $user->getLicenceMasters());
 
       else:
-      $this->getUser()->setFlash('error', 'Vous devez configurer votre licence masters.');
-      $this->redirect('user/licence');
+        $this->getUser()->setFlash('error', 'Vous devez configurer votre licence masters.');
+        $this->redirect('user/licence');
       endif;
       $this->getUser()->setFlash('success', 'Votre coupon de reduction a ete utilise pour cet evenement.');
       $this->redirect('tournament_slot/index');
-      }
-      $this->redirect('login');
-      } /*/
-
-/**
- * Add a Masters licence on the current user
- */
-    public function executeAddMasters(sfWebRequest $request) {
-        if ($this->getUser()->isAuthenticated()) {
-
-            $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-            $this->form = new licenceMastersForm($user);
-            if ($request->isMethod(sfRequest::POST)) {
-                $this->processFormLicenceMasters($request, $this->form);
-                $this->redirect('user/licence');
-            };
-        }
     }
+    $this->redirect('login');
+  }
 
-    protected function processFormLicenceMasters(sfWebRequest $request, sfForm $form) {
-        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-        if ($form->isValid()) {
-            $user = $form->save();
-            $mfjv = new mfjv();
-            $mfjv->setCriteria('first_name', $user->getFirstName());
-            $mfjv->setCriteria('last_name', $user->getLastName());
-            //$mfjv->setCriteria('birthdate', $user->getBirthdate());
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeAddMasters(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated())
+    {
 
-            $result = $mfjv->check($user->getLicenceMasters());
-            if ($result) {
-                //  La requete a abouti et la licence est valide,
-                // on peut donc exploiter les resultats
-
-                if ($result->season == '2011-2012') {
-		    // On verifie que la licence a ete souscrite pour la bonne saison
-                    $this->getUser()->setFlash('success', 'Votre Licence Masters a ete verifiee. Les reductions seront automatiquement appliquees.');
-                    $this->redirect('user/licence');
-                }
-            }
-            $user->setLicenceMasters(NULL);
-            $user->save();
-            $this->getUser()->setFlash('error', 'Votre numero de licence et/ou les informations relatives a votre profil (nom ou prenom) sont erronees.');
-            $this->redirect('user/licence');
-        }
-        $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Veuillez reessayer.');
+      $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+      $this->form = new licenceMastersForm($user);
+      if ($request->isMethod(sfRequest::POST))
+      {
+        $this->processFormLicenceMasters($request, $this->form);
         $this->redirect('user/licence');
+      };
     }
+  }
 
-/**
- * Activate user account after registration
- */
-    public function executeActivate(sfWebRequest $request) {
-        $key = $request->getParameter('key', '');
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  protected function processFormLicenceMasters(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $user = $form->save();
+      $mfjv = new mfjv();
+      $mfjv->setCriteria('first_name', $user->getFirstName());
+      $mfjv->setCriteria('last_name', $user->getLastName());
+      //$mfjv->setCriteria('birthdate', $user->getBirthdate());
 
-        $id = substr($key, 40);
-        $user = Doctrine::getTable('sfGuardUser')->findOneById($id);
-        if ($user):
-            if ($user->getIsActive() == 1 && $user->getLicenceGa() != ''):
-                $this->getUser()->setFlash('success', 'Votre compte a deja ete valide. Vous pouvez desormais vous connecter.');
-                $this->redirect('sfGuardAuth/signin');
-            endif;
-            $verified = sha1($user->getFirstName() . $user->getLastName() . $user->getEmailAddress());
-            $toverify = substr($key, 0, 40);
-            if ($verified == $toverify):
-                Doctrine::getTable('sfGuardUser')->active($id);
-                $l = Doctrine::getTable('varConfig')->getEanNextPlayer();
-                Doctrine::getTable('sfGuardUser')->setLicenceGa($l, $id);
-                $newLicence = new Ean13Tool;
-                Doctrine::getTable('varConfig')->UpdateEanNextPlayer($newLicence->nextEan($l));
-                $this->getUser()->setFlash('success', 'Votre compte a ete valide. Vous pouvez desormais vous connecter.');
-                $this->redirect('sfGuardAuth/signin');
-            else:
-                $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Contactez un admin si ce probleme persiste.');
-                $this->redirect('main/index');
-            endif;
-        else:
-            $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Contactez un admin si ce probleme persiste.');
-            $this->redirect('main/index');
-        endif;
+      $result = $mfjv->check($user->getLicenceMasters());
+      if ($result)
+      {
+        //  La requete a abouti et la licence est valide,
+        // on peut donc exploiter les resultats
+
+        if ($result->season == '2011-2012')
+        {
+          // On verifie que la licence a ete souscrite pour la bonne saison
+          $this->getUser()->setFlash('success', 'Votre Licence Masters a ete verifiee. Les reductions seront automatiquement appliquees.');
+          $this->redirect('user/licence');
+        }
+      }
+      $user->setLicenceMasters(NULL);
+      $user->save();
+      $this->getUser()->setFlash('error', 'Votre numero de licence et/ou les informations relatives a votre profil (nom ou prenom) sont erronees.');
+      $this->redirect('user/licence');
     }
+    $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Veuillez reessayer.');
+    $this->redirect('user/licence');
+  }
 
-    public function executePassword(sfWebRequest $request){
-      $this->form = new passwordForm($this->user);
-      if($this->embeddedProcessForm($request, 'password')){
-          $this->getUser()->setFlash('success', 'Le mot de passe a bien été modifié.');
-      }
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeActivate(sfWebRequest $request)
+  {
+    $key = $request->getParameter('key', '');
+
+    $id = substr($key, 40);
+    $user = Doctrine::getTable('sfGuardUser')->findOneById($id);
+    if ($user):
+      if ($user->getIsActive() == 1 && $user->getLicenceGa() != ''):
+        $this->getUser()->setFlash('success', 'Votre compte a deja ete valide. Vous pouvez desormais vous connecter.');
+        $this->redirect('sfGuardAuth/signin');
+      endif;
+      $verified = sha1($user->getFirstName() . $user->getLastName() . $user->getEmailAddress());
+      $toverify = substr($key, 0, 40);
+      if ($verified == $toverify):
+        Doctrine::getTable('sfGuardUser')->active($id);
+        $l = Doctrine::getTable('varConfig')->getEanNextPlayer();
+        Doctrine::getTable('sfGuardUser')->setLicenceGa($l, $id);
+        $newLicence = new Ean13Tool;
+        Doctrine::getTable('varConfig')->UpdateEanNextPlayer($newLicence->nextEan($l));
+        $this->getUser()->setFlash('success', 'Votre compte a ete valide. Vous pouvez desormais vous connecter.');
+        $this->redirect('sfGuardAuth/signin');
+      else:
+        $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Contactez un admin si ce probleme persiste.');
+        $this->redirect('main/index');
+      endif;
+    else:
+      $this->getUser()->setFlash('error', 'Une erreur s\'est produite. Contactez un admin si ce probleme persiste.');
+      $this->redirect('main/index');
+    endif;
+  }
+
+  public function executePassword(sfWebRequest $request)
+  {
+    $this->form = new passwordForm($this->user);
+    if ($this->embeddedProcessForm($request, 'password'))
+    {
+      $this->getUser()->setFlash('success', 'Le mot de passe a bien été modifié.');
     }
+  }
 
-/**
-* Return and set the tshirt size for the current user
-*/
-      public function executeTshirt(sfWebRequest $request){
-              if ($this->getUser()->isAuthenticated()) {
-                  $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-                  $tshirt = Doctrine::getTable('Tshirt')->findOneByUserId($user->getId());
-                  if (!$tshirt) {
-                      $tshirt = new Tshirt();
-                      $tshirt->setUserId($user->getId());
-                  }
-                  $this->form = new TshirtSizeForm($tshirt);
-                  if ($request->isMethod(sfRequest::POST)) {
-                      $this->processFormTshirtSize($request, $this->form);
-                      $this->redirect('user/tshirt');
-                  };
-              }
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeTshirt(sfWebRequest $request)
+  {
+    if ($this->getUser()->isAuthenticated())
+    {
+      $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+      $tshirt = Doctrine::getTable('Tshirt')->findOneByUserId($user->getId());
+      if (!$tshirt)
+      {
+        $tshirt = new Tshirt();
+        $tshirt->setUserId($user->getId());
       }
+      $this->form = new TshirtSizeForm($tshirt);
+      if ($request->isMethod(sfRequest::POST))
+      {
+        $this->processFormTshirtSize($request, $this->form);
+        $this->redirect('user/tshirt');
+      };
+    }
+  }
 
-      protected function processFormTshirtSize(sfWebRequest $request, sfForm $form){
-              $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-              if ($form->isValid()) {
-                  $form->save();
-                  $this->getUser()->setFlash('success', 'La taille de vote tee-shirt a ete enregistre');
-                  $this->redirect('user/tshirt');
-              }
-
-      }
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  protected function processFormTshirtSize(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $form->save();
+      $this->getUser()->setFlash('success', 'La taille de vote tee-shirt a ete enregistre');
+      $this->redirect('user/tshirt');
+    }
+  }
 
 }
 
