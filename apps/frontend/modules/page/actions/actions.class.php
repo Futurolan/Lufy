@@ -10,13 +10,19 @@
  */
 class pageActions extends FrontendActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeView(sfWebRequest $request)
   {
     $slug = $request->getParameter('slug', '');
 
     if ($this->getUser()->getCulture() == 'en')
     {
-      $slug = $slug.'-en';
+      $slug = $slug . '-en';
     }
 
     $this->page = Doctrine::getTable('page')->findOneBySlug($slug);
@@ -34,8 +40,14 @@ class pageActions extends FrontendActions
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeConcoursOuikos(sfWebRequest $request)
   {
     $this->name = $request->getParameter('name');
   }
+
 }

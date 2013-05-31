@@ -10,22 +10,30 @@
  */
 class galleryActions extends FrontendActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->gallerys = Doctrine::getTable('Gallery')
-      ->createQuery('a')
-      ->where('status = 1')
-      ->orderBy('position ASC')
-      ->execute();
+            ->createQuery('a')
+            ->where('status = 1')
+            ->orderBy('position ASC')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeView(sfWebRequest $request)
   {
     $this->forward404Unless($this->gallery = Doctrine::getTable('Gallery')->findOneBySlug($request->getParameter('slug')));
   }
+
 }

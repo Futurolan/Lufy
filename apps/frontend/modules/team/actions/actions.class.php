@@ -11,6 +11,11 @@
 class teamActions extends FrontendActions
 {
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeView(sfWebRequest $request)
   {
     $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
@@ -26,6 +31,11 @@ class teamActions extends FrontendActions
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
 
@@ -93,6 +103,11 @@ class teamActions extends FrontendActions
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executePlayers(sfWebRequest $request)
   {
     if ($this->getUser()->getTeamPlayer()->getIsCaptain() != 1)
@@ -124,11 +139,15 @@ class teamActions extends FrontendActions
 
     $this->getUser()->setFlash('success', 'Vous avez ajoute un membre a votre equipe');
 
-    $this->redirect('team/view?slug='.$team->getSlug());
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
-
-   public function executeInviteMember(sfWebRequest $request)
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeInviteMember(sfWebRequest $request)
   {
     if (!$request->getParameter('user_id'))
     {
@@ -144,10 +163,14 @@ class teamActions extends FrontendActions
 
     $this->getUser()->setFlash('success', 'Vous avez ajoute un membre a votre equipe');
 
-    $this->redirect('team/view?slug='.$team->getSlug());
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
-
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDeleteMember(sfWebRequest $request)
   {
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
@@ -156,9 +179,14 @@ class teamActions extends FrontendActions
     $team_player->delete();
     $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' a ete supprime de l\'equipe');
 
-    $this->redirect('team/view?slug='.$team->getSlug());
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSetPlayer(sfWebRequest $request)
   {
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
@@ -176,9 +204,14 @@ class teamActions extends FrontendActions
 
     $team_player->save();
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
-    $this->redirect('team/view?slug='.$team->getSlug());
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSetCaptain(sfWebRequest $request)
   {
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
@@ -197,15 +230,14 @@ class teamActions extends FrontendActions
     $team_player->save();
 
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
-    $this->redirect('team/view?slug='.$team->getSlug());
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
-//  public function executeSetPlayerAndCaptain(sfWebRequest $request)
-//  {
-//    $this->executeSetCaptain($request);
-//    $this->executeSetPlayer($request);
-//  }
-
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDeleteTeam(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -296,6 +328,11 @@ class teamActions extends FrontendActions
     $this->redirect('team/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $object = new Team();
@@ -313,11 +350,16 @@ class teamActions extends FrontendActions
         $team_player->setIsCaptain(1);
         $team_player->save();
 
-        $this->redirect('team/view?slug='.$team->getSlug());
+        $this->redirect('team/view?slug=' . $team->getSlug());
       }
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -325,23 +367,28 @@ class teamActions extends FrontendActions
     {
       $team = $form->save();
       $team->save();
-      $this->redirect('team/view?slug='.$team->getSlug());
+      $this->redirect('team/view?slug=' . $team->getSlug());
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSearchPlayers(sfWebRequest $request)
   {
     if ($request->isXmlHttpRequest())
     {
       $this->results = Doctrine_Query::create()
-        ->select('u.id, u.username')
-        ->from('sfGuardUser u')
-        ->where('u.username LIKE ?', $request->getParameter('query').'%')
-        ->execute();
+              ->select('u.id, u.username')
+              ->from('sfGuardUser u')
+              ->where('u.username LIKE ?', $request->getParameter('query') . '%')
+              ->execute();
 
       $this->setLayout(false);
-     echo json_encode($this->results->toArray());
-     exit;
+      echo json_encode($this->results->toArray());
+      exit;
     }
     else
     {

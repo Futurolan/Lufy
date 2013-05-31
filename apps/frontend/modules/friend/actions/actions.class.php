@@ -10,13 +10,16 @@
  */
 class friendActions extends FrontendActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
-     $this->friends = Doctrine::getTable('friend')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
+    $this->friends = Doctrine::getTable('friend')->findByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
   }
+
 }

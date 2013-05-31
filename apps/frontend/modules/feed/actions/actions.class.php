@@ -8,14 +8,15 @@
  * @author     Guillaume Marsay
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-
 class feedActions extends sfActions
 {
- /**
-  * Executes rss2 action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeRss2()
   {
     sfApplicationConfiguration::getActive()->loadHelpers('bb');
@@ -30,19 +31,19 @@ class feedActions extends sfActions
     $feed->setAuthorName('Association Futurolan');
 
     $newss = Doctrine_Query::create()
-      ->select('*')
-      ->from('news')
-      ->where('status = 1')
-      ->andWhere('slug NOT LIKE "%-en"')
-      ->orderby('publish_on DESC')
-      ->limit('limit', 10)
-      ->execute();
+            ->select('*')
+            ->from('news')
+            ->where('status = 1')
+            ->andWhere('slug NOT LIKE "%-en"')
+            ->orderby('publish_on DESC')
+            ->limit('limit', 10)
+            ->execute();
 
     foreach ($newss as $news)
     {
       $item = new sfFeedItem();
       $item->setTitle($news->getTitle());
-      $item->setLink('news/view?slug='.$news->getSlug());
+      $item->setLink('news/view?slug=' . $news->getSlug());
       $item->setPubdate(strtotime($news->getPublishOn()));
       $item->setUniqueId($news->getSlug());
       $item->setDescription(substr(bb_parse($news->getContent()), 0, 400));
@@ -52,4 +53,5 @@ class feedActions extends sfActions
 
     $this->feed = $feed;
   }
+
 }

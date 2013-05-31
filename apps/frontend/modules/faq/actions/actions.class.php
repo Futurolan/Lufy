@@ -10,12 +10,19 @@
  */
 class faqActions extends FrontendActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->faqs = Doctrine::getTable('faq')
-      ->createQuery('a')
-      ->where('status = 1')
-      ->orderBy('position ASC')
-      ->execute();
+            ->createQuery('a')
+            ->where('status = 1')
+            ->orderBy('position ASC')
+            ->execute();
   }
+
 }
