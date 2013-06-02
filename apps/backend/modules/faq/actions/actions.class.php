@@ -8,44 +8,80 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class faqActions extends sfActions {
+class faqActions extends sfActions
+{
 
-    public function executeIndex(sfWebRequest $request) {
-        $this->faqs = Doctrine::getTable('faq')
-                        ->createQuery('a')
-                        ->orderBy('position ASC')
-                        ->execute();
-    }
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->faqs = Doctrine::getTable('faq')
+            ->createQuery('a')
+            ->orderBy('position ASC')
+            ->execute();
+  }
 
-    public function executeNew(sfWebRequest $request) {
-        $this->form = new faqForm();
-    }
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeNew(sfWebRequest $request)
+  {
+    $this->form = new faqForm();
+  }
 
-    public function executeCreate(sfWebRequest $request) {
-        $this->forward404Unless($request->isMethod(sfRequest::POST));
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeCreate(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-        $this->form = new faqForm();
+    $this->form = new faqForm();
 
-        $this->processForm($request, $this->form);
+    $this->processForm($request, $this->form);
 
-        $this->setTemplate('new');
-    }
+    $this->setTemplate('new');
+  }
 
-    public function executeEdit(sfWebRequest $request) {
-        $this->forward404Unless($faq = Doctrine::getTable('faq')->find(array($request->getParameter('id_faq'))), sprintf('Object faq does not exist (%s).', $request->getParameter('id_faq')));
-        $this->form = new faqForm($faq);
-    }
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeEdit(sfWebRequest $request)
+  {
+    $this->forward404Unless($faq = Doctrine::getTable('faq')->find(array($request->getParameter('id_faq'))), sprintf('Object faq does not exist (%s).', $request->getParameter('id_faq')));
+    $this->form = new faqForm($faq);
+  }
 
-    public function executeUpdate(sfWebRequest $request) {
-        $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-        $this->forward404Unless($faq = Doctrine::getTable('faq')->find(array($request->getParameter('id_faq'))), sprintf('Object faq does not exist (%s).', $request->getParameter('id_faq')));
-        $this->form = new faqForm($faq);
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+    $this->forward404Unless($faq = Doctrine::getTable('faq')->find(array($request->getParameter('id_faq'))), sprintf('Object faq does not exist (%s).', $request->getParameter('id_faq')));
+    $this->form = new faqForm($faq);
 
-        $this->processForm($request, $this->form);
+    $this->processForm($request, $this->form);
 
-        $this->setTemplate('edit');
-    }
+    $this->setTemplate('edit');
+  }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdatePosition(sfWebRequest $request)
   {
     $faq = new Faq();
@@ -53,7 +89,12 @@ class faqActions extends sfActions {
     $this->getUser()->setFlash('success', 'L\'ordre des questions a ete mis a jour.');
     $this->redirect('faq/index');
   }
-  
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSetStatus(sfWebRequest $request)
   {
     $id_faq = $request->getParameter('id_faq');
@@ -67,24 +108,36 @@ class faqActions extends sfActions {
     $this->getUser()->setFlash('success', 'Le statut a été modifié.');
     $this->redirect('faq/index');
   }
-  
-    
-    public function executeDelete(sfWebRequest $request) {
-        $request->checkCSRFProtection();
 
-        $this->forward404Unless($faq = Doctrine::getTable('faq')->find(array($request->getParameter('id_faq'))), sprintf('Object faq does not exist (%s).', $request->getParameter('id_faq')));
-        $faq->delete();
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeDelete(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
 
-        $this->redirect('faq/index');
+    $this->forward404Unless($faq = Doctrine::getTable('faq')->find(array($request->getParameter('id_faq'))), sprintf('Object faq does not exist (%s).', $request->getParameter('id_faq')));
+    $faq->delete();
+
+    $this->redirect('faq/index');
+  }
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  protected function processForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $faq = $form->save();
+
+      $this->redirect('faq/index');
     }
-
-    protected function processForm(sfWebRequest $request, sfForm $form) {
-        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-        if ($form->isValid()) {
-            $faq = $form->save();
-
-            $this->redirect('faq/index');
-        }
-    }
+  }
 
 }

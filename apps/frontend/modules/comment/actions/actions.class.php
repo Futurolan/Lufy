@@ -10,6 +10,12 @@
  */
 class commentActions extends FrontendActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function preExecute()
   {
     if (!$this->getUser()->isAuthenticated())
@@ -18,6 +24,11 @@ class commentActions extends FrontendActions
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
@@ -28,12 +39,13 @@ class commentActions extends FrontendActions
       $comment->setContent($request->getPostParameter('comment[content]', ''));
       $comment->save();
       $news = Doctrine_Core::getTable('news')->findOneByIdNews($request->getPostParameter('comment[news_id]', ''));
-      $this->redirect('news/view?slug='.$news->getSlug());
+      $this->redirect('news/view?slug=' . $news->getSlug());
     }
     else
     {
       $this->redirect('@homepage');
     }
   }
+
 }
 

@@ -15,7 +15,7 @@
       </td>
       <td>
         <div class="btn-group">
-         <a href="#" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> <?php echo __('Definir comme') ?> <span class="caret"></span></a>
+         <a href="#" class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> <?php echo __('Definir comme') ?> <span class="caret"></span></a>
          <ul class="dropdown-menu">
            <li><?php echo link_to(__('Joueur'), 'team/setPlayer?team_id='.$team->getIdTeam().'&user_id='.$player->getSfGuardUser()->getId()); ?></li>
            <li><?php echo link_to(__('Manager'), 'team/setCaptain?team_id='.$team->getIdTeam().'&user_id='.$player->getSfGuardUser()->getId()); ?></li>
@@ -23,7 +23,7 @@
          </ul>
         </div>
       </td>
-      <td><?php echo link_to('<i class="icon-trash" ></i> '.__('Expulser'), 'team/deleteMember?team_id='.$team->getIdTeam().'&user_id='.$player->getSfGuardUser()->getId(), array('class' => 'btn btn-danger btn-small')); ?> <br/></td>
+      <td><?php echo link_to('<i class="icon-trash" ></i> '.__('Expulser'), 'team/deleteMember?team_id='.$team->getIdTeam().'&user_id='.$player->getSfGuardUser()->getId(), array('class' => 'btn btn-danger btn-mini')); ?> <br/></td>
     </tr>
   <?php endforeach; ?>
 </table>

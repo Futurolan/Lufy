@@ -10,20 +10,28 @@
  */
 class fileActions extends FrontendActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     //$this->forward('default', 'module');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeView(sfWebRequest $request)
   {
-    $this->fileCategory = Doctrine::getTable('fileCategory')->findOneBySlug($request->getParameter('slug',''));
+    $this->fileCategory = Doctrine::getTable('fileCategory')->findOneBySlug($request->getParameter('slug', ''));
     $this->forward404Unless($this->fileCategory);
-    $this->files = Doctrine::getTable('file')->createQuery('a')->where('file_category_id='.$this->fileCategory->id_file_category)->andWhere('status=1')->orderBy('name ASC')->execute();
+    $this->files = Doctrine::getTable('file')->createQuery('a')->where('file_category_id=' . $this->fileCategory->id_file_category)->andWhere('status=1')->orderBy('name ASC')->execute();
   }
+
 }

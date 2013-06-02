@@ -10,19 +10,35 @@
  */
 class gameActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->games = Doctrine::getTable('game')
-      ->createQuery('a')
-	  ->orderby('label ASC')
-      ->execute();
+            ->createQuery('a')
+            ->orderby('label ASC')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new gameForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -34,12 +50,22 @@ class gameActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($game = Doctrine::getTable('game')->find(array($request->getParameter('id_game'))), sprintf('Object game does not exist (%s).', $request->getParameter('id_game')));
     $this->form = new gameForm($game);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -51,6 +77,11 @@ class gameActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -61,6 +92,11 @@ class gameActions extends sfActions
     $this->redirect('game/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -71,4 +107,5 @@ class gameActions extends sfActions
       $this->redirect('game/index');
     }
   }
+
 }

@@ -10,6 +10,12 @@
  */
 class searchActions extends FrontendActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUser(sfWebRequest $request)
   {
     if ($request->getParameter('byUsername'))
@@ -21,9 +27,9 @@ class searchActions extends FrontendActions
       if (strlen($byUsername) >= 2)
       {
         $this->users = Doctrine_Query::create()
-          ->from('sfGuardUser u')
-          ->where('u.username LIKE ?', '%'.$request->getParameter('byUsername').'%')
-          ->execute();
+                ->from('sfGuardUser u')
+                ->where('u.username LIKE ?', '%' . $request->getParameter('byUsername') . '%')
+                ->execute();
       }
       else
       {
@@ -32,4 +38,5 @@ class searchActions extends FrontendActions
       }
     }
   }
+
 }

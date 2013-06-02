@@ -11,14 +11,21 @@
 class pageActions extends PresseActions
 {
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeView(sfWebRequest $request)
   {
     $slug = $request->getParameter('slug');
     $this->forward404Unless($slug);
-    if (substr($slug, 0, 7) == 'presse-') $this->redirect('page/view?slug='.str_replace('presse-', '', $slug));
+    if (substr($slug, 0, 7) == 'presse-')
+      $this->redirect('page/view?slug=' . str_replace('presse-', '', $slug));
 
 
-    $this->page = Doctrine::getTable('page')->findOneBySlug('presse-'.$slug);
+    $this->page = Doctrine::getTable('page')->findOneBySlug('presse-' . $slug);
     $this->forward404Unless($this->page);
   }
+
 }

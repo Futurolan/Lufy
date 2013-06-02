@@ -10,21 +10,33 @@
  */
 class uploadActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->files = sfFinder::type('any')->maxdepth(2)->relative()->prune(array('gallery', 'assets'))->discard(array('gallery', 'assets'))->in(sfConfig::get('sf_upload_dir'));
   }
-  
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new uploadForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -36,6 +48,11 @@ class uploadActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -46,4 +63,5 @@ class uploadActions extends sfActions
       $this->redirect('upload/index');
     }
   }
+
 }

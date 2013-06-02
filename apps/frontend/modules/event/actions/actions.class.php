@@ -10,10 +10,5 @@
  */
 class eventActions extends FrontendActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
 
 }

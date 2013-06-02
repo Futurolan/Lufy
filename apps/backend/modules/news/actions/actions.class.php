@@ -10,35 +10,50 @@
  */
 class newsActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->pager = new sfDoctrinePager('news', '10');
-/*
-    $this->pager->setQuery(Doctrine::getTable('News')
+    /*
+      $this->pager->setQuery(Doctrine::getTable('News')
       ->createQuery('a')
       ->orderBy('publish_on DESC'));
-*/
+     */
     $this->pager->setQuery(Doctrine_Query::create()
-      ->select('n.*, COUNT(c.id_comment) as nb_comment, t.*')
-      ->from('News n')
-      ->leftJoin('n.Comment c')
-      ->leftJoin('n.NewsType t')
-      ->groupBy('n.id_news')
-      ->orderBy('n.publish_on DESC')
+                    ->select('n.*, COUNT(c.id_comment) as nb_comment, t.*')
+                    ->from('News n')
+                    ->leftJoin('n.Comment c')
+                    ->leftJoin('n.NewsType t')
+                    ->groupBy('n.id_news')
+                    ->orderBy('n.publish_on DESC')
     );
 
 
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
-
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executePreview(sfWebRequest $request)
   {
     $this->forward404Unless($this->news = Doctrine::getTable('news')->findOneByIdNews($request->getParameter('id_news')));
     $this->setLayout('popup');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSwitchStatus(sfWebRequest $request)
   {
     $this->forward404Unless($news = Doctrine::getTable('news')->findOneByIdNews($request->getParameter('id_news')));
@@ -54,6 +69,11 @@ class newsActions extends sfActions
     $news->save();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeComments(sfWebRequest $request)
   {
     $this->news = Doctrine::getTable('News')->findOneByIdNews($request->getParameter('id_news'));
@@ -62,6 +82,11 @@ class newsActions extends sfActions
     $this->setLayout('popup');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSet(sfWebRequest $request)
   {
     $news = Doctrine::getTable('News')->findOneByIdNews($request->getParameter('id_news'));
@@ -78,13 +103,18 @@ class newsActions extends sfActions
     {
       if ($request->getParameter('lang') == 'en')
       {
-        $news->setSlug($news->getSlug().'-en');
+        $news->setSlug($news->getSlug() . '-en');
         $news->save();
       }
     }
     $this->redirect('news/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $news = new News();
@@ -97,6 +127,11 @@ class newsActions extends sfActions
     $this->form = new newsForm($news);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -108,12 +143,22 @@ class newsActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($this->news = Doctrine::getTable('news')->find(array($request->getParameter('id_news'))), sprintf('Object news does not exist (%s).', $request->getParameter('id_news')));
     $this->form = new newsForm($this->news);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -125,6 +170,11 @@ class newsActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -139,6 +189,11 @@ class newsActions extends sfActions
     $this->redirect('news/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -146,7 +201,8 @@ class newsActions extends sfActions
     {
       $news = $form->save();
 
-      $this->redirect('news/edit?id_news='.$news->getIdNews());
+      $this->redirect('news/edit?id_news=' . $news->getIdNews());
     }
   }
+
 }

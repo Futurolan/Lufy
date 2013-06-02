@@ -10,19 +10,34 @@
  */
 class tournament_adminActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->tournament_admins = Doctrine::getTable('tournamentAdmin')
-      ->createQuery('a')
-      ->execute();
-    
+            ->createQuery('a')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new tournamentAdminForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -34,12 +49,22 @@ class tournament_adminActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($tournament_admin = Doctrine::getTable('tournamentAdmin')->find(array($request->getParameter('user_id'))), sprintf('Object tournament_admin does not exist (%s).', $request->getParameter('user_id')));
     $this->form = new tournamentAdminForm($tournament_admin);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -51,6 +76,11 @@ class tournament_adminActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -61,6 +91,11 @@ class tournament_adminActions extends sfActions
     $this->redirect('tournament_admin/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -71,4 +106,5 @@ class tournament_adminActions extends sfActions
       $this->redirect('tournament_admin/index');
     }
   }
+
 }

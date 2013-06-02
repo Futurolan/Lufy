@@ -10,18 +10,34 @@
  */
 class news_typeActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->news_types = Doctrine::getTable('newsType')
-      ->createQuery('a')
-      ->execute();
+            ->createQuery('a')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new newsTypeForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -33,12 +49,22 @@ class news_typeActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($news_type = Doctrine::getTable('newsType')->find(array($request->getParameter('id_news_type'))), sprintf('Object news_type does not exist (%s).', $request->getParameter('id_news_type')));
     $this->form = new newsTypeForm($news_type);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -50,6 +76,11 @@ class news_typeActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -60,6 +91,11 @@ class news_typeActions extends sfActions
     $this->redirect('news_type/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -70,4 +106,5 @@ class news_typeActions extends sfActions
       $this->redirect('news_type/index');
     }
   }
+
 }

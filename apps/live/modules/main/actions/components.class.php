@@ -10,7 +10,15 @@
  */
 class mainComponents extends sfComponents
 {
-  public function executeChangeCulture(sfWebRequest $request) {
-    
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeChangeCulture(sfWebRequest $request)
+  {
+
   }
+
 }

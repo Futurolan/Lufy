@@ -10,18 +10,34 @@
  */
 class plateformActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->plateforms = Doctrine::getTable('plateform')
-      ->createQuery('a')
-      ->execute();
+            ->createQuery('a')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new plateformForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -33,12 +49,22 @@ class plateformActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($plateform = Doctrine::getTable('plateform')->find(array($request->getParameter('id_plateform'))), sprintf('Object plateform does not exist (%s).', $request->getParameter('id_plateform')));
     $this->form = new plateformForm($plateform);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -50,6 +76,11 @@ class plateformActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -60,6 +91,11 @@ class plateformActions extends sfActions
     $this->redirect('plateform/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -67,7 +103,8 @@ class plateformActions extends sfActions
     {
       $plateform = $form->save();
 
-      $this->redirect('plateform/edit?id_plateform='.$plateform->getIdPlateform());
+      $this->redirect('plateform/edit?id_plateform=' . $plateform->getIdPlateform());
     }
   }
+
 }

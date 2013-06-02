@@ -11,6 +11,11 @@
 class poker_playerActions extends FrontendActions
 {
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeAddPlayer(sfWebRequest $request)
   {
     $this->tournamentSlug = $this->request->getParameter('slug');
@@ -28,11 +33,16 @@ class poker_playerActions extends FrontendActions
       if ($this->form->isValid())
       {
         $poker_tournament_player = $this->form->save();
-        $this->redirect('poker_tournament/view?slug='.$this->tournamentSlug);
+        $this->redirect('poker_tournament/view?slug=' . $this->tournamentSlug);
       }
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $this->forward404Unless($poker_tournament_player = Doctrine_Core::getTable('PokerTournamentPlayer')->find(array($request->getParameter('id_poker_tournament_player'))), sprintf('Object poker_tournament_player does not exist (%s).', $request->getParameter('id_poker_tournament_player')));
@@ -40,4 +50,5 @@ class poker_playerActions extends FrontendActions
 
     $this->redirect('poker_tournament/index');
   }
+
 }

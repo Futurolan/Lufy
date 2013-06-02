@@ -10,61 +10,65 @@
  */
 class mainActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
-   $this->setTemplate('index2');
+    $this->setTemplate('index2');
   }
-  
- /**
-  * Executes language action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeLanguage(sfWebRequest $request)
   {
-    # Définition de la langue par defaut
+    # Dï¿½finition de la langue par defaut
     $this->getUser()->setCulture('fr');
     $this->redirect('main/index');
   }
-  
 
- /**
-  * Executes changeLanguage action
-  *
-  * @param sfRequest $request A request object
-  */
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeChangeLanguage(sfWebRequest $request)
   {
-    # Définition de la langue par defaut
+    # Dï¿½finition de la langue par defaut
     $culture = $request->getParameter('culture');
     $this->getUser()->setCulture($culture);
     $this->redirect('main/index');
   }
 
 
- /**
-  * Executes error404 action
-  *
-  * @param sfRequest $request A request object
-  */
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeError404(sfWebRequest $request)
   {
-    
+
   }
-  
- /**
-  * Executes error401 action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeError401(sfWebRequest $request)
   {
-    
+
   }
 
 }

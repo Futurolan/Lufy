@@ -10,11 +10,12 @@
  */
 class mainActions extends PresseActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->homepage = Doctrine::getTable('Page')->findOneBySlug('presse-accueil');

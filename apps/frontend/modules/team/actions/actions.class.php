@@ -11,6 +11,11 @@
 class teamActions extends FrontendActions
 {
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeView(sfWebRequest $request)
   {
     $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
@@ -26,6 +31,11 @@ class teamActions extends FrontendActions
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
 
@@ -93,6 +103,11 @@ class teamActions extends FrontendActions
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executePlayers(sfWebRequest $request)
   {
     if ($this->getUser()->getTeamPlayer()->getIsCaptain() != 1)
@@ -113,6 +128,7 @@ class teamActions extends FrontendActions
       $this->getUser()->setFlash('error', 'Vous devez selectionner un utilisateur');
       $this->redirect('team/players');
     }
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
 
     $team_player = new TeamPlayer;
     $team_player->setTeamId($request->getParameter('team_id'));
@@ -122,9 +138,39 @@ class teamActions extends FrontendActions
     $team_player->save();
 
     $this->getUser()->setFlash('success', 'Vous avez ajoute un membre a votre equipe');
-    $this->redirect('team/players');
+
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+  public function executeInviteMember(sfWebRequest $request)
+  {
+    if (!$request->getParameter('user_id'))
+    {
+      $this->getUser()->setFlash('error', 'Vous devez selectionner un utilisateur');
+      $this->redirect('team/players');
+    }
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
+
+    $invite = new Invite;
+    $invite->setTeamId($request->getParameter('team_id'));
+    $invite->setUserId($request->getParameter('user_id'));
+    $team_player->save();
+
+    $this->getUser()->setFlash('success', 'Vous avez ajoute un membre a votre equipe');
+
+    $this->redirect('team/view?slug=' . $team->getSlug());
+  }
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDeleteMember(sfWebRequest $request)
   {
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
@@ -133,9 +179,14 @@ class teamActions extends FrontendActions
     $team_player->delete();
     $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' a ete supprime de l\'equipe');
 
-    $this->redirect('team/view?slug='.$team->getSlug());
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSetPlayer(sfWebRequest $request)
   {
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
@@ -153,9 +204,14 @@ class teamActions extends FrontendActions
 
     $team_player->save();
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
-    $this->redirect('team/view?slug='.$team->getSlug());
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSetCaptain(sfWebRequest $request)
   {
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
@@ -174,10 +230,18 @@ class teamActions extends FrontendActions
     $team_player->save();
 
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
-    $this->redirect('team/view?slug='.$team->getSlug());
+    $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
+<<<<<<< HEAD
 
+=======
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
+>>>>>>> dafc8f9ec03adf43cd25c906338ac0ca6f67ae36
   public function executeDeleteTeam(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -268,6 +332,11 @@ class teamActions extends FrontendActions
     $this->redirect('team/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $object = new Team();
@@ -285,11 +354,16 @@ class teamActions extends FrontendActions
         $team_player->setIsCaptain(1);
         $team_player->save();
 
-        $this->redirect('team/view?slug='.$team->getSlug());
+        $this->redirect('team/view?slug=' . $team->getSlug());
       }
     }
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -297,33 +371,33 @@ class teamActions extends FrontendActions
     {
       $team = $form->save();
       $team->save();
-      $this->redirect('team/view?slug='.$team->getSlug());
+      $this->redirect('team/view?slug=' . $team->getSlug());
     }
   }
 
-  public function isGoodNbPlayer($nbPlayerTeam, $nbPlayerTournament)
-  {
-    if ($nbPlayerTeam > $nbPlayerTournament)
-    {
-      return false;
-    }
-    else
-    {
-      return true;
-    }
-  }
-
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeSearchPlayers(sfWebRequest $request)
   {
-    $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
-    $this->forward404Unless($this->team);
-        if ($this->getUser()->isAuthenticated())
+    if ($request->isXmlHttpRequest())
     {
-      $this->isCaptain = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($this->team->getIdTeam(), $this->getUser()->getGuardUser()->getId())->getIsCaptain();
+      $this->results = Doctrine_Query::create()
+              ->select('u.id, u.username')
+              ->from('sfGuardUser u')
+              ->where('u.username LIKE ?', $request->getParameter('query') . '%')
+              ->execute();
+
+      $this->setLayout(false);
+      echo json_encode($this->results->toArray());
+      exit;
     }
     else
     {
-      $this->isCaptain = false;
+      $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
+      $this->forward404Unless($this->team);
     }
   }
 

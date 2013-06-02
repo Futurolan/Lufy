@@ -10,18 +10,34 @@
  */
 class status_slotActions extends sfActions
 {
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $this->status_slots = Doctrine::getTable('StatusSlot')
-      ->createQuery('a')
-      ->execute();
+            ->createQuery('a')
+            ->execute();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new StatusSlotForm();
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -33,12 +49,22 @@ class status_slotActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($status_slot = Doctrine::getTable('StatusSlot')->find(array($request->getParameter('id_status_slot'))), sprintf('Object status_slot does not exist (%s).', $request->getParameter('id_status_slot')));
     $this->form = new StatusSlotForm($status_slot);
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
@@ -50,6 +76,11 @@ class status_slotActions extends sfActions
     $this->setTemplate('edit');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
@@ -60,6 +91,11 @@ class status_slotActions extends sfActions
     $this->redirect('status_slot/index');
   }
 
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -67,7 +103,8 @@ class status_slotActions extends sfActions
     {
       $status_slot = $form->save();
 
-      $this->redirect('status_slot/edit?id_status_slot='.$status_slot->getIdStatusSlot());
+      $this->redirect('status_slot/edit?id_status_slot=' . $status_slot->getIdStatusSlot());
     }
   }
+
 }

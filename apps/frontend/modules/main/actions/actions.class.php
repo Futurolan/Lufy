@@ -10,20 +10,24 @@
  */
 class mainActions extends FrontendActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
+
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeIndex(sfWebRequest $request)
   {
+
   }
 
- /**
-  * Executes language action
-  *
-  * @param sfRequest $request A request object
-  */
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeLanguage(sfWebRequest $request)
   {
     $this->getUser()->setCulture('fr');
@@ -31,11 +35,11 @@ class mainActions extends FrontendActions
   }
 
 
- /**
-  * Executes changeLanguage action
-  *
-  * @param sfRequest $request A request object
-  */
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeChangeLanguage(sfWebRequest $request)
   {
     $culture = $request->getParameter('culture');
@@ -44,21 +48,25 @@ class mainActions extends FrontendActions
   }
 
 
- /**
-  * Executes error404 action
-  *
-  * @param sfRequest $request A request object
-  */
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeError404(sfWebRequest $request)
   {
+
   }
 
- /**
-  * Executes error401 action
-  *
-  * @param sfRequest $request A request object
-  */
+
+  /**
+   * @brief
+   * @param[in]
+   * @return
+   */
   public function executeError401(sfWebRequest $request)
   {
+
   }
+
 }
