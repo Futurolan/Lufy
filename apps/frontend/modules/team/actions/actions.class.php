@@ -143,12 +143,12 @@ class teamActions extends FrontendActions
     if ($team_player->getIsPlayer() == 0)
     {
       $team_player->setIsPlayer(1);
-      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' ne fait plus parti des joueurs');
+      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' est maintenant joueur de l\'equipe');
     }
     else
     {
       $team_player->setIsPlayer(0);
-      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' est maintenant joueur de l\'equipe');
+      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' ne fait plus parti des joueurs');
     }
 
     $team_player->save();
@@ -177,11 +177,6 @@ class teamActions extends FrontendActions
     $this->redirect('team/view?slug='.$team->getSlug());
   }
 
-//  public function executeSetPlayerAndCaptain(sfWebRequest $request)
-//  {
-//    $this->executeSetCaptain($request);
-//    $this->executeSetPlayer($request);
-//  }
 
   public function executeDeleteTeam(sfWebRequest $request)
   {

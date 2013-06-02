@@ -4,8 +4,9 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations <b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><a href="#">GA'lloween 2013</a></li>
+        <?php include_component('event', 'last') ?>
         <li><?php echo link_to(__('Informations pratiques'), 'page/view?slug=informations-pratiques')?></li>
+        <li class="divider"></li>
         <li><?php echo link_to(__('Les Gamers Assembly'), 'page/view?slug=presentation')?></li>
         <li><?php echo link_to(__('Association Futurolan'), 'page/view?slug=decouvrez-l-association-futurolan')?></li>
       </ul>
