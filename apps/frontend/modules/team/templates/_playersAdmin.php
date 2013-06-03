@@ -27,4 +27,4 @@
     </tr>
   <?php endforeach; ?>
 </table>
-<?php echo link_to('<i class="icon-plus"></i> '.__('Ajouter un joueur'), 'team/searchPlayers?slug='.$team->getSlug(), array('class' => 'btn btn-success')); ?>
+<?php echo link_to('<i class="icon-plus"></i> '.__('Inviter un joueur'), 'team/searchPlayers?slug='.$team->getSlug(), array('class' => 'btn btn-success')); ?>

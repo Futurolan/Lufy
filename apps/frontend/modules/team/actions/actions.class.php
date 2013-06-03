@@ -159,9 +159,10 @@ class teamActions extends FrontendActions
     $invite = new Invite;
     $invite->setTeamId($request->getParameter('team_id'));
     $invite->setUserId($request->getParameter('user_id'));
-    $team_player->save();
+    $invite->save();
 
-    $this->getUser()->setFlash('success', 'Vous avez ajoute un membre a votre equipe');
+    $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
+    $this->getUser()->setFlash('success', 'Vous avez envoyé une invitation à '.$player->getUsername());
 
     $this->redirect('team/view?slug=' . $team->getSlug());
   }
