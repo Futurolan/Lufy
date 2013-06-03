@@ -13,9 +13,7 @@ class userActions extends FrontendActions
 {
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Activate the user layout
    */
   public function postExecute()
   {
@@ -23,9 +21,9 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Redirect to current user profile
+   * @param[in] $request A sfWebRequest object
+   * @return Redirect
    */
   public function executeIndex(sfWebRequest $request)
   {
@@ -33,9 +31,8 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Create a printable bulletin
+   * @param[in]$request A sfWebRequest object
    */
   public function executeBulletin(sfWebRequest $request)
   {
@@ -55,7 +52,7 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
+   * @brief 
    * @param[in]
    * @return
    */
@@ -94,9 +91,8 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Find the current user profile
+   * @param[in] $request A sfWebRequest object
    */
   public function executeProfile(sfWebRequest $request)
   {
@@ -104,9 +100,9 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Edit the current user profile or create a new object profilForm
+   * @param[in] $request A sfWebRequest object
+   * @return Redirect
    */
   public function executeEditProfile(sfWebRequest $request)
   {
@@ -124,8 +120,8 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
+   * @brief 
+   * @param[in] $request A sfWebRequest object
    * @return
    */
   public function executeAddress(sfWebRequest $request)
@@ -134,9 +130,9 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Create a new address and if it's first set it is default billing and delivery
+   * @param[in] $request A sfWebRequest object
+   * @return Redirect
    */
   public function executeNewAddress(sfWebRequest $request)
   {
@@ -163,9 +159,9 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Permit to edit an address
+   * @param[in] $request A sfWebRequest object
+   * @return Redirect
    */
   public function executeEditAddress(sfWebRequest $request)
   {
@@ -183,9 +179,9 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Define an address as default 
+   * @param[in] $request A sfWebRequest object
+   * @return Redirect
    */
   public function executeSetDefaultAddress(sfWebRequest $request)
   {
@@ -206,9 +202,9 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Define an address as Billing
+   * @param[in] $request A sfWebRequest object
+   * @return Redirect
    */
   public function executeSetBillingAddress(sfWebRequest $request)
   {
@@ -229,9 +225,9 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Define an address as Delivery
+   * @param[in] $request A sfWebRequest object
+   * @return Redirect
    */
   public function executeSetDeliveryAddress(sfWebRequest $request)
   {
@@ -252,9 +248,9 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Delete an address
+   * @param[in] $request A sfWebRequest object
+   * @return Redirect and Flash address
    */
   public function executeDeleteAddress(sfWebRequest $request)
   {
@@ -289,7 +285,7 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief
+   * @brief 
    * @param[in]
    * @return
    */

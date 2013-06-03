@@ -233,15 +233,12 @@ class teamActions extends FrontendActions
     $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
-<<<<<<< HEAD
 
-=======
   /**
    * @brief
    * @param[in]
    * @return
    */
->>>>>>> dafc8f9ec03adf43cd25c906338ac0ca6f67ae36
   public function executeDeleteTeam(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
