@@ -3,7 +3,6 @@
 <h2><?php echo __('Rechercher des joueurs pour mon équipe')?></h2>
 <form action="<?php //echo url_for('team/addMember) ?>" method="get">
   <input type="text" id="query" name="query" value="<?php echo $sf_request->getParameter('query') ?>" />
-  <input type="submit" value="search" />
 </form>
 
 <div id="results"></div>

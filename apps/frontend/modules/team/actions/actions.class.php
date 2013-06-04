@@ -164,7 +164,7 @@ class teamActions extends FrontendActions
     $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
     $this->getUser()->setFlash('success', 'Vous avez envoyé une invitation à '.$player->getUsername());
 
-    $this->redirect('team/view?slug=' . $team->getSlug());
+    $this->redirect('team/searchPlayers?slug=' . $team->getSlug());
   }
 
   /**

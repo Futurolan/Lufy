@@ -12,8 +12,8 @@ class inviteComponents extends sfComponents
   {
     $invites = Doctrine_Query::create()
             ->from('invite')
-            ->where('user_id =' . $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'))
-            ->andWhere('status = 0')
+            ->where('user_id =?', $this->getUser()->getGuardUser()->getId())
+            ->andWhere('updated_at = null')
             ->execute();
 
     if ($invites)

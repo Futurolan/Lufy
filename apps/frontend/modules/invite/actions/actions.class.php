@@ -20,10 +20,10 @@ class inviteActions extends FrontendActions
   {
     $this->invites = Doctrine_Query::create()
                                   ->select('*')
-                                  ->from('invite i')
+                                  ->from('Invite i')
                                   ->leftJoin('i.SfGuardUser u')
                                   ->leftJoin('i.Team t')
-                                  ->where('i.id_invite =' . $this->getUser()->getGuardUser()->getId())
+                                  ->where('i.user_id =?', $this->getUser()->getGuardUser()->getId())
                                   ->orderBy('i.updated_at')
                                   ->execute();
     //$this->friends = Doctrine::getTable('invite')->findByFriendId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
