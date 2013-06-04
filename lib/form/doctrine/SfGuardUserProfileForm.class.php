@@ -28,5 +28,6 @@ class SfGuardUserProfileForm extends BaseSfGuardUserProfileForm
     );
 
     $this->setValidator('birthdate', new sfValidatorDate(array('required' => true)));
+
   }
 }

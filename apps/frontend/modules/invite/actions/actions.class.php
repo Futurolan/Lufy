@@ -12,9 +12,8 @@ class inviteActions extends FrontendActions
 {
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Load a $invites, symfony collection of invatation for current user order by updated date
+   * @param[in] $request a sfWebRequest
    */
   public function executeIndex(sfWebRequest $request)
   {
@@ -95,9 +94,9 @@ class inviteActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Use by a player to accept a team invitation
+   * @param[in] $request a sfWebRequest
+   * @return Redirect_or_Exeption
    */
   public function executeAcceptPlayer(sfWebRequest $request)
   {
@@ -123,8 +122,7 @@ class inviteActions extends FrontendActions
     }
     else
     {
-      echo 'fail';
-      exit();
+      throw new Exception('Problème de correspondance utilisateur');
     }
 
 
