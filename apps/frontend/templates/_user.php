@@ -26,6 +26,6 @@
   <li class="divider"></li>
 
   <li class="nav-header"><?php echo __('Autre'); ?></li>
-  <li><?php echo link_to(__('Mes invitation'), 'invite/index'); ?></li>
+  <li><?php include_component('invite', 'nbinvite') ?></li>
   <li><a href="#">Besoin d'aide ?</a></li>
 </ul>

@@ -1,1 +1,1 @@
-(<?php echo   link_to($count,'invite/index');?>)
+<?php echo link_to(__('Invitations :').' '.$count,'invite/index');?>

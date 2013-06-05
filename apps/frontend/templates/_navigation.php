@@ -12,18 +12,18 @@
       </ul>
     </li>
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galeries <b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php __('Galeries') ?> <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li class="dropdown-submenu">
-          <a href="#">Photos</a>
+          <a href="#"><?php __('Photos') ?></a>
           <ul class="dropdown-menu">
-            <?php include_component('gallery', 'list'); ?>
+            <?php include_component('gallery', 'list') ?>
           </ul>
         </li>
         <li class="dropdown-submenu">
-          <a href="#">Videos</a>
+          <a href="#"><?php __('Videos') ?></a>
           <ul class="dropdown-menu">
-            <li><a href="#">A venir</a></li>
+            <li><a href="#"><?php __('A venir') ?></a></li>
           </ul>
         </li>
       </ul>

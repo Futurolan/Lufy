@@ -2,7 +2,6 @@
 
 class inviteComponents extends sfComponents
 {
-
   /**
    * @brief
    * @param[in]
@@ -11,10 +10,10 @@ class inviteComponents extends sfComponents
   public function executeNbinvite(sfWebRequest $request)
   {
     $invites = Doctrine_Query::create()
-            ->from('invite')
-            ->where('user_id =?', $this->getUser()->getGuardUser()->getId())
-            ->andWhere('updated_at = null')
-            ->execute();
+      ->from('invite')
+      ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
+      ->andWhere('is_accepted IS NULL')
+      ->execute();
 
     if ($invites)
     {
@@ -25,5 +24,4 @@ class inviteComponents extends sfComponents
       $this->count = 0;
     }
   }
-
 }
