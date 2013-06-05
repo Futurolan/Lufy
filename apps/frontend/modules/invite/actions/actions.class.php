@@ -25,6 +25,8 @@ class inviteActions extends FrontendActions
       ->where('i.user_id = ?', $this->getUser()->getGuardUser()->getId())
       ->orderBy('i.updated_at')
       ->execute();
+
+    $this->setLayout('user');
   }
 
   /**

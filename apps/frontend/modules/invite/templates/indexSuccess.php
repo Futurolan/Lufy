@@ -8,7 +8,4 @@ ul.invite {
   list-style-type: none;
   margin-left: 0px;
 }
-ul.invite li {
-  margin: 10px 0px 10px 0px;
-}
 </style>
