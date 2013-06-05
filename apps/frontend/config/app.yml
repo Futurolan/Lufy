@@ -13,5 +13,5 @@ all:
     defaultFromEmail: noreply@futurolan.net
 
   recaptcha:
-    public_key: 6LccbOISAAAAALamanBwv8Q3aeJcfebI-RoRQe0D
-    private_key: 6LccbOISAAAAAHDWMoIAbK2Hl8LV7zRAGEt_ea3P
+    public_key: 6Lc_auISAAAAAPkkwxpUAWM9Pa_8Mp1L4M9K8XhZ
+    private_key: 6Lc_auISAAAAAH5nAjU4qTK3gf-PZd9DlDPEc4F_
