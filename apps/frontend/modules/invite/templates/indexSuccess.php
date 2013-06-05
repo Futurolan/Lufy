@@ -1,6 +1,14 @@
-<div class="box">
-        <div class="content">
-           <?php include_partial('invitation', array('invites' => $invites )); ?>
-           <?php include_partial('history', array('invites' => $invites )); ?>
-        </div>
-</div>
+<h2><?php echo __('Mes invitations')?></h2>
+
+<?php include_partial('invitation', array('invites' => $invites )); ?>
+<?php include_partial('history', array('invites' => $invites )); ?>
+
+<style>
+ul.invite {
+  list-style-type: none;
+  margin-left: 0px;
+}
+ul.invite li {
+  margin: 10px 0px 10px 0px;
+}
+</style>
