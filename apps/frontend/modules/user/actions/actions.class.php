@@ -52,7 +52,7 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief 
+   * @brief
    * @param[in]
    * @return
    */
@@ -120,7 +120,7 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief 
+   * @brief
    * @param[in] $request A sfWebRequest object
    * @return
    */
@@ -179,7 +179,7 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief Define an address as default 
+   * @brief Define an address as default
    * @param[in] $request A sfWebRequest object
    * @return Redirect
    */
@@ -285,7 +285,7 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief 
+   * @brief
    * @param[in]
    * @return
    */

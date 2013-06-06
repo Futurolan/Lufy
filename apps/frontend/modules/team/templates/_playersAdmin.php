@@ -4,8 +4,6 @@
 <h3><?php echo __('Composition'); ?></h3>
 <table class="table">
 <?php foreach ($team->getTeamPlayer() as $player): ?>
-<?php echo $team->getIdTeam();?>
-<?php echo $player->getSfGuardUser()->getId();?>
     <tr>
       <td><?php echo $player->getSfGuardUser()->getUsername(); ?></td>
       <td><?php echo $player->getSfGuardUser()->getFirstName(); ?> <?php echo substr($player->getSfGuardUser()->getFirstName(), 0, 1); ?>.</td>
@@ -27,4 +25,6 @@
     </tr>
   <?php endforeach; ?>
 </table>
+<?php echo link_to('<i ></i> '.__('Retour'), 'user/index', array('class' => 'btn')); ?>
+<?php echo ' '; ?>
 <?php echo link_to('<i class="icon-plus"></i> '.__('Inviter un joueur'), 'team/searchPlayers?slug='.$team->getSlug(), array('class' => 'btn btn-success')); ?>

@@ -11,7 +11,9 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields() ?>
-          <input class="btn btn-primary" type="submit" value="Enregister" />
+          <?php echo link_to('<i></i> '.__('Retour'), 'user/index', array('class' => 'btn')); ?>
+          <input class="btn btn-primary" type="submit" value="<?php echo __('Enregistrer')?>" />
+
         </td>
       </tr>
     </tfoot>

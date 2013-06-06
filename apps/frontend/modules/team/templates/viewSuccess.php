@@ -33,7 +33,7 @@
   }
   else
   {
-    include_partial('players', array('team' => $team));
+    include_partial('players', array('team' => $team, 'isMember' => $isMember, 'isAuth' => $isAuth));
   }
 ?>
 
