@@ -12,9 +12,8 @@ class teamActions extends FrontendActions
 {
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Display Team and set right for current user
+   * @param[in] $request a sfWebRequest
    */
   public function executeView(sfWebRequest $request)
   {
@@ -33,8 +32,7 @@ class teamActions extends FrontendActions
         $this->isMember = false ;
       }
 
-     $this->isAuth = true ;
-
+      $this->isAuth = true ;
     }
     else
     {
@@ -45,9 +43,9 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Add a member at team
+   * @param[in] $request a sfWebRequest
+   * @return Redirect
    */
   public function executeAddMember(sfWebRequest $request)
   {
@@ -71,9 +69,9 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Invite a player with check on is_accepted.
+   * @param[in] $request a sfWebRequest
+   * @return Redirect
    */
   public function executeInviteMember(sfWebRequest $request)
   {
@@ -123,9 +121,9 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Delete a team member and reset his invitation 0
+   * @param[in] $request a sfWebRequest
+   * @return Redirect
    */
   public function executeDeleteMember(sfWebRequest $request)
   {
@@ -138,15 +136,14 @@ class teamActions extends FrontendActions
     $invite->setIsAccepted(0);
     $invite->save();
 
-
     $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() .$this->getContext()->getI18n()->__(' a ete supprime de l\'equipe'));
     $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Define a member as a player or not a player
+   * @param[in] $request a sfWebRequest
+   * @return Redirect
    */
   public function executeSetPlayer(sfWebRequest $request)
   {
@@ -169,9 +166,9 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Define a player as a captain or not a captain
+   * @param[in] $request a sfWebRequest
+   * @return Redirect
    */
   public function executeSetCaptain(sfWebRequest $request)
   {
@@ -195,9 +192,9 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Permit to leave a team and reset invitation 0
+   * @param[in] $request a sfWebRequest
+   * @return Redirect
    */
   public function executeLeaveTeam(sfWebRequest $request)
   {
@@ -213,9 +210,9 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Permit for a captain to delete a team
+   * @param[in] $request a sfWebRequest
+   * @return Redirect
    */
   public function executeDeleteTeam(sfWebRequest $request)
   {
@@ -308,9 +305,9 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Create a new team form
+   * @param[in] $request a sfWebRequest
+   * @return Redirect
    */
   public function executeNew(sfWebRequest $request)
   {
@@ -335,9 +332,10 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Overriding processForm
+   * @param[in] $request a sfWebRequest
+   * @param[in] $form a sfForm
+   * @return Redirect
    */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
@@ -351,9 +349,8 @@ class teamActions extends FrontendActions
   }
 
   /**
-   * @brief
-   * @param[in]
-   * @return
+   * @brief Permit search players
+   * @param[in] $request a sfWebRequest
    */
   public function executeSearchPlayers(sfWebRequest $request)
   {

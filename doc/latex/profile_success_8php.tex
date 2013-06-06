@@ -1,0 +1,34 @@
+\hypertarget{profile_success_8php}{\section{apps/frontend/modules/user/templates/profile\-Success.php File Reference}
+\label{profile_success_8php}\index{apps/frontend/modules/user/templates/profile\-Success.\-php@{apps/frontend/modules/user/templates/profile\-Success.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{profile_success_8php_ace89372310923d6f600afebd15de1d12}{use\-\_\-helper} ('Date')?$>$$<$ h2 $>$$<$?php echo \-\_\-\-\_\-('Mon profil')?$>$$<$/h2 $>$$<$ h3 $>$$<$?php echo \$user-\/$>$get\-First\-Name()?$>$\char`\"{}$<$?php echo \$user-\/$>$get\-Username() ?$>$\char`\"{}$<$?php echo \$user-\/$>$get\-Last\-Name()?$>$$<$/h3 $>$$<$ table \hyperlink{live_2modules_2news_2templates_2__actualitelight_8php_a185c73c6507391d1eb38c776b68ce96d}{class}
+\item 
+\hyperlink{profile_success_8php_a672d9707ef91db026c210f98cc601123}{endforeach}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{profile_success_8php_a672d9707ef91db026c210f98cc601123}{\index{profile\-Success.\-php@{profile\-Success.\-php}!endforeach@{endforeach}}
+\index{endforeach@{endforeach}!profileSuccess.php@{profile\-Success.\-php}}
+\subsubsection[{endforeach}]{\setlength{\rightskip}{0pt plus 5cm}endforeach}}\label{profile_success_8php_a672d9707ef91db026c210f98cc601123}
+
+
+Definition at line 34 of file profile\-Success.\-php.
+
+\hypertarget{profile_success_8php_ace89372310923d6f600afebd15de1d12}{\index{profile\-Success.\-php@{profile\-Success.\-php}!use\-\_\-helper@{use\-\_\-helper}}
+\index{use\-\_\-helper@{use\-\_\-helper}!profileSuccess.php@{profile\-Success.\-php}}
+\subsubsection[{use\-\_\-helper}]{\setlength{\rightskip}{0pt plus 5cm}use\-\_\-helper('Date')?$>$$<$ h2 $>$$<$?php echo \-\_\-\-\_\-('Mon profil')?$>$$<$/h2 $>$$<$ h3 $>$$<$?php echo \$user-\/$>$get\-First\-Name()?$>$\char`\"{}$<$?php echo \$user-\/$>$get\-Username() ?$>$\char`\"{}$<$?php echo \$user-\/$>$get\-Last\-Name()?$>$$<$/h3 $>$$<$ table {\bf class}}}\label{profile_success_8php_ace89372310923d6f600afebd15de1d12}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\textcolor{stringliteral}{"160"}>
+        <?php \textcolor{keywordflow}{if} (\hyperlink{live_2modules_2main_2templates_2__twitter_8php_a598ca4e71b15a1313ec95f0df1027ca5}{$user}->getSfGuardUserProfile()->getLogourl()) \{ echo \textcolor{stringliteral}{'
+      <img src="'}.$user->getSfGuardUserProfile()->getLogourl().\textcolor{stringliteral}{'" width="150">'}; \} \textcolor{keywordflow}{else} 
+      \{ echo image\_tag(\textcolor{stringliteral}{'/uploads/profils/no-profil.png'}, array(\textcolor{stringliteral}{'width'} => \textcolor{stringliteral}{'150'})); \}
+\end{DoxyCode}
+
+
+Definition at line 1 of file profile\-Success.\-php.
+

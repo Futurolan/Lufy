@@ -1,0 +1,131 @@
+\hypertarget{inscriptions_success_8php}{\section{apps/backend/modules/stats/templates/inscriptions\-Success.php File Reference}
+\label{inscriptions_success_8php}\index{apps/backend/modules/stats/templates/inscriptions\-Success.\-php@{apps/backend/modules/stats/templates/inscriptions\-Success.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{presse_2modules_2news_2templates_2index_success_8php_abc56db52b2e9a59bcd5c9e45ac5cb332}{foreach}(\$tournaments as \\*
+\$tournament) \hyperlink{inscriptions_success_8php_af3a474618823746201622a7739282918}{\$state\-\_\-valide} = 0
+\item 
+\hyperlink{inscriptions_success_8php_a60be82fa65f561e562585794494783c9}{\$state\-\_\-inscrit} = 0
+\item 
+\hyperlink{inscriptions_success_8php_ab312d14793b9c36c5991645be5bf68ad}{\$state\-\_\-libre} = 0
+\item 
+\hyperlink{inscriptions_success_8php_a344152e8335a2555919a4fdf6bfa34ca}{\$state\-\_\-total} = 0
+\item 
+\hyperlink{inscriptions_success_8php_a25a9c16257ded9c5abc5490291886b22}{\$state\-\_\-max\-\_\-slot} = \$tournament-\/$>$get\-Number\-Team()
+\item 
+elseif(\$slot-\/$>$get\-Status()== \\*
+'inscrit') elseif(\$slot-\/$>$\\*
+get\-Status()== 'attente') \\*
+elseif(\$slot-\/$>$get\-Status()== \\*
+'libre') \hyperlink{inscriptions_success_8php_aad37429372b77b04e6ea45a3acb9bee3}{endif}
+\item 
+\hyperlink{inscriptions_success_8php_a672d9707ef91db026c210f98cc601123}{endforeach} = image\-\_\-tag('/uploads/jeux/icones/'.\$tournament-\/$>$\hyperlink{backend_2modules_2tournament_2templates_2index_success_8php_a35941bec2f3cf7beef9b8010a1342325}{get\-Logourl}(), array('width' =$>$ '12'))\$tournament-\/$>$get\-Name()((\$state\-\_\-reserve$\ast$100)/\$state\-\_\-max\-\_\-slot)$\ast$4.\-1\$state\-\_\-reserve((\$state\-\_\-valide$\ast$100)/\$state\-\_\-max\-\_\-slot)$\ast$4.\-1\$state\-\_\-valide((\$state\-\_\-inscrit$\ast$100)/\$state\-\_\-max\-\_\-slot)$\ast$4.\-1\$state\-\_\-inscrit\$state\-\_\-max\-\_\-slot
+\item 
+\hyperlink{inscriptions_success_8php_ae8dd4df19926f1f64c490ce1bbd42c25}{\$totalpayement} = 0
+\item 
+\hyperlink{inscriptions_success_8php_a51dd184ddac2cc4fb4915b0bf654c4ab}{\$nb} \mbox{[}'reserve'\mbox{]} = 0
+\item 
+\hyperlink{inscriptions_success_8php_a1bcf7e20cae5e89063a5294938f0397a}{\$nb} \mbox{[}'attente'\mbox{]} = 0
+\item 
+\hyperlink{inscriptions_success_8php_a53068f4aef95390f2674414735f8e5ed}{\$nb} \mbox{[}'inscrit'\mbox{]} = 0
+\item 
+\hyperlink{inscriptions_success_8php_ae49886c566173f76a8f27f715e4562fd}{\$nb} \mbox{[}'valide'\mbox{]} = 0
+\item 
+\hyperlink{inscriptions_success_8php_a7902d032669bb026f1c70ef34737fe9a}{\$totalteam} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{inscriptions_success_8php_a51dd184ddac2cc4fb4915b0bf654c4ab}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$nb@{\$nb}}
+\index{\$nb@{\$nb}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$nb}]{\setlength{\rightskip}{0pt plus 5cm}\$nb\mbox{[}'reserve'\mbox{]} = 0}}\label{inscriptions_success_8php_a51dd184ddac2cc4fb4915b0bf654c4ab}
+
+
+Definition at line 91 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_a1bcf7e20cae5e89063a5294938f0397a}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$nb@{\$nb}}
+\index{\$nb@{\$nb}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$nb}]{\setlength{\rightskip}{0pt plus 5cm}\$nb\mbox{[}'attente'\mbox{]} = 0}}\label{inscriptions_success_8php_a1bcf7e20cae5e89063a5294938f0397a}
+
+
+Definition at line 92 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_a53068f4aef95390f2674414735f8e5ed}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$nb@{\$nb}}
+\index{\$nb@{\$nb}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$nb}]{\setlength{\rightskip}{0pt plus 5cm}\$nb\mbox{[}'inscrit'\mbox{]} = 0}}\label{inscriptions_success_8php_a53068f4aef95390f2674414735f8e5ed}
+
+
+Definition at line 93 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_ae49886c566173f76a8f27f715e4562fd}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$nb@{\$nb}}
+\index{\$nb@{\$nb}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$nb}]{\setlength{\rightskip}{0pt plus 5cm}\$nb\mbox{[}'valide'\mbox{]} = 0}}\label{inscriptions_success_8php_ae49886c566173f76a8f27f715e4562fd}
+
+
+Definition at line 94 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_a60be82fa65f561e562585794494783c9}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$state\-\_\-inscrit@{\$state\-\_\-inscrit}}
+\index{\$state\-\_\-inscrit@{\$state\-\_\-inscrit}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$state\-\_\-inscrit}]{\setlength{\rightskip}{0pt plus 5cm}elseif (\$slot-\/$>$get\-Status()== 'valide') \$state\-\_\-inscrit = 0}}\label{inscriptions_success_8php_a60be82fa65f561e562585794494783c9}
+
+
+Definition at line 7 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_ab312d14793b9c36c5991645be5bf68ad}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$state\-\_\-libre@{\$state\-\_\-libre}}
+\index{\$state\-\_\-libre@{\$state\-\_\-libre}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$state\-\_\-libre}]{\setlength{\rightskip}{0pt plus 5cm}\$state\-\_\-libre = 0}}\label{inscriptions_success_8php_ab312d14793b9c36c5991645be5bf68ad}
+
+
+Definition at line 8 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_a25a9c16257ded9c5abc5490291886b22}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$state\-\_\-max\-\_\-slot@{\$state\-\_\-max\-\_\-slot}}
+\index{\$state\-\_\-max\-\_\-slot@{\$state\-\_\-max\-\_\-slot}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$state\-\_\-max\-\_\-slot}]{\setlength{\rightskip}{0pt plus 5cm}\$state\-\_\-max\-\_\-slot = \$tournament-\/$>$get\-Number\-Team()}}\label{inscriptions_success_8php_a25a9c16257ded9c5abc5490291886b22}
+
+
+Definition at line 10 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_a344152e8335a2555919a4fdf6bfa34ca}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$state\-\_\-total@{\$state\-\_\-total}}
+\index{\$state\-\_\-total@{\$state\-\_\-total}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$state\-\_\-total}]{\setlength{\rightskip}{0pt plus 5cm}\$state\-\_\-total = 0}}\label{inscriptions_success_8php_a344152e8335a2555919a4fdf6bfa34ca}
+
+
+Definition at line 9 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_af3a474618823746201622a7739282918}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$state\-\_\-valide@{\$state\-\_\-valide}}
+\index{\$state\-\_\-valide@{\$state\-\_\-valide}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$state\-\_\-valide}]{\setlength{\rightskip}{0pt plus 5cm}{\bf foreach} (\$tournament-\/$>$get\-Tournament\-Slot() as \$slot) (\$slot-\/$>$get\-Status()== 'reserve') \$state\-\_\-valide = 0}}\label{inscriptions_success_8php_af3a474618823746201622a7739282918}
+
+
+Definition at line 6 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_ae8dd4df19926f1f64c490ce1bbd42c25}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$totalpayement@{\$totalpayement}}
+\index{\$totalpayement@{\$totalpayement}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$totalpayement}]{\setlength{\rightskip}{0pt plus 5cm}\$totalpayement = 0}}\label{inscriptions_success_8php_ae8dd4df19926f1f64c490ce1bbd42c25}
+
+
+Definition at line 55 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_a7902d032669bb026f1c70ef34737fe9a}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!\$totalteam@{\$totalteam}}
+\index{\$totalteam@{\$totalteam}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{\$totalteam}]{\setlength{\rightskip}{0pt plus 5cm}\$totalteam = 0}}\label{inscriptions_success_8php_a7902d032669bb026f1c70ef34737fe9a}
+
+
+Definition at line 95 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_a672d9707ef91db026c210f98cc601123}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!endforeach@{endforeach}}
+\index{endforeach@{endforeach}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{endforeach}]{\setlength{\rightskip}{0pt plus 5cm}endforeach = image\-\_\-tag('/uploads/jeux/icones/'.\$tournament-\/$>${\bf get\-Logourl}(), array('width' =$>$ '12'))\$tournament-\/$>$get\-Name()((\$state\-\_\-reserve$\ast$100)/\$state\-\_\-max\-\_\-slot)$\ast$4.\-1\$state\-\_\-reserve((\$state\-\_\-valide$\ast$100)/\$state\-\_\-max\-\_\-slot)$\ast$4.\-1\$state\-\_\-valide((\$state\-\_\-inscrit$\ast$100)/\$state\-\_\-max\-\_\-slot)$\ast$4.\-1\$state\-\_\-inscrit\$state\-\_\-max\-\_\-slot}}\label{inscriptions_success_8php_a672d9707ef91db026c210f98cc601123}
+
+
+Definition at line 28 of file inscriptions\-Success.\-php.
+
+\hypertarget{inscriptions_success_8php_aad37429372b77b04e6ea45a3acb9bee3}{\index{inscriptions\-Success.\-php@{inscriptions\-Success.\-php}!endif@{endif}}
+\index{endif@{endif}!inscriptionsSuccess.php@{inscriptions\-Success.\-php}}
+\subsubsection[{endif}]{\setlength{\rightskip}{0pt plus 5cm}{\bf foreach} (\$tournament-\/$>$get\-Tournament\-Slot() as \$slot) (\$slot-\/$>$get\-Status()!= 'libre'\&\&\$slot-\/$>$get\-Status()!= 'reserve') endif}}\label{inscriptions_success_8php_aad37429372b77b04e6ea45a3acb9bee3}
+
+
+Definition at line 24 of file inscriptions\-Success.\-php.
+

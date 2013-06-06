@@ -1,0 +1,111 @@
+.TH "apps/backend/modules/tournament_slot/templates/dashboardSuccess.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/backend/modules/tournament_slot/templates/dashboardSuccess.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB$i\fP = 0"
+.br
+.ti -1c
+.RI "\fBforeach\fP($tournaments as 
+.br
+$tournament) \fB$state_valide\fP = 0"
+.br
+.ti -1c
+.RI "\fB$state_inscrit\fP = 0"
+.br
+.ti -1c
+.RI "\fB$state_libre\fP = 0"
+.br
+.ti -1c
+.RI "\fB$state_total\fP = 0"
+.br
+.ti -1c
+.RI "\fB$state_max_slot\fP = $tournament->getNumberTeam()"
+.br
+.ti -1c
+.RI "elseif($slot->getStatus()== 
+.br
+'inscrit') elseif($slot->
+.br
+getStatus()== 'attente') 
+.br
+elseif($slot->getStatus()== 
+.br
+'libre') \fBendif\fP"
+.br
+.ti -1c
+.RI "\fBendforeach\fP = $i$i$i$i$tournament->getName()$state_reserve$percent_reserve$state_valide-$state_reserve$percent_valide$state_libre$percent_libre($state_inscrit-$state_reserve-$state_valide)<0?0:($state_inscrit-$state_reserve-$state_valide) $percent_inscrit$i$i$i"
+.br
+.ti -1c
+.RI "\fB$percent_libre\fP = round($state_libre*100/$state_max_slot)"
+.br
+.ti -1c
+.RI "\fB$percent_inscrit\fP = round(($state_inscrit-$state_valide-$state_reserve)*100/$state_max_slot)"
+.br
+.ti -1c
+.RI "\fBif\fP($percent_inscrit< 0) \fB$percent_valide\fP = round(($state_valide-$state_reserve)*100/$state_max_slot)"
+.br
+.ti -1c
+.RI "\fB$percent_reserve\fP = round($state_reserve*100/$state_max_slot)"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "$\fBi\fP = 0"
+
+.PP
+Definition at line 9 of file dashboardSuccess\&.php\&.
+.SS "$percent_inscrit = round(($state_inscrit-$state_valide-$state_reserve)*100/$state_max_slot)"
+
+.PP
+Definition at line 41 of file dashboardSuccess\&.php\&.
+.SS "$percent_libre = round($state_libre*100/$state_max_slot)"
+
+.PP
+Definition at line 40 of file dashboardSuccess\&.php\&.
+.SS "$percent_reserve = round($state_reserve*100/$state_max_slot)"
+
+.PP
+Definition at line 44 of file dashboardSuccess\&.php\&.
+.SS "\fBif\fP ($percent_inscrit< 0) $percent_valide = round(($state_valide-$state_reserve)*100/$state_max_slot)"
+
+.PP
+Definition at line 43 of file dashboardSuccess\&.php\&.
+.SS "elseif ($slot->getStatus()== 'valide') $state_inscrit = 0"
+
+.PP
+Definition at line 15 of file dashboardSuccess\&.php\&.
+.SS "$state_libre = 0"
+
+.PP
+Definition at line 16 of file dashboardSuccess\&.php\&.
+.SS "$state_max_slot = $tournament->getNumberTeam()"
+
+.PP
+Definition at line 18 of file dashboardSuccess\&.php\&.
+.SS "$state_total = 0"
+
+.PP
+Definition at line 17 of file dashboardSuccess\&.php\&.
+.SS "\fBforeach\fP ($tournament->getTournamentSlot() as $slot) ($slot->getStatus()== 'reserve') $state_valide = 0"
+
+.PP
+Definition at line 14 of file dashboardSuccess\&.php\&.
+.SS "endforeach = $i$i$i$i$tournament->getName()$state_reserve$percent_reserve$state_valide-$state_reserve$percent_valide$state_libre$percent_libre($state_inscrit-$state_reserve-$state_valide)<0?0:($state_inscrit-$state_reserve-$state_valide) $percent_inscrit$i$i$i"
+
+.PP
+Definition at line 36 of file dashboardSuccess\&.php\&.
+.SS "elseif ($slot->getStatus()== 'inscrit') elseif ($slot->getStatus()== 'attente') elseif ($slot->getStatus()== 'libre') endif"
+
+.PP
+Definition at line 32 of file dashboardSuccess\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

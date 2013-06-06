@@ -1,0 +1,36 @@
+.TH "apps/frontend/modules/user/templates/profileSuccess.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/frontend/modules/user/templates/profileSuccess.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBuse_helper\fP ('Date')?>< h2 ><?php echo __('Mon profil')?></h2 >< h3 ><?php echo $user->getFirstName()?>'<?php echo $user->getUsername() ?>'<?php echo $user->getLastName()?></h3 >< table \fBclass\fP"
+.br
+.ti -1c
+.RI "\fBendforeach\fP"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "endforeach"
+
+.PP
+Definition at line 34 of file profileSuccess\&.php\&.
+.SS "use_helper('Date')?>< h2 ><?php echo __('Mon profil')?></h2 >< h3 ><?php echo $user->getFirstName()?>'<?php echo $user->getUsername() ?>'<?php echo $user->getLastName()?></h3 >< table \fBclass\fP"
+\fBInitial value:\fP
+.PP
+.nf
+'160'>
+        <?php if ($user->getSfGuardUserProfile()->getLogourl()) { echo '<img src=''\&.$user->getSfGuardUserProfile()->getLogourl()\&.'' width='150'>'; } else { echo image_tag('/uploads/profils/no-profil\&.png', array('width' => '150')); }
+.fi
+.PP
+Definition at line 1 of file profileSuccess\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

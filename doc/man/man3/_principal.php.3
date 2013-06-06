@@ -1,0 +1,33 @@
+.TH "apps/live/modules/partner/templates/_principal.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/live/modules/partner/templates/_principal.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBforeach\fP($partners as $partner)
+.br
+< ahref='<?phpecho$partner->
+.br
+ getWebsite () ?>'target \fBendforeach\fP"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBforeach\fP ($partners as $partner)<ahref='<?phpecho$partner-> getWebsite () ?>' target endforeach"
+\fBInitial value:\fP
+.PP
+.nf
+'_blank'>
+                <?php echo  image_tag('/uploads/partenaires/200/' \&. $partner->getLogourl(), 'alt='' \&. $partner->getName() \&. '' class='logo'')
+.fi
+.PP
+Definition at line 5 of file _principal\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

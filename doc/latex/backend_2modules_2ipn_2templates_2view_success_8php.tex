@@ -1,0 +1,70 @@
+\hypertarget{backend_2modules_2ipn_2templates_2view_success_8php}{\section{apps/backend/modules/ipn/templates/view\-Success.php File Reference}
+\label{backend_2modules_2ipn_2templates_2view_success_8php}\index{apps/backend/modules/ipn/templates/view\-Success.\-php@{apps/backend/modules/ipn/templates/view\-Success.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{live_2modules_2tournament_2templates_2__form_team_8php_ae30a307b320d8da5d9a945eaf68f7549}{if}(\$user)()?$>$\char`\"{}$<$? \hyperlink{backend_2modules_2ipn_2templates_2view_success_8php_a922492e78a18c50308febb5901b37559}{else} = \$ipn-\/$>$get\-Id()\$ipn-\/$>$\hyperlink{live_2modules_2news_2templates_2view_success_8php_a684dd27287fcedcbe91ff8c7cc23f3bb}{get\-Created\-At}()\$ipn-\/$>$get\-Txn\-Id()\$ipn-\/$>$get\-Amount().' '.\$ipn-\/$>$get\-Currency()\$ipn-\/$>$get\-Status()\$ipn-\/$>$get\-Licence\-Ga()\$ipn-\/$>$get\-Email()ajax\-\_\-link(\$user-\/$>$get\-Username(), 'user/view?user\-\_\-id='.\$user-\/$>$get\-Id())\$user-\/$>$get\-Last\-Name()ajax\-\_\-link(\$user-\/$>$Team\mbox{[}0\mbox{]}-\/$>$get\-Name(), 'team/view?id\-\_\-team='.\$user-\/$>$Team\mbox{[}0\mbox{]}-\/$>$get\-Id\-Team())\$user-\/$>$get\-Email\-Address()\$user-\/$>$get\-Phone()\$user-\/$>$get\-Address()\$user-\/$>$get\-Zipcode()\$user-\/$>$get\-City()\$user-\/$>$get\-Country()
+\item 
+la licence G\-A$<$/div $>$$<$?\hyperlink{live_2templates_2layout_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif};?$>$\\*
+$<$/div $>$$<$ divstyle=\char`\"{}width\-:48\%;float\-:left;margin-\/left\-:30px;\char`\"{}$>$\\*
+$<$ h3 $>$ Informations sur l \\*
+tournament\-\_\-slot tournament \hyperlink{backend_2modules_2ipn_2templates_2view_success_8php_a2b7d6694be020169de3a660b1b93a40d}{slug}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{backend_2modules_2ipn_2templates_2view_success_8php_a922492e78a18c50308febb5901b37559}{\index{backend/modules/ipn/templates/view\-Success.\-php@{backend/modules/ipn/templates/view\-Success.\-php}!else@{else}}
+\index{else@{else}!backend/modules/ipn/templates/viewSuccess.php@{backend/modules/ipn/templates/view\-Success.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (\$user) ()?$>$ \char`\"{}$<$? else = \$ipn-\/$>$get\-Id()\$ipn-\/$>${\bf get\-Created\-At}()\$ipn-\/$>$get\-Txn\-Id()\$ipn-\/$>$get\-Amount().' '.\$ipn-\/$>$get\-Currency()\$ipn-\/$>$get\-Status()\$ipn-\/$>$get\-Licence\-Ga()\$ipn-\/$>$get\-Email()ajax\-\_\-link(\$user-\/$>$get\-Username(), 'user/view?user\-\_\-id='.\$user-\/$>$get\-Id())\$user-\/$>$get\-Last\-Name()ajax\-\_\-link(\$user-\/$>$Team\mbox{[}0\mbox{]}-\/$>$get\-Name(), 'team/view?id\-\_\-team='.\$user-\/$>$Team\mbox{[}0\mbox{]}-\/$>$get\-Id\-Team())\$user-\/$>$get\-Email\-Address()\$user-\/$>$get\-Phone()\$user-\/$>$get\-Address()\$user-\/$>$get\-Zipcode()\$user-\/$>$get\-City()\$user-\/$>$get\-Country()}}\label{backend_2modules_2ipn_2templates_2view_success_8php_a922492e78a18c50308febb5901b37559}
+
+
+Definition at line 56 of file view\-Success.\-php.
+
+\hypertarget{backend_2modules_2ipn_2templates_2view_success_8php_a2b7d6694be020169de3a660b1b93a40d}{\index{backend/modules/ipn/templates/view\-Success.\-php@{backend/modules/ipn/templates/view\-Success.\-php}!slug@{slug}}
+\index{slug@{slug}!backend/modules/ipn/templates/viewSuccess.php@{backend/modules/ipn/templates/view\-Success.\-php}}
+\subsubsection[{slug}]{\setlength{\rightskip}{0pt plus 5cm}la licence G\-A$<$/div$>$$<$?{\bf endif};?$>$$<$/div$>$$<$divstyle=\char`\"{}width\-:48\%;float\-:left;margin-\/left\-:30px;\char`\"{}$>$$<$h3$>$ Informations sur l tournament\-\_\-slot tournament slug}}\label{backend_2modules_2ipn_2templates_2view_success_8php_a2b7d6694be020169de3a660b1b93a40d}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\textcolor{stringliteral}{'.$user->Team[0]->TournamentSlot->getTournament()->getSlug())?></td>}
+\textcolor{stringliteral}{    </tr>}
+\textcolor{stringliteral}{    <tr>}
+\textcolor{stringliteral}{      <th>Slot</th>}
+\textcolor{stringliteral}{      <td><?=ajax\_link($user->Team[0]->TournamentSlot->getIdTournamentSlot(), '}
+      tournament\_slot/edit?id\_tournament\_slot=\textcolor{stringliteral}{'
+      .$user->Team[0]->TournamentSlot->getIdTournamentSlot())?> <i>(<?=$user->Team[0]->TournamentSlot->getStatus()?>)</i> -
+       <s>Valider le slot</s></td>}
+\textcolor{stringliteral}{    </tr>}
+\textcolor{stringliteral}{    <tr>}
+\textcolor{stringliteral}{      <th>Commande</th>}
+\textcolor{stringliteral}{      <td><?=ajax\_link($user->Team[0]->TournamentSlot->getCommande(), '}commande
+      /edit?id\_commande=\textcolor{stringliteral}{'
+      .$user->Team[0]->TournamentSlot->getCommande()->getIdCommande())?></td>}
+\textcolor{stringliteral}{    </tr>}
+\textcolor{stringliteral}{    <tr>}
+\textcolor{stringliteral}{      <td colspan="2">}
+\textcolor{stringliteral}{       
+       <?=$user->Team[0]->TournamentSlot->getCommande()->getPayement()->count()?> paiement(s)}
+\textcolor{stringliteral}{        <? if
+       ($user->Team[0]->TournamentSlot->getCommande()->getPayement()->count() == 1): ?>}
+\textcolor{stringliteral}{          <? if
+       ($user->Team[0]->TournamentSlot->getCommande()->Payement[0]->getIsValid() != 1): ?>}
+\textcolor{stringliteral}{            <?=ajax\_component('}Valider le paiement\textcolor{stringliteral}{', '}payement/validateIpn?
+      id\_payement=\textcolor{stringliteral}{'
+      .$user->Team[0]->TournamentSlot->getCommande()->Payement[0]->getIdPayement().'}&id\_txn=\textcolor{stringliteral}{'.$ipn->getTxnId(), array('}\textcolor{keyword}{class}\textcolor{stringliteral}{' => '}button small\textcolor{stringliteral}{'))?>}
+\textcolor{stringliteral}{          <? else: ?>}
+\textcolor{stringliteral}{            <span style="font-style: italic;">Valid&eacute;</span>}
+\textcolor{stringliteral}{          <? endif; ?>}
+\textcolor{stringliteral}{        <? endif; ?>}
+\textcolor{stringliteral}{      </td}
+\textcolor{stringliteral}{    </tr>}
+\textcolor{stringliteral}{  </table>}
+\textcolor{stringliteral}{  </div>}
+\textcolor{stringliteral}{<? else: ?>}
+\textcolor{stringliteral}{  <div class="flashbox error">Aucune information sur l'}inscription.</div>
+<? \hyperlink{backend_2modules_2comment_2templates_2index_success_8php_ab4d017bcc79cd2827c3dce8af2570e91}{endif}
+\end{DoxyCode}
+
+
+Definition at line 72 of file view\-Success.\-php.
+

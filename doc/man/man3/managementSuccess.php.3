@@ -1,0 +1,73 @@
+.TH "apps/live/modules/team/templates/managementSuccess.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/live/modules/team/templates/managementSuccess.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBendif\fP"
+.br
+.ti -1c
+.RI "\fBelse\fP \fB__pad0__\fP"
+.br
+.ti -1c
+.RI "\fBelse\fP $player \fBid\fP"
+.br
+.ti -1c
+.RI "\fBendforeach\fP"
+.br
+.ti -1c
+.RI "\fBelse\fP \fB__pad1__\fP"
+.br
+.ti -1c
+.RI "\fBelse\fP"
+.br
+.ti -1c
+.RI "\fB$u\fP = Doctrine::getTable('sfGuardUser')->IsProprietaire($player->SfGuardUser->\fBid\fP)"
+.br
+.ti -1c
+.RI "\fBelse\fP \fB__pad2__\fP"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "$u = Doctrine::getTable('sfGuardUser')->IsProprietaire($player->SfGuardUser->\fBid\fP)"
+
+.PP
+Definition at line 65 of file managementSuccess\&.php\&.
+.SS "\fBelse\fP __pad0__"
+
+.PP
+Definition at line 24 of file managementSuccess\&.php\&.
+.SS "\fBelse\fP __pad1__"
+
+.PP
+Definition at line 43 of file managementSuccess\&.php\&.
+.SS "\fBelse\fP __pad2__"
+
+.PP
+Definition at line 89 of file managementSuccess\&.php\&.
+.SS "else"
+
+.PP
+Definition at line 46 of file managementSuccess\&.php\&.
+.SS "endforeach"
+
+.PP
+Definition at line 28 of file managementSuccess\&.php\&.
+.SS "endif"
+
+.PP
+Definition at line 21 of file managementSuccess\&.php\&.
+.SS "\fBif\fP ($player->getIsCaptain()==1) echo link_to(image_tag('16/delete\&.png')\&.' '\&.__('Retirer des capitaines') $player SfGuardUser id"
+
+.PP
+Definition at line 24 of file managementSuccess\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

@@ -1,0 +1,29 @@
+.TH "apps/live/modules/tournament/templates/_nexttournament.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/live/modules/tournament/templates/_nexttournament.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBforeach\fP \fB($tournaments as $tournament)\fP (<?php echo $tournament['\fBid\fP']?>)' style"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBforeach\fP ($tournaments as $tournament)(<?php echo $tournament['\fBid\fP']?>)' style"
+\fBInitial value:\fP
+.PP
+.nf
+'icone'>
+                    <?php echo  image_tag('/uploads/jeux/icones/' \&. $tournament['logo'], 'alt='' \&. $tournament['name'] \&. ''')
+.fi
+.PP
+Definition at line 3 of file _nexttournament\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

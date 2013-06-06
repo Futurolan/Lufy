@@ -1,0 +1,118 @@
+.TH "apps/backend/modules/stats/templates/inscriptionsSuccess.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/backend/modules/stats/templates/inscriptionsSuccess.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBforeach\fP($tournaments as 
+.br
+$tournament) \fB$state_valide\fP = 0"
+.br
+.ti -1c
+.RI "\fB$state_inscrit\fP = 0"
+.br
+.ti -1c
+.RI "\fB$state_libre\fP = 0"
+.br
+.ti -1c
+.RI "\fB$state_total\fP = 0"
+.br
+.ti -1c
+.RI "\fB$state_max_slot\fP = $tournament->getNumberTeam()"
+.br
+.ti -1c
+.RI "elseif($slot->getStatus()== 
+.br
+'inscrit') elseif($slot->
+.br
+getStatus()== 'attente') 
+.br
+elseif($slot->getStatus()== 
+.br
+'libre') \fBendif\fP"
+.br
+.ti -1c
+.RI "\fBendforeach\fP = image_tag('/uploads/jeux/icones/'\&.$tournament->\fBgetLogourl\fP(), array('width' => '12'))$tournament->getName()(($state_reserve*100)/$state_max_slot)*4\&.1$state_reserve(($state_valide*100)/$state_max_slot)*4\&.1$state_valide(($state_inscrit*100)/$state_max_slot)*4\&.1$state_inscrit$state_max_slot"
+.br
+.ti -1c
+.RI "\fB$totalpayement\fP = 0"
+.br
+.ti -1c
+.RI "\fB$nb\fP ['reserve'] = 0"
+.br
+.ti -1c
+.RI "\fB$nb\fP ['attente'] = 0"
+.br
+.ti -1c
+.RI "\fB$nb\fP ['inscrit'] = 0"
+.br
+.ti -1c
+.RI "\fB$nb\fP ['valide'] = 0"
+.br
+.ti -1c
+.RI "\fB$totalteam\fP = 0"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "$nb['reserve'] = 0"
+
+.PP
+Definition at line 91 of file inscriptionsSuccess\&.php\&.
+.SS "$nb['attente'] = 0"
+
+.PP
+Definition at line 92 of file inscriptionsSuccess\&.php\&.
+.SS "$nb['inscrit'] = 0"
+
+.PP
+Definition at line 93 of file inscriptionsSuccess\&.php\&.
+.SS "$nb['valide'] = 0"
+
+.PP
+Definition at line 94 of file inscriptionsSuccess\&.php\&.
+.SS "elseif ($slot->getStatus()== 'valide') $state_inscrit = 0"
+
+.PP
+Definition at line 7 of file inscriptionsSuccess\&.php\&.
+.SS "$state_libre = 0"
+
+.PP
+Definition at line 8 of file inscriptionsSuccess\&.php\&.
+.SS "$state_max_slot = $tournament->getNumberTeam()"
+
+.PP
+Definition at line 10 of file inscriptionsSuccess\&.php\&.
+.SS "$state_total = 0"
+
+.PP
+Definition at line 9 of file inscriptionsSuccess\&.php\&.
+.SS "\fBforeach\fP ($tournament->getTournamentSlot() as $slot) ($slot->getStatus()== 'reserve') $state_valide = 0"
+
+.PP
+Definition at line 6 of file inscriptionsSuccess\&.php\&.
+.SS "$totalpayement = 0"
+
+.PP
+Definition at line 55 of file inscriptionsSuccess\&.php\&.
+.SS "$totalteam = 0"
+
+.PP
+Definition at line 95 of file inscriptionsSuccess\&.php\&.
+.SS "endforeach = image_tag('/uploads/jeux/icones/'\&.$tournament->\fBgetLogourl\fP(), array('width' => '12'))$tournament->getName()(($state_reserve*100)/$state_max_slot)*4\&.1$state_reserve(($state_valide*100)/$state_max_slot)*4\&.1$state_valide(($state_inscrit*100)/$state_max_slot)*4\&.1$state_inscrit$state_max_slot"
+
+.PP
+Definition at line 28 of file inscriptionsSuccess\&.php\&.
+.SS "\fBforeach\fP ($tournament->getTournamentSlot() as $slot) ($slot->getStatus()!= 'libre'&&$slot->getStatus()!= 'reserve') endif"
+
+.PP
+Definition at line 24 of file inscriptionsSuccess\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

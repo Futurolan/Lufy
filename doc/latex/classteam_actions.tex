@@ -1,0 +1,891 @@
+\hypertarget{classteam_actions}{\section{team\-Actions Class Reference}
+\label{classteam_actions}\index{team\-Actions@{team\-Actions}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classteam_actions_a948cc911eb1d9f77990be54af3b2080f}{execute\-Index} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_a3db5e68bcd095e22f3ae08c7c19497d5}{execute\-Filter} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}{execute\-View} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}{execute\-New} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_a75837617743fb64dca82d8133b2c662a}{execute\-Create} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_af4d8fedd4b28f3398826a1bb8fa54394}{execute\-Edit} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_af7b4f51862add3c2ebb54efc136a0840}{execute\-Update} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_a52b5b11b11a0070dd2662257520c045a}{execute\-Delete} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}{execute\-View} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Display Team and set right for current user. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_a72b57eeb9e51594d7a288e62d8990f63}{execute\-Add\-Member} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Add a member at team. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_a80d4edb05c65ccbd9b507bdccde6c5a1}{execute\-Invite\-Member} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Invite a player with check on is\-\_\-accepted. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_af539d6f2cdc9f9acae9c7e25b125bc17}{execute\-Delete\-Member} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Delete a team member and reset his invitation 0. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_a789d34a9f506e5aa7de58305679bb480}{execute\-Set\-Player} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Define a member as a player or not a player. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_a1eaacff66375d0cbdfb4efb692ad7724}{execute\-Set\-Captain} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Define a player as a captain or not a captain. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_ad6507da6f2e416d60d6597f158a1776e}{execute\-Leave\-Team} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Permit to leave a team and reset invitation 0. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_ab50f30ef5956b4584470b35fee824e01}{execute\-Delete\-Team} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Permit for a captain to delete a team. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}{execute\-New} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Create a new team form. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_af5410dd135aa387655909ccac7ff0f0c}{execute\-Search\-Players} (sf\-Web\-Request \$request)
+\begin{DoxyCompactList}\small\item\em Permit search players. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}{execute\-View} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_a948cc911eb1d9f77990be54af3b2080f}{execute\-Index} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_af819d9fd9764e19df0b987e29364f5f3}{execute\-Delete\-Player} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_ab50f30ef5956b4584470b35fee824e01}{execute\-Delete\-Team} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}{execute\-New} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_a75837617743fb64dca82d8133b2c662a}{execute\-Create} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_af4d8fedd4b28f3398826a1bb8fa54394}{execute\-Edit} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_af7b4f51862add3c2ebb54efc136a0840}{execute\-Update} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_aca414aa4c81e3b136469a6be84448b3e}{execute\-Management} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_a729c5ed748769c37bdb572e307a72717}{execute\-Management\-Is\-Player} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_ab67eb7bc75a23fb98286974726326b39}{execute\-Management\-Is\-Captain} (sf\-Web\-Request \$request)
+\item 
+\hyperlink{classteam_actions_ac86580b2e0573a0a4065fa3740a56527}{is\-Good\-Nb\-Player} (\$nb\-Player\-Team, \$nb\-Player\-Tournament)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classteam_actions_a7cf661d837626e0320753cbffa019a01}{process\-Form} (sf\-Web\-Request \$request, sf\-Form \$form)
+\item 
+\hyperlink{classteam_actions_a428d91319fc73d3038784cf5436936b6}{get\-Filters} ()
+\item 
+\hyperlink{classteam_actions_a704f1dec273c7931234f71747c8befe4}{set\-Filters} (array \$filters)
+\item 
+\hyperlink{classteam_actions_a3b3399f1f3eff687679a14cd13142020}{get\-Pager} ()
+\item 
+\hyperlink{classteam_actions_a2dffbdff8d3cad39021cb6d9b82192cb}{set\-Page} (\$page)
+\item 
+\hyperlink{classteam_actions_a12a549e25239c9219e66322cf6a1be68}{get\-Page} ()
+\item 
+\hyperlink{classteam_actions_a394445491b1b221e4e562dfb45f2a266}{build\-Query} ()
+\item 
+\hyperlink{classteam_actions_af852ea2f6a319a73231a5b6c888137aa}{add\-Sort\-Query} (\$query)
+\item 
+\hyperlink{classteam_actions_a985cd57267e9df94a30216e2a3177331}{get\-Sort} ()
+\item 
+\hyperlink{classteam_actions_a37dc6beeae1df7c42eb048ebfe8d74b6}{set\-Sort} (array \$sort)
+\item 
+\hyperlink{classteam_actions_aaa9d14781a73cf9a0fad267fca707465}{is\-Valid\-Sort\-Column} (\$column)
+\item 
+\hyperlink{classteam_actions_a7cf661d837626e0320753cbffa019a01}{process\-Form} (sf\-Web\-Request \$request, sf\-Form \$form)
+\begin{DoxyCompactList}\small\item\em Overriding process\-Form. \end{DoxyCompactList}\item 
+\hyperlink{classteam_actions_a7cf661d837626e0320753cbffa019a01}{process\-Form} (sf\-Web\-Request \$request, sf\-Form \$form)
+\item 
+\hyperlink{classteam_actions_a7934e5092d27f49b1f39ef82c30ebc1e}{process\-New\-Team\-Form} (sf\-Web\-Request \$request, sf\-Form \$form)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file actions.\-class.\-php.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classteam_actions_af852ea2f6a319a73231a5b6c888137aa}{\index{team\-Actions@{team\-Actions}!add\-Sort\-Query@{add\-Sort\-Query}}
+\index{add\-Sort\-Query@{add\-Sort\-Query}!teamActions@{team\-Actions}}
+\subsubsection[{add\-Sort\-Query}]{\setlength{\rightskip}{0pt plus 5cm}add\-Sort\-Query (
+\begin{DoxyParamCaption}
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_af852ea2f6a319a73231a5b6c888137aa}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 252 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a394445491b1b221e4e562dfb45f2a266}{\index{team\-Actions@{team\-Actions}!build\-Query@{build\-Query}}
+\index{build\-Query@{build\-Query}!teamActions@{team\-Actions}}
+\subsubsection[{build\-Query}]{\setlength{\rightskip}{0pt plus 5cm}build\-Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a394445491b1b221e4e562dfb45f2a266}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 227 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a72b57eeb9e51594d7a288e62d8990f63}{\index{team\-Actions@{team\-Actions}!execute\-Add\-Member@{execute\-Add\-Member}}
+\index{execute\-Add\-Member@{execute\-Add\-Member}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Add\-Member}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Add\-Member (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a72b57eeb9e51594d7a288e62d8990f63}
+
+
+Add a member at team. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a75837617743fb64dca82d8133b2c662a}{\index{team\-Actions@{team\-Actions}!execute\-Create@{execute\-Create}}
+\index{execute\-Create@{execute\-Create}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Create}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Create (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a75837617743fb64dca82d8133b2c662a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 91 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a75837617743fb64dca82d8133b2c662a}{\index{team\-Actions@{team\-Actions}!execute\-Create@{execute\-Create}}
+\index{execute\-Create@{execute\-Create}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Create}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Create (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a75837617743fb64dca82d8133b2c662a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 265 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a52b5b11b11a0070dd2662257520c045a}{\index{team\-Actions@{team\-Actions}!execute\-Delete@{execute\-Delete}}
+\index{execute\-Delete@{execute\-Delete}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Delete}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Delete (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a52b5b11b11a0070dd2662257520c045a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 134 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_af539d6f2cdc9f9acae9c7e25b125bc17}{\index{team\-Actions@{team\-Actions}!execute\-Delete\-Member@{execute\-Delete\-Member}}
+\index{execute\-Delete\-Member@{execute\-Delete\-Member}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Delete\-Member}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Delete\-Member (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_af539d6f2cdc9f9acae9c7e25b125bc17}
+
+
+Delete a team member and reset his invitation 0. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_af819d9fd9764e19df0b987e29364f5f3}{\index{team\-Actions@{team\-Actions}!execute\-Delete\-Player@{execute\-Delete\-Player}}
+\index{execute\-Delete\-Player@{execute\-Delete\-Player}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Delete\-Player}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Delete\-Player (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_af819d9fd9764e19df0b987e29364f5f3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 131 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_ab50f30ef5956b4584470b35fee824e01}{\index{team\-Actions@{team\-Actions}!execute\-Delete\-Team@{execute\-Delete\-Team}}
+\index{execute\-Delete\-Team@{execute\-Delete\-Team}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Delete\-Team}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Delete\-Team (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_ab50f30ef5956b4584470b35fee824e01}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 158 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_ab50f30ef5956b4584470b35fee824e01}{\index{team\-Actions@{team\-Actions}!execute\-Delete\-Team@{execute\-Delete\-Team}}
+\index{execute\-Delete\-Team@{execute\-Delete\-Team}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Delete\-Team}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Delete\-Team (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_ab50f30ef5956b4584470b35fee824e01}
+
+
+Permit for a captain to delete a team. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 217 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_af4d8fedd4b28f3398826a1bb8fa54394}{\index{team\-Actions@{team\-Actions}!execute\-Edit@{execute\-Edit}}
+\index{execute\-Edit@{execute\-Edit}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Edit}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Edit (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_af4d8fedd4b28f3398826a1bb8fa54394}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_af4d8fedd4b28f3398826a1bb8fa54394}{\index{team\-Actions@{team\-Actions}!execute\-Edit@{execute\-Edit}}
+\index{execute\-Edit@{execute\-Edit}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Edit}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Edit (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_af4d8fedd4b28f3398826a1bb8fa54394}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 281 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a3db5e68bcd095e22f3ae08c7c19497d5}{\index{team\-Actions@{team\-Actions}!execute\-Filter@{execute\-Filter}}
+\index{execute\-Filter@{execute\-Filter}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Filter (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a3db5e68bcd095e22f3ae08c7c19497d5}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a948cc911eb1d9f77990be54af3b2080f}{\index{team\-Actions@{team\-Actions}!execute\-Index@{execute\-Index}}
+\index{execute\-Index@{execute\-Index}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Index}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Index (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a948cc911eb1d9f77990be54af3b2080f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a948cc911eb1d9f77990be54af3b2080f}{\index{team\-Actions@{team\-Actions}!execute\-Index@{execute\-Index}}
+\index{execute\-Index@{execute\-Index}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Index}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Index (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a948cc911eb1d9f77990be54af3b2080f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a80d4edb05c65ccbd9b507bdccde6c5a1}{\index{team\-Actions@{team\-Actions}!execute\-Invite\-Member@{execute\-Invite\-Member}}
+\index{execute\-Invite\-Member@{execute\-Invite\-Member}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Invite\-Member}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Invite\-Member (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a80d4edb05c65ccbd9b507bdccde6c5a1}
+
+
+Invite a player with check on is\-\_\-accepted. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_ad6507da6f2e416d60d6597f158a1776e}{\index{team\-Actions@{team\-Actions}!execute\-Leave\-Team@{execute\-Leave\-Team}}
+\index{execute\-Leave\-Team@{execute\-Leave\-Team}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Leave\-Team}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Leave\-Team (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_ad6507da6f2e416d60d6597f158a1776e}
+
+
+Permit to leave a team and reset invitation 0. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_aca414aa4c81e3b136469a6be84448b3e}{\index{team\-Actions@{team\-Actions}!execute\-Management@{execute\-Management}}
+\index{execute\-Management@{execute\-Management}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Management}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Management (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_aca414aa4c81e3b136469a6be84448b3e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 383 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_ab67eb7bc75a23fb98286974726326b39}{\index{team\-Actions@{team\-Actions}!execute\-Management\-Is\-Captain@{execute\-Management\-Is\-Captain}}
+\index{execute\-Management\-Is\-Captain@{execute\-Management\-Is\-Captain}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Management\-Is\-Captain}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Management\-Is\-Captain (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_ab67eb7bc75a23fb98286974726326b39}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 469 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a729c5ed748769c37bdb572e307a72717}{\index{team\-Actions@{team\-Actions}!execute\-Management\-Is\-Player@{execute\-Management\-Is\-Player}}
+\index{execute\-Management\-Is\-Player@{execute\-Management\-Is\-Player}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Management\-Is\-Player}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Management\-Is\-Player (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a729c5ed748769c37bdb572e307a72717}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 451 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}{\index{team\-Actions@{team\-Actions}!execute\-New@{execute\-New}}
+\index{execute\-New@{execute\-New}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-New}]{\setlength{\rightskip}{0pt plus 5cm}execute\-New (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}{\index{team\-Actions@{team\-Actions}!execute\-New@{execute\-New}}
+\index{execute\-New@{execute\-New}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-New}]{\setlength{\rightskip}{0pt plus 5cm}execute\-New (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 254 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}{\index{team\-Actions@{team\-Actions}!execute\-New@{execute\-New}}
+\index{execute\-New@{execute\-New}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-New}]{\setlength{\rightskip}{0pt plus 5cm}execute\-New (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a0ffbea56560c6c633dae68ec22aff21c}
+
+
+Create a new team form. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 312 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_af5410dd135aa387655909ccac7ff0f0c}{\index{team\-Actions@{team\-Actions}!execute\-Search\-Players@{execute\-Search\-Players}}
+\index{execute\-Search\-Players@{execute\-Search\-Players}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Search\-Players}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Search\-Players (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_af5410dd135aa387655909ccac7ff0f0c}
+
+
+Permit search players. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 355 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a1eaacff66375d0cbdfb4efb692ad7724}{\index{team\-Actions@{team\-Actions}!execute\-Set\-Captain@{execute\-Set\-Captain}}
+\index{execute\-Set\-Captain@{execute\-Set\-Captain}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Set\-Captain}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Set\-Captain (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a1eaacff66375d0cbdfb4efb692ad7724}
+
+
+Define a player as a captain or not a captain. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 173 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a789d34a9f506e5aa7de58305679bb480}{\index{team\-Actions@{team\-Actions}!execute\-Set\-Player@{execute\-Set\-Player}}
+\index{execute\-Set\-Player@{execute\-Set\-Player}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Set\-Player}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Set\-Player (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_a789d34a9f506e5aa7de58305679bb480}
+
+
+Define a member as a player or not a player. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_af7b4f51862add3c2ebb54efc136a0840}{\index{team\-Actions@{team\-Actions}!execute\-Update@{execute\-Update}}
+\index{execute\-Update@{execute\-Update}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Update}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Update (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_af7b4f51862add3c2ebb54efc136a0840}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 118 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_af7b4f51862add3c2ebb54efc136a0840}{\index{team\-Actions@{team\-Actions}!execute\-Update@{execute\-Update}}
+\index{execute\-Update@{execute\-Update}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-Update}]{\setlength{\rightskip}{0pt plus 5cm}execute\-Update (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_af7b4f51862add3c2ebb54efc136a0840}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 314 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}{\index{team\-Actions@{team\-Actions}!execute\-View@{execute\-View}}
+\index{execute\-View@{execute\-View}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-View}]{\setlength{\rightskip}{0pt plus 5cm}execute\-View (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}
+
+
+Display Team and set right for current user. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}{\index{team\-Actions@{team\-Actions}!execute\-View@{execute\-View}}
+\index{execute\-View@{execute\-View}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-View}]{\setlength{\rightskip}{0pt plus 5cm}execute\-View (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}{\index{team\-Actions@{team\-Actions}!execute\-View@{execute\-View}}
+\index{execute\-View@{execute\-View}!teamActions@{team\-Actions}}
+\subsubsection[{execute\-View}]{\setlength{\rightskip}{0pt plus 5cm}execute\-View (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_ad61d212fa3f7e8cb4190700a8a670606}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a428d91319fc73d3038784cf5436936b6}{\index{team\-Actions@{team\-Actions}!get\-Filters@{get\-Filters}}
+\index{get\-Filters@{get\-Filters}!teamActions@{team\-Actions}}
+\subsubsection[{get\-Filters}]{\setlength{\rightskip}{0pt plus 5cm}get\-Filters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a428d91319fc73d3038784cf5436936b6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 172 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a12a549e25239c9219e66322cf6a1be68}{\index{team\-Actions@{team\-Actions}!get\-Page@{get\-Page}}
+\index{get\-Page@{get\-Page}!teamActions@{team\-Actions}}
+\subsubsection[{get\-Page}]{\setlength{\rightskip}{0pt plus 5cm}get\-Page (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a12a549e25239c9219e66322cf6a1be68}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 217 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a3b3399f1f3eff687679a14cd13142020}{\index{team\-Actions@{team\-Actions}!get\-Pager@{get\-Pager}}
+\index{get\-Pager@{get\-Pager}!teamActions@{team\-Actions}}
+\subsubsection[{get\-Pager}]{\setlength{\rightskip}{0pt plus 5cm}get\-Pager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a3b3399f1f3eff687679a14cd13142020}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 192 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a985cd57267e9df94a30216e2a3177331}{\index{team\-Actions@{team\-Actions}!get\-Sort@{get\-Sort}}
+\index{get\-Sort@{get\-Sort}!teamActions@{team\-Actions}}
+\subsubsection[{get\-Sort}]{\setlength{\rightskip}{0pt plus 5cm}get\-Sort (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a985cd57267e9df94a30216e2a3177331}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 272 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_ac86580b2e0573a0a4065fa3740a56527}{\index{team\-Actions@{team\-Actions}!is\-Good\-Nb\-Player@{is\-Good\-Nb\-Player}}
+\index{is\-Good\-Nb\-Player@{is\-Good\-Nb\-Player}!teamActions@{team\-Actions}}
+\subsubsection[{is\-Good\-Nb\-Player}]{\setlength{\rightskip}{0pt plus 5cm}is\-Good\-Nb\-Player (
+\begin{DoxyParamCaption}
+\item[{}]{\$nb\-Player\-Team, }
+\item[{}]{\$nb\-Player\-Tournament}
+\end{DoxyParamCaption}
+)}}\label{classteam_actions_ac86580b2e0573a0a4065fa3740a56527}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 487 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_aaa9d14781a73cf9a0fad267fca707465}{\index{team\-Actions@{team\-Actions}!is\-Valid\-Sort\-Column@{is\-Valid\-Sort\-Column}}
+\index{is\-Valid\-Sort\-Column@{is\-Valid\-Sort\-Column}!teamActions@{team\-Actions}}
+\subsubsection[{is\-Valid\-Sort\-Column}]{\setlength{\rightskip}{0pt plus 5cm}is\-Valid\-Sort\-Column (
+\begin{DoxyParamCaption}
+\item[{}]{\$column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_aaa9d14781a73cf9a0fad267fca707465}
+
+
+Definition at line 299 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a7cf661d837626e0320753cbffa019a01}{\index{team\-Actions@{team\-Actions}!process\-Form@{process\-Form}}
+\index{process\-Form@{process\-Form}!teamActions@{team\-Actions}}
+\subsubsection[{process\-Form}]{\setlength{\rightskip}{0pt plus 5cm}process\-Form (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request, }
+\item[{sf\-Form}]{\$form}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a7cf661d837626e0320753cbffa019a01}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a7cf661d837626e0320753cbffa019a01}{\index{team\-Actions@{team\-Actions}!process\-Form@{process\-Form}}
+\index{process\-Form@{process\-Form}!teamActions@{team\-Actions}}
+\subsubsection[{process\-Form}]{\setlength{\rightskip}{0pt plus 5cm}process\-Form (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request, }
+\item[{sf\-Form}]{\$form}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a7cf661d837626e0320753cbffa019a01}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 334 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a7cf661d837626e0320753cbffa019a01}{\index{team\-Actions@{team\-Actions}!process\-Form@{process\-Form}}
+\index{process\-Form@{process\-Form}!teamActions@{team\-Actions}}
+\subsubsection[{process\-Form}]{\setlength{\rightskip}{0pt plus 5cm}process\-Form (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request, }
+\item[{sf\-Form}]{\$form}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a7cf661d837626e0320753cbffa019a01}
+
+
+Overriding process\-Form. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$request} & a sf\-Web\-Request \\
+\hline
+\mbox{\tt in}  & {\em \$form} & a sf\-Form \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect 
+\end{DoxyReturn}
+
+
+Definition at line 340 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a7934e5092d27f49b1f39ef82c30ebc1e}{\index{team\-Actions@{team\-Actions}!process\-New\-Team\-Form@{process\-New\-Team\-Form}}
+\index{process\-New\-Team\-Form@{process\-New\-Team\-Form}!teamActions@{team\-Actions}}
+\subsubsection[{process\-New\-Team\-Form}]{\setlength{\rightskip}{0pt plus 5cm}process\-New\-Team\-Form (
+\begin{DoxyParamCaption}
+\item[{sf\-Web\-Request}]{\$request, }
+\item[{sf\-Form}]{\$form}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a7934e5092d27f49b1f39ef82c30ebc1e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 350 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a704f1dec273c7931234f71747c8befe4}{\index{team\-Actions@{team\-Actions}!set\-Filters@{set\-Filters}}
+\index{set\-Filters@{set\-Filters}!teamActions@{team\-Actions}}
+\subsubsection[{set\-Filters}]{\setlength{\rightskip}{0pt plus 5cm}set\-Filters (
+\begin{DoxyParamCaption}
+\item[{array}]{\$filters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a704f1dec273c7931234f71747c8befe4}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 182 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a2dffbdff8d3cad39021cb6d9b82192cb}{\index{team\-Actions@{team\-Actions}!set\-Page@{set\-Page}}
+\index{set\-Page@{set\-Page}!teamActions@{team\-Actions}}
+\subsubsection[{set\-Page}]{\setlength{\rightskip}{0pt plus 5cm}set\-Page (
+\begin{DoxyParamCaption}
+\item[{}]{\$page}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a2dffbdff8d3cad39021cb6d9b82192cb}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 207 of file actions.\-class.\-php.
+
+\hypertarget{classteam_actions_a37dc6beeae1df7c42eb048ebfe8d74b6}{\index{team\-Actions@{team\-Actions}!set\-Sort@{set\-Sort}}
+\index{set\-Sort@{set\-Sort}!teamActions@{team\-Actions}}
+\subsubsection[{set\-Sort}]{\setlength{\rightskip}{0pt plus 5cm}set\-Sort (
+\begin{DoxyParamCaption}
+\item[{array}]{\$sort}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classteam_actions_a37dc6beeae1df7c42eb048ebfe8d74b6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 289 of file actions.\-class.\-php.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+apps/backend/modules/team/actions/\hyperlink{backend_2modules_2team_2actions_2actions_8class_8php}{actions.\-class.\-php}\item 
+apps/frontend/modules/team/actions/\hyperlink{frontend_2modules_2team_2actions_2actions_8class_8php}{actions.\-class.\-php}\item 
+apps/live/modules/team/actions/\hyperlink{live_2modules_2team_2actions_2actions_8class_8php}{actions.\-class.\-php}\end{DoxyCompactItemize}

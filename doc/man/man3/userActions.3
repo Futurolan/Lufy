@@ -1,0 +1,644 @@
+.TH "userActions" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+userActions \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBexecuteIndex\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteExportCsv\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteView\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteMap\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteSendActivation\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteSetPlayer\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteSetCaptain\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteEdit\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteUpdate\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteDelete\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteVerifMasters\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBpostExecute\fP ()"
+.br
+.RI "\fIActivate the user layout\&. \fP"
+.ti -1c
+.RI "\fBexecuteIndex\fP (sfWebRequest $request)"
+.br
+.RI "\fIRedirect to current user profile\&. \fP"
+.ti -1c
+.RI "\fBexecuteBulletin\fP (sfWebRequest $request)"
+.br
+.RI "\fICreate a printable bulletin\&. \fP"
+.ti -1c
+.RI "\fBexecuteView\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteProfile\fP (sfWebRequest $request)"
+.br
+.RI "\fIFind the current user profile\&. \fP"
+.ti -1c
+.RI "\fBexecuteEditProfile\fP (sfWebRequest $request)"
+.br
+.RI "\fIEdit the current user profile or create a new object profilForm\&. \fP"
+.ti -1c
+.RI "\fBexecuteAddress\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteNewAddress\fP (sfWebRequest $request)"
+.br
+.RI "\fICreate a new address and if it's first set it is default billing and delivery\&. \fP"
+.ti -1c
+.RI "\fBexecuteEditAddress\fP (sfWebRequest $request)"
+.br
+.RI "\fIPermit to edit an address\&. \fP"
+.ti -1c
+.RI "\fBexecuteSetDefaultAddress\fP (sfWebRequest $request)"
+.br
+.RI "\fIDefine an address as default\&. \fP"
+.ti -1c
+.RI "\fBexecuteSetBillingAddress\fP (sfWebRequest $request)"
+.br
+.RI "\fIDefine an address as Billing\&. \fP"
+.ti -1c
+.RI "\fBexecuteSetDeliveryAddress\fP (sfWebRequest $request)"
+.br
+.RI "\fIDefine an address as Delivery\&. \fP"
+.ti -1c
+.RI "\fBexecuteDeleteAddress\fP (sfWebRequest $request)"
+.br
+.RI "\fIDelete an address\&. \fP"
+.ti -1c
+.RI "\fBexecuteLicenceMasters\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteDeleteLicenceMasters\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteTshirt\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteIndex\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteSuccess\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteBulletin\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteView\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteProfil\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteEdit\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteUpdate\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteLicence\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteNewLicenceGa\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteUseLicenceMasters\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteAddMasters\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteActivate\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecutePassword\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteTshirt\fP (sfWebRequest $request)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBprocessForm\fP (sfWebRequest $request, sfForm $form)"
+.br
+.ti -1c
+.RI "\fBprocessFormLicenceMasters\fP (sfWebRequest $request, sfForm $form, SfGuardUserLicenceMasters $licence)"
+.br
+.ti -1c
+.RI "\fBprocessForm\fP (sfWebRequest $request, sfForm $form)"
+.br
+.ti -1c
+.RI "\fBprocessFormLicenceMasters\fP (sfWebRequest $request, sfForm $form)"
+.br
+.ti -1c
+.RI "\fBprocessFormTshirtSize\fP (sfWebRequest $request, sfForm $form)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 11 of file actions\&.class\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "executeActivate (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 378 of file actions\&.class\&.php\&.
+.SS "executeAddMasters (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 319 of file actions\&.class\&.php\&.
+.SS "executeAddress (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 127 of file actions\&.class\&.php\&.
+.SS "executeBulletin (sfWebRequest$request)"
+
+.PP
+Create a printable bulletin\&. \fBParameters:\fP
+.RS 4
+\fI\fP A sfWebRequest object 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file actions\&.class\&.php\&.
+.SS "executeBulletin (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file actions\&.class\&.php\&.
+.SS "executeDelete (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file actions\&.class\&.php\&.
+.SS "executeDeleteAddress (sfWebRequest$request)"
+
+.PP
+Delete an address\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect and Flash address 
+.RE
+.PP
+
+.PP
+Definition at line 255 of file actions\&.class\&.php\&.
+.SS "executeDeleteLicenceMasters (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 318 of file actions\&.class\&.php\&.
+.SS "executeEdit (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 170 of file actions\&.class\&.php\&.
+.SS "executeEdit (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 188 of file actions\&.class\&.php\&.
+.SS "executeEditAddress (sfWebRequest$request)"
+
+.PP
+Permit to edit an address\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 166 of file actions\&.class\&.php\&.
+.SS "executeEditProfile (sfWebRequest$request)"
+
+.PP
+Edit the current user profile or create a new object profilForm\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file actions\&.class\&.php\&.
+.SS "executeExportCsv (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file actions\&.class\&.php\&.
+.SS "executeIndex (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file actions\&.class\&.php\&.
+.SS "executeIndex (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file actions\&.class\&.php\&.
+.SS "executeIndex (sfWebRequest$request)"
+
+.PP
+Redirect to current user profile\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file actions\&.class\&.php\&.
+.SS "executeLicence (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 216 of file actions\&.class\&.php\&.
+.SS "executeLicenceMasters (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 292 of file actions\&.class\&.php\&.
+.SS "executeMap (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file actions\&.class\&.php\&.
+.SS "executeNewAddress (sfWebRequest$request)"
+
+.PP
+Create a new address and if it's first set it is default billing and delivery\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file actions\&.class\&.php\&.
+.SS "executeNewLicenceGa (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file actions\&.class\&.php\&.
+.SS "executePassword (sfWebRequest$request)"
+
+.PP
+Definition at line 409 of file actions\&.class\&.php\&.
+.SS "executeProfil (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 156 of file actions\&.class\&.php\&.
+.SS "executeProfile (sfWebRequest$request)"
+
+.PP
+Find the current user profile\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file actions\&.class\&.php\&.
+.SS "executeSendActivation (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file actions\&.class\&.php\&.
+.SS "executeSetBillingAddress (sfWebRequest$request)"
+
+.PP
+Define an address as Billing\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 209 of file actions\&.class\&.php\&.
+.SS "executeSetCaptain (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 170 of file actions\&.class\&.php\&.
+.SS "executeSetDefaultAddress (sfWebRequest$request)"
+
+.PP
+Define an address as default\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file actions\&.class\&.php\&.
+.SS "executeSetDeliveryAddress (sfWebRequest$request)"
+
+.PP
+Define an address as Delivery\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP A sfWebRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 232 of file actions\&.class\&.php\&.
+.SS "executeSetPlayer (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 152 of file actions\&.class\&.php\&.
+.SS "executeSuccess (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file actions\&.class\&.php\&.
+.SS "executeTshirt (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 365 of file actions\&.class\&.php\&.
+.SS "executeTshirt (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 424 of file actions\&.class\&.php\&.
+.SS "executeUpdate (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 184 of file actions\&.class\&.php\&.
+.SS "executeUpdate (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file actions\&.class\&.php\&.
+.SS "executeUseLicenceMasters (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 293 of file actions\&.class\&.php\&.
+.SS "executeVerifMasters (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 246 of file actions\&.class\&.php\&.
+.SS "executeView (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file actions\&.class\&.php\&.
+.SS "executeView (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file actions\&.class\&.php\&.
+.SS "executeView (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 114 of file actions\&.class\&.php\&.
+.SS "postExecute ()"
+
+.PP
+Activate the user layout\&. 
+.PP
+Definition at line 18 of file actions\&.class\&.php\&.
+.SS "processForm (sfWebRequest$request, sfForm$form)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file actions\&.class\&.php\&.
+.SS "processForm (sfWebRequest$request, sfForm$form)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file actions\&.class\&.php\&.
+.SS "processFormLicenceMasters (sfWebRequest$request, sfForm$form, SfGuardUserLicenceMasters$licence)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 331 of file actions\&.class\&.php\&.
+.SS "processFormLicenceMasters (sfWebRequest$request, sfForm$form)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 339 of file actions\&.class\&.php\&.
+.SS "processFormTshirtSize (sfWebRequest$request, sfForm$form)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 449 of file actions\&.class\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

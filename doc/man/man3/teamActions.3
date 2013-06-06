@@ -1,0 +1,628 @@
+.TH "teamActions" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+teamActions \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBexecuteIndex\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteFilter\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteView\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteNew\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteCreate\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteEdit\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteUpdate\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteDelete\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteView\fP (sfWebRequest $request)"
+.br
+.RI "\fIDisplay Team and set right for current user\&. \fP"
+.ti -1c
+.RI "\fBexecuteAddMember\fP (sfWebRequest $request)"
+.br
+.RI "\fIAdd a member at team\&. \fP"
+.ti -1c
+.RI "\fBexecuteInviteMember\fP (sfWebRequest $request)"
+.br
+.RI "\fIInvite a player with check on is_accepted\&. \fP"
+.ti -1c
+.RI "\fBexecuteDeleteMember\fP (sfWebRequest $request)"
+.br
+.RI "\fIDelete a team member and reset his invitation 0\&. \fP"
+.ti -1c
+.RI "\fBexecuteSetPlayer\fP (sfWebRequest $request)"
+.br
+.RI "\fIDefine a member as a player or not a player\&. \fP"
+.ti -1c
+.RI "\fBexecuteSetCaptain\fP (sfWebRequest $request)"
+.br
+.RI "\fIDefine a player as a captain or not a captain\&. \fP"
+.ti -1c
+.RI "\fBexecuteLeaveTeam\fP (sfWebRequest $request)"
+.br
+.RI "\fIPermit to leave a team and reset invitation 0\&. \fP"
+.ti -1c
+.RI "\fBexecuteDeleteTeam\fP (sfWebRequest $request)"
+.br
+.RI "\fIPermit for a captain to delete a team\&. \fP"
+.ti -1c
+.RI "\fBexecuteNew\fP (sfWebRequest $request)"
+.br
+.RI "\fICreate a new team form\&. \fP"
+.ti -1c
+.RI "\fBexecuteSearchPlayers\fP (sfWebRequest $request)"
+.br
+.RI "\fIPermit search players\&. \fP"
+.ti -1c
+.RI "\fBexecuteView\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteIndex\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteDeletePlayer\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteDeleteTeam\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteNew\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteCreate\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteEdit\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteUpdate\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteManagement\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteManagementIsPlayer\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBexecuteManagementIsCaptain\fP (sfWebRequest $request)"
+.br
+.ti -1c
+.RI "\fBisGoodNbPlayer\fP ($nbPlayerTeam, $nbPlayerTournament)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBprocessForm\fP (sfWebRequest $request, sfForm $form)"
+.br
+.ti -1c
+.RI "\fBgetFilters\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFilters\fP (array $filters)"
+.br
+.ti -1c
+.RI "\fBgetPager\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPage\fP ($page)"
+.br
+.ti -1c
+.RI "\fBgetPage\fP ()"
+.br
+.ti -1c
+.RI "\fBbuildQuery\fP ()"
+.br
+.ti -1c
+.RI "\fBaddSortQuery\fP ($query)"
+.br
+.ti -1c
+.RI "\fBgetSort\fP ()"
+.br
+.ti -1c
+.RI "\fBsetSort\fP (array $sort)"
+.br
+.ti -1c
+.RI "\fBisValidSortColumn\fP ($column)"
+.br
+.ti -1c
+.RI "\fBprocessForm\fP (sfWebRequest $request, sfForm $form)"
+.br
+.RI "\fIOverriding processForm\&. \fP"
+.ti -1c
+.RI "\fBprocessForm\fP (sfWebRequest $request, sfForm $form)"
+.br
+.ti -1c
+.RI "\fBprocessNewTeamForm\fP (sfWebRequest $request, sfForm $form)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 11 of file actions\&.class\&.php\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "addSortQuery ($query)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 252 of file actions\&.class\&.php\&.
+.SS "buildQuery ()\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file actions\&.class\&.php\&.
+.SS "executeAddMember (sfWebRequest$request)"
+
+.PP
+Add a member at team\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file actions\&.class\&.php\&.
+.SS "executeCreate (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file actions\&.class\&.php\&.
+.SS "executeCreate (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 265 of file actions\&.class\&.php\&.
+.SS "executeDelete (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 134 of file actions\&.class\&.php\&.
+.SS "executeDeleteMember (sfWebRequest$request)"
+
+.PP
+Delete a team member and reset his invitation 0\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 128 of file actions\&.class\&.php\&.
+.SS "executeDeletePlayer (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file actions\&.class\&.php\&.
+.SS "executeDeleteTeam (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 158 of file actions\&.class\&.php\&.
+.SS "executeDeleteTeam (sfWebRequest$request)"
+
+.PP
+Permit for a captain to delete a team\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file actions\&.class\&.php\&.
+.SS "executeEdit (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file actions\&.class\&.php\&.
+.SS "executeEdit (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 281 of file actions\&.class\&.php\&.
+.SS "executeFilter (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file actions\&.class\&.php\&.
+.SS "executeIndex (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file actions\&.class\&.php\&.
+.SS "executeIndex (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file actions\&.class\&.php\&.
+.SS "executeInviteMember (sfWebRequest$request)"
+
+.PP
+Invite a player with check on is_accepted\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file actions\&.class\&.php\&.
+.SS "executeLeaveTeam (sfWebRequest$request)"
+
+.PP
+Permit to leave a team and reset invitation 0\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file actions\&.class\&.php\&.
+.SS "executeManagement (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 383 of file actions\&.class\&.php\&.
+.SS "executeManagementIsCaptain (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 469 of file actions\&.class\&.php\&.
+.SS "executeManagementIsPlayer (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 451 of file actions\&.class\&.php\&.
+.SS "executeNew (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file actions\&.class\&.php\&.
+.SS "executeNew (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 254 of file actions\&.class\&.php\&.
+.SS "executeNew (sfWebRequest$request)"
+
+.PP
+Create a new team form\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 312 of file actions\&.class\&.php\&.
+.SS "executeSearchPlayers (sfWebRequest$request)"
+
+.PP
+Permit search players\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+
+.PP
+Definition at line 355 of file actions\&.class\&.php\&.
+.SS "executeSetCaptain (sfWebRequest$request)"
+
+.PP
+Define a player as a captain or not a captain\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file actions\&.class\&.php\&.
+.SS "executeSetPlayer (sfWebRequest$request)"
+
+.PP
+Define a member as a player or not a player\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file actions\&.class\&.php\&.
+.SS "executeUpdate (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file actions\&.class\&.php\&.
+.SS "executeUpdate (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 314 of file actions\&.class\&.php\&.
+.SS "executeView (sfWebRequest$request)"
+
+.PP
+Display Team and set right for current user\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file actions\&.class\&.php\&.
+.SS "executeView (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file actions\&.class\&.php\&.
+.SS "executeView (sfWebRequest$request)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file actions\&.class\&.php\&.
+.SS "getFilters ()\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file actions\&.class\&.php\&.
+.SS "getPage ()\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file actions\&.class\&.php\&.
+.SS "getPager ()\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 192 of file actions\&.class\&.php\&.
+.SS "getSort ()\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 272 of file actions\&.class\&.php\&.
+.SS "isGoodNbPlayer ($nbPlayerTeam, $nbPlayerTournament)"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 487 of file actions\&.class\&.php\&.
+.SS "isValidSortColumn ($column)\fC [protected]\fP"
+
+.PP
+Definition at line 299 of file actions\&.class\&.php\&.
+.SS "processForm (sfWebRequest$request, sfForm$form)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 156 of file actions\&.class\&.php\&.
+.SS "processForm (sfWebRequest$request, sfForm$form)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 334 of file actions\&.class\&.php\&.
+.SS "processForm (sfWebRequest$request, sfForm$form)\fC [protected]\fP"
+
+.PP
+Overriding processForm\&. \fBParameters:\fP
+.RS 4
+\fI$request\fP a sfWebRequest 
+.br
+\fI$form\fP a sfForm 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Redirect 
+.RE
+.PP
+
+.PP
+Definition at line 340 of file actions\&.class\&.php\&.
+.SS "processNewTeamForm (sfWebRequest$request, sfForm$form)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 350 of file actions\&.class\&.php\&.
+.SS "setFilters (array$filters)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file actions\&.class\&.php\&.
+.SS "setPage ($page)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 207 of file actions\&.class\&.php\&.
+.SS "setSort (array$sort)\fC [protected]\fP"
+\fBParameters:\fP
+.RS 4
+\fI@return\fP 
+.RE
+.PP
+
+.PP
+Definition at line 289 of file actions\&.class\&.php\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

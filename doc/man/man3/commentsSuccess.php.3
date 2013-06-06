@@ -1,0 +1,52 @@
+.TH "apps/backend/modules/news/templates/commentsSuccess.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/backend/modules/news/templates/commentsSuccess.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBforeach\fP($comments as $comment)()?>
+.br
+</p >< p \fBstyle\fP \fB$img\fP"
+.br
+.ti -1c
+.RI "\fBelse\fP \fB__pad1__\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP"
+.br
+.ti -1c
+.RI "\fBendforeach\fP = ajax_component(image_tag($img), 'comment/switchStatus?id_comment='\&.$comment->getIdComment())link_to($comment->getSfGuardUser()->getUsername(), 'sfGuardUser/edit?\fBid\fP='\&.$comment->getSfGuardUser()->getId(), array('target' => '_blank'))date('d/\fBm\fP/Y', strtotime($comment->\fBgetCreatedAt\fP()))ajax_component('Supprimer', 'comment/delete?id_comment='\&.$comment->getIdComment())"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBforeach\fP ($comments as $comment) ()?> </p> <p \fBstyle\fP $img"
+\fBInitial value:\fP
+.PP
+.nf
+'coment_status_<?=$comment->getIdComment()?>'>
+      <? if ($comment->getStatus() == 1):  '/css/img/backend/8green\&.png'
+.fi
+.PP
+Definition at line 10 of file commentsSuccess\&.php\&.
+.SS "\fBelse\fP __pad1__"
+
+.PP
+Definition at line 12 of file commentsSuccess\&.php\&.
+.SS "endforeach = ajax_component(image_tag($img), 'comment/switchStatus?id_comment='\&.$comment->getIdComment())link_to($comment->getSfGuardUser()->getUsername(), 'sfGuardUser/edit?\fBid\fP='\&.$comment->getSfGuardUser()->getId(), array('target' => '_blank'))date('d/\fBm\fP/Y', strtotime($comment->\fBgetCreatedAt\fP()))ajax_component('Supprimer', 'comment/delete?id_comment='\&.$comment->getIdComment())"
+
+.PP
+Definition at line 17 of file commentsSuccess\&.php\&.
+.SS "endif"
+
+.PP
+Definition at line 13 of file commentsSuccess\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

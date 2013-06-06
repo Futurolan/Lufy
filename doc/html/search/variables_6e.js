@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['nbsp',['nbsp',['../backend_2modules_2payement_2templates_2__form_8php.html#aef915316f784c9063d942974538301a6',1,'nbsp():&#160;_form.php'],['../frontend_2modules_2main_2templates_2__change_culture_8php.html#aef915316f784c9063d942974538301a6',1,'nbsp():&#160;_changeCulture.php'],['../frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php.html#aef915316f784c9063d942974538301a6',1,'nbsp():&#160;_teamAndPlayers.php'],['../frontend_2templates_2__sidebar_8php.html#aef915316f784c9063d942974538301a6',1,'nbsp():&#160;_sidebar.php'],['../live_2modules_2main_2templates_2__change_culture_8php.html#aef915316f784c9063d942974538301a6',1,'nbsp():&#160;_changeCulture.php'],['../presse_2templates_2layout_8php.html#aef915316f784c9063d942974538301a6',1,'nbsp():&#160;layout.php']]]
+];

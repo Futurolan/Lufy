@@ -1,0 +1,23 @@
+\hypertarget{backend_2modules_2ipn_2templates_2__list_8php}{\section{apps/backend/modules/ipn/templates/\-\_\-list.php File Reference}
+\label{backend_2modules_2ipn_2templates_2__list_8php}\index{apps/backend/modules/ipn/templates/\-\_\-list.\-php@{apps/backend/modules/ipn/templates/\-\_\-list.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{presse_2modules_2news_2templates_2index_success_8php_abc56db52b2e9a59bcd5c9e45ac5cb332}{foreach}(\$ipns as \$ipn)(\$ipn-\/$>$\\*
+get\-Status()== 'Refunded'\&\&\$ipn-\/$>$\\*
+get\-Is\-Checked()==0)(\$ipn-\/$>$\\*
+get\-Status()== 'Completed'\&\&\$ipn-\/$>$\\*
+get\-Is\-Checked()==0)(\$ipn-\/$>$\\*
+get\-Is\-Checked()==1) \hyperlink{backend_2modules_2ipn_2templates_2__list_8php_a72953b94e473f2acdb8e60afffbea923}{endforeach} = ajax\-\_\-link('En attentes', 'ipn/list\-Not\-Checked')ajax\-\_\-link('Archiv\&\hyperlink{presse_2modules_2page_2templates_2concours_ouikos_success_8php_a5c9a34c76cebfd8ae481fa185a4530af}{eacute};s', 'ipn/list\-Checked')ajax\-\_\-link('Toutes', 'ipn/list\-All')ajax\-\_\-link('Check', 'ipn/check?\hyperlink{live_2modules_2team_2templates_2management_success_8php_ad9851c94d15b310fef9eaded57c23ddf}{id}='.\$ipn-\/$>$get\-Id())ajax\-\_\-link(\$ipn-\/$>$\hyperlink{live_2modules_2news_2templates_2view_success_8php_a684dd27287fcedcbe91ff8c7cc23f3bb}{get\-Created\-At}(), 'ipn/view?\hyperlink{live_2modules_2team_2templates_2management_success_8php_ad9851c94d15b310fef9eaded57c23ddf}{id}='.\$ipn-\/$>$get\-Id())\$ipn-\/$>$get\-Txn\-Id()\$ipn-\/$>$get\-Amount()\$ipn-\/$>$get\-Currency()\$ipn-\/$>$get\-Licence\-Ga()\$ipn-\/$>$get\-Email()
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{backend_2modules_2ipn_2templates_2__list_8php_a72953b94e473f2acdb8e60afffbea923}{\index{backend/modules/ipn/templates/\-\_\-list.\-php@{backend/modules/ipn/templates/\-\_\-list.\-php}!endforeach@{endforeach}}
+\index{endforeach@{endforeach}!backend/modules/ipn/templates/_list.php@{backend/modules/ipn/templates/\-\_\-list.\-php}}
+\subsubsection[{endforeach}]{\setlength{\rightskip}{0pt plus 5cm}{\bf foreach}(\$ipns as \$ipn)(\$ipn-\/$>$get\-Status() == 'Refunded' \&\& \$ipn-\/$>$get\-Is\-Checked() == 0) (\$ipn-\/$>$get\-Status() == 'Completed' \&\& \$ipn-\/$>$get\-Is\-Checked() == 0) (\$ipn-\/$>$get\-Is\-Checked()==1) endforeach = ajax\-\_\-link('En attentes', 'ipn/list\-Not\-Checked')ajax\-\_\-link('Archiv\&{\bf eacute};s', 'ipn/list\-Checked')ajax\-\_\-link('Toutes', 'ipn/list\-All')ajax\-\_\-link('Check', 'ipn/check?{\bf id}='.\$ipn-\/$>$get\-Id())ajax\-\_\-link(\$ipn-\/$>${\bf get\-Created\-At}(), 'ipn/view?{\bf id}='.\$ipn-\/$>$get\-Id())\$ipn-\/$>$get\-Txn\-Id()\$ipn-\/$>$get\-Amount()\$ipn-\/$>$get\-Currency()\$ipn-\/$>$get\-Licence\-Ga()\$ipn-\/$>$get\-Email()}}\label{backend_2modules_2ipn_2templates_2__list_8php_a72953b94e473f2acdb8e60afffbea923}
+
+
+Definition at line 31 of file \-\_\-list.\-php.
+

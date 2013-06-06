@@ -1,0 +1,122 @@
+\hypertarget{dashboard_success_8php}{\section{apps/backend/modules/tournament\-\_\-slot/templates/dashboard\-Success.php File Reference}
+\label{dashboard_success_8php}\index{apps/backend/modules/tournament\-\_\-slot/templates/dashboard\-Success.\-php@{apps/backend/modules/tournament\-\_\-slot/templates/dashboard\-Success.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dashboard_success_8php_a83018d9153d17d91fbcf3bc10158d34f}{\$i} = 0
+\item 
+\hyperlink{presse_2modules_2news_2templates_2index_success_8php_abc56db52b2e9a59bcd5c9e45ac5cb332}{foreach}(\$tournaments as \\*
+\$tournament) \hyperlink{dashboard_success_8php_af3a474618823746201622a7739282918}{\$state\-\_\-valide} = 0
+\item 
+\hyperlink{dashboard_success_8php_a60be82fa65f561e562585794494783c9}{\$state\-\_\-inscrit} = 0
+\item 
+\hyperlink{dashboard_success_8php_ab312d14793b9c36c5991645be5bf68ad}{\$state\-\_\-libre} = 0
+\item 
+\hyperlink{dashboard_success_8php_a344152e8335a2555919a4fdf6bfa34ca}{\$state\-\_\-total} = 0
+\item 
+\hyperlink{dashboard_success_8php_a25a9c16257ded9c5abc5490291886b22}{\$state\-\_\-max\-\_\-slot} = \$tournament-\/$>$get\-Number\-Team()
+\item 
+elseif(\$slot-\/$>$get\-Status()== \\*
+'inscrit') elseif(\$slot-\/$>$\\*
+get\-Status()== 'attente') \\*
+elseif(\$slot-\/$>$get\-Status()== \\*
+'libre') \hyperlink{dashboard_success_8php_a8192ceebfb08d806fd4e3012f00f1715}{endif}
+\item 
+\hyperlink{dashboard_success_8php_a672d9707ef91db026c210f98cc601123}{endforeach} = \$i\$i\$i\$i\$tournament-\/$>$get\-Name()\$state\-\_\-reserve\$percent\-\_\-reserve\$state\-\_\-valide-\/\$state\-\_\-reserve\$percent\-\_\-valide\$state\-\_\-libre\$percent\-\_\-libre(\$state\-\_\-inscrit-\/\$state\-\_\-reserve-\/\$state\-\_\-valide)$<$0?0\-:(\$state\-\_\-inscrit-\/\$state\-\_\-reserve-\/\$state\-\_\-valide) \$percent\-\_\-inscrit\$i\$i\$i
+\item 
+\hyperlink{dashboard_success_8php_aeedf724f187110e0b5f9c28ee654577b}{\$percent\-\_\-libre} = round(\$state\-\_\-libre$\ast$100/\$state\-\_\-max\-\_\-slot)
+\item 
+\hyperlink{dashboard_success_8php_ac03c20507069eb4aa471480a173f33ba}{\$percent\-\_\-inscrit} = round((\$state\-\_\-inscrit-\/\$state\-\_\-valide-\/\$state\-\_\-reserve)$\ast$100/\$state\-\_\-max\-\_\-slot)
+\item 
+\hyperlink{live_2modules_2tournament_2templates_2__form_team_8php_ae30a307b320d8da5d9a945eaf68f7549}{if}(\$percent\-\_\-inscrit$<$ 0) \hyperlink{dashboard_success_8php_aea43f590fe7a34919eabb2ed29d8aa0d}{\$percent\-\_\-valide} = round((\$state\-\_\-valide-\/\$state\-\_\-reserve)$\ast$100/\$state\-\_\-max\-\_\-slot)
+\item 
+\hyperlink{dashboard_success_8php_a23da4a29d9c1250ffead2a95108677d3}{\$percent\-\_\-reserve} = round(\$state\-\_\-reserve$\ast$100/\$state\-\_\-max\-\_\-slot)
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{dashboard_success_8php_a83018d9153d17d91fbcf3bc10158d34f}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$i@{\$i}}
+\index{\$i@{\$i}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$i}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf i} = 0}}\label{dashboard_success_8php_a83018d9153d17d91fbcf3bc10158d34f}
+
+
+Definition at line 9 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_ac03c20507069eb4aa471480a173f33ba}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$percent\-\_\-inscrit@{\$percent\-\_\-inscrit}}
+\index{\$percent\-\_\-inscrit@{\$percent\-\_\-inscrit}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$percent\-\_\-inscrit}]{\setlength{\rightskip}{0pt plus 5cm}\$percent\-\_\-inscrit = round((\$state\-\_\-inscrit-\/\$state\-\_\-valide-\/\$state\-\_\-reserve)$\ast$100/\$state\-\_\-max\-\_\-slot)}}\label{dashboard_success_8php_ac03c20507069eb4aa471480a173f33ba}
+
+
+Definition at line 41 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_aeedf724f187110e0b5f9c28ee654577b}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$percent\-\_\-libre@{\$percent\-\_\-libre}}
+\index{\$percent\-\_\-libre@{\$percent\-\_\-libre}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$percent\-\_\-libre}]{\setlength{\rightskip}{0pt plus 5cm}\$percent\-\_\-libre = round(\$state\-\_\-libre$\ast$100/\$state\-\_\-max\-\_\-slot)}}\label{dashboard_success_8php_aeedf724f187110e0b5f9c28ee654577b}
+
+
+Definition at line 40 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_a23da4a29d9c1250ffead2a95108677d3}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$percent\-\_\-reserve@{\$percent\-\_\-reserve}}
+\index{\$percent\-\_\-reserve@{\$percent\-\_\-reserve}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$percent\-\_\-reserve}]{\setlength{\rightskip}{0pt plus 5cm}\$percent\-\_\-reserve = round(\$state\-\_\-reserve$\ast$100/\$state\-\_\-max\-\_\-slot)}}\label{dashboard_success_8php_a23da4a29d9c1250ffead2a95108677d3}
+
+
+Definition at line 44 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_aea43f590fe7a34919eabb2ed29d8aa0d}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$percent\-\_\-valide@{\$percent\-\_\-valide}}
+\index{\$percent\-\_\-valide@{\$percent\-\_\-valide}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$percent\-\_\-valide}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (\$percent\-\_\-inscrit$<$ 0) \$percent\-\_\-valide = round((\$state\-\_\-valide-\/\$state\-\_\-reserve)$\ast$100/\$state\-\_\-max\-\_\-slot)}}\label{dashboard_success_8php_aea43f590fe7a34919eabb2ed29d8aa0d}
+
+
+Definition at line 43 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_a60be82fa65f561e562585794494783c9}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$state\-\_\-inscrit@{\$state\-\_\-inscrit}}
+\index{\$state\-\_\-inscrit@{\$state\-\_\-inscrit}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$state\-\_\-inscrit}]{\setlength{\rightskip}{0pt plus 5cm}elseif (\$slot-\/$>$get\-Status()== 'valide') \$state\-\_\-inscrit = 0}}\label{dashboard_success_8php_a60be82fa65f561e562585794494783c9}
+
+
+Definition at line 15 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_ab312d14793b9c36c5991645be5bf68ad}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$state\-\_\-libre@{\$state\-\_\-libre}}
+\index{\$state\-\_\-libre@{\$state\-\_\-libre}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$state\-\_\-libre}]{\setlength{\rightskip}{0pt plus 5cm}\$state\-\_\-libre = 0}}\label{dashboard_success_8php_ab312d14793b9c36c5991645be5bf68ad}
+
+
+Definition at line 16 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_a25a9c16257ded9c5abc5490291886b22}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$state\-\_\-max\-\_\-slot@{\$state\-\_\-max\-\_\-slot}}
+\index{\$state\-\_\-max\-\_\-slot@{\$state\-\_\-max\-\_\-slot}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$state\-\_\-max\-\_\-slot}]{\setlength{\rightskip}{0pt plus 5cm}\$state\-\_\-max\-\_\-slot = \$tournament-\/$>$get\-Number\-Team()}}\label{dashboard_success_8php_a25a9c16257ded9c5abc5490291886b22}
+
+
+Definition at line 18 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_a344152e8335a2555919a4fdf6bfa34ca}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$state\-\_\-total@{\$state\-\_\-total}}
+\index{\$state\-\_\-total@{\$state\-\_\-total}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$state\-\_\-total}]{\setlength{\rightskip}{0pt plus 5cm}\$state\-\_\-total = 0}}\label{dashboard_success_8php_a344152e8335a2555919a4fdf6bfa34ca}
+
+
+Definition at line 17 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_af3a474618823746201622a7739282918}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!\$state\-\_\-valide@{\$state\-\_\-valide}}
+\index{\$state\-\_\-valide@{\$state\-\_\-valide}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{\$state\-\_\-valide}]{\setlength{\rightskip}{0pt plus 5cm}{\bf foreach} (\$tournament-\/$>$get\-Tournament\-Slot() as \$slot) (\$slot-\/$>$get\-Status()== 'reserve') \$state\-\_\-valide = 0}}\label{dashboard_success_8php_af3a474618823746201622a7739282918}
+
+
+Definition at line 14 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_a672d9707ef91db026c210f98cc601123}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!endforeach@{endforeach}}
+\index{endforeach@{endforeach}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{endforeach}]{\setlength{\rightskip}{0pt plus 5cm}endforeach = \$i\$i\$i\$i\$tournament-\/$>$get\-Name()\$state\-\_\-reserve\$percent\-\_\-reserve\$state\-\_\-valide-\/\$state\-\_\-reserve\$percent\-\_\-valide\$state\-\_\-libre\$percent\-\_\-libre(\$state\-\_\-inscrit-\/\$state\-\_\-reserve-\/\$state\-\_\-valide)$<$0?0\-:(\$state\-\_\-inscrit-\/\$state\-\_\-reserve-\/\$state\-\_\-valide) \$percent\-\_\-inscrit\$i\$i\$i}}\label{dashboard_success_8php_a672d9707ef91db026c210f98cc601123}
+
+
+Definition at line 36 of file dashboard\-Success.\-php.
+
+\hypertarget{dashboard_success_8php_a8192ceebfb08d806fd4e3012f00f1715}{\index{dashboard\-Success.\-php@{dashboard\-Success.\-php}!endif@{endif}}
+\index{endif@{endif}!dashboardSuccess.php@{dashboard\-Success.\-php}}
+\subsubsection[{endif}]{\setlength{\rightskip}{0pt plus 5cm}elseif (\$slot-\/$>$get\-Status()== 'inscrit') elseif (\$slot-\/$>$get\-Status()== 'attente') elseif (\$slot-\/$>$get\-Status()== 'libre') endif}}\label{dashboard_success_8php_a8192ceebfb08d806fd4e3012f00f1715}
+
+
+Definition at line 32 of file dashboard\-Success.\-php.
+

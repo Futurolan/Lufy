@@ -1,0 +1,43 @@
+\hypertarget{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php}{\section{apps/frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.php File Reference}
+\label{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php}\index{apps/frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php@{apps/frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{presse_2modules_2news_2templates_2index_success_8php_abc56db52b2e9a59bcd5c9e45ac5cb332}{foreach}(\$slots as \$slot) \hyperlink{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_a88fcfd2a89532c201ea2ea52fd51dbc4}{(\$i==\$attente)} ('Debut de la liste dattente')?$>$$<$/th $>$$<$/tr $>$$<$?php \hyperlink{live_2templates_2layout_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}?$>$$<$ tr $>$$<$ td $>$$<$?\hyperlink{live_2modules_2tournament_2templates_2__form_team_8php_ae30a307b320d8da5d9a945eaf68f7549}{if}(\$slot-\/$>$get\-Status()
+\item 
+\hyperlink{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_a672d9707ef91db026c210f98cc601123}{endforeach}
+\item 
+\& \hyperlink{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_aef915316f784c9063d942974538301a6}{nbsp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_a88fcfd2a89532c201ea2ea52fd51dbc4}{\index{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php@{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php}!(\$i==\$attente)@{(\$i==\$attente)}}
+\index{(\$i==\$attente)@{(\$i==\$attente)}!frontend/modules/tournament_slot/templates/_teamAndPlayers.php@{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php}}
+\subsubsection[{(\$i==\$attente)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf foreach}(\$slots as \$slot) (\${\bf i}==\$attente)('Debut de la liste dattente')?$>$$<$/th $>$$<$/tr $>$$<$?php {\bf endif}?$>$$<$ tr $>$$<$ td $>$$<$?{\bf if}(\$slot-\/$>$get\-Status()}}\label{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_a88fcfd2a89532c201ea2ea52fd51dbc4}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{'valide'} || $slot->getStatus() == \textcolor{stringliteral}{'reserve'}) \{ echo image\_tag(\textcolor{stringliteral}{'
+      16/slot\_validate.png'}); \}
+            elseif ($slot->getStatus() == \textcolor{stringliteral}{'attente'} || $slot->getStatus() == \textcolor{stringliteral}{'
+      inscrit'}) \{ echo image\_tag(\textcolor{stringliteral}{'16/slot\_waiting.png'}); \}
+\end{DoxyCode}
+
+
+Definition at line 9 of file \-\_\-team\-And\-Players.\-php.
+
+\hypertarget{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_a672d9707ef91db026c210f98cc601123}{\index{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php@{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php}!endforeach@{endforeach}}
+\index{endforeach@{endforeach}!frontend/modules/tournament_slot/templates/_teamAndPlayers.php@{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php}}
+\subsubsection[{endforeach}]{\setlength{\rightskip}{0pt plus 5cm}endforeach}}\label{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_a672d9707ef91db026c210f98cc601123}
+
+
+Definition at line 33 of file \-\_\-team\-And\-Players.\-php.
+
+\hypertarget{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_aef915316f784c9063d942974538301a6}{\index{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php@{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php}!nbsp@{nbsp}}
+\index{nbsp@{nbsp}!frontend/modules/tournament_slot/templates/_teamAndPlayers.php@{frontend/modules/tournament\-\_\-slot/templates/\-\_\-team\-And\-Players.\-php}}
+\subsubsection[{nbsp}]{\setlength{\rightskip}{0pt plus 5cm}\& nbsp}}\label{frontend_2modules_2tournament__slot_2templates_2__team_and_players_8php_aef915316f784c9063d942974538301a6}
+
+
+Definition at line 37 of file \-\_\-team\-And\-Players.\-php.
+

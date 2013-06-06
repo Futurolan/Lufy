@@ -1,0 +1,35 @@
+.TH "apps/live/modules/tournament_slot/templates/_team.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/live/modules/tournament_slot/templates/_team.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBforeach\fP($slots as $slot)($slot->
+.br
+getTeamId()==NULL||$slot->
+.br
+getStatus()== 'libre') \fB()?></td >< td >< b >-</b ></td >< td ><?php echo $slot->getStatus()?></td ></tr ><?else\fP ($slot->getPosition() > $nb_team['number_team']&&$l== '1')"
+.br
+.ti -1c
+.RI "\fBendforeach\fP"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBforeach\fP($slots as $slot)($slot->getTeamId() == NULL || $slot->getStatus() == 'libre') ()?></td >< td >< b >-</b ></td >< td ><?php echo $slot->getStatus()?></td ></tr ><?\fBelse\fP($slot->getPosition() > $nb_team['number_team']&&$l== '1')"
+
+.PP
+Definition at line 9 of file _team\&.php\&.
+.SS "endforeach"
+
+.PP
+Definition at line 24 of file _team\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.

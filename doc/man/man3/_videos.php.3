@@ -1,0 +1,28 @@
+.TH "apps/presse/modules/file/templates/_videos.php" 3 "Thu Jun 6 2013" "Lufy" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+apps/presse/modules/file/templates/_videos.php \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBforeach\fP($videos as $gallery)($gallery->
+.br
+getName(), 'file/view?\fBslug\fP='\&.$gallery->
+.br
+getSlug())?></li >< li \fBclass\fP \fBendforeach\fP = 'font-size: 12px; font-style: italic;'><?php echo $gallery->getDescription()"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBforeach\fP ($videos as $gallery) ($gallery->getName(), 'file/view?\fBslug\fP='\&.$gallery->getSlug()) ?></li> <li \fBclass\fP endforeach = 'font-size: 12px; font-style: italic;'><?php echo $gallery->getDescription()"
+
+.PP
+Definition at line 1 of file _videos\&.php\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Lufy from the source code\&.
