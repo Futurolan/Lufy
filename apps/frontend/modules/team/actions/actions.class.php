@@ -20,25 +20,24 @@ class teamActions extends FrontendActions
     $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
     $this->forward404Unless($this->team);
 
+    $this->isCaptain = false;
+    $this->isMember = false;
+    $this->isAuth = false;
+
     if ($this->getUser()->isAuthenticated())
     {
-      $this->isCaptain = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($this->team->getIdTeam(), $this->getUser()->getGuardUser()->getId())->getIsCaptain();
-      if (Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($this->team->getIdTeam(), $this->getUser()->getGuardUser()->getId()))
+      if ($this->user = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($this->team->getIdTeam(), $this->getUser()->getGuardUser()->getId()))
       {
-        $this->isMember = true ;
-      }
-      else
-      {
-        $this->isMember = false ;
+        $this->isCaptain = $this->user->getIsCaptain();
+        $this->isMember = true;
       }
 
-      $this->isAuth = true ;
+      $this->isAuth = true;
     }
-    else
+
+    if ($this->isMember)
     {
-      $this->isCaptain = false;
-      $this->isMember = false;
-      $this->isAuth = false ;
+      $this->setLayout('user');
     }
   }
 
@@ -200,10 +199,6 @@ class teamActions extends FrontendActions
   {
     $team_player = Doctrine_core::getTable('teamplayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $this->getUser()->getGuardUser()->getId());
     $team_player->delete();
-
-    $invite =  Doctrine_core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $this->getUser()->getGuardUser()->getId());
-    $invite->setIsAccepted(0);
-    $invite->save();
 
     $this->redirect('user/profile');
 

@@ -18,14 +18,3 @@
     </tr>
   <?php endforeach; ?>
 </table>
-<?php
-  if ($isAuth)
-  {
-    echo link_to('<i ></i> '.__('Retour'), 'user/index', array('class' => 'btn'));
-  }
-  else
-  {
-    echo link_to('<i ></i> '.__('Retour'), '@homepage', array('class' => 'btn'));
-  }
-?>
-
