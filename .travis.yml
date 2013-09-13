@@ -8,7 +8,7 @@ php:
 before_script:
   - "sudo apt-get update"
   - "sudo apt-get install php5-common php5-fpm php5-gd php-apc"
-  - "echo "extension = apc.so" >> ~/.phpenv/versions/5.3/etc/php.ini"
+  - echo "extension = apc.so" >> ~/.phpenv/versions/5.3/etc/php.ini
 script:
   - "./configure.sh"
   - "php symfony doctrine:build --all --no-confirmation --and-data-load"
