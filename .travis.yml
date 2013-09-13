@@ -11,7 +11,7 @@ before_script:
   - echo "extension = apc.so" >> ~/.phpenv/versions/5.3/etc/php.ini
 script:
   - "./configure.sh"
-  - "php symfony doctrine:build --all --no-confirmation --and-data-load"
+  - "php symfony doctrine:build --all --no-confirmation --and-load"
 after_script:
   - "php symfony test:all"
 
