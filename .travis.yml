@@ -1,13 +1,14 @@
-# Configuration
 # Travis CI
+# Configuration
 
 language: php
 php:
   - 5.3
 
 before_script:
-  - "./configure.sh"
+  - "sudo apt-get install php-apc"
 script:
+  - "./configure.sh"
   - "php symfony doctrine:build --all --no-confirmation --and-data-load"
 after_script:
   - "php symfony test:all"
