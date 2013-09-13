@@ -21,6 +21,4 @@ mkdir -p web/uploads/
 chmod -R 777 web/uploads/
 
 
-php symfony cc
-
 echo "OK"
