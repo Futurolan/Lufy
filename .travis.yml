@@ -6,7 +6,8 @@ php:
   - 5.3
 
 before_script:
-  - "sudo apt-get install php-apc"
+  - "sudo apt-get update"
+  - "sudo apt-get install php5-common php5-fpm php5-gd php-apc"
 script:
   - "./configure.sh"
   - "php symfony doctrine:build --all --no-confirmation --and-data-load"
