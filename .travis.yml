@@ -11,7 +11,7 @@ before_script:
   - echo "extension = apc.so" >> ~/.phpenv/versions/5.3/etc/php.ini
   - "mysql -e 'CREATE DATABASE lufy2;'"
   - "ln -s config/databases.yml.travis config/databases.yml"
-  - "ls -al"
+  - "ls -al config/"
   - "cat config/databases.yml"
 script:
   - "./configure.sh"
