@@ -8,7 +8,7 @@ php:
 before_script:
   - "./configure.sh"
 script:
-  - "php symfony doctrine:build --all --no-confirmation --and-data-load
+  - "php symfony doctrine:build --all --no-confirmation --and-data-load"
 after_script:
   - "php symfony test:all"
 
