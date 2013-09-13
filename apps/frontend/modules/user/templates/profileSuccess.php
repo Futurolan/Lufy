@@ -4,7 +4,7 @@
 <table class="table">
   <tr>
       <td align="center" valign="top" rowspan="9" width="160">
-        <?php if ($user->getSfGuardUserProfile()->getLogourl()) { echo '<img src="'.$user->getSfGuardUserProfile()->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?><br/><br/>
+        <?php if ($user->getSfGuardUserProfile()->getLogourl()) { echo '<img class="img-polaroid" src="'.$user->getSfGuardUserProfile()->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?><br/><br/>
       </td>
       <td>
         <?php echo __('Inscrit le')?>

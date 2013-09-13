@@ -26,16 +26,16 @@
     <?php echo $address->getZipcode(); ?> <?php echo $address->getCity(); ?><br/>
     <?php echo $address->getCountry(); ?><br/>
 
-    <?php echo link_to('<i class="icon-pencil"></i> '.__('Modifier'), 'user/editAddress?id='.$address->getId(), array('class' => 'btn')); ?>
+    <?php echo link_to('<i class="icon-pencil"></i> '.__('Modifier'), 'user/editAddress?id='.$address->getId(), array('class' => 'btn btn-primary btn-small')); ?>
     <div class="btn-group">
-      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> <?php echo __('Definir comme') ?> <span class="caret"></span></a>
+      <a href="#" class="btn btn-small dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> <?php echo __('Definir comme') ?> <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><?php echo link_to(__('Adresse par defaut'), 'user/setDefaultAddress?id='.$address->getId()); ?></li>
         <li><?php echo link_to(__('Adresse de facturation'), 'user/setBillingAddress?id='.$address->getId()); ?></li>
         <li><?php echo link_to(__('Adresse de livraison'), 'user/setDeliveryAddress?id='.$address->getId()); ?></li>
       </ul>
     </div>
-    <?php echo link_to('<i class="icon-trash"></i> '.__('Supprimer'), 'user/deleteAddress?id='.$address->getId(), array('class' => 'btn btn-danger')); ?> <br/>
+    <?php echo link_to('<i class="icon-trash"></i> '.__('Supprimer'), 'user/deleteAddress?id='.$address->getId(), array('class' => 'btn btn-danger btn-small')); ?> <br/>
   </address>
 <?php endforeach;?>
 

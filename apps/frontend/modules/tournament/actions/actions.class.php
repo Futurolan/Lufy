@@ -10,8 +10,6 @@
  */
 class tournamentActions extends FrontendActions
 {
-
-
   /**
    * @brief
    * @param[in]
@@ -19,12 +17,7 @@ class tournamentActions extends FrontendActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->lastevents = Doctrine_Query::create()
-            ->select('*')
-            ->from('event e')
-            ->orderBy('e.end_at DESC')
-            ->limit($this->getRequestParameter('limit', 1))
-            ->execute();
+    $this->lastevent = Doctrine_Core::getTable('Event')->getCurrent();
 
     $this->tournaments = Doctrine_Query::create()
             ->select('*')
@@ -81,17 +74,29 @@ class tournamentActions extends FrontendActions
    */
   public function executeView(sfWebRequest $request)
   {
-//        $this->redirectUnless($team=Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')), 'team', 'index');
-    $this->page = Doctrine::getTable('Page')->findOneBySlug($request->getParameter('slug', 'test'));
-    $this->tournament = Doctrine::getTable('Tournament')->findOneBySlug($request->getParameter('slug', ''));
+    $this->tournament = Doctrine_Query::create()
+      ->from('Tournament t')
+      ->leftJoin('t.Event e')
+      ->leftJoin('t.Game g')
+      ->leftJoin('g.GameType gt')
+      ->leftJoin('g.Plateform p')
+      ->where('t.slug = ?', $request->getParameter('slug'))
+      ->fetchOne();
+
     $this->forward404Unless($this->tournament);
-    $this->event = Doctrine::getTable('Event')->findOneByIdEvent($this->tournament->getEventId());
-    $this->tadmins = Doctrine::getTable('tournamentAdmin')->createQuery('a')->where('tournament_id =' . $this->tournament->getIdTournament())->execute();
-    $teamplayer = new TeamPlayer();
-    /*        if ($team->getTeamId()):
-      $this->isgoodnbplayer = $this->isGoodNbPlayer($teamplayer->countPlayer($team->getTeamId()),$this->tournament->getPlayerPerTeam());
-      endif;
-     */
+
+    $this->page = Doctrine_Query::create()
+      ->from('Page p')
+      ->where('p.slug = ?', $request->getParameter('slug'))
+      ->limit(1)
+      ->fetchOne();
+
+//    $this->admins = Doctrine::getTable('tournamentAdmin')->createQuery('a')->where('tournament_id =' . $this->tournament->getIdTournament())->execute();
+    $this->admins = Doctrine_Query::create()
+      ->from('TournamentAdmin ta')
+      ->leftJoin('ta.sfGuardUser u')
+      ->where('ta.tournament_id = ?', $this->tournament->getIdTournament())
+      ->execute();
   }
 
   /**

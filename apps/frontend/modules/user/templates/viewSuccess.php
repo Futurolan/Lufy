@@ -1,54 +1,50 @@
+<?php use_helper('Date') ?>
 <h2><?php echo __('Fiche joueur')?></h2>
-
-<h3><?php echo $user->getFirstName() ?> "<?php echo $user->getUsername() ?>" <?php echo substr($user->getLastName(), 0, 1);?>.</h3>
-
+<h3><?php echo  $user->getFirstName() ?> "<?php echo  $user->getUsername() ?>" <?php echo substr($user->getLastName(), 0, 1) ?>.</h3>
 <table class="table">
   <tr>
-    <td align="center" valign="top" rowspan="6" width="160">
-      <?php if ($user->getSfGuardUserProfile()->getLogourl()) { echo '<img src="'.$user->getSfGuardUserProfile()->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?>
-    </td>
-    <th><?php echo __('Inscrit le')?></th>
+      <td align="center" valign="top" rowspan="9" width="160">
+        <?php if ($user->getSfGuardUserProfile()->getLogourl()) { echo '<img src="'.$user->getSfGuardUserProfile()->getLogourl().'" width="150">'; } else { echo image_tag('/uploads/profils/no-profil.png', array('width' => '150')); }?><br/><br/>
+      </td>
+      <td>
+        <?php echo __('Inscrit le')?>
+      </td>
+      <td>
+        <?php echo  format_date($user->getCreatedAt(), 'dd/MM/yyyy')?>
+      </td>
+  </tr>
+  <tr>
+      <td>
+        <?php echo __('Age / Sexe')?>
+      </td>
+      <td>
+        <?php echo format_date($user->getSfGuardUserProfile()->getBirthdate(), 'yyyy') ?>
+        <?php echo '/'; ?>
+        <?php echo $user->getSfGuardUserProfile()->getGender() ?>
+      </td>
+  </tr>
+  <tr>
     <td>
-      <?php echo  format_date($user->getCreatedAt(), 'dd/MM/yyyy')?>
+      <?php echo __('Equipe')?>
+    </td>
+    <td><?php
+        $teamPlayers = $user->getTeamPlayer();
+        foreach ($teamPlayers as $teamPlayer): ?>
+            <a href="<?php echo  url_for('team/view?slug=' . $teamPlayer->Team->slug) ?>"><?php echo  $teamPlayer->Team->name ?></a><?php echo ' |'; ?>
+        <?php endforeach;
+        ?>
     </td>
   </tr>
   <tr>
-    <th><?php echo __('Equipe')?></th>
     <td>
-      <?php
-      $teamPlayers = $user->getTeamPlayer();
-      foreach ($teamPlayers as $teamPlayer):
-      ?>
-        <a href="<?php echo url_for('team/view?slug=' . $teamPlayer->Team->slug) ?>"><?php echo $teamPlayer->Team->name ?></a>
-      <?php endforeach; ?>
+      <?php echo __('Site web')?>
+    </td>
+    <td>
+      <a href="<?php echo $user->getSfGuardUserProfile()->getWebsite() ?>"><?php echo $user->getSfGuardUserProfile()->getWebsite() ?></a>
     </td>
   </tr>
   <tr>
-    <th><?php echo __('Ville')?></th>
-    <td><?php echo $user->getDefaultAddress()->getCity() ?></td>
-  </tr>
-  <tr>
-    <th><?php echo __('Site web')?></th>
-    <td><a href="<?php echo $user->getSfGuardUserProfile()->getWebsite() ?>"><?php echo $user->getSfGuardUserProfile()->getWebsite() ?></a></td>
-  </tr>
-  <tr>
-    <th><?php echo __('Carriere')?></th>
-    <td><?php echo $user->getSfGuardUserProfile()->getCarrer() ?></td>
+    <td><?php echo __('Carriere')?></td>
+    <td><?php echo  $user->getSfGuardUserProfile()->getCarrer() ?></td>
   </tr>
 </table>
-
-<br/>
-<?php if ($inviteteam == '1'): ?>
-  <?php echo link_to(__('Inviter dans mon equipe'),'invite/addPlayer?username='.$user->getUsername(), array('class' => 'btn btn-primary'))?><br/>
-<?php else: ?>
-  <div class="alert alert-info">
-    <?php echo __('Pour inviter ce joueur a rejoindre votre equipe vous devez etre manager.'); ?>
-  </div>
-  <div class="alert">
-    <?php echo __('Vous ne pouvez pas inviter un joueur si celui ci appartient deja a une autre equipe.')?>
-  </div>
-<?php endif; ?>
-
-<?php /* if ($invitefriend == '1'): ?>
-<?php echo link_to('Inviter le joueur &agrave; etre mon ami','invite/addFriend?username='.$user->getUsername())?>
-<?endif; */ ?>

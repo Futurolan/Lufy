@@ -3,8 +3,7 @@
 
 
 <h3><?php echo __('Tournois')?></h3>
-<em>&Agrave; venir...</em>
-<?php /* include_component('tournament', 'nexttournament'); */?>
+<?php include_component('tournament', 'next'); ?>
 <!--
 <?php //include_component('poker_tournament', 'list');?>
 -->

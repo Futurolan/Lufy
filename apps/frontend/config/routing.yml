@@ -23,13 +23,10 @@ sf_guard_forgot_password:
   param: { module: sfGuardForgotPassword, action: index }
 
 
-# Galerie video
-file_view:
-  url: /:sf_culture/gallery/video/:slug
-  param: { module: file, action: view }
-
-
 # News
+news_index:
+  url: /:sf_culture/news
+  param: { module: news, action: index }
 news_view:
   url: /:sf_culture/news/:slug
   param: { module: news, action: view }
@@ -43,6 +40,24 @@ page_view:
 page_concours_ouikos:
   url: /:sf_culture/concours-ouikos/:name
   param: { module: page, action: concoursOuikos }
+
+
+# FAQ
+faq_index:
+  url: /:sf_culture/faq
+  param: { module: faq, action: index }
+
+
+# Partner
+partner_index:
+  url: /:sf_culture/partner
+  param: { module: partner, action: index }
+
+
+# Galerie video
+file_view:
+  url: /:sf_culture/gallery/video/:slug
+  param: { module: file, action: view }
 
 
 # Team

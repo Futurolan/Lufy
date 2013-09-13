@@ -40,6 +40,7 @@
       album_title_tag:    '<h2/>',
       hide_back:          false, //hide the back button
       thumb_id_prefix:    'pThumb_',
+      thumb_class:        'image',
       show_more:      null,       // show only the first x images when the album gets opened
       loading_animation: 'css/loading.gif',
       thumb_finalizer:    function(){var $a = jQuery(this); ... use this to do something to the anchor AFTER slimbox got there },
@@ -80,6 +81,7 @@
             album_title_tag: '<h2/>',
             auto_open: false,
             thumb_id_prefix: 'pThumb_',
+            thumb_class: 'image',
             thumb_tuner: null,
             thumb_finalizer: null,
             loading_animation: null,
@@ -316,6 +318,7 @@
 
                $div
                    .attr("id", meta_opts.thumb_id_prefix + item.gphoto$id.$t )
+                   .attr("class", meta_opts.thumb_class )
                    .append($a);
 
 

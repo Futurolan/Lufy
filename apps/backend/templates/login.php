@@ -15,10 +15,8 @@
             <? if ($sf_user->hasFlash('warning')) echo '<div class="flashbox warning">'.$sf_user->getFlash('warning').'</div>'; ?>
             <? if ($sf_user->hasFlash('error')) echo '<div class="flashbox error">'.$sf_user->getFlash('error').'</div>'; ?>
             <div style="background: #fff; border: solid 1px #ccc; height: 180px; width: 300px; margin: 200px auto; padding: 7px 19px 20px 19px; box-shadow: 0px 0px 20px #ccc;">
-                <h2>Administration > Identification</h2>
-
+                <h2>Identification</h2>
                 <?php echo $sf_content ?>
-
             </div>
         </div>
     </body>

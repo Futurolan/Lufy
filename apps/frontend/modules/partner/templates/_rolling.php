@@ -1,7 +1,7 @@
-<div id="partner_rolling">
+<div id="partner_rolling" class="row-fluid">
   <ul id="rolling">
   <?php foreach ($partners as $partner): ?>
-    <li><?php echo image_tag('/uploads/partenaires/100/'.$partner->getLogourl())?></li>
+    <li class="span3"><?php echo image_tag('/uploads/partenaires/100/'.$partner->getLogourl(), array('style' => 'max-width: 100%;'))?></li>
   <?php endforeach; ?>
   </ul>
 </div>
@@ -9,7 +9,7 @@
 <script type="text/javascript">
 $(function(){
   setInterval(function(){
-    $("ul#rolling").animate({marginLeft:-120},800,function(){
+    $("ul#rolling").animate({marginLeft:-110},800,function(){
       $(this).css({marginLeft:0}).find("li:last").after($(this).find("li:first"));
     })
   }, 2000);
@@ -19,7 +19,6 @@ $(function(){
 <style>
 
 #partner_rolling {
-  width: 240px;
   height: 100px;
   overflow: hidden;
   margin: auto auto;
@@ -34,7 +33,7 @@ ul#rolling {
   list-style: none;
 }
 ul#rolling li {
-  width: 100px;
+  width: 20%;
   height: 100px;
   position: relative;
   display: block;

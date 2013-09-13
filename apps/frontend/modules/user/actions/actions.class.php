@@ -17,12 +17,15 @@ class userActions extends FrontendActions
    */
   public function postExecute()
   {
-    $this->setLayout('user');
+    if ($this->getActionName() != 'view')
+    {
+      $this->setLayout('user');
+    }
   }
 
   /**
    * @brief Redirect to current user profile
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return Redirect
    */
   public function executeIndex(sfWebRequest $request)
@@ -32,7 +35,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief Create a printable bulletin
-   * @param[in]$request A sfWebRequest object
+   * @param $request A sfWebRequest object
    */
   public function executeBulletin(sfWebRequest $request)
   {
@@ -52,47 +55,19 @@ class userActions extends FrontendActions
   }
 
   /**
-   * @brief 
-   * @param[in]
+   * @brief
+   * @param $request A sfWebRequest object
    * @return
    */
   public function executeView(sfWebRequest $request)
   {
-    $this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username', ''));
+    $this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username'));
     $this->forward404Unless($this->user);
-
-    $t = Doctrine::getTable('invite')->isInvitedInTeam($this->user->getId());
-    $t2 = Doctrine::getTable('team')->isInTeam($this->user->getId());
-
-    $d = Doctrine::getTable('sfGuardUser')->isCaptain();
-    $this->inviteteam = '0';
-
-    if ($t == false && $t2 == false)
-    {
-      if ($d == true || $d2 == true)
-      {
-        $this->inviteteam = '1';
-      }
-    }
-
-    $f = Doctrine::getTable('invite')->isInvitedFriend($this->user->getId());
-    $f2 = Doctrine::getTable('friend')->isFriend($this->user->getId());
-
-    $this->invitefriend = '0';
-    if ($f == false && $f2 == false)
-    {
-      $this->invitefriend = '1';
-    }
-
-    if ($this->user->getId() == $this->getUser()->getGuardUser()->getId() || $this->getUser()->isAuthenticated() == false)
-    {
-      $this->invitefriend = '0';
-    }
   }
 
   /**
    * @brief Find the current user profile
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    */
   public function executeProfile(sfWebRequest $request)
   {
@@ -101,7 +76,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief Edit the current user profile or create a new object profilForm
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return Redirect
    */
   public function executeEditProfile(sfWebRequest $request)
@@ -121,7 +96,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return
    */
   public function executeAddress(sfWebRequest $request)
@@ -131,7 +106,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief Create a new address and if it's first set it is default billing and delivery
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return Redirect
    */
   public function executeNewAddress(sfWebRequest $request)
@@ -160,7 +135,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief Permit to edit an address
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return Redirect
    */
   public function executeEditAddress(sfWebRequest $request)
@@ -180,7 +155,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief Define an address as default
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return Redirect
    */
   public function executeSetDefaultAddress(sfWebRequest $request)
@@ -203,7 +178,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief Define an address as Billing
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return Redirect
    */
   public function executeSetBillingAddress(sfWebRequest $request)
@@ -226,7 +201,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief Define an address as Delivery
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return Redirect
    */
   public function executeSetDeliveryAddress(sfWebRequest $request)
@@ -249,7 +224,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief Delete an address
-   * @param[in] $request A sfWebRequest object
+   * @param $request A sfWebRequest object
    * @return Redirect and Flash address
    */
   public function executeDeleteAddress(sfWebRequest $request)
@@ -286,7 +261,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief
-   * @param[in]
+   * @param
    * @return
    */
   public function executeLicenceMasters(sfWebRequest $request)
@@ -312,7 +287,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief
-   * @param[in]
+   * @param
    * @return
    */
   public function executeDeleteLicenceMasters(sfWebRequest $request)
@@ -325,7 +300,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief
-   * @param[in]
+   * @param
    * @return
    */
   protected function processFormLicenceMasters(sfWebRequest $request, sfForm $form, SfGuardUserLicenceMasters $licence)
@@ -359,7 +334,7 @@ class userActions extends FrontendActions
 
   /**
    * @brief
-   * @param[in]
+   * @param
    * @return
    */
   public function executeTshirt(sfWebRequest $request)

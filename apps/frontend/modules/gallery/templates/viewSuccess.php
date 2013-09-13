@@ -11,9 +11,23 @@
 $(document).ready(function() {
   $("#mygallery").EmbedPicasaGallery('futurolan',{
     albumid: "<?php echo $gallery->album_id?>",
-    size:      '128',
-    msg_loading_list :  'Loading list from PicasaWeb',
-    msg_back :   'Back'
+    size:             '145',
+    msg_loading_list: 'Loading list from PicasaWeb',
+    msg_back:         'Back',
+    thumb_class:      'thumbnail image-opacity'
   });
 });
 </script>
+
+
+
+<style>
+.image-opacity {
+  opacity: 0.9;
+  transition: 0.5s;
+}
+.image-opacity:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
+</style>

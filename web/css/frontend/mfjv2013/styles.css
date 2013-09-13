@@ -1,0 +1,19 @@
+body {
+  background-image: none;
+}
+
+body, header {
+  background-color: #090909;
+}
+
+footer {
+  background-color: #111;
+}
+
+a {
+  color: #d38100;
+}
+
+.label-info {
+  background-color: #e59c00;
+}

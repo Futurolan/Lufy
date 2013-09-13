@@ -1,10 +1,13 @@
-<table class="listteam" cellspacing="0" cellpadding="5">
+<table class="table table-condensed table-striped">
+  <thead>
     <tr>
         <th></th>
         <th>#</th>
         <th><?php echo __('Nom de lequipe')?></th>
         <th><?php echo __('Joueurs')?></th>
     </tr>
+  </thead>
+  <tbody>
     <?php $i = '0'; ?>
     <?php foreach ($slots as $slot): ?>
     <?php $i++ ?>
@@ -31,6 +34,7 @@
         <?php endif; ?>
         </tr>
     <?php endforeach; ?>
+  </tbody>
 </table>
 <br/>
 &nbsp;&nbsp;&nbsp;

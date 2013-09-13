@@ -11,7 +11,6 @@
       <th></th>
       <th></th>
       <th>Titre</th>
-      <th>Cat&eacute;gorie</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -25,10 +24,9 @@
           <?php echo ajax_link(image_tag('/css/img/flag/GB.png'), 'page/edit?slug='.$page->getSlug().'-en') ?> 
       </td>
       <td>
-          <?php echo ajax_link($page->getTitle(), 'page/edit?slug='.$page->getSlug()) ?><br/>
+          <?php echo ajax_link($page->getPageType().' &gt; '.$page->getTitle(), 'page/edit?slug='.$page->getSlug()) ?><br/>
       <i style="color: #666;font-size: 10px;"><?php echo $page->getSlug() ?></i>
       </td>
-      <td style="font-size: 11px;"><?php echo $page->getPageType() ?></td>
       <td style="font-size: 11px;">
         <a class="button small left" href="http://www.gamers-assembly.net/fr/page/<?=$page->getSlug()?>" target="_blank">Apercu</a>
         <!-- <?php echo ajax_link('Modifier', 'page/edit?slug='.$page->getSlug()) ?> -->

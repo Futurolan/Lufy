@@ -1,0 +1,118 @@
+body {
+  background-image: url('mfjv2013/background-affiche.png'), url('mfjv2013/background-ldlc'), url('mfjv2013/background.png');
+  background-position: center bottom, center top, center top;
+  background-attachment: fixed, fluid, fluid; 
+  background-repeat: no-repeat, no-repeat, repeat-y;
+  
+}
+
+a {
+  color: #4d79ac;
+}
+a:hover {
+  color: #1b5395;
+  color: #d5303f;
+}
+
+#page {
+
+}
+
+header {
+  background: url('mfjv2013/header.png') no-repeat center;
+  height: 100px;
+}
+
+nav.navbar {
+
+}
+.brand {
+  display: block;
+  position: relative;
+  top: -10px;
+  left: 20px;
+  margin-bottom: -20px;
+  width: 50px;
+  height: 40px;
+  border: none;
+  background: transparent url('mfjv2013/brand.png') no-repeat;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.brand:hover {
+  top: -10px;
+  margin-bottom: -30px;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#sidebar_user {
+  background-color: #ffffff;
+  border: solid 1px #ddd;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+#content, #sidebar {
+  background-color: #ffffff;
+  padding: 20px;
+  border: solid 1px #ddd;
+  border-radius: 5px;
+}
+
+#content {
+}
+#content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 0px;
+  border-bottom: solid 1px #ddd;
+}
+#content h2:first-child {
+  margin-top: -10px;
+}
+#content h3 {
+  font-size: 20px;
+}
+#content h4 {
+  font-size: 18px;
+}
+#content h5 {
+  font-size: 16px;
+}
+
+
+#sidebar {
+
+}
+#sidebar h3 {
+  font-size: 18px; 
+}
+#sidebar h3:first-child {
+  margin-top: -10px;
+}
+
+footer {
+  background-color: #111;
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 500px;
+  padding-bottom: 20px;
+}
+
+footer h3 {
+  font-size: 16px;
+}
+
+
+/** Class **/
+.news-list {
+  font-size: 12px;
+  border-bottom: solid 1px #ddd;
+}
+.news-list:last-child {
+  border: none;
+}
+.news-list .label {
+  font-size: 10px;
+}

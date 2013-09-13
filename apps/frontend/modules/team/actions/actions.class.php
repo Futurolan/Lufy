@@ -200,6 +200,7 @@ class teamActions extends FrontendActions
     $team_player = Doctrine_core::getTable('teamplayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $this->getUser()->getGuardUser()->getId());
     $team_player->delete();
 
+    $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez quitte l\'equipe'));
     $this->redirect('user/profile');
 
   }
@@ -215,9 +216,9 @@ class teamActions extends FrontendActions
 
     $this->forward404Unless($team = Doctrine::getTable('team')->findOneByAdminteamId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')));
     $players = Doctrine_Query::create()
-            ->from('teamplayer')
-            ->where('team_id = ' . $team->getIdTeam())
-            ->execute();
+      ->from('teamplayer')
+      ->where('team_id = ' . $team->getIdTeam())
+      ->execute();
 
     $mail = Doctrine::getTable('mail')->findOneByName('mail_team_delete');
     foreach ($players as $player):
@@ -321,9 +322,11 @@ class teamActions extends FrontendActions
         $team_player->setIsCaptain(1);
         $team_player->save();
 
-        $this->redirect('team/view?slug=' . $team->getSlug());
+        $this->redirect('@team_view?slug=' . $team->getSlug());
       }
     }
+
+    $this->setLayout('user');
   }
 
   /**
@@ -339,7 +342,7 @@ class teamActions extends FrontendActions
     {
       $team = $form->save();
       $team->save();
-      $this->redirect('team/view?slug=' . $team->getSlug());
+      $this->redirect('@team_view?slug=' . $team->getSlug());
     }
   }
 
@@ -352,10 +355,10 @@ class teamActions extends FrontendActions
     if ($request->isXmlHttpRequest())
     {
       $this->results = Doctrine_Query::create()
-              ->select('u.id, u.username')
-              ->from('sfGuardUser u')
-              ->where('u.username LIKE ?', $request->getParameter('query') . '%')
-              ->execute();
+        ->select('u.id, u.username')
+        ->from('sfGuardUser u')
+        ->where('u.username LIKE ?', $request->getParameter('query') . '%')
+        ->execute();
 
       $this->setLayout(false);
       echo json_encode($this->results->toArray());
@@ -365,7 +368,8 @@ class teamActions extends FrontendActions
     {
       $this->team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug'));
       $this->forward404Unless($this->team);
+
+      $this->setLayout('user');
     }
   }
-
 }

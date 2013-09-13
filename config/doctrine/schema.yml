@@ -752,6 +752,11 @@ TournamentAdmin:
       local: tournament_id
       foreign: id_tournament
       type: one
+    SfGuardUser:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
 
 TournamentSlot:
   connection: doctrine
