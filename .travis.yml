@@ -1,0 +1,17 @@
+# Configuration
+# Travis CI
+
+language: php
+php:
+  - 5.3
+
+before_script:
+  - "./configure.sh"
+script:
+  - "php symfony doctrine:build --all --no-confirmation --and-data-load
+after_script:
+  - "php symfony test:all"
+
+branches:
+  only:
+    - master
