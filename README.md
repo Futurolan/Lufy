@@ -1,5 +1,7 @@
 # Lufy
 
+[![Build Status](https://travis-ci.org/Futurolan/Lufy.png?branch=master)](https://travis-ci.org/Futurolan/Lufy)
+
 ## Requirements
 
 * Apache 2.x
