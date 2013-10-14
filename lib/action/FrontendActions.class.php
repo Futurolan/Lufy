@@ -16,6 +16,11 @@ class FrontendActions extends LufyActions
 
   public function postExecute()
   {
+    if ($this->getRequest()->isXmlHttpRequest())
+    {
+      $this->setLayout('default');
+    }
+
     parent::postExecute();
   }
 }

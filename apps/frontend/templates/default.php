@@ -1,10 +1,4 @@
-<div class="span2">
-  <div id="sidebar_user">
-    <?php include_partial('global/user') ?>
-  </div>
-</div>
-
-<div class="span7">
+<div class="span9">
   <div id="content">
     <?php echo $sf_content?>
   </div>

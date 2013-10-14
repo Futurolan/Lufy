@@ -50,5 +50,18 @@
    })();
   </script>
 
+  <script>
+    function loadPage(url) {
+      console.log('getAjax started...');
+      $.get(
+        url,
+        {},
+        function success(data) {
+          $('#wrap').html(data);
+        }
+      );
+      console.log('getAjax ended...');
+    }
+  </script>
 </body>
 </html>

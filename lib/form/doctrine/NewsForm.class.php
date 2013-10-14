@@ -14,12 +14,13 @@ class NewsForm extends BaseNewsForm
   {
     unset($this['created_at'], $this['updated_at'], $this['slug']);
 
-    $this->widgetSchema['user_id']->setDefault(sfContext::getInstance()->getUser()->getGuardUser()->getId());
+//    $this->widgetSchema['user_id']->setDefault(sfContext::getInstance()->getUser()->getGuardUser()->getId());
 
     $users_list = Doctrine_Query::create()
         ->from('SfGuardUser u')
-        ->where('u.id = '.sfContext::getInstance()->getUser()->getGuardUser()->getId())
-        ->orWhere('u.is_super_admin = ?', '1');
+//        ->where('u.id = '.sfContext::getInstance()->getUser()->getGuardUser()->getId())
+//        ->orWhere('u.is_super_admin = ?', '1');
+        ->where('u.is_super_admin = ?', '1');
 
     $this->widgetSchema['user_id'] = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('SfGuardUser'), 'add_empty' => false, 'query' => $users_list));
     $this->widgetSchema['title'] = new sfWidgetFormInput(array(), array('size' => 43));

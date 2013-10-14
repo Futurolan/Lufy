@@ -1,6 +1,7 @@
 cache/*
 log/*
 web/uploads/*
+web/robot.txt
 config/databases.yml
 config/propel.ini
 data/sql/*
@@ -14,3 +15,6 @@ lib/model/om/*
 lib/model/map/*
 nbproject/*
 data/lock/*.lck
+apps/newbackend*
+web/newbackend*
+test/functional/newbackend*

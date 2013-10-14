@@ -1,4 +1,6 @@
-<h2>Statistiques > Tshirts</h2>
+<h2>Statistiques > Utilisateurs</h2>
+
+<h3>Repartition des utilisateurs par date de naissance</h3>
 
 <div id="chart"></div>
 
@@ -13,29 +15,24 @@ function drawChart()
   var data = google.visualization.arrayToDataTable(<?=json_encode($data)?>);
 
   var options = {
-    height: 500,
+    height: 600,
     width: '100%',
     fontSize: 12,
     legend: 'none',
-    trendlines: { 1: {} },
     vAxis: {
-      title: 'Tailles de tshirt',
+      title: 'Age des utilisateurs',
     },
     hAxis: {
-      minValue: 0,
+      minValue: 10,
+      maxValue: 60,
     },
     chartArea: {
       width: '85%',
-      height: '80%',
+      height: '85%',
     },
   };
 
-  var chart = new google.visualization.BarChart(document.getElementById('chart'));
+  var chart = new google.visualization.LineChart(document.getElementById('chart'));
   chart.draw(data, options);
 }
 </script>
-
-<br/><br/>
-<div style="text-align: center; font-size: 18px;">
-  <?=$total?> utilisateurs ont renseign&eacute; leur taille de tshirt
-</div>

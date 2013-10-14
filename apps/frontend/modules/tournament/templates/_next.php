@@ -1,5 +1,5 @@
 <?php foreach ($tournaments as $tournament): ?>
-  <div class="tournament" style="background-image: url('/uploads/jeux/icones/<?php echo $tournament->getLogourl(); ?>');"><?php echo link_to($tournament->getName(), 'tournament/view?slug='.$tournament->getSlug()); ?></a></div>
+  <div class="tournament" style="background-image: url('/uploads/jeux/icones/<?php echo $tournament->getLogourl(); ?>');"><?php echo ajax_link($tournament->getName(), 'tournament/view?slug='.$tournament->getSlug()); ?></a></div>
   <?php
   // Recuperer le taux de remplissage du tournoi
   ?>

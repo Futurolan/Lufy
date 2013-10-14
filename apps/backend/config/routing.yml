@@ -3,27 +3,27 @@
 
 #sfGuard
 sf_guard_signin:
-  url:   /login
+  url:   /backend/login
   param: { module: sfGuardAuth, action: signin }
 
 sf_guard_signout:
-  url:   /logout
+  url:   /backend/logout
   param: { module: sfGuardAuth, action: signout }
 
 sf_guard_forgot_password:
-  url: /forgot_password
+  url: /backend/forgot_password
   param: { module: sfGuardForgotPassword, action: index }
 
 # default rules
 homepage:
-  url:   /
+  url:   /backend/
   param: { module: main, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules
 default_index:
- url:   /:module
+ url:   /backend/:module
  param: { action: index }
 
 default:
-  url:   /:module/:action/*
+  url:   /backend/:module/:action/*
