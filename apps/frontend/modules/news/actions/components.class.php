@@ -13,11 +13,10 @@ class newsComponents extends sfComponents
     if ($this->getUser()->getCulture() == 'en')
     {
       $this->actualites = Doctrine_Query::create()
-              ->select('n.title, n.summary, n.publish_on, n.slug, nt.logourl, u.username, COUNT(c.id_comment) AS nb_comment')
+              ->select('n.title, n.summary, n.publish_on, n.slug, nt.logourl, u.username')
               ->from('News n')
               ->leftJoin('n.NewsType nt')
               ->leftJoin('n.SfGuardUser u')
-              ->leftJoin('n.Comment c')
               ->where('n.slug LIKE "%-en"')
               ->andWhere('n.status = 1')
               ->andWhere('n.publish_on < NOW()')
@@ -29,11 +28,10 @@ class newsComponents extends sfComponents
     else
     {
       $this->actualites = Doctrine_Query::create()
-              ->select('n.title, n.summary, n.publish_on, n.slug, nt.logourl, u.username, COUNT(c.id_comment) AS nb_comment')
+              ->select('n.title, n.summary, n.publish_on, n.slug, nt.logourl, u.username')
               ->from('News n')
               ->leftJoin('n.NewsType nt')
               ->leftJoin('n.SfGuardUser u')
-              ->leftJoin('n.Comment c')
               ->where('n.slug NOT LIKE "%-en"')
               ->andWhere('n.status = 1')
               ->andWhere('n.publish_on < NOW()')
@@ -54,11 +52,10 @@ class newsComponents extends sfComponents
     if ($this->getUser()->getCulture() == 'en')
     {
       $this->actualites = Doctrine_Query::create()
-              ->select('n.title, n.publish_on, n.slug, nt.logourl, u.username, COUNT(c.id_comment) AS nb_comment')
+              ->select('n.title, n.publish_on, n.slug, nt.logourl, u.username')
               ->from('News n')
               ->leftJoin('n.NewsType nt')
               ->leftJoin('n.SfGuardUser u')
-              ->leftJoin('n.Comment c')
               ->where('n.slug LIKE "%-en"')
               ->andWhere('n.status = 1')
               ->andWhere('n.publish_on < NOW()')
@@ -70,11 +67,10 @@ class newsComponents extends sfComponents
     else
     {
       $this->actualites = Doctrine_Query::create()
-              ->select('n.title, n.publish_on, n.slug, nt.logourl, u.username, COUNT(c.id_comment) AS nb_comment')
+              ->select('n.title, n.publish_on, n.slug, nt.logourl, u.username')
               ->from('News n')
               ->leftJoin('n.NewsType nt')
               ->leftJoin('n.SfGuardUser u')
-              ->leftJoin('n.Comment c')
               ->where('n.slug NOT LIKE "%-en"')
               ->andWhere('n.status = 1')
               ->andWhere('n.publish_on < NOW()')

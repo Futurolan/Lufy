@@ -24,7 +24,7 @@
     text-align: justify;
 }
 #content .box {
-    width: 720px;
+    width: 825px;
 }
 #content .box .title {
     font-size: 16px;

@@ -48,7 +48,6 @@
       <td style="font-size: 11px;"><?php echo $news->getNewsType() ?></td>
       <td style="font-size: 11px;">
        <?=ajax_component('Apercu', 'news/preview?id_news='.$news->getIdNews(), array('class' => 'button small','width' => 760))?>
-       <?=ajax_component($news['nb_comment'].' commentaires', 'news/comments?id_news='.$news->getIdNews(), array('class' => 'button small'))?>
       </td>
     </tr>
     <?php endforeach; ?>

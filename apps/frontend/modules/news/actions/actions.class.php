@@ -18,15 +18,13 @@ class newsActions extends FrontendActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->pager = new sfDoctrinePager('News', '15');
+    $this->pager = new sfDoctrinePager('News', '20');
     if ($this->getUser()->getCulture() == 'en')
     {
       $this->pager->setQuery(Doctrine_Query::create()
-                      ->select('n.title, n.summary, n.publish_on, n.slug, nt.logourl, u.username, COUNT(c.id_comment) AS nb_comment')
+                      ->select('n.title, n.publish_on, n.slug, nt.logourl')
                       ->from('News n')
                       ->leftJoin('n.NewsType nt')
-                      ->leftJoin('n.SfGuardUser u')
-                      ->leftJoin('n.Comment c')
                       ->where('n.slug LIKE "%-en"')
                       ->andWhere('n.status = 1')
                       ->andWhere('n.publish_on < NOW()')
@@ -36,11 +34,9 @@ class newsActions extends FrontendActions
     else
     {
       $this->pager->setQuery(Doctrine_Query::create()
-                      ->select('n.title, n.summary, n.publish_on, n.slug, nt.logourl, u.username, COUNT(c.id_comment) AS nb_comment')
+                      ->select('n.title, n.publish_on, n.slug, nt.logourl')
                       ->from('News n')
                       ->leftJoin('n.NewsType nt')
-                      ->leftJoin('n.SfGuardUser u')
-                      ->leftJoin('n.Comment c')
                       ->where('n.slug NOT LIKE "%-en"')
                       ->andWhere('n.status = 1')
                       ->andWhere('n.publish_on < NOW()')
@@ -61,15 +57,7 @@ class newsActions extends FrontendActions
   {
     $this->news = Doctrine::getTable('news')->findOneBySlug($request->getParameter('slug', ''));
     $this->forward404Unless($this->news);
+
     $this->response->setTitle($this->news->title);
-
-    $this->commentForm = new commentForm();
-    $this->user = $this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
-
-    $this->comments = doctrine_query::create()
-            ->from('comment')
-            ->where('news_id = ' . $this->news->getIdNews())
-            ->execute();
   }
-
 }

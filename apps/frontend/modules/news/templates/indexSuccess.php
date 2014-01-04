@@ -1,25 +1,74 @@
 <?php use_helper('bb') ?>
 
-<h2>Les news</h2>
+<h2><?=__('News')?></h2>
 
-<table>
-    <?php foreach ($pager->getResults() as $actualite): ?>
-    <tr>
-      <td width="70" valign="top"><?php echo image_tag('/uploads/news/icones/'.$actualite->getNewsType()->getLogourl())?></td>
-      <td valign="top">
-        <h4><?php echo $actualite->getTitle()?></h4>
-        <span style="margin-bottom: 0px; text-align: right; font-size: 10px; color: grey;">
-          Publi&eacute; le <?php echo format_date($actualite->getPublishOn(), 'dd/MM/yyy')?> -
-          <?php include_component('comment', 'nbCommentByNews', array('news_id' => $actualite->getIdNews()));?> -
-          <a href="<?php echo url_for('news/view?slug='.$actualite->getSlug())?>">Lire la suite</a>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td height="30" colspan="2"></td>
-    </tr>
-    <?php endforeach; ?>
-</table>
+<?php foreach ($pager->getResults() as $actualite): ?>
+  <div class="news">
+    <div class="news-date">
+      <div class="news-date-day-month"><?php echo format_date($actualite->getPublishOn(), 'dd/MM')?></div>
+      <div class="news-date-year"><?php echo format_date($actualite->getPublishOn(), 'yyy')?></div>
+    </div>
+    <div class="news-icone">
+      <img src="http://www.gamers-assembly.net/uploads/news/icones/<?=$actualite->getNewsType()->getLogourl()?>" />
+      <?php echo image_tag('/uploads/news/icones/'.$actualite->getNewsType()->getLogourl())?>
+    </div>
+    <div class="news-title">
+      <a href="<?php echo url_for('news/view?slug='.$actualite->getSlug())?>">
+        <?php echo $actualite->getTitle()?>
+      </a>
+    </div>
+  </div>
+<?php endforeach; ?>
+
+<style>
+.news {
+  clear: left;
+}
+.news-date, .news-icone, .news-title {
+  float: left;
+}
+.news-icone, .news-title {
+  line-height: 50px;
+}
+.news-date {
+  margin: 5px 5px 15px 5px;
+  padding: 5px;
+  text-align: center;
+  background-color: #eee;
+  border: solid 1px #ddd;
+}
+.news-date-day-month {
+  margin: -5px;
+  padding: 5px;
+  width: 35px;
+  line-height: 18px;
+}
+.news-date-year {
+  margin: 2px -5px -5px -5px;
+  padding: 0px 5px 0px 5px;
+  width: 35px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #fff;
+  background-color: #333;
+}
+.news-icone {
+  margin: 0px 10px 0px 10px;
+}
+.news-icone img {
+  width: 50px;
+  height: 50px;
+}
+.news-title {
+  font-size: 16px;
+}
+</style>
+
+<br/><br/>
+<br/><br/>
 
 <div class="pagination" style="text-align: center;">
   <ul>

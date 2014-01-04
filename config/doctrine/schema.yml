@@ -103,35 +103,6 @@ Block:
       type: boolean
       default: false
 
-Comment:
-  connection: doctrine
-  tableName: comment
-  actAs:
-    Timestampable: ~
-  columns:
-    id_comment:
-      type: integer(4)
-      primary: true
-      autoincrement: true
-    news_id:
-      type: integer(4)
-    user_id:
-      type: integer(8)
-    content:
-      type: text
-    status:
-      type: integer(2)
-      default: 1
-  relations:
-    News:
-      local: news_id
-      foreign: id_news
-      type: one
-    SfGuardUser:
-      class: sfGuardUser
-      local: user_id
-      foreign: id
-      type: one
 
 Event:
   connection: doctrine
@@ -351,10 +322,6 @@ News:
       class: sfGuardUser
       local: user_id
       foreign: id
-      type: one
-    Comment:
-      local: id_news
-      foreign: news_id
       type: one
 
 NewsType:

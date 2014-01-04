@@ -25,9 +25,8 @@ class newsActions extends sfActions
       ->orderBy('publish_on DESC'));
      */
     $this->pager->setQuery(Doctrine_Query::create()
-                    ->select('n.*, COUNT(c.id_comment) as nb_comment, t.*')
+                    ->select('n.*, t.*')
                     ->from('News n')
-                    ->leftJoin('n.Comment c')
                     ->leftJoin('n.NewsType t')
                     ->groupBy('n.id_news')
                     ->orderBy('n.publish_on DESC')
@@ -67,19 +66,6 @@ class newsActions extends sfActions
       $news->setStatus('1');
     }
     $news->save();
-  }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeComments(sfWebRequest $request)
-  {
-    $this->news = Doctrine::getTable('News')->findOneByIdNews($request->getParameter('id_news'));
-    $this->forward404Unless($this->news);
-    $this->comments = Doctrine_Core::getTable('Comment')->findByNewsId($this->news->getIdNews());
-    $this->setLayout('popup');
   }
 
   /**
