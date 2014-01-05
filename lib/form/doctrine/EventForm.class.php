@@ -12,5 +12,24 @@ class EventForm extends BaseEventForm
 {
   public function configure()
   {
+    unset(
+      $this['slug']
+    );
+/*
+    unset(
+      $this['id_event'],
+      $this['slug']
+    );
+
+    $this->setWidgets(array(
+      'name'                  => new sfWidgetFormInputText(),
+      'description'           => new sfWidgetFormTextarea(),
+      'image'                 => new sfWidgetFormInputText(),
+      'start_at'              => new sfWidgetFormDateTime(),
+      'end_at'                => new sfWidgetFormDateTime(),
+      'start_registration_at' => new sfWidgetFormDateTime(),
+      'end_registration_at'   => new sfWidgetFormDateTime(),
+    ));
+*/
   }
 }

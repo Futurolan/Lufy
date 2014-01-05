@@ -37,8 +37,6 @@
                     <li><?= ajax_link('Joueurs', 'user/index') ?></li>
                     <li><?= ajax_link('Equipes', 'team/index') ?></li>
                     <li><?= ajax_link('Tournois', 'tournament_slot/index') ?></li>
-                    <li><?= ajax_link('Joueurs Poker', 'poker_tournament_player/index') ?></li>
-                    <li><?= ajax_link('Tournois Poker', 'poker_tournament/index') ?></li>
                     <li><?= ajax_link('Evenements', 'event/index') ?></li>
                 </ul>
 

@@ -69,13 +69,6 @@
           <?php echo $form['image'] ?>
         </td>
       </tr>
-      <tr>
-        <th><?php echo $form['slug']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['slug']->renderError() ?>
-          <?php echo $form['slug'] ?>
-        </td>
-      </tr>
     </tbody>
   </table>
 </form>

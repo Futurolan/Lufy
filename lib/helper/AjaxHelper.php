@@ -109,7 +109,8 @@ function ajax_link()
   $arguments = func_get_args();
   if (empty($arguments[1]) || is_array($arguments[1]) || '@' == substr($arguments[1], 0, 1) || false !== strpos($arguments[1], '/'))
   {
-    return call_user_func_array('ajax_link1', $arguments);
+//    return call_user_func_array('ajax_link1', $arguments);
+    return call_user_func_array('link_to1', $arguments);
   }
   else
   {
@@ -117,7 +118,8 @@ function ajax_link()
     {
       $arguments[2] = array();
     }
-    return call_user_func_array('ajax_link2', $arguments);
+//    return call_user_func_array('ajax_link2', $arguments);
+    return call_user_func_array('link_to2', $arguments);
   }
 }
 
