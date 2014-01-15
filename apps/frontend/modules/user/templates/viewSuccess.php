@@ -25,7 +25,7 @@
   </tr>
   <tr>
     <td>
-      <?php echo __('Equipe')?>
+      <?php echo __('Equipes')?>
     </td>
     <td><?php
         $teamPlayers = $user->getTeamPlayer();

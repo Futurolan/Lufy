@@ -1,6 +1,6 @@
 <div class="row">
   <div class="span3">
-    <h3>Contact</h3>
+    <h3><?php echo __('Contact');?></h3>
     Association Futurolan<br/>
     11, rue Paul Gauvin<br/>
     86280 Saint Benoit<br/><br/>
@@ -11,18 +11,18 @@
 
   <div class="span3">
     <h3>Menu</h3>
-    - <?php echo link_to('Accueil', '@homepage')?><br/>
-    - <?php echo link_to('Informations', 'page/view?slug=informations-pratiques-ga-2011-fr')?><br/>
-    - <?php echo link_to('News', 'news/index')?><br/>
-    - <?php echo link_to('Palmarès', 'page/view?slug=palmares')?><br/>
-    - <?php echo link_to('Photos/Vidéos', 'gallery/index')?><br/>
-    - <?php echo link_to('Presse', 'page/view?slug=presse')?><br/>
-    - <?php echo link_to('Contact', 'page/view?slug=contact')?><br/>
-    - <?php echo link_to('Mentions l&eacute;gales', 'page/view?slug=mentions-legales')?>
+    - <?php echo link_to(__('Accueil'), '@homepage')?><br/>
+    - <?php echo link_to(__('Informations'), 'page/view?slug=informations-pratiques-ga-2011-fr')?><br/>
+    - <?php echo link_to(__('News'), 'news/index')?><br/>
+    - <?php echo link_to(__('Palmarès'), 'page/view?slug=palmares')?><br/>
+    - <?php echo link_to(__('Photos/Vidéos'), 'gallery/index')?><br/>
+    - <?php echo link_to(__('Presse'), 'page/view?slug=presse')?><br/>
+    - <?php echo link_to(__('Contact'), 'page/view?slug=contact')?><br/>
+    - <?php echo link_to(__('Mentions l&eacute;gales'), 'page/view?slug=mentions-legales')?>
   </div>
 
   <div class="span3">
-    <h3>Les r&eacute;seaux</h3>
+    <h3><?php echo __('Les r&eacute;seaux');?></h3>
     - <a href="http://www.facebook.com/group.php?gid=5666906838&ref=ts" target="_blank">La GA sur Facebook</a><br/>
     - <a href="http://twitter.com/GamersAssembly" target="_blank">La GA sur Twitter</a><br/>
     - <a href="http://www.gamersband.com/member/gamersassembly" target="_blank">La GA sur Gamers Band</a><br/>
@@ -32,7 +32,7 @@
   </div>
 
   <div class="span3">
-    <h3>Liens pratiques</h3>
+    <h3><?php echo __('Liens pratiques');?></h3>
     - <a href="http://www.mastersjeuvideo.org/" target="_blank">Les Masters du Jeu Vidéo</a><br/>
     - <a href="http://www.lanalliance.org/" target="_blank">L'association LanAlliance</a><br/>
     - <a href="http://www.azertyclub.com/" target="_blank">L'association Cyber Azerty Club</a><br/>

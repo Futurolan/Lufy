@@ -16,7 +16,7 @@
       <li><em><?php echo __('Aucune equipe'); ?></em></li>
   <?php endif; ?>
   <li> </li>
-  <li style="margin-top: 10px;"><?php echo link_to('Creer une equipe', 'team/new'); ?></li>
+  <li style="margin-top: 10px;"><?php echo link_to(__('Creer une equipe'), 'team/new'); ?></li>
 
   <li class="divider"></li>
 

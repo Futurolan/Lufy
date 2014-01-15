@@ -39,24 +39,24 @@ body, tr, td {
 </div>
 <br/>
 <div class="flashbox info">
-    Bulletin de participation &agrave; imprimer et &agrave; pr&eacute;senter &agrave; l'accueil lors de votre arriv&eacute;e avec une pi&egrave;ce d'identit&eacute;.
+    <?php echo __('Bulletin de participation &agrave; imprimer et &agrave; pr&eacute;senter &agrave; l\'accueil lors de votre arriv&eacute;e avec une pi&egrave;ce d\'identit&eacute;.');?>
 </div>
 <br/>
 <table width="600px">
     <tr>
-        <th>Nom</th>
+        <th><?php echo __('Nom');?></th>
         <td><?php echo $user->getLastName()?></td>
-        <th>Prenom</th>
+        <th><?php echo __('Prenom');?></th>
         <td><?php echo $user->getFirstName()?></td>
     </tr>
     <tr>
-        <th>Pseudo</th>
+        <th><?php echo __('Pseudo');?></th>
         <td><?php echo $user->getUsername()?></td>
-        <th>Date de naissance</th>
+        <th><?php echo __('Date de naissance');?></th>
         <td><?php echo $user->getBirthdate()?></td>
     </tr>
     <tr>
-        <th>Equipe</th>
+        <th><?php echo __('Equipes');?></th>
         <td>
             <?php foreach ($user->getTeam() as $team): ?>
                 <?php echo $team->getName()?>
@@ -70,15 +70,15 @@ body, tr, td {
         </td>
     </tr>
     <tr>
-        <th>Code equipe</th>
+        <th><?php echo __('Code equipe');?></th>
         <td>
             <?php foreach ($user->getTeam() as $team): ?>
                 <?php echo $team->getSlug()?>
             <?php endforeach; ?>
         </td>
-        <th>Code joueur</th>
+        <th><?php echo __('Code joueur');?></th>
         <td><?php echo $user->getLicenceGa()?></td>
     </tr>
 </table>
 <br><br>
-<div class="barcode" onload="javascript:$('.barcode').barcode('<?php echo $user->getLicenceGa()?>', 'ean13');">barcode</div>
+<div class="barcode" onload="javascript:$('.barcode').barcode('<?php echo $user->getLicenceGa()?>', 'ean13');"><?php echo __('Code barre');?></div>
