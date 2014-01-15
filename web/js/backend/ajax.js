@@ -3,7 +3,7 @@
  */
 
 $(window).hashchange( function() {
- modalPopup('center', 300, 200, 20, '#dddddd', 40, '#ffffff', '#ccc', 5, 5, 300, 'http://dev-backend.gamers-assembly.net/images/ajax-loader.gif', 'http://dev-backend.gamers-assembly.net/images/ajax-loader.gif');
+ modalPopup('center', 300, 200, 20, '#dddddd', 40, '#ffffff', '#ccc', 5, 5, 300, '/images/ajax_loader.gif', '/images/ajax_loader.gif');
   $.get(
     location.hash.substring(1),
     {},
@@ -17,7 +17,7 @@ $(window).hashchange( function() {
 
 function loadPage(url) {
 /*
-  modalPopup('center', 300, 200, 20, '#dddddd', 40, '#ffffff', '#ccc', 5, 5, 300, 'http://dev-backend.gamers-assembly.net/images/ajax-loader.gif', 'http://dev-backend.gamers-assembly.net/images/ajax-loader.gif');
+  modalPopup('center', 300, 200, 20, '#dddddd', 40, '#ffffff', '#ccc', 5, 5, 300, '/images/ajax_loader.gif', '/images/ajax_loader.gif');
   $.get(
     url,
     {},

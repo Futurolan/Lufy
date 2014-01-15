@@ -69,6 +69,20 @@
           <?php echo $form['image'] ?>
         </td>
       </tr>
+      <tr>
+        <th><?php echo $form['address']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['address']->renderError() ?>
+          <?php echo $form['address'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['map_url']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['map_url']->renderError() ?>
+          <?php echo $form['map_url'] ?>
+        </td>
+      </tr>
     </tbody>
   </table>
 </form>

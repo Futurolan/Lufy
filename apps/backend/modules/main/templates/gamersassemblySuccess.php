@@ -11,7 +11,6 @@ n'h&eacute;sitez pas &agrave; en faire part sur l'adresse email webmaster@futuro
     <h3>Statistiques</h3>
     <ul>
         <li><?=$nb_news?> actualit&eacute;s publi&eacute;es</li>
-        <li><?=$nb_comments?> commentaires</li>
         <li><?=$nb_pages?> pages r&eacute;dig&eacute;es</li>
         <li><?=$nb_partners?> partenaires</li>
         <li><?=$nb_users?> comptes utilisateurs</li>

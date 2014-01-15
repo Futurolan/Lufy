@@ -1,0 +1,28 @@
+body, header {
+  background-color: #090909;
+}
+
+body {
+  background: url('background.png') center top;
+  background-color: #f6e8d5;
+}
+
+header {
+  background: url('header.png') no-repeat center;
+}
+
+footer {
+  background-color: #111;
+}
+
+.brand {
+  background: transparent url('brand.png') no-repeat;
+}
+
+a {
+  color: #d38100;
+}
+
+.label-info {
+  background-color: #e59c00;
+}

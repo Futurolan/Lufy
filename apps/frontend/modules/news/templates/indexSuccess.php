@@ -28,32 +28,34 @@
   float: left;
 }
 .news-icone, .news-title {
-  line-height: 50px;
+  line-height: 40px;
 }
 .news-date {
   margin: 5px 5px 15px 5px;
-  padding: 5px;
+  padding: 3px;
   text-align: center;
   background-color: #eee;
   border: solid 1px #ddd;
 }
 .news-date-day-month {
-  margin: -5px;
-  padding: 5px;
+  margin: -3px;
+  padding: 3px;
   width: 35px;
+  font-size: 12px;
   line-height: 18px;
 }
 .news-date-year {
-  margin: 2px -5px -5px -5px;
-  padding: 0px 5px 0px 5px;
+  margin: 2px -4px -5px -4px;
+  padding: 0px 4px 0px 4px;
   width: 35px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
   line-height: 18px;
   letter-spacing: 1px;
   text-align: center;
   color: #fff;
   background-color: #333;
+  border: solid 1px #333;
 }
 .news-icone {
   margin: 0px 10px 0px 10px;

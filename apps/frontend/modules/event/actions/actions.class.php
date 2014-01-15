@@ -10,5 +10,11 @@
  */
 class eventActions extends FrontendActions
 {
+  public function executeView(sfWebRequest $request)
+  {
+    $this->event = Doctrine::getTable('event')->findOneBySlug($request->getParameter('slug'));
+    $this->forward404Unless($this->event);
 
+    $this->page = Doctrine::getTable('page')->findOneBySlug('event-'.$request->getParameter('slug'));
+  }
 }

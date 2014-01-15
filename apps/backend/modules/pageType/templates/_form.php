@@ -20,9 +20,9 @@
             </tfoot>
             <tbody>
             <?php echo $form->renderGlobalErrors() ?>
-                        <tr>
-                            <th><?php echo $form['label']->renderLabel() ?></th>
-                            <td>
+                <tr>
+                    <th><?php echo $form['label']->renderLabel() ?></th>
+                    <td>
                     <?php echo $form['label']->renderError() ?>
                     <?php echo $form['label'] ?>
                     </td>
@@ -34,12 +34,6 @@
                     <?php echo $form['description'] ?>
                     </td>
                 </tr>
-                <tr>
-                    <th><?php echo $form['permission']->renderLabel() ?></th>
-                    <td>
-                    <?php echo $form['permission']->renderError() ?>
-                    <?php echo $form['permission'] ?>
-                </td>
             </tr>
         </tbody>
     </table>

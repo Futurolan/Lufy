@@ -17,7 +17,7 @@ dev:
     cache:                  false
     no_script_name:         true
     etag:                   false
-    i18n:                   true
+    i18n:                   false
 
 test:
   .settings:

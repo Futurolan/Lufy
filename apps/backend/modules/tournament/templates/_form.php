@@ -99,13 +99,6 @@
         </td>
       </tr>
       <tr>
-        <th>URL du règlement</th>
-        <td>
-          <?php echo $form['rules_url']->renderError() ?>
-          <?php echo $form['rules_url'] ?>
-        </td>
-      </tr>
-      <tr>
         <th>Description</th>
         <td>
           <?php echo $form['description']->renderError() ?>

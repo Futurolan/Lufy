@@ -17,7 +17,7 @@ default:
     - ../bootstrap/css/bootstrap-responsive.min.css
     - ../font-awesome/css/font-awesome.min.css
     - frontend/styles.css
-    - frontend/galloween2013/styles.css
+    - frontend/ga2014/styles.css
 
   javascripts:
     - jquery-1.7.1.min.js

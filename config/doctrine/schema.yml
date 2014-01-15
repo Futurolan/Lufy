@@ -132,6 +132,12 @@ Event:
     end_registration_at:
       type: timestamp(25)
       notnull: false
+    address:
+      type: text
+      notnull: false
+    map_url:
+      type: text
+      notnull: false
     slug:
       type: string(250)
       notnull: true
@@ -268,9 +274,6 @@ PageType:
     description:
       type: text
       notnull: false
-    permission:
-      type: integer(4)
-      notnull: true
   relations:
     Page:
       local: id_page_type
@@ -666,9 +669,6 @@ Tournament:
     logourl:
       type: string(250)
       notnull: true
-    rules_url:
-      type: string(255)
-      notnull: false
     description:
       type: string(255)
       notnull: false

@@ -1,6 +1,5 @@
 body {
   background-color: #f5f5f5;
-  background: url('galloween2013/background.png') repeat;
 }
 
 #page {
@@ -8,7 +7,6 @@ body {
 }
 
 header {
-  background: url('galloween2013/header.png') no-repeat center;
   height: 135px;
 }
 
@@ -24,7 +22,6 @@ nav.navbar {
   width: 50px;
   height: 40px;
   border: none;
-  background: transparent url('galloween2013/brand.png') no-repeat;
   transition: 0.3s;
 }
 .brand:hover {

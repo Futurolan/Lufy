@@ -15,21 +15,18 @@ class EventForm extends BaseEventForm
     unset(
       $this['slug']
     );
-/*
-    unset(
-      $this['id_event'],
-      $this['slug']
-    );
 
-    $this->setWidgets(array(
-      'name'                  => new sfWidgetFormInputText(),
-      'description'           => new sfWidgetFormTextarea(),
-      'image'                 => new sfWidgetFormInputText(),
-      'start_at'              => new sfWidgetFormDateTime(),
-      'end_at'                => new sfWidgetFormDateTime(),
-      'start_registration_at' => new sfWidgetFormDateTime(),
-      'end_registration_at'   => new sfWidgetFormDateTime(),
-    ));
-*/
+    $this->widgetSchema['description'] = new sfWidgetFormTextarea(array(), array('rows' => 5, 'cols' => 80));
+
+    $files = sfFinder::type('file')->maxdepth(0)->name('*.jpg')->name('*.png')->relative()->in(sfConfig::get('sf_upload_dir').'/event/logo');
+    $logo[0] = '';
+    foreach($files as $file)
+      {
+        $logo[$file] = $file;
+      }
+
+    $this->widgetSchema['image'] = new sfWidgetFormChoice(array('choices' => $logo));
+
+    $this->widgetSchema['address'] = new sfWidgetFormTextarea(array(), array('rows' => 4, 'cols' => 40));
   }
 }

@@ -36,11 +36,6 @@ class mainActions extends sfActions
             ->where('n.status', 1)
             ->fetchOne(array(), Doctrine_Core::HYDRATE_SINGLE_SCALAR);
 
-    $this->nb_comments = Doctrine_Query::create()
-            ->select('COUNT(c.id_comment)')
-            ->from('Comment c')
-            ->fetchOne(array(), Doctrine_Core::HYDRATE_SINGLE_SCALAR);
-
     $this->nb_pages = Doctrine_Query::create()
             ->select('COUNT(p.id_page)')
             ->from('Page p')

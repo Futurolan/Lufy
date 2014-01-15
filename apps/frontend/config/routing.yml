@@ -23,6 +23,11 @@ sf_guard_forgot_password:
   param: { module: sfGuardForgotPassword, action: index }
 
 
+# Event
+event_view:
+  url: /:sf_culture/event/:slug
+  param: { module: event, action: view }
+
 # News
 news_index:
   url: /:sf_culture/news
