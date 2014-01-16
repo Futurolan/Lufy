@@ -331,6 +331,68 @@ class userActions extends FrontendActions
       $this->redirect('user/licenceMasters');
     }
   }
+  
+  /**
+   * @brief
+   * @param
+   * @return
+   */
+  public function executeWeezevent(sfWebRequest $request)
+  {
+    $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
+    $this->weezeventTicket = $user->getSfGuardUserWeezevent();
+
+    if (!$this->weezeventTicket)
+    {
+      $this->weezeventTicket = new SfGuardUserWeezevent();
+      $this->weezeventTicket->setUserId($user->getId());
+    }
+
+    $this->form = new SfGuardUserWeezeventForm($this->weezevent);
+
+    if ($request->isMethod(sfRequest::POST))
+    {
+      $this->processFormWeezevent($request, $this->form, $this->weezevent);
+
+      $this->redirect('user/weezevent');
+    }
+  }
+  
+    /**
+   * @brief
+   * @param
+   * @return
+   */
+  protected function processFormWeezevent(sfWebRequest $request, sfForm $form, SfGuardUserLicenceMasters $licence)
+  {
+     //user_id barcode id_weez_ticket is_valid 
+    // $mfjv = new mfjv();
+    $weezevent = new weezevent();
+    $weezevent->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
+    $barcode = $request->getPostParameter('sf_guard_user_weezevent[barcode]');
+    $result = $weezevent->check($barcode);
+    if ($result)
+    {
+      $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+
+      $weezeventTicket->setBarcode($result->barcode);
+      $weezeventTicket->setId_weez_ticket($result->id_weez_ticket);
+      $weezeventTicket->setIs_valid($result->is_valid);
+      $licence->save();
+
+      $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Votre ticket Weezevent a ete verifiee.'));
+
+      $this->redirect('user/weezevent');
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('La licence est inexistante et/ou le nom saisi sur votre profil ne correspond pas.'));
+
+      $this->redirect('user/licenceMasters');
+    }     
+      
+      
+  }
 
   /**
    * @brief

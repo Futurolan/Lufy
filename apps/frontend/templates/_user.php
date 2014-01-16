@@ -2,6 +2,7 @@
   <li class="nav-header"><?php echo $sf_user->getUsername(); ?></li>
   <li><?php echo link_to(__('Mon profil'), 'user/profile'); ?></li>
   <li><?php echo link_to(__('Mes adresses'), 'user/address'); ?></li>
+  <li><?php echo link_to(__('Ticket Weezevent'), 'user/weezevent'); ?></li>
   <li><?php echo link_to(__('Licence Masters'), 'user/licenceMasters'); ?></li>
   <li><?php echo link_to(__('Taille de tshirt'), 'user/tshirt'); ?></li>
 
