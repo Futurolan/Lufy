@@ -1134,6 +1134,7 @@ SfGuardUserWeezevent:
     barcode:
       type: string(50)
       notnull: true
+      unique : true
     id_weez_ticket:
       type: string(50)
       notnull: true

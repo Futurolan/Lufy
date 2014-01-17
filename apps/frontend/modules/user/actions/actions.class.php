@@ -370,17 +370,19 @@ class userActions extends FrontendActions
      //user_id barcode id_weez_ticket is_valid 
     // $mfjv = new mfjv();
     //$weezevent = new weezevent();
-    $weezevent->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
+    //$weezevent->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
     $barcode = $request->getPostParameter('sf_guard_user_weezevent[barcode]');
-    $result = $weezevent->check($barcode);
+    //$result = $weezevent->check($barcode);
+    $result =$barcode;
     if ($result)
     {
-      $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+      //$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
 
-      $weezeventTicket->setBarcode($result->barcode);
-      $weezeventTicket->setId_weez_ticket($result->id_weez_ticket);
-      $weezeventTicket->setIs_valid($result->is_valid);
-      $licence->save();
+      //$weezevent->setBarcode($result->barcode);
+      $weezevent->setBarcode($result);
+      //$weezeventTicket->setId_weez_ticket($result->id_weez_ticket);
+      //$weezeventTicket->setIs_valid($result->is_valid);
+      $weezevent->save();
 
       $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Votre ticket Weezevent a ete verifiee.'));
 
@@ -388,12 +390,24 @@ class userActions extends FrontendActions
     }
     else
     {
-      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('La licence est inexistante et/ou le nom saisi sur votre profil ne correspond pas.'));
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Le ticket n\'a pu etre validé.'));
 
-      $this->redirect('user/licenceMasters');
+      $this->redirect('user/weezevent');
     }     
       
       
+  }
+    /**
+   * @brief
+   * @param
+   * @return
+   */
+  public function executeDeleteWeezevent(sfWebRequest $request)
+  {
+    $this->redirectUnless($weezevent = Doctrine::getTable('SfGuardUserWeezevent')->findOneByUserId($this->getUser()->getGuardUser()->getId()), 'user/weezevent');
+    $weezevent->delete();
+
+    $this->redirect('user/weezevent');
   }
 
   /**
