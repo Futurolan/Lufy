@@ -341,21 +341,19 @@ class userActions extends FrontendActions
   public function executeWeezevent(sfWebRequest $request)
   {
     $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
-    $this->weezeventTicket = $user->getSfGuardUserWeezevent();
+    $this->weezevent = $user->getSfGuardUserWeezevent();
     
     
-    if (!$this->weezeventTicket)
+    if (!$this->weezevent)
     {
-      //echo 'coin coin'; exit;
-      $this->weezeventTicket = new SfGuardUserWeezevent();
-      $this->weezeventTicket->setUserId($user->getId());
+      $this->weezevent = new SfGuardUserWeezevent();
+      $this->weezevent->setUserId($user->getId());
     }
 
     $this->form = new SfGuardUserWeezeventForm($this->weezevent);
 
     if ($request->isMethod(sfRequest::POST))
     {
-      echo 'coin coin'; exit;
       $this->processFormWeezevent($request, $this->form, $this->weezevent);
 
       $this->redirect('user/weezevent');
@@ -367,11 +365,11 @@ class userActions extends FrontendActions
    * @param
    * @return
    */
-  protected function processFormWeezevent(sfWebRequest $request, sfForm $form, SfGuardUserLicenceMasters $licence)
+  protected function processFormWeezevent(sfWebRequest $request, sfForm $form, SfGuardUserWeezevent $weezevent)
   {
      //user_id barcode id_weez_ticket is_valid 
     // $mfjv = new mfjv();
-    $weezevent = new weezevent();
+    //$weezevent = new weezevent();
     $weezevent->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
     $barcode = $request->getPostParameter('sf_guard_user_weezevent[barcode]');
     $result = $weezevent->check($barcode);
