@@ -79,6 +79,10 @@ team_view:
   param: { module: team, action: view }
 
 # User
+user_weezevent:
+  url: /:sf_culture/user/weezevent
+  param: { module: user, action: weezevent }
+
 user_success:
   url: /:sf_culture/user/success
   param: { module: user, action: success }
@@ -147,9 +151,7 @@ user_delete_masters:
   url: /:sf_culture/user/licence/masters/delete
   param: { module: user, action: deleteLicenceMasters }
 
-user_weezevent:
-  url: /:sf_culture/user/weezevent
-  param: { module: user, action: weezevent }
+
 
 
 

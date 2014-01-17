@@ -13,11 +13,11 @@ prod:
 dev:
   .settings:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
-    web_debug:              false
+    web_debug:              true
     cache:                  false
-    no_script_name:         true
+    no_script_name:         false
     etag:                   false
-    i18n:                   false
+    i18n:                   true
 
 test:
   .settings:

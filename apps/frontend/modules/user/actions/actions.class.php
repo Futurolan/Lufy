@@ -82,11 +82,12 @@ class userActions extends FrontendActions
   public function executeEditProfile(sfWebRequest $request)
   {
     $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getGuardUser()->getId())), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-
+    
     $this->form = new profilForm($user);
 
     if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
     {
+         
       if ($this->processForm($request, $this->form))
       {
         $this->redirect('user/profile');
@@ -341,9 +342,11 @@ class userActions extends FrontendActions
   {
     $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
     $this->weezeventTicket = $user->getSfGuardUserWeezevent();
-
+    
+    
     if (!$this->weezeventTicket)
     {
+      //echo 'coin coin'; exit;
       $this->weezeventTicket = new SfGuardUserWeezevent();
       $this->weezeventTicket->setUserId($user->getId());
     }
@@ -352,6 +355,7 @@ class userActions extends FrontendActions
 
     if ($request->isMethod(sfRequest::POST))
     {
+      echo 'coin coin'; exit;
       $this->processFormWeezevent($request, $this->form, $this->weezevent);
 
       $this->redirect('user/weezevent');

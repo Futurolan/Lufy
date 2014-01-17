@@ -1140,3 +1140,10 @@ SfGuardUserWeezevent:
     is_valid:
       type: boolean
       default: false
+  relations:
+    SfGuardUser:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: one
