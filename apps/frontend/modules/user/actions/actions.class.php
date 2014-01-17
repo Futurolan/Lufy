@@ -354,8 +354,8 @@ class userActions extends FrontendActions
 
     if ($request->isMethod(sfRequest::POST))
     {
-      $this->processFormWeezevent($request, $this->form, $this->weezevent);
-
+        $this->processForm($request, $this->form);
+//      $this->processFormWeezevent($request, $this->form, $this->weezevent);
       $this->redirect('user/weezevent');
     }
   }
@@ -373,15 +373,15 @@ class userActions extends FrontendActions
     //$weezevent->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
     $barcode = $request->getPostParameter('sf_guard_user_weezevent[barcode]');
     //$result = $weezevent->check($barcode);
-    $result =$barcode;
+    $result =true;
     if ($result)
     {
       //$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
 
-      //$weezevent->setBarcode($result->barcode);
+      $weezevent->setBarcode($result->barcode);
       $weezevent->setBarcode($result);
-      //$weezeventTicket->setId_weez_ticket($result->id_weez_ticket);
-      //$weezeventTicket->setIs_valid($result->is_valid);
+      $weezeventTicket->setId_weez_ticket($result->id_weez_ticket);
+      $weezeventTicket->setIs_valid($result->is_valid);
       $weezevent->save();
 
       $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Votre ticket Weezevent a ete verifiee.'));

@@ -18,6 +18,8 @@
     </tfoot>
     <tbody>
       <?php echo $form['barcode']->renderRow(); ?>
+      <?php echo $form['id_weez_ticket']->renderRow(); ?>
+      <?php echo $form['is_valid']->renderRow(); ?>
     </tbody>
   </table>
 </form>
