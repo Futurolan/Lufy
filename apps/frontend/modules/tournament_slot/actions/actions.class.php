@@ -10,12 +10,17 @@
  */
 class tournament_slotActions extends FrontendActions
 {
-
+  public function executeIndex(sfWebRequest $request)
+  {
+    
+  }
+  
+  
   /**
    * @brief
    * @param[in]
    * @return
-   */
+   *
   public function executeIndex(sfWebRequest $request)
   {
     if (!$this->getUser()->isAuthenticated())
@@ -92,7 +97,7 @@ class tournament_slotActions extends FrontendActions
 
       $this->priceinitial = $this->tournament->getPlayerPerTeam() * $this->tournament->getCostPerPlayer();
 
-      /* Calcul le nombre de licences stockee dans commande.reduction et applique la reduction. */
+
       if ($this->commande->getReduction())
       {
         $licences = explode(';', $this->commande->getReduction());
@@ -111,7 +116,7 @@ class tournament_slotActions extends FrontendActions
         $this->reduction = 0;
       }
       $this->pricefinal = $this->priceinitial + $this->reduction;
-      /*       * ******** */
+
       if ($this->commande->getReduction())
       {
         $this->reduction = $this->commande->getReduction();
@@ -127,7 +132,7 @@ class tournament_slotActions extends FrontendActions
       }
 
       $this->pricefinal = $this->priceinitial - $this->reduction;
-      //$this->varconfig = Doctrine::getTable('varConfig')->findOneByName('inscription_mode');
+      
       $this->varconfig = 'ffa';
     }
     else
