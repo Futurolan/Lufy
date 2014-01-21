@@ -107,6 +107,9 @@ Block:
 Event:
   connection: doctrine
   tableName: event
+  actAs:
+    Sluggable:
+      fields: [name]
   columns:
     id_event:
       type: integer(4)
@@ -138,9 +141,6 @@ Event:
     map_url:
       type: text
       notnull: false
-    slug:
-      type: string(250)
-      notnull: true
   relations:
     Tournament:
       local: id_event
@@ -737,25 +737,16 @@ TournamentSlot:
       autoincrement: true
     team_id:
       type: integer(4)
-      notnull: false
-      default: null
-    user_id:
-      type: integer(8)
-      notnull: false
-      default: null
+      notnull: true
     tournament_id:
       type: integer(4)
       notnull: true
-    position:
-      type: integer(4)
-      notnull: true
-    status:
-     type: varchar(50)
-     notnull: true
-    locked:
-      type: integer(2)
-      notnull: true
-      default: 0
+    is_valid:
+      type: boolean
+      default: false
+    is_locked:
+      type: boolean
+      default: false
   relations:
     Team:
       local: team_id
@@ -764,15 +755,6 @@ TournamentSlot:
     Tournament:
       local: tournament_id
       foreign: id_tournament
-      type: one
-    SfGuardUser:
-      class: sfGuardUser
-      local: user_id
-      foreign: id
-      type: one
-    Commande:
-      local: id_tournament_slot
-      foreign: tournament_slot_id
       type: one
 
 
