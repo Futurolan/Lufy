@@ -6,6 +6,7 @@ class sfGuardUserTable extends PluginsfGuardUserTable {
         return Doctrine_Core::getTable('sfGuardUser');
     }
 
+    
     public function isInTournament($id) {
         $q = Doctrine_Query::create()
                         ->select('*')
@@ -55,20 +56,6 @@ class sfGuardUserTable extends PluginsfGuardUserTable {
         };
     }
 
-    public function isProprietaire($id) {
-        $q = Doctrine_Query::create()
-                        ->select('*')
-                        ->from('team t, teamPlayer t2')
-                        ->where('t.adminteam_id = ' . $id)
-                        ->andWhere('t2.team_id = t.id_team')
-                        ->execute();
-
-        if (count($q) == '1') {
-            return true;
-        } else {
-            return false;
-        };
-    }
 
     public function isPlayer() {
         $id = sfContext::getInstance()->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser');
@@ -85,14 +72,6 @@ class sfGuardUserTable extends PluginsfGuardUserTable {
         };
     }
 
-    public function setLicenceGa($licence, $id) {
-        $q = Doctrine_Query::create()
-                        ->update('sfGuardUser')
-                        ->set('licence_ga', '?', $licence)
-                        ->where('id = ' . $id)
-                        ->execute();
-    }
-
     public function getUser($id) {
         $q = Doctrine_Query::create()
                         ->from('sfGuardUser')
@@ -101,44 +80,6 @@ class sfGuardUserTable extends PluginsfGuardUserTable {
         return $q[0];
     }
 
-    public function getAllEmail() {
-        $q = Doctrine_Query::create()
-                        ->from('sfGuardUser')
-                        ->execute();
-        return $q;
-    }
-
-    public function getInscritsEmail() {
-        $q = Doctrine_Query::create()
-                        ->from('sfGuardUser')
-                        ->execute();
-        return $q;
-    }
-
-    public function getCaptainsEmail() {
-        $q = Doctrine_Query::create()
-                        ->from('teamplayer')
-                        ->where('is_captain = 1')
-                        ->execute();
-
-        return $q;
-    }
-
-    public function getTeams() {
-        $q = Doctrine_Query::create()
-                        ->from('team')
-                        ->execute();
-
-        return $q;
-    }
-
-    public function getPlayerEmail() {
-        $q = Doctrine_Query::create()
-                        ->from('teamplayer')
-                        ->where('is_player = 1')
-                        ->execute();
-        return $q->getSfGuardUser();
-    }
 
     public function active($id) {
         Doctrine_Query::create()
@@ -156,9 +97,6 @@ class sfGuardUserTable extends PluginsfGuardUserTable {
                 ->andWhere('username LIKE \'%'.$pattern.'%\'');
 
         return $q;
-        /*$q = $this->createQuery('u')
-			->where ('u.username like ?','%'.$pattern.'%');
-		return $q;*/
 	}
 
 }
