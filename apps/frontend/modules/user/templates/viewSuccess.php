@@ -45,6 +45,6 @@
   </tr>
   <tr>
     <td><?php echo __('Carriere')?></td>
-    <td><?php echo  $user->getSfGuardUserProfile()->getCarrer() ?></td>
+    <td><?php echo nl2br($user->getSfGuardUserProfile()->getCarrer()) ?></td>
   </tr>
 </table>
