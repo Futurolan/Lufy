@@ -74,14 +74,18 @@ class teamActions extends FrontendActions
    */
   public function executeInviteMember(sfWebRequest $request)
   {
-    if ($invite = Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id')))
+    if ($request->getParameter('user_id') == $this->getUser()->getGuardUser()->getId())
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas vous inviter dans l\'équipe'));
+    }
+    elseif ($invite = Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id')))
     {
       if (!$request->getParameter('user_id'))
       {
         $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez selectionner un utilisateur'));
         $this->redirect('team/players');
       }
-
+      
       if (Doctrine_core::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id')))
       {
          $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
