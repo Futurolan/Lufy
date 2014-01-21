@@ -50,7 +50,7 @@ class inviteActions extends FrontendActions
       $invite->setAction('join');
       $invite->save();
 
-      $link = 'http://www.gamers-assembly.net/invite';
+      $link = 'http://www.gamers-assembly.net/fr/invite';
       $t = doctrine::getTable('team')->findOneByIdTeam($team->getTeamId());
       $mail = Doctrine::getTable('mail')->findOneByName('mail_invite_addplayer');
       $message = $this->getMailer()->compose();
