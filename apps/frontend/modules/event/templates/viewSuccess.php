@@ -5,7 +5,7 @@
   <div class="span10">
     <h2><?php echo $event->getName()?></h2>
     <p style="font-size: 16px; color: #999;">
-      <?php echo $event->getDescription()?>
+      <?=nl2br($event->getDescription())?>
     </p>
   </div>
 </div>
