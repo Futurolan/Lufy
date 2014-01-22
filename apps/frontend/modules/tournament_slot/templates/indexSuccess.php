@@ -39,7 +39,7 @@
     <ul>
       <li>Votre manager doit créer une équipe et inviter les joueurs qui la compose</li>
       <li>Les joueurs qui participent aux tournois doivent avoir le statut de "joueur" dans l'équipe</li>
-      <li>Les "manager" (non joueur) ou "membre non joueur" ne seront pas pris en compte</li>
+      <li>Les "managers" (non joueur) ou "membre non joueur" ne seront pas pris en compte</li>
     </ul>
   </div>
   <div class="tournament-detail-4">
