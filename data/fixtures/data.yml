@@ -24,43 +24,6 @@ TeamPlayer:
     SfGuardUser: sfGuardUser_2
     is_captain: true
     is_player: false
-Invite:
-  Invite_1:
-    Team: Team_1
-    SfGuardUser: sfGuardUser_3
-    is_accepted: true
-    created_at: '2014-01-16 17:36:54'
-    updated_at: '2014-01-16 17:43:34'
-  Invite_2:
-    Team: Team_1
-    SfGuardUser: sfGuardUser_2
-    is_accepted: null
-    created_at: '2014-01-16 17:37:02'
-    updated_at: '2014-01-16 17:37:03'
-  Invite_3:
-    Team: Team_1
-    SfGuardUser: sfGuardUser_4
-    is_accepted: true
-    created_at: '2014-01-16 17:37:11'
-    updated_at: '2014-01-16 17:44:11'
-  Invite_4:
-    Team: Team_1
-    SfGuardUser: sfGuardUser_5
-    is_accepted: true
-    created_at: '2014-01-16 17:37:19'
-    updated_at: '2014-01-16 17:44:29'
-  Invite_5:
-    Team: Team_1
-    SfGuardUser: sfGuardUser_6
-    is_accepted: null
-    created_at: '2014-01-16 17:48:03'
-    updated_at: '2014-01-16 17:48:03'
-  Invite_6:
-    Team: Team_1
-    SfGuardUser: sfGuardUser_7
-    is_accepted: null
-    created_at: '2014-01-16 17:48:12'
-    updated_at: '2014-01-16 17:48:12'
 Event:
   Event_1:
     name: 'Jerome Assembly'
@@ -68,7 +31,7 @@ Event:
     image: '0'
     start_at: '2019-11-27 00:00:00'
     end_at: '2019-12-07 23:00:00'
-    start_registration_at: '2013-01-01 00:00:00'
+    start_registration_at: '2018-01-01 00:00:00'
     end_registration_at: '2019-11-27 00:00:00'
     address: 'Dans mon vaisseau spatial, coeur de l''onirisme.'
     map_url: ''
@@ -107,9 +70,9 @@ sfGuardUser:
     password: 238075d5e491651598095dac2ae49a9c4d583392
     is_active: true
     is_super_admin: true
-    last_login: '2014-01-22 09:01:39'
+    last_login: '2014-01-16 17:05:01'
     created_at: '2014-01-16 17:04:37'
-    updated_at: '2014-01-22 09:01:39'
+    updated_at: '2014-01-16 17:05:37'
   sfGuardUser_2:
     first_name: user_1
     last_name: user_1
@@ -120,9 +83,9 @@ sfGuardUser:
     password: a96a5d6a4d6c484b49daecf6159284850acecebe
     is_active: true
     is_super_admin: false
-    last_login: '2014-01-22 11:13:39'
+    last_login: '2014-01-22 16:47:59'
     created_at: '2014-01-16 17:20:47'
-    updated_at: '2014-01-22 11:13:39'
+    updated_at: '2014-01-22 16:47:59'
   sfGuardUser_3:
     first_name: user2
     last_name: user2
@@ -133,9 +96,9 @@ sfGuardUser:
     password: fe526008c15e7ec6b001cd33b6a7add4f7ac5d48
     is_active: true
     is_super_admin: false
-    last_login: '2014-01-17 22:00:47'
+    last_login: '2014-01-16 17:43:51'
     created_at: '2014-01-16 17:21:43'
-    updated_at: '2014-01-17 22:00:47'
+    updated_at: '2014-01-16 17:43:51'
   sfGuardUser_4:
     first_name: user3
     last_name: user3
@@ -205,77 +168,6 @@ Game:
     year: '2000'
     description: 'blabla des héros'
     logourl: ''
-TournamentSlot:
-  TournamentSlot_1:
-    Tournament: Tournament_1
-    position: '1'
-    status: reserve
-    locked: '0'
-    created_at: '2014-01-22 09:03:05'
-    updated_at: '2014-01-22 09:03:05'
-  TournamentSlot_2:
-    Tournament: Tournament_1
-    position: '2'
-    status: reserve
-    locked: '0'
-    created_at: '2014-01-22 09:03:05'
-    updated_at: '2014-01-22 09:03:05'
-  TournamentSlot_3:
-    Tournament: Tournament_1
-    position: '3'
-    status: libre
-    locked: '0'
-    created_at: '2014-01-22 09:03:05'
-    updated_at: '2014-01-22 09:03:05'
-  TournamentSlot_4:
-    Tournament: Tournament_1
-    position: '4'
-    status: libre
-    locked: '0'
-    created_at: '2014-01-22 09:03:05'
-    updated_at: '2014-01-22 09:03:05'
-  TournamentSlot_5:
-    Tournament: Tournament_1
-    position: '5'
-    status: libre
-    locked: '0'
-    created_at: '2014-01-22 09:03:05'
-    updated_at: '2014-01-22 09:03:05'
-  TournamentSlot_6:
-    Tournament: Tournament_1
-    position: '6'
-    status: libre
-    locked: '0'
-    created_at: '2014-01-22 09:03:05'
-    updated_at: '2014-01-22 09:03:05'
-  TournamentSlot_7:
-    Tournament: Tournament_1
-    position: '7'
-    status: libre
-    locked: '0'
-    created_at: '2014-01-22 09:03:05'
-    updated_at: '2014-01-22 09:03:05'
-  TournamentSlot_8:
-    Tournament: Tournament_1
-    position: '8'
-    status: libre
-    locked: '0'
-    created_at: '2014-01-22 09:03:06'
-    updated_at: '2014-01-22 09:03:06'
-  TournamentSlot_9:
-    Tournament: Tournament_1
-    position: '9'
-    status: libre
-    locked: '0'
-    created_at: '2014-01-22 09:03:06'
-    updated_at: '2014-01-22 09:03:06'
-  TournamentSlot_10:
-    Tournament: Tournament_1
-    position: '10'
-    status: libre
-    locked: '0'
-    created_at: '2014-01-22 09:03:06'
-    updated_at: '2014-01-22 09:03:06'
 SfGuardUserProfile:
   SfGuardUserProfile_2:
     SfGuardUser: sfGuardUser_2
@@ -298,12 +190,12 @@ Tournament:
     Game: Game_1
     Event: Event_1
     name: 'League of losers'
-    number_team: '10'
+    number_team: '15'
     player_per_team: '5'
     cost_per_player: '50.00'
-    reserved_slot: '2'
-    start_at: '2013-07-14 06:10:00'
-    end_at: '2018-11-14 10:00:00'
+    reserved_slot: '5'
+    start_at: '2019-12-01 00:00:00'
+    end_at: '2019-12-07 07:00:00'
     logourl: errgeyjy
     description: uykyukkui
     position: null

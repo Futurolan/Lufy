@@ -1,6 +1,6 @@
 <h2><?php echo __('Ticket Weezevent')?></h2>
 
-<?php if ($weezevent->getbarcode()): ?>
+<?php if ($weezevent->getBarcode()): ?>
   <div class="alert alert-info">
     <?php echo __('Votre ticket est valide'); ?>
   </div>
@@ -14,7 +14,7 @@
     </tfoot>
     <tr>
       <th><?php echo __('Code Barre'); ?></th>
-      <td><?php echo $weezevent->getbarcode();?></td>
+      <td><?php echo $weezevent->getBarcode();?></td>
     </tr>
   </table>
 <?php else: ?>

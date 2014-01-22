@@ -18,3 +18,7 @@ data/lock/*.lck
 apps/newbackend*
 web/newbackend*
 test/functional/newbackend*
+doc/html/*
+doc/man/*
+doc/latex/*
+
