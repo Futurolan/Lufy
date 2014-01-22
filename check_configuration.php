@@ -67,7 +67,7 @@ if (is_cli())
 
 // mandatory
 echo "\n** Mandatory requirements **\n\n";
-check(version_compare(phpversion(), '5.2.4', '>='), 'PHP version is at least 5.2.4', 'Current version is '.phpversion(), true);
+check(version_compare(phpversion(), '5.2.4', '>='), 'PHP version is at least 5.2.4', 'Current version is ' . phpversion(), true);
 
 // warnings
 echo "\n** Optional checks **\n\n";
@@ -75,7 +75,7 @@ check(class_exists('PDO'), 'PDO is installed', 'Install PDO (mandatory for Prope
 if (class_exists('PDO'))
 {
   $drivers = PDO::getAvailableDrivers();
-  check(count($drivers), 'PDO has some drivers installed: '.implode(', ', $drivers), 'Install PDO drivers (mandatory for Propel and Doctrine)');
+  check(count($drivers), 'PDO has some drivers installed: ' . implode(', ', $drivers), 'Install PDO drivers (mandatory for Propel and Doctrine)');
 }
 check(class_exists('DomDocument'), 'PHP-XML module is installed', 'Install the php-xml module (required by Propel)', false);
 check(class_exists('XSLTProcessor'), 'XSL module is installed', 'Install the XSL module (recommended for Propel)', false);
@@ -84,12 +84,10 @@ check(function_exists('mb_strlen'), 'The mb_strlen() function is available', 'In
 check(function_exists('iconv'), 'The iconv() function is available', 'Install iconv() function', false);
 check(function_exists('utf8_decode'), 'The utf8_decode() is available', 'Install utf8_decode() function', false);
 
-$accelerator = 
-  (function_exists('apc_store') && ini_get('apc.enabled'))
-  ||
-  function_exists('eaccelerator_put') && ini_get('eaccelerator.enable')
-  ||
-  function_exists('xcache_set')
+$accelerator =
+        (function_exists('apc_store') && ini_get('apc.enabled')) ||
+        function_exists('eaccelerator_put') && ini_get('eaccelerator.enable') ||
+        function_exists('xcache_set')
 ;
 check($accelerator, 'A PHP accelerator is installed', 'Install a PHP accelerator like APC (highly recommended)', false);
 

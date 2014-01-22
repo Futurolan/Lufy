@@ -1112,14 +1112,17 @@ SfGuardUserWeezevent:
     user_id:
       type: integer(8)
       notnull: true
-      primary: true
+      primary: true    
+    tournament_id:
+      type: string(50)
+      notnull: false
+    id_weez_ticket:
+      type: string(50)
+      notnull: true
     barcode:
       type: string(50)
       notnull: true
       unique : true
-    id_weez_ticket:
-      type: string(50)
-      notnull: true
     is_valid:
       type: boolean
       default: false

@@ -82,12 +82,12 @@ class userActions extends FrontendActions
   public function executeEditProfile(sfWebRequest $request)
   {
     $this->forward404Unless($user = Doctrine::getTable('sfGuardUser')->find(array($this->getUser()->getGuardUser()->getId())), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
-    
+
     $this->form = new profilForm($user);
 
     if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
     {
-         
+
       if ($this->processForm($request, $this->form))
       {
         $this->redirect('user/profile');
@@ -332,7 +332,7 @@ class userActions extends FrontendActions
       $this->redirect('user/licenceMasters');
     }
   }
-  
+
   /**
    * @brief
    * @param
@@ -342,8 +342,8 @@ class userActions extends FrontendActions
   {
     $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
     $this->weezevent = $user->getSfGuardUserWeezevent();
-    
-    
+
+
     if (!$this->weezevent)
     {
       $this->weezevent = new SfGuardUserWeezevent();
@@ -354,26 +354,26 @@ class userActions extends FrontendActions
 
     if ($request->isMethod(sfRequest::POST))
     {
-        $this->processForm($request, $this->form);
+      $this->processForm($request, $this->form);
 //      $this->processFormWeezevent($request, $this->form, $this->weezevent);
       $this->redirect('user/weezevent');
     }
   }
-  
-    /**
+
+  /**
    * @brief
    * @param
    * @return
    */
   protected function processFormWeezevent(sfWebRequest $request, sfForm $form, SfGuardUserWeezevent $weezevent)
   {
-     //user_id barcode id_weez_ticket is_valid 
+    //user_id barcode id_weez_ticket is_valid 
     // $mfjv = new mfjv();
     //$weezevent = new weezevent();
     //$weezevent->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
     $barcode = $request->getPostParameter('sf_guard_user_weezevent[barcode]');
     //$result = $weezevent->check($barcode);
-    $result =true;
+    $result = true;
     if ($result)
     {
       //$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -393,11 +393,10 @@ class userActions extends FrontendActions
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Le ticket n\'a pu etre validé.'));
 
       $this->redirect('user/weezevent');
-    }     
-      
-      
+    }
   }
-    /**
+
+  /**
    * @brief
    * @param
    * @return

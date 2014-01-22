@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__FILE__).'/../config/ProjectConfiguration.class.php');
+require_once(dirname(__FILE__) . '/../config/ProjectConfiguration.class.php');
 
 list($subdomain, $domain, $tld) = explode('.', $_SERVER['HTTP_HOST']);
 
@@ -11,43 +11,43 @@ $dbg = false;
 
 
 // Select an application and environment
-switch($subdomain)
+switch ($subdomain)
 {
   case 'backend':
     $app = 'backend';
     $env = 'prod';
     $dbg = true;
-  break;
+    break;
 
   case 'presse':
     $app = 'presse';
     $env = 'prod';
 //    $dbg = true;
-  break;
+    break;
 
   case 'partenaire':
     $app = 'presse';
     $env = 'prod';
     $dbg = false;
-  break;
+    break;
 
   case 'dev-backend':
     $app = 'backend';
     $env = 'dev';
     $dbg = true;
-  break;
+    break;
 
   case 'dev':
     $app = 'frontend';
     $env = 'dev';
     $dbg = true;
-  break;
+    break;
 
   default:
     $app = 'frontend';
     $env = 'prod';
     $dbg = false;
-  break;
+    break;
 }
 
 
