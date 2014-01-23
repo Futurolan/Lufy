@@ -340,21 +340,25 @@ class userActions extends FrontendActions
    */
   public function executeWeezevent(sfWebRequest $request)
   {
-    $this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
-    $this->weezevent = $user->getSfGuardUserWeezevent();
-
-
+    //$this->forward404Unless($user = Doctrine::getTable('SfGuardUser')->findOneById($this->getUser()->getGuardUser()->getId()));
+    /*$this->weezevent = $user->getSfGuardUserWeezevent();*/
+    $this->weezevent = Doctrine::getTable('SfGuardUserWeezevent')->findOneByUserId($this->getUser()->getGuardUser()->getId());
+    
     if (!$this->weezevent)
     {
       $this->weezevent = new SfGuardUserWeezevent();
-      $this->weezevent->setUserId($user->getId());
+      $this->weezevent->setUserId($this->getUser()->getGuardUser()->getId());    
     }
+
+    echo "coin coin +"; //exit();
 
     $this->form = new SfGuardUserWeezeventForm($this->weezevent);
 
     if ($request->isMethod(sfRequest::POST))
     {
+      echo " coin coin coin "; 
       $this->processForm($request, $this->form);
+      echo " coin coin / "; //exit;
 //      $this->processFormWeezevent($request, $this->form, $this->weezevent);
       $this->redirect('user/weezevent');
     }

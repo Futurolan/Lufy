@@ -12,12 +12,12 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          <input class="btn btn-primary" type="submit" value="Enregister" />
+          <input class="btn btn-primary" type="submit" value= <?php echo __('Enregistrer');?> />
         </td>
       </tr>
     </tfoot>
     <tbody>
-      <?php echo $form['barcode']->renderRow(); ?>
+      <?php echo $form['barcode']->renderRow(); ?>     
     </tbody>
   </table>
 </form>

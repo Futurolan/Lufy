@@ -25,15 +25,17 @@ class LufyActions extends sfActions
       $request->getParameter($form->getName()),
       $request->getFiles($form->getName())
     );
+    echo "miaou miaou miaou +";
 
     if ($form->isValid())
     {
       $form->save();
-
+      echo "miaou miaou miaou";exit;
       return true;
     }
     else
     {
+      exit;
       return false;
     }
   }
