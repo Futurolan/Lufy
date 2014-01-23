@@ -31,7 +31,7 @@ class tournament_slotActions extends FrontendActions
       $this->steps['Address'] = true;
     if ($this->checkWeezevent($this->getUser()->getGuardUser()->getId()))
       $this->steps['Weezevent'] = true;
-    if ($this->checkTeamPlayerHasWeezevent())
+    if ($this->checkHasTeam())
       $this->steps['IsInTeam'] = true;
     if ($this->checkTeamPlayerHasWeezevent())
       $this->steps['MyTeamIsOk'] = true;
@@ -58,7 +58,7 @@ class tournament_slotActions extends FrontendActions
     $result = true;
     foreach ($users as $key)
     {
-      if (!$this->newCheckWeezevent($key->getUserId()))
+      if (!$this->checkWeezevent($key->getUserId()))
         $result =false;
     }
     return $result;
