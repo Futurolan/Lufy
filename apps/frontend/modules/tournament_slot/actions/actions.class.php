@@ -10,7 +10,8 @@
  */
 class tournament_slotActions extends FrontendActions
 {
-    /**
+
+  /**
    * @brief Use for tournament_slot/index.
    * Use for info which need to check initialisation.
    * 
@@ -22,24 +23,73 @@ class tournament_slotActions extends FrontendActions
         'Profile' => false,
         'Address' => false,
         'Weezevent' => false,
-        'Team' => false
+        'isInTeam' => false,
+        'myTeamIsOk' => false,
     );
     if ($this->checkProfile())
       $this->steps['Profile'] = true;
     if ($this->checkAddress())
       $this->steps['Address'] = true;
-    if ($this->checkWeezevent())
+    if ($this->newCheckWeezevent($this->getUser()->getGuardUser()->getId()))
       $this->steps['Weezevent'] = true;
     if ($this->checkTeam())
-      $this->steps['Team'] = true;
+      $this->steps['isInTeam'] = true;
+    if ($this->checkTeam2())
+      $this->steps['myTeamIsOk'] = true;
   }
   
+  /**
+   * @brief Check if weezevent tickets of team members are valid.
+   * @return boolean : true if team is ok.
+   */
+  private function checkTeamPlayerHasWeezevent()
+  {
+    $user = $this->getUser();
+    $team = Doctrine_Query::create()
+            ->select('tp.team_id')
+            ->from('TeamPlayer tp')
+            ->where('tp.user_id = ' . $this->getUser()->getGuardUser()->getId())
+            ->fetchOne();
+    $users = Doctrine_Query::create()
+            ->select('tp.user_id')
+            ->from('TeamPlayer tp')
+            ->where('tp.team_id = ' . $team->getTeamId())
+            ->execute();
+    $players = array();
+    $result = true;
+    foreach ($users as $key)
+    {
+      if (!$this->newCheckWeezevent($key->getUserId()))
+        $result =false;
+    }
+    return $result;
+  }
   
+  /**
+   * @brief Check if Weezevent Ticket is valid.
+   * @param[in] $userId Take a user id or check current user id
+   * @return boolean : true if there is one.
+   */
+  private function CheckWeezevent($userId)
+  {
+    if (!$userId) { $userId = $this->getUser()->getSfGuard()-getId(); }
+    $weezevent = Doctrine_Query::create()
+            ->select("user_id")
+            ->from('sfGuardUserWeezevent')
+            ->where('user_id = ' . $userId)
+            ->andWhere('is_valid = 1')
+            ->fetchOne();
+    $result = true;
+    if ($weezevent == NULL)
+      $result = false;    
+    return $result;
+  }
+
   /**
    * @brief Check if User is a player in a team.
    * @return boolean : true if he is.
    */
-  private function checkTeam()
+  private function checkHasTeam()
   {
     $user = $this->getUser();
     $weezevent = Doctrine_Query::create()
@@ -48,29 +98,12 @@ class tournament_slotActions extends FrontendActions
             ->where('user_id = ' . $this->getUser()->getGuardUser()->getId())
             ->andWhere('is_player = 1')
             ->fetchOne();
-    $result = true; 
+    $result = true;
     if ($weezevent == NULL)
-      $result = false; 
+      $result = false;
     return $result;
   }
-  /**
-   * @brief Check if Weezevent Ticket is valid.
-   * @return boolean : true if there is one.
-   */
-  private function checkWeezevent()
-  {
-    $user = $this->getUser();
-    $weezevent = Doctrine_Query::create()
-            ->select("user_id")
-            ->from('sfGuardUserWeezevent')
-            ->where('user_id = ' . $this->getUser()->getGuardUser()->getId())
-            ->andWhere('is_valid = 1')
-            ->fetchOne();
-    $result = true; 
-    if ($weezevent == NULL)
-      $result = false; 
-    return $result;
-  }
+
   /**
    * @brief Check if there is a default address.
    * @return boolean : true if there is one.
@@ -84,19 +117,20 @@ class tournament_slotActions extends FrontendActions
             ->where('user_id = ' . $this->getUser()->getGuardUser()->getId())
             ->andWhere('is_default = 1')
             ->fetchOne();
-    $result = true; 
+    $result = true;
     if ($address == NULL)
-      $result = false; 
+      $result = false;
     return $result;
   }
+
   /**
    * @brief Check if profil is ok ( name, email, username ).
    * @return boolean : true if everything is ok.
    */
   private function checkProfile()
   {
-     $result = true;
-    
+    $result = true;
+
     if ($this->getUser()->getGuardUser()->getFirstName() == NULL ||
             $this->getUser()->getGuardUser()->getLastName() == NULL ||
             $this->getUser()->getGuardUser()->getEmailAddress() == NULL ||
