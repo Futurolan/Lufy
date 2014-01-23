@@ -47,7 +47,7 @@ class userActions extends FrontendActions
               ->select('*')
               ->from('tournamentSlot t1, tournament t2')
               ->where('t1.tournament_id = t2.id_tournament')
-              ->andWhere('t1.team_id = ?' . $team->getIdTeam())
+              ->andWhere('t1.team_id = ?', $team->getIdTeam())
               ->execute();
     }
 

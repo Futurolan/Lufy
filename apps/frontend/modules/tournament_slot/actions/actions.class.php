@@ -47,12 +47,12 @@ class tournament_slotActions extends FrontendActions
     $team = Doctrine_Query::create()
             ->select('tp.team_id')
             ->from('TeamPlayer tp')
-            ->where('tp.user_id = ?' . $this->getUser()->getGuardUser()->getId())
+            ->where('tp.user_id = ?', $this->getUser()->getGuardUser()->getId())
             ->fetchOne();
     $users = Doctrine_Query::create()
             ->select('tp.user_id')
             ->from('TeamPlayer tp')
-            ->where('tp.team_id = ?' . $team->getTeamId())
+            ->where('tp.team_id = ?', $team->getTeamId())
             ->execute();
     $players = array();
     $result = true;
@@ -75,7 +75,7 @@ class tournament_slotActions extends FrontendActions
     $weezevent = Doctrine_Query::create()
             ->select("user_id")
             ->from('sfGuardUserWeezevent')
-            ->where('user_id = ?' . $userId)
+            ->where('user_id = ?', $userId)
             ->andWhere('is_valid = 1')
             ->fetchOne();
     $result = true;
@@ -94,7 +94,7 @@ class tournament_slotActions extends FrontendActions
     $weezevent = Doctrine_Query::create()
             ->select("team_id")
             ->from('teamPlayer')
-            ->where('user_id = ?' . $this->getUser()->getGuardUser()->getId())
+            ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
             ->andWhere('is_player = 1')
             ->fetchOne();
     $result = true;
@@ -113,7 +113,7 @@ class tournament_slotActions extends FrontendActions
     $address = Doctrine_Query::create()
             ->select("id")
             ->from('sfGuardUserAddress')
-            ->where('user_id = ?' . $this->getUser()->getGuardUser()->getId())
+            ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
             ->andWhere('is_default = 1')
             ->fetchOne();
     $result = true;
@@ -304,7 +304,7 @@ class tournament_slotActions extends FrontendActions
             $tournamentslots = Doctrine_Query::create()
                     ->select('*')
                     ->from('tournamentSlot')
-                    ->where('team_id = ?' . $teamplayers->getTeamId())
+                    ->where('team_id = ?', $teamplayers->getTeamId())
                     ->execute();
             if (count($tournamentslots) == 1)
             {
@@ -350,7 +350,7 @@ class tournament_slotActions extends FrontendActions
             $this->getUser()->setFlash('success', 'La Team est inscrite au tournoi');
             $players = Doctrine_Query::create()
                     ->from('teamplayer')
-                    ->where('team_id = ?' . $teamplayers->getTeamId())
+                    ->where('team_id = ?', $teamplayers->getTeamId())
                     ->execute();
 
 
@@ -398,7 +398,7 @@ class tournament_slotActions extends FrontendActions
             ->select('*')
             ->from('tournament t, event e')
             ->where('e.id_event = t.event_id')
-            ->andWhere('e.id_event = ?' . $l)
+            ->andWhere('e.id_event = ?', $l)
             ->execute();
   }
 
@@ -429,7 +429,7 @@ class tournament_slotActions extends FrontendActions
       // $q retourne l'objet 'tournament' associé au slot du tournoi
       $slots = Doctrine_Query::create()
               ->from('tournamentSlot')
-              ->where('tournament_id = ?' . $q->getIdTournament())
+              ->where('tournament_id = ?', $q->getIdTournament())
               ->orderBy('position ASC')
               ->execute();
       // on selectionne tout les slots de ce tournoi
@@ -487,7 +487,7 @@ class tournament_slotActions extends FrontendActions
       $this->getUser()->setFlash('success', 'Votre equipe a bien quitte le tournoi.');
       $players = Doctrine_Query::create()
               ->from('teamplayer')
-              ->where('team_id = ?' . $team_id)
+              ->where('team_id = ?', $team_id)
               ->execute();
 
       $team = Doctrine::getTable('team')->findOneByIdTeam($team_id);
@@ -549,7 +549,7 @@ class tournament_slotActions extends FrontendActions
     };
     $p = Doctrine_Query::create()
             ->from('teamPlayer')
-            ->where('team_id = ?' . $teamplayers['team_id'])
+            ->where('team_id = ?', $teamplayers['team_id'])
             ->andWhere('is_player = 1')
             ->execute();
     foreach ($p as $player):
@@ -604,7 +604,7 @@ class tournament_slotActions extends FrontendActions
     };
     $p = Doctrine_Query::create()
             ->from('teamPlayer')
-            ->where('team_id = ?' . $teamplayers['team_id'])
+            ->where('team_id = ?', $teamplayers['team_id'])
             ->andWhere('is_player = 1')
             ->execute();
     foreach ($p as $player):
@@ -781,12 +781,12 @@ class tournament_slotActions extends FrontendActions
               $this->tournamentslots = Doctrine_Query::create()
                       ->select('*')
                       ->from('tournamentSlot')
-                      ->where('team_id = ?' . $teamplayers['team_id'])
+                      ->where('team_id = ?', $teamplayers['team_id'])
                       ->execute();
               $this->tournament = Doctrine_Query::create()
                       ->select('*')
                       ->from('tournament')
-                      ->where('id_tournament = ?' . $this->tournamentslots[0]->getTournamentId())
+                      ->where('id_tournament = ?', $this->tournamentslots[0]->getTournamentId())
                       ->execute();
               $this->price = $this->tournament[0]->getPlayerPerTeam() * $this->tournament[0]->getCostPerPlayer() - $reduction;
               $this->pricettc = $this->price;
@@ -801,7 +801,7 @@ class tournament_slotActions extends FrontendActions
               $payments = Doctrine_Query::create()
                       ->select('amount')
                       ->from('payement')
-                      ->where('tournament_slot_id = ?' . $this->tournamentslots[0]->getIdTournamentSlot())
+                      ->where('tournament_slot_id = ?', $this->tournamentslots[0]->getIdTournamentSlot())
                       ->execute();
 
               // DEBUG
@@ -823,7 +823,7 @@ class tournament_slotActions extends FrontendActions
                         ->setValideAndPaid($o);
                 $slots = Doctrine_Query::create()
                         ->from('tournamentSlot')
-                        ->where('tournament_id = ?' . $this->tournamentslots[0]->getTournamentId())
+                        ->where('tournament_id = ?', $this->tournamentslots[0]->getTournamentId())
                         ->orderBy('position ASC')
                         ->execute();
                 $pos = 0;
@@ -879,7 +879,7 @@ class tournament_slotActions extends FrontendActions
 
                 $players = Doctrine_Query::create()
                         ->from('teamplayer')
-                        ->where('team_id = ?' . $y->getTeamPlayer()->getTeamId())
+                        ->where('team_id = ?', $y->getTeamPlayer()->getTeamId())
                         ->execute();
 
 
