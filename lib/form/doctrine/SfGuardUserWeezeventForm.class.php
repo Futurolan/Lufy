@@ -17,13 +17,6 @@ class SfGuardUserWeezeventForm extends BaseSfGuardUserWeezeventForm
             $this['tournament_id'],
             $this['is_valid']
     );
-
-    $this->setValidators(array(
-        'barcode' => new sfValidatorString(array('required' => true,
-                                                  'min_length' => 4,
-                                                  'max_length' => 255),
-                                                    array('required' => 'Vous devez saisir un code bar.'))
-    ));
   }
 
 }
