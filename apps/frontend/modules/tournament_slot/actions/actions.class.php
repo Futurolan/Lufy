@@ -5,68 +5,103 @@
  *
  * @package    lufy
  * @subpackage tournament_slot
- * @author     Your name here
+ * @author     Bardot Jérôme
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class tournament_slotActions extends FrontendActions
 {
-
+    /**
+   * @brief Use for tournament_slot/index.
+   * Use for info which need to check initialisation.
+   * 
+   */
   public function executeIndex(sfWebRequest $request)
   {
     $user = $this->getUser();
-      if (!$this->checkProfile())
-      {
-        $this->steps['Profile'] = false;
-      }
-      else{
-        $this->steps['Profile'] = true;
-      }
-      if (!$this->checkAddress())
-      {
-        $this->steps['Address'] = false;
-      }
-      else{
-        $this->steps['Address'] = true; 
-      }      
+    $this->steps = array(
+        'Profile' => false,
+        'Address' => false,
+        'Weezevent' => false,
+        'Team' => false
+    );
+    if ($this->checkProfile())
+      $this->steps['Profile'] = true;
+    if ($this->checkAddress())
+      $this->steps['Address'] = true;
+    if ($this->checkWeezevent())
+      $this->steps['Weezevent'] = true;
+    if ($this->checkTeam())
+      $this->steps['Team'] = true;
   }
-
+  
+  
+  /**
+   * @brief Check if User is a player in a team.
+   * @return boolean : true if he is.
+   */
+  private function checkTeam()
+  {
+    $user = $this->getUser();
+    $weezevent = Doctrine_Query::create()
+            ->select("team_id")
+            ->from('teamPlayer')
+            ->where('user_id = ' . $this->getUser()->getGuardUser()->getId())
+            ->andWhere('is_player = 1')
+            ->fetchOne();
+    $result = true; 
+    if ($weezevent == NULL)
+      $result = false; 
+    return $result;
+  }
+  /**
+   * @brief Check if Weezevent Ticket is valid.
+   * @return boolean : true if there is one.
+   */
+  private function checkWeezevent()
+  {
+    $user = $this->getUser();
+    $weezevent = Doctrine_Query::create()
+            ->select("user_id")
+            ->from('sfGuardUserWeezevent')
+            ->where('user_id = ' . $this->getUser()->getGuardUser()->getId())
+            ->andWhere('is_valid = 1')
+            ->fetchOne();
+    $result = true; 
+    if ($weezevent == NULL)
+      $result = false; 
+    return $result;
+  }
+  /**
+   * @brief Check if there is a default address.
+   * @return boolean : true if there is one.
+   */
   private function checkAddress()
   {
     $user = $this->getUser();
-
     $address = Doctrine_Query::create()
             ->select("id")
             ->from('sfGuardUserAddress')
             ->where('user_id = ' . $this->getUser()->getGuardUser()->getId())
             ->andWhere('is_default = 1')
             ->fetchOne();
+    $result = true; 
     if ($address == NULL)
-    {
-      $result = false;
-    }
-    else
-    {
-      $result = true;
-    }
-
+      $result = false; 
     return $result;
   }
-
+  /**
+   * @brief Check if profil is ok ( name, email, username ).
+   * @return boolean : true if everything is ok.
+   */
   private function checkProfile()
   {
-    //$user = $this->getUser()->getGuardUser()*/;
-
+     $result = true;
+    
     if ($this->getUser()->getGuardUser()->getFirstName() == NULL ||
             $this->getUser()->getGuardUser()->getLastName() == NULL ||
             $this->getUser()->getGuardUser()->getEmailAddress() == NULL ||
             $this->getUser()->getGuardUser()->getUsername() == NULL)
-    {
       $result = false;
-    }
-    else
-    {
-      $result = true;
-    }
 
     return $result;
   }

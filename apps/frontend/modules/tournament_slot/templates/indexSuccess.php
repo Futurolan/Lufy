@@ -1,4 +1,4 @@
-<h2><?=__('Inscription')?></h2>
+<h2><?php echo __('Inscription')?></h2>
 
 <div class="row-fluid">
   <div class="span3 tournament-box" onclick="showDetail(1);">
@@ -19,8 +19,14 @@
   </div>
 </div>
 
+<ul>
+<? foreach ($steps as $key=>$value): ?>
+<li><?=$key?> : <?=($value) ? 'success' : 'fail' ?></li>
+<? endforeach; ?>
+</ul>
+ 
 <div class="tournament-detail">
-  <div class="tournament-detail-1">
+   <div class="tournament-detail-1">
     <h3>Etape 1 - Achetez vos billets</h3>
     <ul>
       <li>Achetez vos billets sur notre billetterie Weezevent (1 paiement par équipe)</li>
@@ -31,7 +37,7 @@
     <h3>Etape 2 - Vérifiez votre profil</h3>
     <ul>
       <li>Vérifiez votre profil personnel, chaque joueur doit compléter toutes les informations qui lui sont demandées</li>
-      <li>Renseignez une adresse de livraison dans le cas où nous aurions des lots à vous envoyer après l'évènement</li>
+      <li>Renseignez une adresse de livraison dans le cas où nous aurions des lots à vous envoyer après l\'évènement</li>
     </ul>
   </div>
   <div class="tournament-detail-3">
