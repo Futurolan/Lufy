@@ -16,21 +16,18 @@ class tournament_slotActions extends FrontendActions
     $user = $this->getUser();
       if (!$this->checkProfile())
       {
-        $steps['Profile'] = false;
+        $this->steps['Profile'] = false;
       }
       else{
-        $steps['Profile'] = true;
+        $this->steps['Profile'] = true;
       }
       if (!$this->checkAddress())
       {
-        $steps['Address'] = false;
+        $this->steps['Address'] = false;
       }
       else{
-        $steps['Address'] = true; 
-      }
-      
-      $this->redirect('???');
-
+        $this->steps['Address'] = true; 
+      }      
   }
 
   private function checkAddress()
@@ -40,9 +37,7 @@ class tournament_slotActions extends FrontendActions
     $address = Doctrine_Query::create()
             ->select("id")
             ->from('sfGuardUserAddress')
-            ->where('user_id = ' . $user->getId())
-            ->andWhere('is_default = 1')
-            ->andWhere('is_default = 1')
+            ->where('user_id = ' . $this->getUser()->getGuardUser()->getId())
             ->andWhere('is_default = 1')
             ->fetchOne();
     if ($address == NULL)
@@ -59,12 +54,12 @@ class tournament_slotActions extends FrontendActions
 
   private function checkProfile()
   {
-    $user = $this->getUser();
+    //$user = $this->getUser()->getGuardUser()*/;
 
-    if ($user->getFirstName() == NULL ||
-            $user->getLastName() == NULL ||
-            $user->getEmailAddress() == NULL ||
-            $user->getUsername() == NULL)
+    if ($this->getUser()->getGuardUser()->getFirstName() == NULL ||
+            $this->getUser()->getGuardUser()->getLastName() == NULL ||
+            $this->getUser()->getGuardUser()->getEmailAddress() == NULL ||
+            $this->getUser()->getGuardUser()->getUsername() == NULL)
     {
       $result = false;
     }
