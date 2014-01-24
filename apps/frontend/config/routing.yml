@@ -155,11 +155,6 @@ user_delete_masters:
   url: /:sf_culture/user/licence/masters/delete
   param: { module: user, action: deleteLicenceMasters }
 
-
-
-
-
-
 # Tournois
 tournament_index:
   url: /:sf_culture/tournament
@@ -172,6 +167,10 @@ tournament_list:
 tournament_view:
   url: /:sf_culture/tournament/:slug
   param: { module: tournament, action: view }
+
+tournament_registration:
+  url: /:sf_culture/tournament/:slug/registration
+  param: { module: tournament, action: registration }
 
 
 # Galerie

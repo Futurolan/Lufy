@@ -9,7 +9,46 @@
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class tournamentActions extends FrontendActions
-{
+{ 
+  public function executeRegistration(sfWebRequest $request)
+  {
+    $this->tournament = Doctrine::getTable('tournament')->findOneBySlug($request->getParameter('slug'));
+    if ($this->checkHasTeamAndIsCaptain())
+    {
+      
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez être le manager de votre équipe pour continuer'));
+      $this->redirect('tournament/view?slug='.$this->tournament->getSlug());   
+    }    
+  }
+  
+  
+    /**
+   * @brief Check if User is a player in a team.
+   * @return boolean : true if he is.
+   */
+  private function checkHasTeamAndIsCaptain()
+  {
+    $user = $this->getUser();
+    $team = Doctrine_Query::create()
+            ->select("team_id")
+            ->from('teamPlayer')
+            ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
+            ->andWhere('is_captain = 1')
+            ->fetchOne();
+    $result = true;
+    if ($team == NULL)
+      $result = false;
+    return $result;
+  }
+  
+  
+  
+  
+  
+  
   /**
    * @brief
    * @param[in]
@@ -43,7 +82,7 @@ class tournamentActions extends FrontendActions
       $this->getUser()->setAttribute('tmp_tournament_id', $tournament->getIdTournament());
       $this->redirect('team/index');
     }
-    else
+    //else
     {
       $has_team = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
       if (!$has_team)
@@ -91,12 +130,15 @@ class tournamentActions extends FrontendActions
       ->limit(1)
       ->fetchOne();
 
-//    $this->admins = Doctrine::getTable('tournamentAdmin')->createQuery('a')->where('tournament_id =' . $this->tournament->getIdTournament())->execute();
+   $this->admins = Doctrine::getTable('tournamentAdmin')->createQuery('a')->where('tournament_id =' . $this->tournament->getIdTournament())->execute();
+       
+    /*
     $this->admins = Doctrine_Query::create()
       ->from('TournamentAdmin ta')
       ->leftJoin('ta.sfGuardUser u')
       ->where('ta.tournament_id = ?', $this->tournament->getIdTournament())
       ->execute();
+     */
   }
 
   /**

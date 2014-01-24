@@ -14,14 +14,15 @@
       <strong><?php echo __('Plateforme')?> :</strong> <?php echo  $tournament->getGame()->getPlateform() ?>
     </p>
 
+<?php echo link_to(__('Inscription au tournoi'), 'tournament/registration?slug='.$tournament->getSlug(), array('class' => 'btn btn-primary')); ?>    
     <p>
-      <?php if ($tournament->getPlayerPerTeam() == 1): ?>
-        <?php echo __('Le tournoi se joue en <em>mode solo.</em>'); ?><br/>
-      <?php else: ?>
-        <?php echo __('Le tournoi se joue par <em>equipe de %nb_player% joueurs.</em>', array('%nb_player%' => $tournament->getPlayerPerTeam())); ?><br/>
-      <?php endif; ?>
-      <?php echo __('Les incriptions sont ouvertes pour <em>%nb_team% equipes.</em>', array('%nb_team%' => $tournament->getNumberTeam())); ?><br/>
-      <?php echo __('Le prix d\'entree est de <em>%price%&euro; par joueur.</em>', array('%price%' => $tournament->getCostPerPlayer())); ?>
+      <?php //if ($tournament->getPlayerPerTeam() == 1): ?>
+        <?php //echo __('Le tournoi se joue en <em>mode solo.</em>'); ?><br/>
+      <?php //else: ?>
+        <?php //echo __('Le tournoi se joue par <em>equipe de %nb_player% joueurs.</em>', array('%nb_player%' => $tournament->getPlayerPerTeam())); ?><br/>
+      <?php //endif; ?>
+      <?php //echo __('Les incriptions sont ouvertes pour <em>%nb_team% equipes.</em>', array('%nb_team%' => $tournament->getNumberTeam())); ?><br/>
+      <?php //echo __('Le prix d\'entree est de <em>%price%&euro; par joueur.</em>', array('%price%' => $tournament->getCostPerPlayer())); ?>
     </p>
 
     <?php if ($admins->count() > 0): ?>
@@ -43,4 +44,4 @@
 <?php endif; ?>
 
 <h3><?php echo __('Liste des equipes inscrites')?></h3>
-<?php include_component('tournament_slot', 'teamAndPlayers', array('idtournament' => $tournament['id_tournament'], 'numberteam' => $tournament['number_team'])) ?>
+<?php // include_component('tournament_slot', 'teamAndPlayers', array('idtournament' => $tournament['id_tournament'], 'numberteam' => $tournament['number_team'])) ?>

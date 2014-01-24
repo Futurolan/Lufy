@@ -1,5 +1,4 @@
 <?php
-
 /**
  * tournament_slot actions.
  *
@@ -49,7 +48,8 @@ class tournament_slotActions extends FrontendActions
             ->from('TeamPlayer tp')
             ->where('tp.user_id = ?', $this->getUser()->getGuardUser()->getId())
             ->fetchOne();
-    $users = Doctrine_Query::create()
+    
+     $users = Doctrine_Query::create()
             ->select('tp.user_id')
             ->from('TeamPlayer tp')
             ->where('tp.team_id = ?', $team->getTeamId())
@@ -91,14 +91,14 @@ class tournament_slotActions extends FrontendActions
   private function checkHasTeam()
   {
     $user = $this->getUser();
-    $weezevent = Doctrine_Query::create()
+    $team = Doctrine_Query::create()
             ->select("team_id")
             ->from('teamPlayer')
             ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
             ->andWhere('is_player = 1')
             ->fetchOne();
     $result = true;
-    if ($weezevent == NULL)
+    if ($team == NULL)
       $result = false;
     return $result;
   }
