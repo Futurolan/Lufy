@@ -12,14 +12,23 @@ class tournamentActions extends FrontendActions
 { 
   public function executeRegistration(sfWebRequest $request)
   {
-    $this->tournament = Doctrine::getTable('tournament')->findOneBySlug($request->getParameter('slug'));
-    if ($this->checkHasTeamAndIsCaptain())
+    $this->forward404Unless($this->tournament = Doctrine::getTable('tournament')->findOneBySlug($request->getParameter('slug')));
+    
+    if (!$this->tournament->registrationIsActive())
     {
-      
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Les inscriptions ne sont pas encore ouvertes pour ce tournois.'));
+      $this->redirect('tournament/view?slug='.$this->tournament->getSlug());   
     }
-    else
+
+    if (!$this->getUser()->getGuardUser()->hasTeam())
     {
-      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez être le manager de votre équipe pour continuer'));
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez appartenir a une equipe pour vous inscrire au tournoi.'));
+      $this->redirect('tournament/view?slug='.$this->tournament->getSlug());   
+    }
+    
+    if (!$this->checkHasTeamAndIsCaptain())
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez etre le manager pour vous inscrire au tournoi.'));
       $this->redirect('tournament/view?slug='.$this->tournament->getSlug());   
     }    
   }
@@ -31,17 +40,24 @@ class tournamentActions extends FrontendActions
    */
   private function checkHasTeamAndIsCaptain()
   {
-    $user = $this->getUser();
-    $team = Doctrine_Query::create()
-            ->select("team_id")
-            ->from('teamPlayer')
-            ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
-            ->andWhere('is_captain = 1')
-            ->fetchOne();
-    $result = true;
-    if ($team == NULL)
-      $result = false;
-    return $result;
+    if ($this->getUser()->getGuardUser()->hasTeam())
+    {
+       $team = Doctrine_Query::create()
+        ->select("team_id")
+        ->from('teamPlayer')
+        ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
+        ->andWhere('is_captain = 1')
+        ->fetchOne();
+
+      if ($team)
+      {
+        return true;
+      }
+
+      return false;
+    }
+    
+    return false;
   }
   
   
@@ -82,7 +98,7 @@ class tournamentActions extends FrontendActions
       $this->getUser()->setAttribute('tmp_tournament_id', $tournament->getIdTournament());
       $this->redirect('team/index');
     }
-    //else
+    else
     {
       $has_team = Doctrine::getTable('teamPlayer')->findOneByUserId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser'));
       if (!$has_team)
@@ -130,7 +146,10 @@ class tournamentActions extends FrontendActions
       ->limit(1)
       ->fetchOne();
 
-   $this->admins = Doctrine::getTable('tournamentAdmin')->createQuery('a')->where('tournament_id =' . $this->tournament->getIdTournament())->execute();
+   $this->admins = Doctrine::getTable('tournamentAdmin')
+      ->createQuery('a')
+      ->where('tournament_id =' . $this->tournament->getIdTournament())
+      ->execute();
        
     /*
     $this->admins = Doctrine_Query::create()
