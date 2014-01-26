@@ -16,4 +16,17 @@ class Event extends BaseEvent
   {
     return $this->getName();
   }
+  
+  
+  public function registrationIsActive()
+  {
+    $now = date('Y-m-d H:i:s');
+    
+    if ($this->getStartRegistrationAt() < $now && $this->getEndRegistrationAt() > $now)
+    {
+      return true;
+    }
+    
+    return false;
+  }
 }

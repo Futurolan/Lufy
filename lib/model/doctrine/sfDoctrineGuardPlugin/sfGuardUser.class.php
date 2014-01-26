@@ -10,76 +10,39 @@
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class sfGuardUser extends PluginsfGuardUser {
+class sfGuardUser extends PluginsfGuardUser
+{
+  public function __toString()
+  {
+    return $this->getUsername();
+  }
 
-    public function setUp() {
-        parent::setUp();
-        $this->hasMany('Friend', array(
-            'local' => 'id',
-            'foreign' => 'friend_id'));
-
-        $this->hasMany('Payement', array(
-            'local' => 'id',
-            'foreign' => 'user_cashman_id'));
-
-        $this->hasMany('Payement as Payement_3', array(
-            'local' => 'id',
-            'foreign' => 'user_place_id'));
-
-        $this->hasMany('SfGuardForgotPassword', array(
-            'local' => 'id',
-            'foreign' => 'user_id'));
-
-        $this->hasMany('SfGuardRememberKey', array(
-            'local' => 'id',
-            'foreign' => 'user_id'));
-
-        $this->hasMany('SfGuardUserGroup', array(
-            'local' => 'id',
-            'foreign' => 'user_id'));
-
-        $this->hasMany('SfGuardUserPermission', array(
-            'local' => 'id',
-            'foreign' => 'user_id'));
-
-        $this->hasMany('Team', array(
-            'local' => 'id',
-            'foreign' => 'adminteam_id'));
-
-        $this->hasMany('TeamPlayer', array(
-            'local' => 'id',
-            'foreign' => 'user_id'));
-
-        $this->hasMany('Invite', array(
-            'local' => 'id',
-            'foreign' => 'user_id'));
+ 
+  public function hasTeam()
+  {
+    if ($this->getTeamPlayer()->count() > 0)
+    {
+      return true;
     }
     
-    public function __toString()
-    {
-      return $this->getUsername();
-    }
-
+    return false;
+  }
+  
+  
   public function getDefaultAddress()
   {
     return SfGuardUserAddressTable::getDefaultAddressByUserId($this->getId());
   }
 
+  
   public function getBillingAddress()
   {
     return SfGuardUserAddressTable::getDefaultAddressByUserId($this->getId());
   }
 
+  
   public function getDeliveryAddress()
   {
     return SfGuardUserAddressTable::getDefaultAddressByUserId($this->getId());
   }
-
-/*
-    public function postSave($event)
-    {
-      $cacheDriver = $this->getTable()->getAttribute(Doctrine_Core::ATTR_RESULT_CACHE);
-      $cacheDriver->deleteByPrefix('users_');
-    }
-*/
 }

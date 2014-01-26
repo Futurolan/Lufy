@@ -16,34 +16,35 @@ class Tournament extends BaseTournament
   {
     return $this->getName();
   }
-  
-  public function updatePosition(array $post)
+
+
+  public function registrationIsActive()
   {
-    $size = count($post);
-    for($i=1; $i<=$size; $i++):
-      $q = Doctrine_Query::create()
-        ->update('tournament')
-        ->where('id_tournament = ?', $post[$i][id])
-        ->set('position ',$post[$i][position])
-        ->execute();
-    endfor;
+    if ($this->getEvent()->registrationIsActive())
+    {
+      return true;
+    }
+    
+    return false;
   }
+  
   
   public function setVisible($tournament_id)
   {
-        Doctrine_Query::create()
-                ->update('tournament')
-                ->set('is_active', '?', '1')
-                ->where('id_tournament = ' . $tournament_id)
-                ->execute();
+    Doctrine_Query::create()
+      ->update('tournament')
+      ->set('is_active', '?', '1')
+      ->where('id_tournament = ?', $tournament_id)
+      ->execute();
   }  
+  
   
   public function setHidden($tournament_id)
   {
-        Doctrine_Query::create()
-                ->update('tournament')
-                ->set('is_active', '?', '0')
-                ->where('id_tournament = ' . $tournament_id)
-                ->execute();
+    Doctrine_Query::create()
+      ->update('tournament')
+      ->set('is_active', '?', '0')
+      ->where('id_tournament = ?', $tournament_id)
+      ->execute();
   }
 }
