@@ -115,6 +115,9 @@ Event:
       type: integer(4)
       primary: true
       autoincrement: true
+    weezevent_id:
+      type: string(50)
+      notnull: false
     name:
       type: string(45)
       notnull: true
@@ -574,6 +577,9 @@ Tournament:
     event_id:
       type: integer(4)
       notnull: true
+    weezevent_id:
+      type: string(50)
+      notnull: false
     name:
       type: string(45)
       notnull: true
@@ -1046,6 +1052,9 @@ SfGuardUserWeezevent:
       type: integer(8)
       notnull: true
       primary: true
+    event_id:
+      type: string(50)
+      notnull: false
     tournament_id:
       type: string(50)
       notnull: false
