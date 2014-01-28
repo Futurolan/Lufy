@@ -399,33 +399,6 @@ Mail:
       type: text
       notnull: true
 
-Commande:
-  connection: doctrine
-  tableName: commande
-  actAs:
-    Timestampable: ~
-  columns:
-    id_commande:
-      type: integer(4)
-      primary: true
-      autoincrement: true
-    tournament_slot_id:
-      type: integer(4)
-      notnull: true
-    item_name:
-      type: string(50)
-      notnull: true
-    amount:
-      type: integer(8)
-      notnull: true
-    reduction:
-      type: text
-  relations:
-    TournamentSlot:
-      local: tournament_slot_id
-      foreign: id_tournament_slot
-      type: one
-
 Partner:
   connection: doctrine
   tableName: partner
@@ -486,46 +459,6 @@ PartnerType:
       local: id_partner_type
       foreign: partner_type_id
       type: many
-
-Payement:
-  connection: doctrine
-  tableName: payement
-  actAs:
-    Timestampable: ~
-  columns:
-    id_payement:
-      type: integer(4)
-      primary: true
-      autoincrement: true
-    commande_id:
-      type: integer(4)
-      notnull: true
-    user_cashman_id:
-      type: integer(8)
-    txn_id:
-      type: string(50)
-    amount:
-      type: integer(8)
-      notnull: true
-    currency_code:
-      type: string(50)
-      notnull: true
-    is_valid:
-      type: integer(2)
-      notnull: true
-    is_paypal:
-      type: integer(2)
-      notnull: true
-  relations:
-    Commande:
-      local: commande_id
-      foreign: id_commande
-      type: one
-    SfGuardUser:
-      class: sfGuardUser
-      local: user_cashman_id
-      foreign: id
-      type: one
 
 Plateform:
   connection: doctrine

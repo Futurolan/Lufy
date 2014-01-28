@@ -42,8 +42,6 @@
 
                 <h3>Paiements</h3>
                 <ul class="list">
-                    <li><?= ajax_link('Commandes', 'commande/index') ?></li>
-                    <li><?= ajax_link('Paiements', 'payement/index') ?></li>
                     <li><?= ajax_link('IPN Paypal', 'ipn/index') ?></li>
                 </ul>
 
