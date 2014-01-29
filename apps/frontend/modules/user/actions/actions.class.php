@@ -341,54 +341,29 @@ class userActions extends FrontendActions
   public function executeWeezevent(sfWebRequest $request)
   {
     $this->weezevent = Doctrine::getTable('SfGuardUserWeezevent')->findOneByUserId($this->getUser()->getGuardUser()->getId());    
+
     if (!$this->weezevent)
     {
       $this->weezevent = new SfGuardUserWeezevent();
       $this->weezevent->setUserId($this->getUser()->getGuardUser()->getId());    
     }
+
     $this->form = new SfGuardUserWeezeventForm($this->weezevent);
+
     if ($request->isMethod(sfRequest::POST))
     {
+      $ticket = Doctrine::getTable('SfGuardUserWeezevent')->findOneByBarcode($request->getPostParameter('sf_guard_user_weezevent[barcode]'));
+      if ($ticket)
+      {
+         $this->getUser()->setFlash('error', 'Ce billet a deja ete enregistre par un autre joueur.');
+         $this->redirect('user/weezevent');
+      }
+
       $this->processForm($request, $this->form);
       $this->redirect('user/weezevent');
     }
   }
 
-  /**
-   * @brief
-   * @param
-   * @return
-   */
-  protected function processFormWeezevent(sfWebRequest $request, sfForm $form, SfGuardUserWeezevent $weezevent)
-  {
-    //user_id barcode id_weez_ticket is_valid 
-    // $mfjv = new mfjv();
-    //$weezevent = new weezevent();
-    //$weezevent->setCriteria('last_name', $this->getUser()->getGuardUser()->getLastName());
-    $barcode = $request->getPostParameter('sf_guard_user_weezevent[barcode]');
-    //$result = $weezevent->check($barcode);
-    $result = true;
-    if ($result)
-    {
-      //$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-
-      $weezevent->setBarcode($result->barcode);
-      $weezevent->setBarcode($result);
-      $weezeventTicket->setId_weez_ticket($result->id_weez_ticket);
-      $weezeventTicket->setIs_valid($result->is_valid);
-      $weezevent->save();
-
-      $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Votre ticket Weezevent a ete verifiee.'));
-
-      $this->redirect('user/weezevent');
-    }
-    else
-    {
-      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Le ticket n\'a pu etre validé.'));
-
-      $this->redirect('user/weezevent');
-    }
-  }
 
   /**
    * @brief
