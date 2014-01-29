@@ -20,8 +20,8 @@
             <td><?=$team->getWebsite()?></td>
         </tr>
 </table>
+<a class="button" href="<?= url_for('team/edit?id_team=' . $team->getIdTeam()) ?>">Modifier &eacute;quipe</a>
 </fieldset>
-<br/>
 <fieldset>
     <legend>Inscription</legend>
     <table class="table">
@@ -41,49 +41,7 @@
               <? endif; ?>
             </td>
         </tr>
-        <tr>
-            <th>Statut</th>
-            <td><?=$team->getTournamentSlot()->getStatus()?></td>
-        </tr>
-        <tr>
-            <th>ID commande</th>
-            <td>
-              <? if ($team->getTournamentSlot()->getCommande()->getIdCommande()): ?>
-                <?=ajax_link($team->getTournamentSlot()->getCommande()->getIdCommande(), 'commande/edit?id_commande='.$team->getTournamentSlot()->getCommande()->getIdCommande())?>
-              <? endif; ?>
-            </td>
-        </tr>
-        <tr>
-            <th>Montant commande</th>
-            <td><?=$team->getTournamentSlot()->getCommande()->getAmount()?> &euro;</td>
-        </tr>
-        <? foreach ($team->getTournamentSlot()->getCommande()->getPayement() as $payement): ?>
-            <tr id="payement-<?=$payement->getIdPayement()?>">
-                <th>Montant paiement</th>
-                <td>
-                    <?=$payement->getAmount()?> &euro; 
-                    (
-                    <?
-                    if ($payement->getIsPaypal() == 1):
-                        echo 'Paypal';
-                    else:
-                        echo 'Cheque';
-                    endif;
-                    ?>
-                     - 
-                    <?
-                    if ($payement->getIsValid() == 1):
-                        echo 'Valide';
-                    else:
-                        echo 'En attente';
-                    endif;
-                    ?>
-                    ) 
-                    <?=ajax_link('Voir le paiement', 'payement/edit?id_payement='.$payement->getIdPayement(), array('class' => 'button small'))?>
-                    <a class="button small" onclick="payement_delete(<?=$payement->getIdPayement()?>);">Supprimer le paiement</a>
-                </td>
-            </tr>
-        <? endforeach; ?>
+        
 
     </table>
 </fieldset>
@@ -91,19 +49,19 @@
 <fieldset>
     <legend>Composition</legend>
     <table class="table">
-    <?
+    <?php
     foreach ($team->getTeamPlayer() as $player):
     ?>
         <tr>
             <th>
-            <?
+            <?php
             if ($player->getIsPlayer() == 1):
                 echo 'Joueur';
             else:
                 echo 'Non joueur';
             endif;
             if ($player->getIsCaptain() == 1):
-                echo ' - Capitaine';
+                echo ' - Manager';
             endif;
             ?>
             </th>
@@ -111,7 +69,7 @@
                 <?=ajax_link($player->getSfGuardUser()->getUsername(), 'user/view?user_id='.$player->getSfGuardUser()->getId())?> (<?=$player->getSfGuardUser()->getFirstName()?> <?=$player->getSfGuardUser()->getLastName()?>)
             </td>
         </tr>
-    <?
+    <?php
     endforeach;
     ?>
     </table>

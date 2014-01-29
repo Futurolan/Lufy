@@ -98,3 +98,83 @@ sfGuardUser:
     password: user_9
     is_active: 1
     is_super_admin: 0
+  sfGuardUser_13:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_10@yopmail
+    username: user_10
+    password: user_10
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_14:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_11@yopmail
+    username: user_11
+    password: user_11
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_15:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_12@yopmail
+    username: user_12
+    password: user_12
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_16:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_13@yopmail
+    username: user_13
+    password: user_13
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_17:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_14@yopmail
+    username: user_14
+    password: user_14
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_18:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_15@yopmail
+    username: user_15
+    password: user_15
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_19:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_16@yopmail
+    username: user_16
+    password: user_16
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_20:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_17@yopmail
+    username: user_17
+    password: user_17
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_21:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_18@yopmail
+    username: user_18
+    password: user_18
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_22:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_19@yopmail
+    username: user_19
+    password: user_19
+    is_active: 1
+    is_super_admin: 0

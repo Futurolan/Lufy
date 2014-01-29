@@ -20,10 +20,10 @@
   <li style="margin-top: 10px;"><?php echo link_to(__('Creer une equipe'), 'team/new'); ?></li>
 
   <li class="divider"></li>
-
-  <li class="nav-header"><?php echo __('Competition'); ?></li>
-  <li><?php echo link_to(__('Inscription'), 'tournament/index'); ?></li>
-
+<!--
+  <li class="nav-header"><?php //echo __('Competition'); ?></li>
+  <li><?php // echo link_to(__('Inscription'), 'tournament/index'); ?></li>
+-->
   <li class="divider"></li>
 
   <li class="nav-header"><?php echo __('Autre'); ?></li>

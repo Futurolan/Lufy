@@ -166,7 +166,7 @@ class statsActions extends sfActions
   {
     $users = Doctrine_Query::create()
       ->select('u.birthdate')
-      ->from('sfGuardUser u')
+      ->from('sfGuardUserProfile u')
       ->where('u.birthdate IS NOT NULL')
       ->andWhere('u.birthdate != ""')
       ->orderBy('birthdate DESC')

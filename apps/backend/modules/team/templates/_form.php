@@ -21,13 +21,6 @@
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
       <tr>
-        <th><?php echo $form['adminteam_id']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['adminteam_id']->renderError() ?>
-          <?php echo $form['adminteam_id'] ?>
-        </td>
-      </tr>
-      <tr>
         <th><?php echo $form['name']->renderLabel() ?></th>
         <td>
           <?php echo $form['name']->renderError() ?>
@@ -68,13 +61,6 @@
         <td>
           <?php echo $form['description']->renderError() ?>
           <?php echo $form['description'] ?>
-        </td>
-      </tr>
-      <tr>
-        <th><?php echo $form['slug']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['slug']->renderError() ?>
-          <?php echo $form['slug'] ?>
         </td>
       </tr>
     </tbody>

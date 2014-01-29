@@ -17,8 +17,8 @@
       <td>#<?=$user->getUserId()?></td>
 	  <td><?=$user->getSfGuardUser()->getName()?> (<?=$user->getSfGuardUser()->getUsername()?>)</td>
 	  <td><?=$user->getTeam()->getName()?></td>
-      <td><?=$user->getSfGuardUser()->getLicenceMasters()?></td>
-      <td><?=$user->getSfGuardUser()->getLicenceGa()?></td>
+      <td><?=$user->getSfGuardUser()->getSfGuardUserLicenceMasters()->getSerial()?></td>
+      <td><?=$user->getSfGuardUser()->getSfGuardUserProfile()->getEAN13()?></td>
       <td><a href="<?=url_for('user/view?user_id='.$user->getUserId())?>">Infos</a></td>
     </tr>
     <? endforeach; ?>

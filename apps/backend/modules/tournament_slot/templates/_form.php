@@ -28,13 +28,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <th><?php echo $form['status']->renderLabel() ?></th>
-                    <td>
-                    <?php echo $form['status']->renderError() ?>
-                    <?php echo $form['status'] ?>
-                    </td>
-                </tr>
-                <tr>
                     <th><?php echo $form['locked']->renderLabel() ?></th>
                     <td>
                     <?php echo $form['locked']->renderError() ?>

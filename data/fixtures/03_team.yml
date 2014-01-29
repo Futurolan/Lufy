@@ -1,0 +1,138 @@
+Team:
+  Team_MaTeam:
+    name: 'MaTeam'
+    tag: 'MT'
+    country: 'France'
+    description: 'Ma super Team qui va tout gagner'
+    website: 'MaTeam.com'
+    logourl: 'MaTeam.com/logo.png'
+  Team_SaTeam:
+    name: 'SaTeam'
+    tag: 'ST'
+    country: 'France'
+    description: 'Ma super Team qui va tout gagner mieux que les MaTeam'
+    website: 'SaTeam.com'
+    logourl: 'SaTeam.com/logo.png'
+  Team_TheTeam:
+    name: 'TheTeam'
+    tag: 'TT'
+    country: 'France'
+    description: 'La super Team'
+    website: 'TheTeam.com'
+    logourl: 'TheTeam.com/logo.png'
+
+TeamPlayer:
+  TeamPlayer_1:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_4
+    is_captain: 1
+    is_player: 1
+  TeamPlayer_2:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_5
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_3:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_6
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_4:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_7
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_5:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_8
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_6:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_9
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_7:
+    Team: Team_SaTeam
+    SfGuardUser: sfGuardUser_13
+    is_captain: 1
+    is_player: 1
+  TeamPlayer_8:
+    Team: Team_SaTeam
+    SfGuardUser: sfGuardUser_14
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_9:
+    Team: Team_SaTeam
+    SfGuardUser: sfGuardUser_15
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_10:
+    Team: Team_SaTeam
+    SfGuardUser: sfGuardUser_16
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_11:
+    Team: Team_SaTeam
+    SfGuardUser: sfGuardUser_17
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_12:
+    Team: Team_TheTeam
+    SfGuardUser: sfGuardUser_18
+    is_captain: 1
+    is_player: 1
+  TeamPlayer_13:
+    Team: Team_TheTeam
+    SfGuardUser: sfGuardUser_19
+    is_captain: 1
+    is_player: 1
+  TeamPlayer_14:
+    Team: Team_TheTeam
+    SfGuardUser: sfGuardUser_20
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_15:
+    Team: Team_TheTeam
+    SfGuardUser: sfGuardUser_21
+    is_captain: 0
+    is_player: 1
+  TeamPlayer_16:
+    Team: Team_TheTeam
+    SfGuardUser: sfGuardUser_22
+    is_captain: 0
+    is_player: 1
+    
+Invite:
+  Invite_1:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_5
+    is_accepted: 1
+  Invite_2:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_6
+    is_accepted: 1
+  Invite_3:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_7
+    is_accepted: 1
+  Invite_4:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_8
+    is_accepted: 1
+  Invite_5:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_9
+    is_accepted: 1
+  Invite_6:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_10
+    is_accepted: NULL
+  Invite_7:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_11
+    is_accepted: NULL
+  Invite_8:
+    Team: Team_MaTeam
+    SfGuardUser: sfGuardUser_12
+    is_accepted: NULL
