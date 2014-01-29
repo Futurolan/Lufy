@@ -107,10 +107,14 @@ class Weezevent_API
   }
 }
 
-
+/**
+ * How use it 
+ * 
 $weezevent = new Weezevent_API;
 if ($weezevent->checkParticipant('53854', '217045', '7497363'))
 {
   echo 'Ticket valide !';
 }
+ * */
+ 
 ?>
