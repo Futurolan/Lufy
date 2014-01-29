@@ -4,8 +4,9 @@
   <li><?php echo link_to(__('Mes adresses'), 'user/address'); ?></li>
   <li><?php echo link_to(__('Ticket Weezevent'), 'user/weezevent'); ?></li>
   <li><?php echo link_to(__('Licence Masters'), 'user/licenceMasters'); ?></li>
+<!--
   <li><?php echo link_to(__('Taille de tshirt'), 'user/tshirt'); ?></li>
-
+-->
   <li class="divider"></li>
 
   <li class="nav-header"><?php echo __('Mon equipe'); ?></li>
@@ -26,5 +27,8 @@
 
   <li class="nav-header"><?php echo __('Autre'); ?></li>
   <li><?php include_component('invite', 'nbinvite') ?></li>
+<!--
   <li><a href="#">Besoin d'aide ?</a></li>
+-->
+  <li>&nbsp;</li>
 </ul>
