@@ -17,7 +17,10 @@
       </tr>
     </tfoot>
     <tbody>
-      <?php echo $form['barcode']->renderRow(); ?>     
+      <tr>
+        <th><?=__('Code barre')?></th>
+        <td><?php echo $form['barcode'] ?></td>
+      </tr>
     </tbody>
   </table>
 </form>

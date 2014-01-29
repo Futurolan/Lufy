@@ -1,9 +1,8 @@
 <h2><?php echo __('Ticket Weezevent')?></h2>
 
 <?php if ($weezevent->getBarcode()): ?>
-  <div class="alert alert-info">
-    <?php echo __('Votre ticket est valide'); ?>
-  </div>
+
+  <br/><br/>
   <table class="table">
     <tfoot>
       <tr>
@@ -19,8 +18,15 @@
   </table>
 <?php else: ?>
   <p>
-    <?php echo __('Si vous ne possedez pas de billet weezevent vous pouvez vous en procurer un sur leur site')?>
+  <div>
+    Afin de valider votre participation vous devez saisir le numero de votre billet Weezevent.<br/>
+    Ce num&eacute;ro unique ce trouve a l'endroit indiqu&eacute; sur l'image ci-dessous.
+  </div>
+  <br/>
+    <?php echo __('Si vous ne possedez pas de billet weezevent vous pouvez vous en procurer un via notre boutique Gamers Assembly 2014')?>
   </p>
-
+  <br/>
   <?php include_partial('user/formWeezevent', array('form' => $form)); ?>
+
+  <?=image_tag('ticket_ga2014.jpg')?>
 <?php endif; ?>

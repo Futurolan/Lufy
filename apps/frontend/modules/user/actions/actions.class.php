@@ -373,6 +373,22 @@ class userActions extends FrontendActions
   public function executeDeleteWeezevent(sfWebRequest $request)
   {
     $this->redirectUnless($weezevent = Doctrine::getTable('SfGuardUserWeezevent')->findOneByUserId($this->getUser()->getGuardUser()->getId()), 'user/weezevent');
+
+    $team_is_locked = false;
+    foreach ($this->getUser()->getGuardUser()->getTeamPlayer() as $player)
+    {
+      if ($player->getTeam()->getIsLocked())
+      {
+        $team_is_locked = true;
+      }
+    }
+
+    if ($team_is_locked)
+    {
+      $this->getUser()->setFlash('error', 'Vous ne pouvez pas supprimer votre billet apres avoir validee votre inscription.');
+      $this->redirect('user/weezevent');
+    }
+
     $weezevent->delete();
 
     $this->redirect('user/weezevent');
