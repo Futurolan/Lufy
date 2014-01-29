@@ -139,16 +139,8 @@ class tournamentActions extends BackendActions
     $this->forward404Unless($tournament = Doctrine::getTable('tournament')->find(array($request->getParameter('id_tournament'))), sprintf('Object tournament does not exist (%s).', $request->getParameter('id_tournament')));
     $tournamentSlots = Doctrine::getTable('tournamentSlot')->findByTournamentId($request->getParameter('id_tournament'));
 
-    /** Suppression en cascade des slots, commandes, paiements et des admisn tournois * */
+    /** Suppression en cascade des slots et des admisn tournois * */
     foreach ($tournamentSlots as $tournamentSlot):
-      $commandes = Doctrine::getTable('commande')->findByTournamentSlotId($tournamentSlot->getIdTournamentSlot());
-      foreach ($commandes as $commande):
-        $payements = Doctrine::getTable('payement')->findByCommandeId($commande->getIdCommande());
-        foreach ($payements as $payement):
-          $payement->delete();
-        endforeach;
-        $commande->delete();
-      endforeach;
       $tournamentSlot->delete();
     endforeach;
     $tournamentAdmins = Doctrine::getTable('tournamentAdmin')->findByTournamentId($request->getParameter('id_tournament'));
