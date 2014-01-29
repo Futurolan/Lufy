@@ -6,7 +6,6 @@
       <th></th>
       <th>Team</th>
       <th>Tournament</th>
-      <th>Position</th>
       <th>Status</th>
       <th>Actions</th>
     </tr>
@@ -20,11 +19,9 @@
         echo ajax_link($tournament_slot->teamName($tournament_slot->getTeamId()), 'team/view?id_team='.$tournament_slot->getTeamId());
       endif;        ?></td>
       <td><?php echo ajax_link($tournament_slot->getTournament(), 'tournament/edit?id_tournament='.$tournament_slot->getTournamentId()) ?></td>
-      <td><?php echo $tournament_slot->getPosition() ?></td>
-      <td><?php echo $tournament_slot->getStatus() ?></td>
+      <td><?php echo $tournament_slot->getIsActive() ?></td>
       <td><a href="<?php echo url_for('tournament_slot/edit?id_tournament_slot='.$tournament_slot->getIdTournamentSlot()) ?>">Modifier</a>
-          - <?php echo ajax_link('Liberer le slot', 'tournament_slot/setLibre?id_tournament_slot=' . $tournament_slot->getIdTournamentSlot()) ?>
-      - <?php echo ajax_link('Valider le slot', 'tournament_slot/setValide?id_tournament_slot=' . $tournament_slot->getIdTournamentSlot()) ?></td>
+     
     </tr>
     <?php endforeach; ?>
   </tbody>
