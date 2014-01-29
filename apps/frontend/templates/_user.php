@@ -8,23 +8,21 @@
 
   <li class="divider"></li>
 
-  <li class="nav-header"><?php echo __('Mes equipes'); ?></li>
+  <li class="nav-header"><?php echo __('Mon equipe'); ?></li>
   <?php if (count($sf_user->getGuardUser()->getTeamPlayer()) > 0): ?>
     <?php foreach ($sf_user->getGuardUser()->getTeamPlayer() as $player): ?>
       <li><?php echo link_to($player->getTeam()->getName(), 'team/view?slug='.$player->getTeam()->getSlug()); ?></li>
     <?php endforeach; ?>
   <?php else: ?>
-      <li><em><?php echo __('Aucune equipe'); ?></em></li>
+      <li style="margin-top: 10px;"><?php echo link_to(__('Creer une equipe'), 'team/new'); ?></li>
   <?php endif; ?>
-  <li> </li>
-  <li style="margin-top: 10px;"><?php echo link_to(__('Creer une equipe'), 'team/new'); ?></li>
 
   <li class="divider"></li>
 <!--
   <li class="nav-header"><?php //echo __('Competition'); ?></li>
   <li><?php // echo link_to(__('Inscription'), 'tournament/index'); ?></li>
--->
   <li class="divider"></li>
+-->
 
   <li class="nav-header"><?php echo __('Autre'); ?></li>
   <li><?php include_component('invite', 'nbinvite') ?></li>

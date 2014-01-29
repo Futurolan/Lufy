@@ -209,100 +209,6 @@ class teamActions extends FrontendActions
 
   }
 
-  /**
-   * @brief Permit for a captain to delete a team
-   * @param[in] $request a sfWebRequest
-   * @return Redirect
-   */
-  public function executeDeleteTeam(sfWebRequest $request)
-  {
-    $request->checkCSRFProtection();
-
-    $this->forward404Unless($team = Doctrine::getTable('team')->findOneByAdminteamId($this->getUser()->getAttribute('user_id', null, 'sfGuardSecurityUser')));
-    $players = Doctrine_Query::create()
-      ->from('teamplayer')
-      ->where('team_id = ' . $team->getIdTeam())
-      ->execute();
-
-    $mail = Doctrine::getTable('mail')->findOneByName('mail_team_delete');
-    foreach ($players as $player):
-      $message = $this->getMailer()->compose();
-      $message->setSubject($mail->getSubject());
-      $message->setTo($player->getSfGuardUser()->getEmailAddress());
-      $message->setFrom($mail->getEmail());
-      $content = str_replace("%TEAM%", $team->getName(), $mail->getContent());
-      $message->setBody($content);
-      $this->getMailer()->send($message);
-    endforeach;
-
-
-    $s = Doctrine::getTable('team')
-            ->InSlot($team->getIdTeam());
-    if ($s != '0'):
-      if ($s->getStatus() == 'attente'):
-        $commande = Doctrine_Core::getTable('commande')->findOneByTournamentSlotId($s->getIdTournamentSlot());
-        if ($commande)
-          $commande->delete();
-        $s->delete();
-      else:
-        $commande = Doctrine_Core::getTable('commande')->findOneByTournamentSlotId($s->getIdTournamentSlot());
-        $commande->delete();
-        Doctrine::getTable('tournamentSlot')
-                ->setLibre($s->getIdTournamentSlot());
-      endif;
-      $slots = Doctrine_Query::create()
-              ->from('tournamentSlot')
-              ->where('tournament_id = ' . $s->getTournamentId())
-              ->orderBy('position ASC')
-              ->execute();
-      $pos = 0;
-      foreach ($slots as $slot):
-        if ($slot->getStatus() == 'reserve'):
-          $pos++;
-          Doctrine::getTable('tournamentSlot')
-                  ->setPosition($pos, $slot->getIdTournamentSlot());
-        endif;
-      endforeach;
-      foreach ($slots as $slot):
-        if ($slot->getStatus() == 'valide'):
-          $pos++;
-          Doctrine::getTable('tournamentSlot')
-                  ->setPosition($pos, $slot->getIdTournamentSlot());
-        endif;
-      endforeach;
-      foreach ($slots as $slot):
-        if ($slot->getStatus() == 'inscrit'):
-          $pos++;
-          Doctrine::getTable('tournamentSlot')
-                  ->setPosition($pos, $slot->getIdTournamentSlot());
-        endif;
-      endforeach;
-      foreach ($slots as $slot):
-        if ($slot->getStatus() == 'libre'):
-          $pos++;
-          Doctrine::getTable('tournamentSlot')
-                  ->setPosition($pos, $slot->getIdTournamentSlot());
-        endif;
-      endforeach;
-      foreach ($slots as $slot):
-        if ($slot->getStatus() == 'attente'):
-          $pos++;
-          Doctrine::getTable('tournamentSlot')
-                  ->setPosition($pos, $slot->getIdTournamentSlot());
-        endif;
-      endforeach;
-    endif;
-
-    $invite = Doctrine_Core::getTable('invite')->findByTeamId($team->getIdTeam());
-    $invite->delete();
-
-    Doctrine::getTable('team')
-            ->deleteTeamPlayers($team->getIdTeam());
-    $team->delete();
-
-    $this->getUser()->setFlash('success', 'L\'equipe a ete supprime, tous les membres ont recu un mail.');
-    $this->redirect('team/index');
-  }
 
   /**
    * @brief Create a new team form
@@ -375,5 +281,44 @@ class teamActions extends FrontendActions
 
       $this->setLayout('user');
     }
+  }
+
+
+  public function executeDelete(sfWebRequest $request)
+  {
+    $this->forward404Unless($team = Doctrine::getTable('Team')->findOneBySlug($request->getParameter('slug')));
+
+    $current_player = Doctrine::getTable('TeamPlayer')->findOneByUserIdAndTeamId($this->getUser()->getGuardUser()->getId(), $team->getIdTeam());
+
+    if (!$current_player->getIsCaptain())
+    {
+      $this->getUser()->setFlash('error', 'Vous devez etre manager pour supprimer une equipe.');
+      $this->redirect('team/view?slug='.$request->getParameter('slug'));
+    }
+
+    if ($team->getIsLocked())
+    {
+      $this->getUser()->setFlash('error', 'Vous ne pouvez pas supprimer une equipe verrouillee.');
+      $this->redirect('team/view?slug='.$request->getParameter('slug'));
+    }
+
+    $slot = Doctrine::getTable('TournamentSlot')->findOneByTeamId($team->getIdTeam());
+
+    if ($slot)
+    {
+      $slot->delete();
+    }
+
+    $players = Doctrine::getTable('TeamPlayer')->findByTeamId($team->getIdTeam());
+
+    foreach ($players as $player)
+    {
+      $player->delete();
+    }
+
+    $team->delete();
+
+    $this->getUser()->setFlash('success', 'Votre equipe a ete supprimee');
+    $this->redirect('user/profile');
   }
 }

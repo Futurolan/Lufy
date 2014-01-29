@@ -78,6 +78,11 @@ team_view:
   url: /:sf_culture/team/view/:slug
   param: { module: team, action: view }
 
+team_delete:
+  url: /:sf_culture/team/delete/:slug
+  param: { module: team, action: delete }
+
+
 # User
 user_weezevent:
   url: /:sf_culture/user/weezevent
@@ -171,6 +176,10 @@ tournament_view:
 tournament_registration:
   url: /:sf_culture/tournament/:slug/registration
   param: { module: tournament, action: registration }
+
+tournament_registrationConfirm:
+  url: /:sf_culture/tournament/:slug/registration/:team_slug/confirm
+  param: { module: tournament, action: registrationConfirm }
 
 
 # Galerie
