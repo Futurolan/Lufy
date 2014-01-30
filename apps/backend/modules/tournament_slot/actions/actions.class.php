@@ -118,9 +118,19 @@ class tournament_slotActions extends sfActions
     $request->checkCSRFProtection();
 
     $this->forward404Unless($tournament_slot = Doctrine::getTable('TournamentSlot')->find(array($request->getParameter('id_tournament_slot'))), sprintf('Object tournament_slot does not exist (%s).', $request->getParameter('id_tournament_slot')));
-    $tournament_slot->delete();
 
-    $this->redirect('tournament_slot/index');
+
+    if ($tournament_slot->getIsValid() == 0 && $tournament_slot->getIsLocked() == 0)
+    {
+      $slug =$tournament_slot->getTournament()->getSlug();
+      $tournament_slot->delete();
+      $this->redirect('tournament_slot/tournament?slug=' . $slug);
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', 'Avant de suprimer le slot vous devez déverrouiller et dé-valider léquipe.');
+      $this->redirect('tournament_slot/edit?id_tournament_slot='.$tournament_slot->getIdTournamentSlot());   
+    }
   }
 
   /**
@@ -153,6 +163,5 @@ class tournament_slotActions extends sfActions
             ->where('tournament_id = ' . $this->tournament->getIdTournament())
             ->execute();
   }
- 
 
 }

@@ -43,36 +43,14 @@ $state_libre = 0;
 $state_total = 0;
 $state_max_slot = $tournament->getNumberTeam();
 ?>
-<? foreach ($tournament->getTournamentSlot() as $slot): 
-    if ($slot->getStatus() == 'reserve'):
-      $state_reserve++;
-      $state_valide++;
-      $state_inscrit++;
-    elseif ($slot->getStatus() == 'valide'):
-      $state_valide++;
-      $state_inscrit++;
-    elseif ($slot->getStatus() == 'inscrit'):
-      $state_inscrit++;
-    elseif ($slot->getStatus() == 'attente'):
-      $state_inscrit++;
-    elseif ($slot->getStatus() == 'libre'):
-      $state_libre++;
-    endif;
-    $state_total++;
-endforeach; ?>
+
 
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://cdn.kendostatic.com/2012.2.913/js/kendo.all.min.js"></script>
     <link href="http://cdn.kendostatic.com/2012.2.913/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="http://cdn.kendostatic.com/2012.2.913/styles/kendo.default.min.css" rel="stylesheet" />
     <link href="http://cdn.kendostatic.com/2012.2.913/styles/kendo.dataviz.min.css" rel="stylesheet" />
-<?php
-// Calcul des pourcentages
-$percent_libre = round($state_libre*100/$state_max_slot);
-$percent_inscrit = round(($state_inscrit-$state_valide-$state_reserve)*100/$state_max_slot);
-$percent_valide = round(($state_valide-$state_reserve)*100/$state_max_slot);
-$percent_reserve = round($state_reserve*100/$state_max_slot);
-?>
+
 <div id="example" class="k-content">
             <div class="chart-wrapper">
                 <div id="chart"></div>

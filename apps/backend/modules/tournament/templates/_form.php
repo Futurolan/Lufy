@@ -44,11 +44,11 @@
       </tr>
       <tr>
         <th>Statut</th>
-        <td>
+        <!--<td>
           <?php echo $form['is_active']->renderError() ?>
           <?php echo $form['is_active'] ?>
         </td>
-      </tr>
+      </tr>-->
       <tr>
         <th>Nombre d'équipes</th>
         <td>

@@ -12,5 +12,6 @@ class TournamentSlotForm extends BaseTournamentSlotForm
 {
   public function configure()
   {
+    unset($this['tournament_id'], $this['created_at'], $this['updated_at']);
   }
 }

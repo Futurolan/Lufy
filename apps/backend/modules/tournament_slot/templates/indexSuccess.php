@@ -17,7 +17,7 @@
             <tr>
                 <td><?=image_tag('/uploads/jeux/icones/'.$tournament->getLogourl())?> <a href="<?php echo url_for('tournament/view?slug=' . $tournament->getSlug()) ?>"><?php echo $tournament->getName() ?></a></td>
                 <td><?php echo $tournament->getNumberTeam() ?></td>
-                <td><a href="<?php echo url_for('tournament_slot/tournament?slug=' . $tournament->getSlug()) ?>">Voir les slots</a> - <a href="<?= url_for('tournament_slot/updatePosition?slug=' . $tournament->getSlug()) ?>">Ranger les slots</a></td>
+                <td><a href="<?php echo url_for('tournament_slot/tournament?slug=' . $tournament->getSlug()) ?>">Voir les slots</a></td>
             </tr>
         <?php
         endforeach;

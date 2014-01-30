@@ -10,9 +10,9 @@
                 <tr>
                     <td colspan="2">
                     <?php echo $form->renderHiddenFields(false) ?>
-                    &nbsp;<a href="<?php echo url_for('tournament_slot/index') ?>" class="button">Back to list</a>
+                    &nbsp;<a href="<?php echo url_for('tournament_slot/tournament?slug=' . $form->getObject()->getTournament()->getSlug()) ?>" class="button">Retour a la liste</a>
                     <?php if (!$form->getObject()->isNew()): ?>
-                        &nbsp;<?php echo ajax_link('Liberer le slot', 'tournament_slot/setLibre?id_tournament_slot=' . $form->getObject()->getIdTournamentSlot(), array('class' => 'button')) ?>
+                        &nbsp;<?php echo ajax_link('Supprimer le slot', 'tournament_slot/delete?id_tournament_slot=' . $form->getObject()->getIdTournamentSlot(), array('class' => 'button')) ?>
                     <?php endif; ?>
                         <input type="submit" value="Save" class="button"/>
                     </td>
@@ -28,10 +28,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <th><?php echo $form['locked']->renderLabel() ?></th>
+                    <th><?php echo $form['is_valid']->renderLabel() ?></th>
                     <td>
-                    <?php echo $form['locked']->renderError() ?>
-                    <?php echo $form['locked'] ?>
+                    <?php echo $form['is_valid']->renderError() ?>
+                    <?php echo $form['is_valid'] ?>
+                </td>
+                <tr>
+                    <th><?php echo $form['is_locked']->renderLabel() ?></th>
+                    <td>
+                    <?php echo $form['is_locked']->renderError() ?>
+                    <?php echo $form['is_locked'] ?>
                 </td>
             </tr>
         </tbody>
