@@ -26,6 +26,10 @@
         <td><?=$tournament->getCostPerPlayer()?></td>
     </tr>
     <tr>
+        <th>Identifiant Weezevent</th>
+        <td><?=$tournament->getWeezeventId()?></td>
+    </tr>
+    <tr>
         <th>Description</th>
         <td colspan="3"><?=$tournament->getDescription()?></td>
     </tr>

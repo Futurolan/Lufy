@@ -340,12 +340,29 @@ class userActions extends FrontendActions
    */
   public function executeWeezevent(sfWebRequest $request)
   {
-    $this->weezevent = Doctrine::getTable('SfGuardUserWeezevent')->findOneByUserId($this->getUser()->getGuardUser()->getId());    
+    $idteam = $this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getIdTeam();
+
+    if (!$idteam)
+    {
+      $this->getUser()->setFlash('error', 'Vous ne pouvez pas valider votre billet si vous navez pas d\'équipe.');
+      $this->redirect('profil/index');
+    }
+    else
+    {
+      $tournamentSlot = $this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getTournamentSlot();
+      if (!$tournamentSlot)
+      {
+        $this->getUser()->setFlash('error', 'Vous ne pouvez pas valider votre billet si vous navez pas d\'équipe inscrite pur un tournoi.');
+        $this->redirect('profil/index');
+      }
+    }
+
+    $this->weezevent = $this->getUser()->getGuardUser()->getSfGuardUserWeezevent();
 
     if (!$this->weezevent)
     {
       $this->weezevent = new SfGuardUserWeezevent();
-      $this->weezevent->setUserId($this->getUser()->getGuardUser()->getId());    
+      $this->weezevent->setUserId($this->getUser()->getGuardUser()->getId());
     }
 
     $this->form = new SfGuardUserWeezeventForm($this->weezevent);
@@ -355,15 +372,48 @@ class userActions extends FrontendActions
       $ticket = Doctrine::getTable('SfGuardUserWeezevent')->findOneByBarcode($request->getPostParameter('sf_guard_user_weezevent[barcode]'));
       if ($ticket)
       {
-         $this->getUser()->setFlash('error', 'Ce billet a deja ete enregistre par un autre joueur.');
-         $this->redirect('user/weezevent');
+        $this->getUser()->setFlash('error', 'Ce billet a deja ete enregistre par un autre joueur.');
       }
+      else
+      {
+        try
+        {
+          $weezevent_API = new Weezevent_API();
+        }
+        catch (Exception $exc)
+        {
+          $result = false;
+        }
 
-      $this->processForm($request, $this->form);
+        if (!isset($result))
+        {
+          $barcode = $request->getPostParameter('sf_guard_user_weezevent[barcode]');
+          $result = $weezevent_API->checkParticipant($tournamentSlot->getWeezeventId(), $tournamentSlot->getTournament()->getWeezeventId(), $barcode);
+        }
+
+        //$result =true;
+        if ($result)
+        {
+          $this->form->getObject()->setIsValid(1);
+          $this->form->getObject()->setTournamentId($tournamentSlot->getTournament()->getWeezeventId());
+          $this->form->getObject()->setEventId($tournamentSlot->getTournament()->getEvent()->getWeezeventId());
+          $this->processForm($request, $this->form);
+        }
+        else
+        {
+          if ($result === false)
+          {
+            $this->getUser()->setFlash('error', 'Il semblerais quil y ai une erreur avec le service de weezevent. Envoyez immediatement un courriel a inscriptions@futurolan.net');
+          }
+          else
+          {
+            $this->getUser()->setFlash('error', 'Ce billet ne semble pas valide. Avez vous bien saisi votre codebar ?');
+          }
+        }
+      }
       $this->redirect('user/weezevent');
     }
   }
-
 
   /**
    * @brief

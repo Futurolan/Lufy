@@ -14,6 +14,7 @@ class SfGuardUserWeezeventForm extends BaseSfGuardUserWeezeventForm
   public function configure()
   {
     unset(
+            $this['event_id'],
             $this['tournament_id'],
             $this['is_valid']
     );

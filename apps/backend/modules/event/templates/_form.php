@@ -35,6 +35,13 @@
         </td>
       </tr>
       <tr>
+        <th><?php echo $form['weezevent_id']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['weezevent_id']->renderError() ?>
+          <?php echo $form['weezevent_id'] ?>
+        </td>
+      </tr>
+      <tr>
         <th><?php echo $form['start_at']->renderLabel() ?></th>
         <td>
           <?php echo $form['start_at']->renderError() ?>
