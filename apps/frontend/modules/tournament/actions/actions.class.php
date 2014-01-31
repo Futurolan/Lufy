@@ -9,32 +9,63 @@
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class tournamentActions extends FrontendActions
-{ 
+{
+
   public function executeRegistration(sfWebRequest $request)
   {
+    $this->checkRegistration($request);
+  }
+
+  private function checkRegistration(sfWebRequest $request)
+  {
     $this->forward404Unless($this->tournament = Doctrine::getTable('tournament')->findOneBySlug($request->getParameter('slug')));
-    
+
     if (!$this->tournament->registrationIsActive())
     {
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Les inscriptions ne sont pas encore ouvertes pour ce tournois.'));
-      $this->redirect('tournament/view?slug='.$this->tournament->getSlug());   
+      $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
 
     if (!$this->getUser()->getGuardUser()->hasTeam())
     {
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez appartenir a une equipe pour vous inscrire au tournoi.'));
-      $this->redirect('tournament/view?slug='.$this->tournament->getSlug());   
+      $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
-    
+
     if (!$this->checkHasTeamAndIsCaptain())
     {
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez etre le manager pour vous inscrire au tournoi.'));
-      $this->redirect('tournament/view?slug='.$this->tournament->getSlug());   
-    }    
+      $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
+    }
   }
-  
-  
-    /**
+
+  public function executeRegistrationConfirm(sfWebRequest $request)
+  {
+    $this->checkRegistration($request);
+    $teamSlug = $request->getParameter('team_slug');
+    $tournamentSlug = $request->getParameter('slug');
+    
+    $idTournament = Doctrine_Query::create()
+            ->select('t.id_tournament')
+            ->from('tournament t')
+            ->where('t.slug =?', $tournamentSlug)
+            ->fetchOne();
+    
+    $idTeam = Doctrine_Query::create()
+            ->select('t.id_team')
+            ->from('team t')
+            ->where('t.slug =?', $teamSlug)
+            ->fetchOne();
+    
+    $tournamentSlot = new TournamentSlot();
+    $tournamentSlot->setTeamId($idTeam);
+    $tournamentSlot->setTournamentId($idTournament);    
+    $tournamentSlot->save();
+    $this->getUser()->setFlash('success', 'L equipe est inscrite au tournoi');
+    //$this->redirect('team/index');
+  }
+
+  /**
    * @brief Check if User is a player in a team.
    * @return boolean : true if he is.
    */
@@ -42,12 +73,12 @@ class tournamentActions extends FrontendActions
   {
     if ($this->getUser()->getGuardUser()->hasTeam())
     {
-       $team = Doctrine_Query::create()
-        ->select("team_id")
-        ->from('teamPlayer')
-        ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
-        ->andWhere('is_captain = 1')
-        ->fetchOne();
+      $team = Doctrine_Query::create()
+              ->select("team_id")
+              ->from('teamPlayer')
+              ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
+              ->andWhere('is_captain = 1')
+              ->fetchOne();
 
       if ($team)
       {
@@ -56,15 +87,10 @@ class tournamentActions extends FrontendActions
 
       return false;
     }
-    
+
     return false;
   }
-  
-  
-  
-  
-  
-  
+
   /**
    * @brief
    * @param[in]
@@ -130,29 +156,29 @@ class tournamentActions extends FrontendActions
   public function executeView(sfWebRequest $request)
   {
     $this->tournament = Doctrine_Query::create()
-      ->from('Tournament t')
-      ->leftJoin('t.Event e')
-      ->leftJoin('t.Game g')
-      ->leftJoin('g.GameType gt')
-      ->leftJoin('g.Plateform p')
-      ->where('t.slug = ?', $request->getParameter('slug'))
-      ->fetchOne();
+            ->from('Tournament t')
+            ->leftJoin('t.Event e')
+            ->leftJoin('t.Game g')
+            ->leftJoin('g.GameType gt')
+            ->leftJoin('g.Plateform p')
+            ->where('t.slug = ?', $request->getParameter('slug'))
+            ->fetchOne();
 
     $this->forward404Unless($this->tournament);
 
     $this->page = Doctrine_Query::create()
-      ->from('Page p')
-      ->where('p.slug = ?', $request->getParameter('slug'))
-      ->limit(1)
-      ->fetchOne();
+            ->from('Page p')
+            ->where('p.slug = ?', $request->getParameter('slug'))
+            ->limit(1)
+            ->fetchOne();
 
-   $this->admins = Doctrine::getTable('tournamentAdmin')
-      ->createQuery('a')
-      ->where('tournament_id =' . $this->tournament->getIdTournament())
-      ->execute();
-       
+    $this->admins = Doctrine::getTable('tournamentAdmin')
+            ->createQuery('a')
+            ->where('tournament_id =' . $this->tournament->getIdTournament())
+            ->execute();
+
     /*
-    $this->admins = Doctrine_Query::create()
+      $this->admins = Doctrine_Query::create()
       ->from('TournamentAdmin ta')
       ->leftJoin('ta.sfGuardUser u')
       ->where('ta.tournament_id = ?', $this->tournament->getIdTournament())

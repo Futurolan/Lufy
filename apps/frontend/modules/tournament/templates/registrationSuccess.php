@@ -57,7 +57,7 @@
   <div>...LE REGLEMENT ICI DANS UNE DIV SCROLLABLE...</div>
   <br/>
   <div>
-    <?= link_to(__('J accepte le reglement'), 'tournament/registrationConfirm?slug=' . $tournament->getSlug() . '&team_slug=', array('class' => 'btn btn-success')) ?>
+    <?= link_to(__('J accepte le reglement'), 'tournament/registrationConfirm?slug=' . $tournament->getSlug() . '&team_slug='.$team->getSlug(), array('class' => 'btn btn-success')) ?>
     <?= link_to(__('Je refuse le reglement'), 'tournament/view?slug=' . $tournament->getSlug(), array('class' => 'btn btn-danger')) ?>
   </div>
 </div>
