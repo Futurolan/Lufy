@@ -61,4 +61,3 @@
     <?= link_to(__('Je refuse le reglement'), 'tournament/view?slug=' . $tournament->getSlug(), array('class' => 'btn btn-danger')) ?>
   </div>
 </div>
-</div>
