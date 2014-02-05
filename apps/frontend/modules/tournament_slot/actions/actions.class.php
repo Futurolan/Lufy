@@ -1,4 +1,5 @@
 <?php
+
 /**
  * tournament_slot actions.
  *
@@ -35,7 +36,7 @@ class tournament_slotActions extends FrontendActions
     if ($this->checkTeamPlayerHasWeezevent())
       $this->steps['MyTeamIsOk'] = true;
   }
-  
+
   /**
    * @brief Check if weezevent tickets of team members are valid.
    * @return boolean : true if team is ok.
@@ -48,8 +49,8 @@ class tournament_slotActions extends FrontendActions
             ->from('TeamPlayer tp')
             ->where('tp.user_id = ?', $this->getUser()->getGuardUser()->getId())
             ->fetchOne();
-    
-     $users = Doctrine_Query::create()
+
+    $users = Doctrine_Query::create()
             ->select('tp.user_id')
             ->from('TeamPlayer tp')
             ->where('tp.team_id = ?', $team->getTeamId())
@@ -59,11 +60,11 @@ class tournament_slotActions extends FrontendActions
     foreach ($users as $key)
     {
       if (!$this->checkWeezevent($key->getUserId()))
-        $result =false;
+        $result = false;
     }
     return $result;
   }
-  
+
   /**
    * @brief Check if Weezevent Ticket is valid.
    * @param[in] $userId Take a user id or check current user id
@@ -71,7 +72,10 @@ class tournament_slotActions extends FrontendActions
    */
   private function checkWeezevent($userId)
   {
-    if (!$userId) { $userId = $this->getUser()->getSfGuard()-getId(); }
+    if (!$userId)
+    {
+      $userId = $this->getUser()->getSfGuard()->getId();
+    }
     $weezevent = Doctrine_Query::create()
             ->select("user_id")
             ->from('sfGuardUserWeezevent')
@@ -80,7 +84,7 @@ class tournament_slotActions extends FrontendActions
             ->fetchOne();
     $result = true;
     if ($weezevent == NULL)
-      $result = false;    
+      $result = false;
     return $result;
   }
 
