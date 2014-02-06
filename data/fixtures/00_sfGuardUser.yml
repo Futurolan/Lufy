@@ -178,3 +178,131 @@ sfGuardUser:
     password: user_19
     is_active: 1
     is_super_admin: 0
+  sfGuardUser_23:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_20@yopmail
+    username: user_20
+    password: user_20
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_24:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_21@yopmail
+    username: user_21
+    password: user_21
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_25:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_22@yopmail
+    username: user_22
+    password: user_22
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_26:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_23@yopmail
+    username: user_23
+    password: user_23
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_27:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_24@yopmail
+    username: user_24
+    password: user_24
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_28:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_25@yopmail
+    username: user_25
+    password: user_25
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_29:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_26@yopmail
+    username: user_26
+    password: user_26
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_30:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_27@yopmail
+    username: user_27
+    password: user_27
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_31:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_28@yopmail
+    username: user_28
+    password: user_28
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_32:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_29@yopmail
+    username: user_29
+    password: user_29
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_33:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_30@yopmail
+    username: user_30
+    password: user_30
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_34:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_31@yopmail
+    username: user_31
+    password: user_31
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_35:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_32@yopmail
+    username: user_32
+    password: user_32
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_36:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_33@yopmail
+    username: user_33
+    password: user_33
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_37:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_34@yopmail
+    username: user_34
+    password: user_34
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_38:
+    first_name: Firstname
+    last_name: Lastname
+    email_address: lufy_user_35@yopmail
+    username: user_35
+    password: user_35
+    is_active: 1
+    is_super_admin: 0
