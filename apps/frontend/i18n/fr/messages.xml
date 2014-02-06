@@ -908,6 +908,118 @@
         <source>Modifier la composition</source>
         <target>Modifier la composition</target>
       </trans-unit>
+      <trans-unit id="799">
+        <source>First name</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="800">
+        <source>Last name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="801">
+        <source>Birthdate</source>
+        <target>Date de naissance</target>
+      </trans-unit>
+      <trans-unit id="802">
+        <source>Genre</source>
+        <target>Sexe</target>
+      </trans-unit>
+      <trans-unit id="803">
+        <source>Logourl</source>
+        <target>Logo (URL)</target>
+      </trans-unit>
+      <trans-unit id="804">
+        <source>Phone</source>
+        <target>Téléphone</target>
+      </trans-unit>
+      <trans-unit id="805">
+        <source>Website</source>
+        <target>Site web</target>
+      </trans-unit>
+      <trans-unit id="806">
+        <source>Carrer</source>
+        <target>Carrière</target>
+      </trans-unit>
+      <trans-unit id="807">
+        <source>unknow</source>
+        <target>inconnu</target>
+      </trans-unit>
+      <trans-unit id="808">
+        <source>female</source>
+        <target>femme</target>
+      </trans-unit>
+      <trans-unit id="809">
+        <source>male</source>
+        <target>homme</target>
+      </trans-unit>
+      <trans-unit id="810">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="811">
+        <source>Complement</source>
+        <target>Complément</target>
+      </trans-unit>
+      <trans-unit id="812">
+        <source>Address</source>
+        <target>Adresse</target>
+      </trans-unit>
+      <trans-unit id="813">
+        <source>Zipcode</source>
+        <target>Code postal</target>
+      </trans-unit>
+      <trans-unit id="814">
+        <source>City</source>
+        <target>Ville</target>
+      </trans-unit>
+      <trans-unit id="815">
+        <source>Country</source>
+        <target>Pays</target>
+      </trans-unit>
+      <trans-unit id="816">
+        <source>Serial</source>
+        <target>Numéro de licence</target>
+      </trans-unit>
+      <trans-unit id="817">
+        <source>Username or E-Mail</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="818">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="819">
+        <source>Remember</source>
+        <target>Se souvenir de moi</target>
+      </trans-unit>
+      <trans-unit id="820">
+        <source>Creer un compte</source>
+        <target>Créer un compte</target>
+      </trans-unit>
+      <trans-unit id="821">
+        <source>Email address</source>
+        <target>Adresse mail</target>
+      </trans-unit>
+      <trans-unit id="822">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="823">
+        <source>Password again</source>
+        <target>Retaper le mot de passe</target>
+      </trans-unit>
+      <trans-unit id="824">
+        <source>Captcha</source>
+        <target>Sécurité</target>
+      </trans-unit>
+      <trans-unit id="825">
+        <source>Register</source>
+        <target>Créer mon compte</target>
+      </trans-unit>
+      <trans-unit id="826">
+        <source>Required.</source>
+        <target>Champs obligatoire</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
