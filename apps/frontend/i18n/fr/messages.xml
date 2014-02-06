@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="EN" target-language="fr" datatype="plaintext" original="messages" date="2013-01-06T14:12:24Z" product-name="messages">
+  <file source-language="EN" target-language="fr" datatype="plaintext" original="messages" date="2014-02-06T22:08:23Z" product-name="messages">
     <header/>
     <body>
       <trans-unit id="1">
         <source>Accueil</source>
         <target>Accueil</target>
-      </trans-unit>
-      <trans-unit id="2">
-        <source>Presentation</source>
-        <target>Pr&amp;eacute;sentation</target>
       </trans-unit>
       <trans-unit id="3">
         <source>Informations</source>
@@ -18,7 +14,7 @@
       </trans-unit>
       <trans-unit id="5">
         <source>Palmares</source>
-        <target>Palmar&amp;egrave;s</target>
+        <target>Palmarès</target>
       </trans-unit>
       <trans-unit id="31">
         <source>Partenaires</source>
@@ -36,25 +32,9 @@
         <source>Forum</source>
         <target>Forum</target>
       </trans-unit>
-      <trans-unit id="10">
-        <source>Flux Twitter</source>
-        <target>Flux Twitter</target>
-      </trans-unit>
-      <trans-unit id="11">
-        <source>Actualite</source>
-        <target>Actualit&amp;eacute;s</target>
-      </trans-unit>
-      <trans-unit id="12">
-        <source>Galeries Dailymotion</source>
-        <target>Galeries Dailymotion</target>
-      </trans-unit>
       <trans-unit id="15">
         <source>Mon equipe</source>
-        <target>Mon &amp;eacute;quipe</target>
-      </trans-unit>
-      <trans-unit id="16">
-        <source>Mon inscription</source>
-        <target>Mon inscription</target>
+        <target>Mon équipe</target>
       </trans-unit>
       <trans-unit id="17">
         <source>Deconnexion</source>
@@ -64,21 +44,13 @@
         <source>Connexion</source>
         <target>Connexion</target>
       </trans-unit>
-      <trans-unit id="19">
-        <source>Créer un compte</source>
-        <target>Créer un compte</target>
-      </trans-unit>
-      <trans-unit id="21">
-        <source>Password</source>
-        <target>Mot de passe</target>
-      </trans-unit>
       <trans-unit id="31">
         <source>Tournois</source>
         <target>Tournois</target>
       </trans-unit>
       <trans-unit id="434">
         <source>Nom de lequipe</source>
-        <target>Nom de l'&amp;eacute;quipe</target>
+        <target>Nom de l'équipe</target>
       </trans-unit>
       <trans-unit id="435">
         <source>Joueurs</source>
@@ -86,19 +58,15 @@
       </trans-unit>
       <trans-unit id="436">
         <source>Debut de la liste dattente</source>
-        <target>D&amp;eacute;but de la liste d'attente</target>
+        <target>Début de la liste d'attente</target>
       </trans-unit>
       <trans-unit id="437">
         <source>Valide</source>
-        <target>Valid&amp;eacute;</target>
+        <target>Validé</target>
       </trans-unit>
       <trans-unit id="438">
         <source>En attente de paiement</source>
         <target>En attente de paiement ou de validation</target>
-      </trans-unit>
-      <trans-unit id="1">
-        <source>Mon équipe</source>
-        <target>Mon &amp;eacute;quipe</target>
       </trans-unit>
       <trans-unit id="3">
         <source>Tshirt size</source>
@@ -106,7 +74,7 @@
       </trans-unit>
       <trans-unit id="4">
         <source>La taille du tee shirt est donnee a titre indicatif, nous ne pouvons pas garantir la diponibilitee sur place.</source>
-        <target>La taille du t-shirt est donn&amp;eacute;e &amp;agrave; titre indicatif, nous ne pouvons garantir la disponibilit&amp;eacute;e sur place.</target>
+        <target>La taille du t-shirt est donnée à titre indicatif, nous ne pouvons garantir la disponibilitée sur place.</target>
       </trans-unit>
       <trans-unit id="5">
         <source>Enregistrer</source>
@@ -118,47 +86,23 @@
       </trans-unit>
       <trans-unit id="440">
         <source>Pour lier une licence Masters a votre compte GA vous devez renseigner correctement votre nom, prenom et date de naissance sur les deux site internet.</source>
-        <target>Pour lier une licence Masters &amp;agrave; votre compte GA vous devez renseigner correctement cotre nom, pr&amp;eacute;nom et date de naissance sur les deux sites internet?</target>
-      </trans-unit>
-      <trans-unit id="441">
-        <source>Confirmation de creation de compte</source>
-        <target>Confirmation de cr&amp;eacute;ation de compte</target>
-      </trans-unit>
-      <trans-unit id="442">
-        <source>Votre compte utilisateur a bien ete creee, un mail contenant un lien de confirmation vous a ete envoye. Merci de bien vouloir cliquer sur ce lien ou copier l adresse dans votre navigateur.</source>
-        <target>Votre compte utilisateur a bien &amp;eacute;t&amp;eacute; cr&amp;eacute;&amp;eacute;e un mail contenant un lien de confirmation vous a &amp;eacute;t&amp;eacute; envoy&amp;eacute;. Merci de bien vouloir cliquer sur ce lien ou copier l'adresse dans votre navigateur.</target>
-      </trans-unit>
-      <trans-unit id="443">
-        <source>Retour sur la page d accueil</source>
-        <target>Retour sur la page d'accueil</target>
+        <target>Pour lier une licence MFJV à votre compte GA vous devez renseigner correctement votre nom, prénom et date de naissance sur les deux sites.</target>
       </trans-unit>
       <trans-unit id="444">
         <source>Changer le mot de passe</source>
-        <target>Changer le mot de pass</target>
+        <target>Changer le mot de passe</target>
       </trans-unit>
       <trans-unit id="445">
         <source>Modifier</source>
         <target>Modifier</target>
       </trans-unit>
-      <trans-unit id="446">
-        <source>Gestion de la licence Masters</source>
-        <target>Gestion de la licence Masters</target>
-      </trans-unit>
       <trans-unit id="447">
         <source>Si vous ne possedez pas de licence Masters du Jeu Video vous devez créer un compte sur le site</source>
-        <target>Si vous ne poss&amp;eacute;dez pas de licence Masters du Jeu Vid&amp;eacute;o vous devez cr&amp;eacute;er un compte sur le site</target>
+        <target>Si vous ne possédez pas de licence Masters du Jeu Vidéo vous devez créer un compte sur le site</target>
       </trans-unit>
       <trans-unit id="448">
         <source>rendez-vous ensuite a la page</source>
-        <target>rendez-vous ensuite &amp;agrave; la page</target>
-      </trans-unit>
-      <trans-unit id="449">
-        <source>Votre licence Masters est</source>
-        <target>Votre licence Masters est</target>
-      </trans-unit>
-      <trans-unit id="450">
-        <source>Informations relatives a votre licence</source>
-        <target>Informations relatives &amp;agrave; votre licence</target>
+        <target>rendez-vous ensuite à la page</target>
       </trans-unit>
       <trans-unit id="451">
         <source>Pseudo</source>
@@ -168,33 +112,13 @@
         <source>Saison</source>
         <target>Saison</target>
       </trans-unit>
-      <trans-unit id="453">
-        <source>Type de licence</source>
-        <target>Type de licence</target>
-      </trans-unit>
-      <trans-unit id="454">
-        <source>Vous ne possedez pas de licence Masters, aucune reduction sera applique.</source>
-        <target>Vous ne poss&amp;eacute;dez pas de licence Masters, aucune r&amp;eacute;duction sera appliqu&amp;eacute;e.</target>
-      </trans-unit>
-      <trans-unit id="455">
-        <source>Ajouter une licence Masters</source>
-        <target>Ajouter une licence Masters</target>
-      </trans-unit>
-      <trans-unit id="456">
-        <source>Retourner sur mon espace personnel</source>
-        <target>Retourner sur mon espace perso</target>
-      </trans-unit>
       <trans-unit id="457">
         <source>Prenom</source>
-        <target>Pr&amp;eacute;nom</target>
+        <target>Prénom</target>
       </trans-unit>
       <trans-unit id="458">
         <source>Nom</source>
         <target>Nom</target>
-      </trans-unit>
-      <trans-unit id="459">
-        <source>Adresse mail</source>
-        <target>Adresse mail</target>
       </trans-unit>
       <trans-unit id="460">
         <source>Inscription rapide</source>
@@ -202,11 +126,7 @@
       </trans-unit>
       <trans-unit id="461">
         <source>Les champs marques * sont obligatoires pour valider votre inscription a un tournoi.</source>
-        <target>Les champs marqu&amp;eacute;s * sont obligatoire pour valider votre inscription &amp;agrave; un tournoi.</target>
-      </trans-unit>
-      <trans-unit id="462">
-        <source>Revenir sur mon espace</source>
-        <target>Revenir sur mon espace perso</target>
+        <target>Les champs marqués * sont obligatoire pour valider votre inscription à un tournoi.</target>
       </trans-unit>
       <trans-unit id="463">
         <source>Date de naissance</source>
@@ -214,99 +134,15 @@
       </trans-unit>
       <trans-unit id="464">
         <source>Telephone</source>
-        <target>T&amp;eacute;l&amp;eacute;phone</target>
-      </trans-unit>
-      <trans-unit id="465">
-        <source>Adresse</source>
-        <target>Adresse</target>
-      </trans-unit>
-      <trans-unit id="466">
-        <source>Code Postal</source>
-        <target>Code postal</target>
-      </trans-unit>
-      <trans-unit id="467">
-        <source>Ville</source>
-        <target>Ville</target>
-      </trans-unit>
-      <trans-unit id="468">
-        <source>Sexe</source>
-        <target>Sexe</target>
-      </trans-unit>
-      <trans-unit id="469">
-        <source>Pays</source>
-        <target>Pays</target>
-      </trans-unit>
-      <trans-unit id="470">
-        <source>Photo de profil (Url)</source>
-        <target>Photo de profil (url)</target>
-      </trans-unit>
-      <trans-unit id="471">
-        <source>Site web (Url)</source>
-        <target>Site web (url)</target>
+        <target>Téléphone</target>
       </trans-unit>
       <trans-unit id="472">
         <source>Carriere</source>
-        <target>Carri&amp;egrave;re</target>
-      </trans-unit>
-      <trans-unit id="473">
-        <source>Espace perso</source>
-        <target>Espace perso</target>
-      </trans-unit>
-      <trans-unit id="474">
-        <source>Informations personnelles</source>
-        <target>Informations personnelles</target>
-      </trans-unit>
-      <trans-unit id="475">
-        <source>Competition / Inscription</source>
-        <target>Comp&amp;eacute;tition / Inscription</target>
-      </trans-unit>
-      <trans-unit id="476">
-        <source>Modifier mes informations</source>
-        <target>Modifier mes informations</target>
-      </trans-unit>
-      <trans-unit id="477">
-        <source>Voir mon profil public</source>
-        <target>Voir mon profil publique</target>
-      </trans-unit>
-      <trans-unit id="478">
-        <source>Taille du tee-shirt</source>
-        <target>Taille du t-shirt</target>
+        <target>Carrière</target>
       </trans-unit>
       <trans-unit id="479">
         <source>Mes invitations</source>
         <target>Mes invitations</target>
-      </trans-unit>
-      <trans-unit id="480">
-        <source>Mon &amp;eacute;quipe</source>
-        <target>Mon &amp;eacute;quipe</target>
-      </trans-unit>
-      <trans-unit id="481">
-        <source>Ma licence Masters</source>
-        <target>Ma licence Masters</target>
-      </trans-unit>
-      <trans-unit id="482">
-        <source>Gerer mon inscription</source>
-        <target>G&amp;eacute;rer mon inscription</target>
-      </trans-unit>
-      <trans-unit id="483">
-        <source>Inscription a la Gamers Assembly</source>
-        <target>Inscription &amp;agrave; la Gamers Assembly</target>
-      </trans-unit>
-      <trans-unit id="484">
-        <source>DOCUMENT(S) A IMPRIMER</source>
-        <target>DOCUMENT(S) &amp;Agrave; IMPRIMER</target>
-      </trans-unit>
-      <trans-unit id="485">
-        <source>Bulletin d inscription</source>
-        <target>Bulletin d'inscription</target>
-      </trans-unit>
-      <trans-unit id="486">
-        <source>Autorisation parentale</source>
-        <target>Autorisation parentale</target>
-      </trans-unit>
-      <trans-unit id="487">
-        <source>pour les joueurs mineurs</source>
-        <target>pour les joueurs mineurs</target>
       </trans-unit>
       <trans-unit id="488">
         <source>Mon profil</source>
@@ -322,7 +158,7 @@
       </trans-unit>
       <trans-unit id="491">
         <source>Equipe</source>
-        <target>&amp;Eacute;quipe</target>
+        <target>Equipe</target>
       </trans-unit>
       <trans-unit id="492">
         <source>Licence Masters</source>
@@ -338,43 +174,11 @@
       </trans-unit>
       <trans-unit id="495">
         <source>Voir mon profil publique</source>
-        <target>Voir mon profil publique</target>
+        <target>Voir mon profil public</target>
       </trans-unit>
       <trans-unit id="496">
         <source>Fiche joueur</source>
         <target>Fiche joueur</target>
-      </trans-unit>
-      <trans-unit id="497">
-        <source>Inviter le joueur &amp;agrave; rejoindre mon equipe</source>
-        <target>Inviter le joueur &amp;agrave; rejoindre mon &amp;eacute;quipe</target>
-      </trans-unit>
-      <trans-unit id="498">
-        <source>Pour inviter ce joueur a rejoindre votre equipe vous devez etre gerant. Vous ne pouvez pas inviter un joueur si celui ci appartient deja a une autre equipe.</source>
-        <target>Pour inviter ce joueur &amp;agrave; rejoindre votre &amp;eacute;quipe vous devez &amp;ecirc;tre g&amp;eacute;rant. Vous ne pouvez pas inviter un joueur si celui ci appartient d&amp;eacute;j&amp;agrave; &amp;agrave; une autre &amp;eacute;quipe.</target>
-      </trans-unit>
-      <trans-unit id="499">
-        <source>Edition de votre profil</source>
-        <target>Edition de votre profil</target>
-      </trans-unit>
-      <trans-unit id="500">
-        <source>Numero de licence Masters</source>
-        <target>Num&amp;eacute;ro de licence Masters</target>
-      </trans-unit>
-      <trans-unit id="501">
-        <source>Lire la suite</source>
-        <target>Lire la suite</target>
-      </trans-unit>
-      <trans-unit id="502">
-        <source>Retrouvez toutes les news</source>
-        <target>Retrouvez toutes les news</target>
-      </trans-unit>
-      <trans-unit id="507">
-        <source>Publie le</source>
-        <target>Publi&amp;eacute; le</target>
-      </trans-unit>
-      <trans-unit id="510">
-        <source>Commentaires</source>
-        <target>Commentaires</target>
       </trans-unit>
       <trans-unit id="519">
         <source>Paiement par Paypal</source>
@@ -382,15 +186,15 @@
       </trans-unit>
       <trans-unit id="520">
         <source>En cliquant sur le bouton Acheter vous allez etre redirige vers le site de paiement en ligne Paypal. Vous serez alors invite a entrer vos informations de carte bancaire ou a vous connecter avec votre compte Paypal pour effectuer le paiement.</source>
-        <target>En cliquant sur le bouton Acheter vous allez &amp;ecirc;tre redirig&amp;eacute; vers le site de paiement en ligne Paypal. Vous serez alors invit&amp;eacute; &amp;agrave; entrer vos informations de carte bancaire ou vous connecter avec votre compte Paypal pour effectuer le paiement.</target>
+        <target>En cliquant sur le bouton Acheter vous allez &amp;ecirc;tre redirig&amp;eacute; vers le site de paiement en ligne Paypal. Vous serez alors invité à entrer vos informations de carte bancaire ou vous connecter avec votre compte Paypal pour effectuer le paiement.</target>
       </trans-unit>
       <trans-unit id="521">
         <source>La validation de l inscription est effective dans les 24 a 48h suivant le paiement.</source>
-        <target>La validation de l'inscription est effective dans les 24 &amp;agrave; 48h suivant le paiement.</target>
+        <target>La validation de l'inscription est effective dans les 24 à 48h suivant le paiement.</target>
       </trans-unit>
       <trans-unit id="522">
         <source>Recapituatif de votre paiement</source>
-        <target>R&amp;eacute;capitulatif de votre paiement</target>
+        <target>Récapitulatif de votre paiement</target>
       </trans-unit>
       <trans-unit id="523">
         <source>Prix total</source>
@@ -414,31 +218,31 @@
       </trans-unit>
       <trans-unit id="528">
         <source>Nom de l equipe</source>
-        <target>Nom de l'&amp;eacute;quipe</target>
+        <target>Nom de l'équipe</target>
       </trans-unit>
       <trans-unit id="529">
         <source>Debut de la liste d attente</source>
-        <target>D&amp:eacute;but de la liste d'attente</target>
+        <target>Début de la liste d'attente</target>
       </trans-unit>
       <trans-unit id="530">
         <source>Paiement par Cheque</source>
-        <target>Paiement par ch&amp;egrave;que</target>
+        <target>Paiement par chèque</target>
       </trans-unit>
       <trans-unit id="531">
         <source>En cliquant sur le bouton Je confirme mon paiement je m engage a adresser un Cheque du montant indique dans les plus brefs delai.</source>
-        <target>En cliquant sur le bouton "Je confirme mon paiement" je m'engage &amp;agrave; adresser un ch&amp;egrave; du montant indiqu&amp;eacute; dans les plus brefs d&amp:eacute;lai.</target>
+        <target>En cliquant sur le bouton "Je confirme mon paiement" je m'engage à adresser un chèque du montant indiqué dans les plus brefs délai.</target>
       </trans-unit>
       <trans-unit id="532">
         <source>La validation de votre inscriptions sera effective a la reception du paiement pour la totalitee de l equipe.</source>
-        <target>La validation de votre inscription sera effective &amp;agrave; la r&amp:eacute;ception du paiement pour la totalit&amp:eacute;e de l'&amp;eacute;quipe.</target>
+        <target>La validation de votre inscription sera effective à la réception du paiement pour la totalitée de l'équipe.</target>
       </trans-unit>
       <trans-unit id="533">
         <source>Veuillez imprimer cette page est nous la renvoyer, avec votre Cheque, a l adresse suivante</source>
-        <target>Veuillez imprimer cette page et nous la renvoyer, avec votre ch&amp;egrave;que, &amp;agrave; l'adresse suivante</target>
+        <target>Veuillez imprimer cette page et nous la renvoyer, avec votre chèque, à l'adresse suivante</target>
       </trans-unit>
       <trans-unit id="534">
         <source>Cheque a l ordre de : Association Futurolan</source>
-        <target>Ch&amp;egrave;que &amp;agrave; l'ordre de : Association Futurolan</target>
+        <target>Chèque à l'ordre de : Association Futurolan</target>
       </trans-unit>
       <trans-unit id="535">
         <source>Association Futurolan</source>
@@ -454,11 +258,11 @@
       </trans-unit>
       <trans-unit id="538">
         <source>Vous devez ajouter le nom de votre equipe ainsi que votre identifiant</source>
-        <target>Vous devez ajouter le nom de votre &amp;eacute;quipe ainsi que votre identifiant</target>
+        <target>Vous devez ajouter le nom de votre équipe ainsi que votre identifiant</target>
       </trans-unit>
       <trans-unit id="539">
         <source>au dos du cheque</source>
-        <target>au dos du ch&amp;egrave;que</target>
+        <target>au dos du chèque</target>
       </trans-unit>
       <trans-unit id="540">
         <source>Identifiant</source>
@@ -468,129 +272,13 @@
         <source>Je confirme mon paiement</source>
         <target>Je confirme mon paiement</target>
       </trans-unit>
-      <trans-unit id="542">
-        <source>Inscription Tournoi</source>
-        <target>Inscription tournoi</target>
-      </trans-unit>
-      <trans-unit id="543">
-        <source>Votre equipe est inscrite au tournoi</source>
-        <target>Votre &amp;eacute;quipe est inscrite au tournoi</target>
-      </trans-unit>
-      <trans-unit id="544">
-        <source>En tant que joueur pour cette equipe vous pouvez beneficier d une reduction de 5e sur votre inscription grace a votre licence Masters</source>
-        <target>En tant que joueur pour cette &amp;eacute;quipe vous pouvez beneficier d'une r&amp;eacute;duction de 5&amp;euro; sur votre inscription gr&amp;acirc;ce &amp;agrave; votre licence Masters</target>
-      </trans-unit>
-      <trans-unit id="545">
-        <source>Plus d infos</source>
-        <target>Plus d'infos</target>
-      </trans-unit>
-      <trans-unit id="546">
-        <source>La reduction est valable uniquement sur les tournois homologues Masters series.</source>
-        <target>La r&amp;eacute;duction est valable uniquement sur les tournois homologu&amp;eacute; Masters series</target>
-      </trans-unit>
-      <trans-unit id="547">
-        <source>Vous avez une licence Masters Gold. La reduction est automatiquement prise en compte.</source>
-        <target>Vous avez une licence Masters Gold. La r&amp;eacute;duction est automatiquement prise en compte.</target>
-      </trans-unit>
-      <trans-unit id="548">
-        <source>Vous avez deja utilise votre reduction pour un evenement precedant.</source>
-        <target>Vous avez d&amp;eacute;j&amp;agrave; utilis&amp;eacute; votre r&amp;eacute;duction pour un autre &amp;eacute;v&amp;egrave;nement.</target>
-      </trans-unit>
-      <trans-unit id="549">
-        <source>Votre reduction pour cet evenement a ete prise en compte.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="550">
-        <source>Vous n avez pas entre de licence Masters.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="551">
-        <source>Cliquez ici pour gerer vos licences</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="552">
-        <source>Rappel sur la validation</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="553">
-        <source>Tous les joueurs de l equipe doivent completer entierement leur profil (champs marques *)</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="554">
-        <source>L equipe doit posseder le nombre de joueur requis pour valider l inscription</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="555">
-        <source>Apres la validation vous ne pourrez plus modifier la composition de votre equipe</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="556">
-        <source>Gerer mon equipe</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="557">
-        <source>Vous pouvez vous desinscrire du tournoi en cliquant ici</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="558">
-        <source>Votre inscription est en cours de validation</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="559">
-        <source>Un membre de l equipe a choisis de payer par cheque. A la reception du cheque, un admin validera votre equipe.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="560">
-        <source>Votre equipe n a pas encore valide son inscription.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="561">
-        <source>Si vous avez deja envoye un cheque ou paye par Paypal votre validation sera effective dans quelques jours. Un mail de confirmation vous sera envoye.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="562">
-        <source>La validation de l inscription doit etre effectuee en un seul paiement de</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="563">
-        <source>pour la totalite de l equipe.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="564">
-        <source>La validation sera effective au moment de la reception integrale du paiement.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="565">
-        <source>Vous avez le choix entre les deux moyens de paiement suivants</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="566">
-        <source>Paiement par cheque ici</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="567">
-        <source>Paiement par Paypal ici</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="568">
-        <source>Votre equipe n est pas complete</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="569">
-        <source>Vous devez completer votre equipe avant de pouvoir faire le paiement.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="570">
-        <source>Votre equipe a bien valide toutes les etapes de l inscription au tournoi</source>
-        <target/>
-      </trans-unit>
       <trans-unit id="603">
         <source>Liste des inscrits</source>
         <target>Liste des inscrits</target>
       </trans-unit>
       <trans-unit id="604">
         <source>Selectionner un tournoi pour voir la liste des inscrits.</source>
-        <target/>
+        <target></target>
       </trans-unit>
       <trans-unit id="605">
         <source>Rejoindre un tournoi</source>
@@ -600,65 +288,29 @@
         <source>Save</source>
         <target>Enregistrer</target>
       </trans-unit>
-      <trans-unit id="608">
-        <source>slots</source>
-        <target>slots</target>
-      </trans-unit>
-      <trans-unit id="609">
-        <source>equipes inscrites</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="610">
-        <source>dont</source>
-        <target>dont</target>
-      </trans-unit>
-      <trans-unit id="611">
-        <source>validees</source>
-        <target/>
-      </trans-unit>
       <trans-unit id="612">
         <source>Choississez le tournoi auquel vous souhaitez participer</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="613">
-        <source>Type</source>
-        <target>Type</target>
+        <target></target>
       </trans-unit>
       <trans-unit id="614">
         <source>Editeur</source>
-        <target>&amp;Eacute;diteur</target>
+        <target>Editeur</target>
       </trans-unit>
       <trans-unit id="615">
         <source>Plateforme</source>
         <target>Plateforme</target>
       </trans-unit>
-      <trans-unit id="616">
-        <source>Le tournoi se joue par equipe de</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="617">
-        <source>joueur(s). Les inscriptions sont ouvertes pour</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="618">
-        <source>Prix d entree (par joueur)</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="620">
-        <source>Les admins de ce tournoi sont</source>
-        <target>Les admins de ce tournoi sont</target>
-      </trans-unit>
       <trans-unit id="621">
         <source>Liste des equipes inscrites</source>
-        <target/>
+        <target>Liste des équipes inscrites</target>
       </trans-unit>
       <trans-unit id="622">
         <source>Reglement</source>
-        <target/>
+        <target>Réglement</target>
       </trans-unit>
       <trans-unit id="623">
         <source>J accepte le reglement et je confirme ma participation</source>
-        <target/>
+        <target>J'accepte le réglement et je confirme ma participation</target>
       </trans-unit>
       <trans-unit id="624">
         <source>Je refuse et j annule mon inscription</source>
@@ -666,31 +318,27 @@
       </trans-unit>
       <trans-unit id="629">
         <source>Creer une equipe</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="630">
-        <source>Attention, un joueur peut appartenir a une seule equipe. Si un autre membre a deja cree une équipe vous devez lui demander de vous inviter a la rejoindre.</source>
-        <target/>
+        <target>Créer une equipe</target>
       </trans-unit>
       <trans-unit id="631">
         <source>Modifier la composition de l equipe</source>
-        <target/>
+        <target>Modifier la composition de l'équipe</target>
       </trans-unit>
       <trans-unit id="632">
         <source>Les gerants sont les seuls a pouvoir modifier les membres d une equipe et en inviter de nouveaux.</source>
-        <target/>
+        <target>Les gérants sont les seuls a pouvoir modifier les membres d une équipe et en inviter de nouveaux.</target>
       </trans-unit>
       <trans-unit id="633">
         <source>Attention, un joueur ne peut pas appartenir a plusieurs equipes differentes.</source>
-        <target/>
+        <target>Attention, un joueur ne peut pas appartenir a plusieurs équipes différentes.</target>
       </trans-unit>
       <trans-unit id="634">
         <source>Gerants</source>
-        <target>G&amp;eacute;rants</target>
+        <target>Gérants</target>
       </trans-unit>
       <trans-unit id="635">
         <source>Proprietaire de l equipe</source>
-        <target>Propri&amp;eacute;taire de l'&amp;eacute;quipe</target>
+        <target>Propriétaire de l'équipe</target>
       </trans-unit>
       <trans-unit id="636">
         <source>S ajouter en tant que joueur</source>
@@ -716,45 +364,17 @@
         <source>Supprimer</source>
         <target>Supprimer</target>
       </trans-unit>
-      <trans-unit id="642">
-        <source>Joueurs composant votre equipe</source>
-        <target>Joueurs composant votre &amp;eacute;quipe</target>
-      </trans-unit>
       <trans-unit id="643">
         <source>Retirer le joueur</source>
         <target>Retirer le joueur</target>
-      </trans-unit>
-      <trans-unit id="644">
-        <source>Membres (Non-joueur)</source>
-        <target>Membres (non joueurs)</target>
       </trans-unit>
       <trans-unit id="645">
         <source>Retirer des joueurs</source>
         <target>Retirer des joueurs</target>
       </trans-unit>
-      <trans-unit id="646">
-        <source>Retourner a la fiche de l equipe</source>
-        <target>Retourner &amp;agrave; la fiche de l'&amp;eacute;quipe</target>
-      </trans-unit>
-      <trans-unit id="647">
-        <source>Ajouter l equipe</source>
-        <target>Ajouter l'&amp;eacute;quipe</target>
-      </trans-unit>
-      <trans-unit id="648">
-        <source>Annuler</source>
-        <target>Annuler</target>
-      </trans-unit>
-      <trans-unit id="649">
-        <source>Enregistrer les modification</source>
-        <target>Enregistrer les modifications</target>
-      </trans-unit>
       <trans-unit id="650">
         <source>Tag</source>
         <target>Tag</target>
-      </trans-unit>
-      <trans-unit id="651">
-        <source>Logo (url)</source>
-        <target>Logo (url)</target>
       </trans-unit>
       <trans-unit id="652">
         <source>Cree le</source>
@@ -772,27 +392,13 @@
         <source>Composition de l equipe</source>
         <target>Composition de l'&amp;eacute;quipe</target>
       </trans-unit>
-      <trans-unit id="656">
-        <source>Pour valider votre inscription a un tournoi vous devez posseder autant de joueur que necessaire.&lt;br/&gt;&#13;
-        Les gerants, proprietaire et managers, peuvent modifier la composition d une equipe et inviter de nouveaux joueurs.</source>
-        <target>Pour valider votre inscription &amp;agrave; un tournoi vous devez poss&amp;eacute;der autant de joueur que n&amp;eacute;cessaire.&amp;lt;br/&amp;gt;
-Les g&amp;eacute;rants, proprietaire et managers, peuvent modifier la composition d'une &amp;eacute;quipe et inviter de nouveaux joueurs.</target>
-      </trans-unit>
-      <trans-unit id="657">
-        <source>Joueurs composant votre &amp;eacute;quipe</source>
-        <target>Joueurs composant votre &amp;eacute;quipe</target>
-      </trans-unit>
-      <trans-unit id="658">
-        <source>Gerer la composition de l equipe</source>
-        <target>G&amp;eacute;rer la composition de l'&amp;eacute;quipe</target>
-      </trans-unit>
       <trans-unit id="659">
         <source>Rechercher un joueur</source>
         <target>Rechercher un joueur</target>
       </trans-unit>
       <trans-unit id="660">
         <source>Pour inscrire votre equipe a un tournoi, veuillez cliquer</source>
-        <target>Pour inscrire votre &amp;eacute;quipe &amp;agrave; un tournoi, veuillez cliquer</target>
+        <target>Pour inscrire votre équipe à un tournoi, veuillez cliquer</target>
       </trans-unit>
       <trans-unit id="661">
         <source>ici</source>
@@ -812,11 +418,11 @@ Les g&amp;eacute;rants, proprietaire et managers, peuvent modifier la compositio
       </trans-unit>
       <trans-unit id="665">
         <source>L equipe est inscrite a aucun tournoi</source>
-        <target>L'&amp;eacute;quipe est inscrite &amp;agrave; aucun tournoi</target>
+        <target>L'équipe est inscrite à aucun tournoi</target>
       </trans-unit>
       <trans-unit id="666">
         <source>Vous n appartenez a aucune equipe pour le moment.</source>
-        <target>Vous n'appartenez &amp;agrave; aucune &amp;eacute;quipe pour le moment.</target>
+        <target>Vous n'appartenez à aucune équipe pour le moment.</target>
       </trans-unit>
       <trans-unit id="667">
         <source>Deux possibilites s offrent a vous</source>
@@ -840,55 +446,467 @@ Les g&amp;eacute;rants, proprietaire et managers, peuvent modifier la compositio
       </trans-unit>
       <trans-unit id="672">
         <source>Fiche equipe</source>
-        <target>Fiche &amp;eacute;quipe</target>
+        <target>Fiche équipe</target>
       </trans-unit>
       <trans-unit id="673">
         <source>Team</source>
-        <target>&amp;Eacute;quipe</target>
-      </trans-unit>
-      <trans-unit id="674">
-        <source>Autres</source>
-        <target>Autres</target>
-      </trans-unit>
-      <trans-unit id="675">
-        <source>L equipe est inscrite au tournoi </source>
-        <target>L'&amp;eacute;quipe est inscrite au tournoi </target>
-      </trans-unit>
-      <trans-unit id="676">
-        <source>L equipe n est pas inscrite a un tournoi</source>
-        <target>L'&amp;eacute;quipe n'est pas inscrite &amp;agrave; un tournoi</target>
-      </trans-unit>
-      <trans-unit id="677">
-        <source>Creer une nouvelle equipe</source>
-        <target>Cr&amp;eacute;er une nouvelle &amp;eacute;quipe</target>
+        <target>Equipe</target>
       </trans-unit>
       <trans-unit id="678">
         <source>Modifier mon equipe</source>
-        <target>Modifier mon &amp;eacute;quipe</target>
+        <target>Modifier mon équipe</target>
       </trans-unit>
-      <trans-unit id="680">
-        <source>A l'affiche</source>
-        <target>A l'affiche</target>
+      <trans-unit id="686">
+        <source>Nos partenaires</source>
+        <target>Nos partenaires</target>
       </trans-unit>
-      <trans-unit id="681">
-        <source>Aucun commentaire</source>
-        <target>Aucun commentaire</target>
+      <trans-unit id="687">
+        <source>Suivez la GA sur</source>
+        <target>Suivez la GA sur</target>
       </trans-unit>
-      <trans-unit id="682">
-        <source>commentaire</source>
-        <target>commentaire</target>
+      <trans-unit id="688">
+        <source>Mes adresses</source>
+        <target>Mes adresses</target>
       </trans-unit>
-      <trans-unit id="683">
-        <source>commentaires</source>
-        <target>commentaires</target>
+      <trans-unit id="689">
+        <source>Ticket Weezevent</source>
+        <target>Ticket Weezevent</target>
       </trans-unit>
-      <trans-unit id="684">
-        <source>Go</source>
-        <target/>
+      <trans-unit id="690">
+        <source>Taille de tshirt</source>
+        <target>Taille de tshirt</target>
       </trans-unit>
-      <trans-unit id="685">
-        <source>Aucun r&amp;eacute;sultat pour cette recherche</source>
-        <target/>
+      <trans-unit id="691">
+        <source>Autre</source>
+        <target>Autre</target>
+      </trans-unit>
+      <trans-unit id="692">
+        <source>Informations pratiques</source>
+        <target>Informations pratiques</target>
+      </trans-unit>
+      <trans-unit id="693">
+        <source>Les Gamers Assembly</source>
+        <target>Les Gamers Assembly</target>
+      </trans-unit>
+      <trans-unit id="694">
+        <source>FAQ</source>
+        <target>FAQ</target>
+      </trans-unit>
+      <trans-unit id="695">
+        <source>Archives</source>
+        <target>Archives</target>
+      </trans-unit>
+      <trans-unit id="696">
+        <source>Photos</source>
+        <target>Photos</target>
+      </trans-unit>
+      <trans-unit id="697">
+        <source>Videos</source>
+        <target>Vidéos</target>
+      </trans-unit>
+      <trans-unit id="698">
+        <source>A venir</source>
+        <target>A venir</target>
+      </trans-unit>
+      <trans-unit id="699">
+        <source>Créer un compte</source>
+        <target>Créer un compte</target>
+      </trans-unit>
+      <trans-unit id="700">
+        <source>News</source>
+        <target>News</target>
+      </trans-unit>
+      <trans-unit id="701">
+        <source>Palmarès</source>
+        <target>Palmarès</target>
+      </trans-unit>
+      <trans-unit id="702">
+        <source>Photos/Vidéos</source>
+        <target>Photos/Vidéos</target>
+      </trans-unit>
+      <trans-unit id="703">
+        <source>Mentions l&amp;eacute;gales</source>
+        <target>Mentions légales</target>
+      </trans-unit>
+      <trans-unit id="704">
+        <source>Les r&amp;eacute;seaux</source>
+        <target>Les réseaux</target>
+      </trans-unit>
+      <trans-unit id="705">
+        <source>Liens pratiques</source>
+        <target>Liens pratiques</target>
+      </trans-unit>
+      <trans-unit id="706">
+        <source>Impossible de supprimer une adresse par defaut.</source>
+        <target>Impossible de supprimer une adresse par defaut.</target>
+      </trans-unit>
+      <trans-unit id="707">
+        <source>L\adresse selectionnee a ete supprimee.</source>
+        <target>L'adresse selectionnée a été supprimée.</target>
+      </trans-unit>
+      <trans-unit id="708">
+        <source>Votre Licence Masters a ete verifiee.</source>
+        <target>Votre licence MFJV a été verifiée.</target>
+      </trans-unit>
+      <trans-unit id="709">
+        <source>La licence est inexistante et/ou le nom saisi sur votre profil ne correspond pas.</source>
+        <target>La licence est inexistante et/ou le nom saisi sur votre profil ne correspond pas.</target>
+      </trans-unit>
+      <trans-unit id="710">
+        <source>Retour</source>
+        <target>Retour</target>
+      </trans-unit>
+      <trans-unit id="711">
+        <source>Modifier une adresse</source>
+        <target>Modifier une adresse</target>
+      </trans-unit>
+      <trans-unit id="712">
+        <source>Valider</source>
+        <target>Valider</target>
+      </trans-unit>
+      <trans-unit id="713">
+        <source>Licence Masters Francais du Jeu Video</source>
+        <target>Licence Masters Francais du Jeu Video</target>
+      </trans-unit>
+      <trans-unit id="714">
+        <source>Votre licence est valide pour la saison %1%.</source>
+        <target>Votre licence est valide pour la saison %1%.</target>
+      </trans-unit>
+      <trans-unit id="715">
+        <source>Supprimer ma licence</source>
+        <target>Supprimer ma licence</target>
+      </trans-unit>
+      <trans-unit id="716">
+        <source>Numero de licence</source>
+        <target>Numéro de licence</target>
+      </trans-unit>
+      <trans-unit id="717">
+        <source>Nombre d'utilisation</source>
+        <target>Nombre d'utilisations</target>
+      </trans-unit>
+      <trans-unit id="718">
+        <source>Modifier mon profil</source>
+        <target>Modifier mon profil</target>
+      </trans-unit>
+      <trans-unit id="719">
+        <source>Code barre</source>
+        <target>Code barre</target>
+      </trans-unit>
+      <trans-unit id="720">
+        <source>Bulletin de participation &amp;agrave; imprimer et &amp;agrave; pr&amp;eacute;senter &amp;agrave; l'accueil lors de votre arriv&amp;eacute;e avec une pi&amp;egrave;ce d'identit&amp;eacute;.</source>
+        <target>Bulletin de participation &amp;agrave; imprimer et &amp;agrave; pr&amp;eacute;senter &amp;agrave; l'accueil lors de votre arriv&amp;eacute;e avec une pi&amp;egrave;ce d'identit&amp;eacute;.</target>
+      </trans-unit>
+      <trans-unit id="721">
+        <source>Equipes</source>
+        <target>Equipes</target>
+      </trans-unit>
+      <trans-unit id="722">
+        <source>Code equipe</source>
+        <target>Code equipe</target>
+      </trans-unit>
+      <trans-unit id="723">
+        <source>Code joueur</source>
+        <target>Code joueur</target>
+      </trans-unit>
+      <trans-unit id="724">
+        <source>Supprimer mon ticket</source>
+        <target>Supprimer mon ticket</target>
+      </trans-unit>
+      <trans-unit id="725">
+        <source>Code Barre</source>
+        <target>Code Barre</target>
+      </trans-unit>
+      <trans-unit id="726">
+        <source>Si vous ne possedez pas de billet weezevent vous pouvez vous en procurer un via notre boutique Gamers Assembly 2014</source>
+        <target>Si vous ne possedez pas de billet weezevent vous pouvez vous en procurer un via notre boutique Gamers Assembly 2014</target>
+      </trans-unit>
+      <trans-unit id="727">
+        <source>Vous n'avez aucune adresse pour le moment.</source>
+        <target>Vous n'avez aucune adresse pour le moment.</target>
+      </trans-unit>
+      <trans-unit id="728">
+        <source>Defaut</source>
+        <target>Défaut</target>
+      </trans-unit>
+      <trans-unit id="729">
+        <source>Facturation</source>
+        <target>Facturation</target>
+      </trans-unit>
+      <trans-unit id="730">
+        <source>Livraison</source>
+        <target>Livraison</target>
+      </trans-unit>
+      <trans-unit id="731">
+        <source>Definir comme</source>
+        <target>Définir comme</target>
+      </trans-unit>
+      <trans-unit id="732">
+        <source>Adresse par defaut</source>
+        <target>Adresse par défaut</target>
+      </trans-unit>
+      <trans-unit id="733">
+        <source>Adresse de facturation</source>
+        <target>Adresse de facturation</target>
+      </trans-unit>
+      <trans-unit id="734">
+        <source>Adresse de livraison</source>
+        <target>Adresse de livraison</target>
+      </trans-unit>
+      <trans-unit id="735">
+        <source>Ajouter</source>
+        <target>Ajouter</target>
+      </trans-unit>
+      <trans-unit id="736">
+        <source>Ajouter une adresse</source>
+        <target>Ajouter une adresse</target>
+      </trans-unit>
+      <trans-unit id="737">
+        <source>Ajouter votre Ticket Weezevent</source>
+        <target>Ajouter votre ticket Weezevent</target>
+      </trans-unit>
+      <trans-unit id="738">
+        <source>Pour lier un ticket Weezevent a votre compte GA vous devez renseigner correctement votre nom, prenom et date de naissance sur les deux site internet.</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="739">
+        <source>Plus d'actualites</source>
+        <target>Plus d'actualités</target>
+      </trans-unit>
+      <trans-unit id="740">
+        <source>Redige par %1% le %2%</source>
+        <target>Rédigée par %1% le %2%</target>
+      </trans-unit>
+      <trans-unit id="741">
+        <source>Register</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="742">
+        <source>Oops! The page you asked for is secure and you do not have proper credentials.</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="743">
+        <source>Login below to gain access</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="744">
+        <source>Signin</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="745">
+        <source>Forgot your password?</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="746">
+        <source>Invitations :</source>
+        <target>Invitations :</target>
+      </trans-unit>
+      <trans-unit id="747">
+        <source>En attente</source>
+        <target>En attente</target>
+      </trans-unit>
+      <trans-unit id="748">
+        <source>Recu le %1%</source>
+        <target>Reçu le %1%</target>
+      </trans-unit>
+      <trans-unit id="749">
+        <source>Vous avez recu une invitation pour rejoindre l'equipe</source>
+        <target>Vous avez reçu une invitation pour rejoindre l'équipe</target>
+      </trans-unit>
+      <trans-unit id="750">
+        <source>Accepter</source>
+        <target>Accepter</target>
+      </trans-unit>
+      <trans-unit id="751">
+        <source>Refuser</source>
+        <target>Refuser</target>
+      </trans-unit>
+      <trans-unit id="752">
+        <source>Vous n'avez aucune invitation en attente</source>
+        <target>Vous n'avez aucune invitation en attente</target>
+      </trans-unit>
+      <trans-unit id="753">
+        <source>Historique</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="754">
+        <source>Vous avez accepte l'invitation a rejoindre l'equipe</source>
+        <target>Vous avez accepté l'invitation a rejoindre l'équipe</target>
+      </trans-unit>
+      <trans-unit id="755">
+        <source>Vous avez refuse l'invitation a rejoindre l'equipe</source>
+        <target>Vous avez refusé l'invitation a rejoindre l'équipe</target>
+      </trans-unit>
+      <trans-unit id="756">
+        <source>Vous n'avez eu aucune invitation</source>
+        <target>Vous n'avez eu aucune invitation</target>
+      </trans-unit>
+      <trans-unit id="757">
+        <source>Plus de details sur notre page informations pratiques</source>
+        <target>Plus de détails sur notre page informations pratiques</target>
+      </trans-unit>
+      <trans-unit id="758">
+        <source>Nous trouver</source>
+        <target>Nous trouver</target>
+      </trans-unit>
+      <trans-unit id="759">
+        <source>Dates</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="760">
+        <source>Ouverture de l'evenement</source>
+        <target>Ouverture de l'évènement</target>
+      </trans-unit>
+      <trans-unit id="761">
+        <source>au</source>
+        <target>au</target>
+      </trans-unit>
+      <trans-unit id="762">
+        <source>Ouverture des inscriptions</source>
+        <target>Ouverture des inscriptions</target>
+      </trans-unit>
+      <trans-unit id="763">
+        <source>Les inscriptions ne sont pas encore ouvertes pour ce tournois.</source>
+        <target>Les inscriptions ne sont pas encore ouvertes pour ce tournoi.</target>
+      </trans-unit>
+      <trans-unit id="764">
+        <source>Vous devez appartenir a une equipe pour vous inscrire au tournoi.</source>
+        <target>Vous devez appartenir a une équipe pour vous inscrire au tournoi.</target>
+      </trans-unit>
+      <trans-unit id="765">
+        <source>Vous devez etre le manager pour vous inscrire au tournoi.</source>
+        <target>Vous devez etre le manager pour vous inscrire au tournoi.</target>
+      </trans-unit>
+      <trans-unit id="766">
+        <source>Jeu</source>
+        <target>Jeu</target>
+      </trans-unit>
+      <trans-unit id="767">
+        <source>Genre</source>
+        <target>Genre</target>
+      </trans-unit>
+      <trans-unit id="768">
+        <source>Le tournoi est ouvert pour %nb_team% joueurs.</source>
+        <target>Le tournoi est ouvert pour %nb_team% joueurs.</target>
+      </trans-unit>
+      <trans-unit id="769">
+        <source>Le tournoi est ouvert pour %nb_team% equipes de %nb_player% joueurs.</source>
+        <target>Le tournoi est ouvert pour %nb_team% equipes de %nb_player% joueurs.</target>
+      </trans-unit>
+      <trans-unit id="770">
+        <source>Le prix d'entree est de %price%&amp;euro; par joueur.</source>
+        <target>Le prix d'entrée est de %price% &amp;euro; par joueur.</target>
+      </trans-unit>
+      <trans-unit id="771">
+        <source>Inscription au tournoi</source>
+        <target>Inscription au tournoi</target>
+      </trans-unit>
+      <trans-unit id="772">
+        <source>Administrateur(s) du tournoi :</source>
+        <target>Administrateur(s) du tournoi :</target>
+      </trans-unit>
+      <trans-unit id="773">
+        <source>Avant de confirmer votre inscription au tournoi merci de verifier les informations ci-dessous et vous devez accepter de reglement interieur de la manifestation.</source>
+        <target>Avant de confirmer votre inscription au tournoi merci de vérifier les informations ci-dessous et vous devez accepter le réglement intérieur de la manifestation.</target>
+      </trans-unit>
+      <trans-unit id="774">
+        <source>Composition</source>
+        <target>Composition</target>
+      </trans-unit>
+      <trans-unit id="775">
+        <source>Manager</source>
+        <target>Manager</target>
+      </trans-unit>
+      <trans-unit id="776">
+        <source>Joueur</source>
+        <target>Joueur</target>
+      </trans-unit>
+      <trans-unit id="777">
+        <source> Euros.</source>
+        <target> Euros.</target>
+      </trans-unit>
+      <trans-unit id="778">
+        <source>Total :</source>
+        <target>Total :</target>
+      </trans-unit>
+      <trans-unit id="779">
+        <source>J accepte le reglement</source>
+        <target>J'accepte le réglement</target>
+      </trans-unit>
+      <trans-unit id="780">
+        <source>Je refuse le reglement</source>
+        <target>Je refuse le réglement</target>
+      </trans-unit>
+      <trans-unit id="781">
+        <source>Vous ne pouvez pas vous inviter dans l'équipe</source>
+        <target>Vous ne pouvez pas vous inviter dans l'équipe</target>
+      </trans-unit>
+      <trans-unit id="782">
+        <source>Vous devez selectionner un utilisateur</source>
+        <target>Vous devez selectionner un utilisateur</target>
+      </trans-unit>
+      <trans-unit id="783">
+        <source> a déjà rejoins l'équipe</source>
+        <target> a déjà rejoins l'équipe</target>
+      </trans-unit>
+      <trans-unit id="784">
+        <source> a déjà reçu une invitation a rejoindre l'équipe</source>
+        <target> a déjà reçu une invitation a rejoindre l'équipe</target>
+      </trans-unit>
+      <trans-unit id="785">
+        <source>Vous avez envoyé une invitation à </source>
+        <target>Vous avez envoyé une invitation à </target>
+      </trans-unit>
+      <trans-unit id="786">
+        <source> a ete supprime de l'equipe</source>
+        <target> a été supprimé de l'équipe</target>
+      </trans-unit>
+      <trans-unit id="787">
+        <source> est maintenant joueur de l'equipe</source>
+        <target> est maintenant joueur de l'équipe</target>
+      </trans-unit>
+      <trans-unit id="788">
+        <source> ne fait plus parti des joueurs</source>
+        <target> ne fait plus parti des joueurs</target>
+      </trans-unit>
+      <trans-unit id="789">
+        <source>Vous avez quitte l'equipe</source>
+        <target>Vous quittez l'équipe</target>
+      </trans-unit>
+      <trans-unit id="790">
+        <source>Retirer des managers</source>
+        <target>Retirer des managers</target>
+      </trans-unit>
+      <trans-unit id="791">
+        <source>Ajouter aux managers</source>
+        <target>Ajouter aux managers</target>
+      </trans-unit>
+      <trans-unit id="792">
+        <source>Membres non joueur</source>
+        <target>Membres non joueur</target>
+      </trans-unit>
+      <trans-unit id="793">
+        <source>Rechercher des joueurs pour mon équipe</source>
+        <target>Rechercher des joueurs pour mon équipe</target>
+      </trans-unit>
+      <trans-unit id="794">
+        <source>Expulser</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="795">
+        <source>Inviter un joueur</source>
+        <target>Inviter un joueur</target>
+      </trans-unit>
+      <trans-unit id="796">
+        <source>Quitter L'équipe</source>
+        <target>Quitter l'équipe</target>
+      </trans-unit>
+      <trans-unit id="797">
+        <source>Les fondateurs et managers, peuvent modifier la composition d une equipe et inviter de nouveaux joueurs.</source>
+        <target>Les managers, peuvent modifier la composition d'une équipe et inviter de nouveaux joueurs.</target>
+      </trans-unit>
+      <trans-unit id="798">
+        <source>Modifier la composition</source>
+        <target>Modifier la composition</target>
       </trans-unit>
     </body>
   </file>
