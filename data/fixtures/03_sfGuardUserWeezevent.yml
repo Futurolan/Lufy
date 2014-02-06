@@ -1,0 +1,102 @@
+SfGuardUserWeezevent:
+  sfGuardUserWeezevent_1:
+    sfGuardUser: sfGuardUser_4
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 1
+    is_valid: 1
+  sfGuardUserWeezevent_2:
+    sfGuardUser: sfGuardUser_5
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 2
+    is_valid: 1
+  sfGuardUserWeezevent_3:
+    sfGuardUser: sfGuardUser_6
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 3
+    is_valid: 1
+  sfGuardUserWeezevent_4:
+    sfGuardUser: sfGuardUser_7
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 4
+    is_valid: 1
+  sfGuardUserWeezevent_5:
+    sfGuardUser: sfGuardUser_8
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 5
+    is_valid: 1
+  sfGuardUserWeezevent_6:
+    sfGuardUser: sfGuardUser_9
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 6
+    is_valid: 1
+  sfGuardUserWeezevent_7:
+    sfGuardUser: sfGuardUser_10
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 7
+    is_valid: 1
+  sfGuardUserWeezevent_8:
+    sfGuardUser: sfGuardUser_11
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 8
+    is_valid: 1
+  sfGuardUserWeezevent_9:
+    sfGuardUser: sfGuardUser_12
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 9
+    is_valid: 1
+  sfGuardUserWeezevent_10:
+    sfGuardUser: sfGuardUser_13
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 10
+    is_valid: 1
+  sfGuardUserWeezevent_111:
+    sfGuardUser: sfGuardUser_14
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 11
+    is_valid: 1
+  sfGuardUserWeezevent_12:
+    sfGuardUser: sfGuardUser_15
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 12
+    is_valid: 1
+  sfGuardUserWeezevent_13:
+    sfGuardUser: sfGuardUser_16
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 13
+    is_valid: 1
+  sfGuardUserWeezevent_14:
+    sfGuardUser: sfGuardUser_17
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 14
+    is_valid: 1
+  sfGuardUserWeezevent_15:
+    sfGuardUser: sfGuardUser_18
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 15
+    is_valid: 1
+  sfGuardUserWeezevent_16:
+    sfGuardUser: sfGuardUser_19
+    event:  Event_GA2013
+    tournament: Tournament_CSGO
+    barcode: 16
+    is_valid: 1
+
+
+
+
+

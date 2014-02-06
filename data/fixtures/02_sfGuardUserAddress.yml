@@ -1,0 +1,189 @@
+SfGuardUserAddress:
+  SfGuardUserAddress_1:
+    sfGuardUser: sfGuardUser_4
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_2:
+    sfGuardUser: sfGuardUser_5
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_3:
+    sfGuardUser: sfGuardUser_5
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_4:
+    sfGuardUser: sfGuardUser_6
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_5:
+    sfGuardUser: sfGuardUser_7
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_6:
+    sfGuardUser: sfGuardUser_8
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_7:
+    sfGuardUser: sfGuardUser_9
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_8:
+    sfGuardUser: sfGuardUser_10
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_11
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_12
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_13
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_14
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_15
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_16
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_17
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_18
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  SfGuardUserAddress_9:
+    sfGuardUser: sfGuardUser_19
+    name: MonAdresse
+    complement: trop secrete
+    address: MaSuperAdresse
+    zipcode: 86000
+    city: Poitiers
+    country: FR
+    is_default: 1
+    is_billing: 1
+    is_delivery: 1
+  
