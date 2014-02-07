@@ -1,0 +1,198 @@
+SfGuardUserWeezevent:
+  SfGuardUserWeezevent_1:
+    SfGuardUser: sfGuardUser_4
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 1
+    is_valid: 1
+  SfGuardUserWeezevent_2:
+    SfGuardUser: sfGuardUser_5
+    event_id: 000003
+    tournament_id: Tournament_CSGO
+    barcode: 2
+    is_valid: 1
+  SfGuardUserWeezevent_3:
+    SfGuardUser: sfGuardUser_6
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 3
+    is_valid: 1
+  SfGuardUserWeezevent_4:
+    SfGuardUser: sfGuardUser_7
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 4
+    is_valid: 1
+  SfGuardUserWeezevent_5:
+    SfGuardUser: sfGuardUser_8
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 5
+    is_valid: 1
+  SfGuardUserWeezevent_6:
+    SfGuardUser: sfGuardUser_9
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 6
+    is_valid: 1
+  SfGuardUserWeezevent_7:
+    SfGuardUser: sfGuardUser_10
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 7
+    is_valid: 1
+  SfGuardUserWeezevent_8:
+    SfGuardUser: sfGuardUser_11
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 8
+    is_valid: 1
+  SfGuardUserWeezevent_9:
+    SfGuardUser: sfGuardUser_12
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 9
+    is_valid: 1
+  SfGuardUserWeezevent_10:
+    SfGuardUser: sfGuardUser_13
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 10
+    is_valid: 1
+  SfGuardUserWeezevent_11:
+    SfGuardUser: sfGuardUser_14
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 11
+    is_valid: 1
+  SfGuardUserWeezevent_12:
+    SfGuardUser: sfGuardUser_15
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 12
+    is_valid: 1
+  SfGuardUserWeezevent_13:
+    SfGuardUser: sfGuardUser_16
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 13
+    is_valid: 1
+  SfGuardUserWeezevent_14:
+    SfGuardUser: sfGuardUser_17
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 14
+    is_valid: 1
+  SfGuardUserWeezevent_15:
+    SfGuardUser: sfGuardUser_18
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 15
+    is_valid: 1
+  SfGuardUserWeezevent_16:
+    SfGuardUser: sfGuardUser_19
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 16
+    is_valid: 1
+  SfGuardUserWeezevent_17:
+    SfGuardUser: sfGuardUser_20
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 17
+    is_valid: 1
+  SfGuardUserWeezevent_18:
+    SfGuardUser: sfGuardUser_21
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 18
+    is_valid: 1
+  SfGuardUserWeezevent_19:
+    SfGuardUser: sfGuardUser_22
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 19
+    is_valid: 1
+  SfGuardUserWeezevent_20:
+    SfGuardUser: sfGuardUser_23
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 20
+    is_valid: 1
+  SfGuardUserWeezevent_21:
+    SfGuardUser: sfGuardUser_24
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 21
+    is_valid: 1
+  SfGuardUserWeezevent_22:
+    SfGuardUser: sfGuardUser_25
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 22
+    is_valid: 1
+  SfGuardUserWeezevent_23:
+    SfGuardUser: sfGuardUser_26
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 23
+    is_valid: 1
+  SfGuardUserWeezevent_24:
+    SfGuardUser: sfGuardUser_27
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 24
+    is_valid: 1
+  SfGuardUserWeezevent_25:
+    SfGuardUser: sfGuardUser_28
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 25
+    is_valid: 1
+  SfGuardUserWeezevent_26:
+    SfGuardUser: sfGuardUser_29
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 29
+    is_valid: 0
+  SfGuardUserWeezevent_27:
+    SfGuardUser: sfGuardUser_30
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 27
+    is_valid: 1
+  SfGuardUserWeezevent_28:
+    SfGuardUser: sfGuardUser_31
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 28
+    is_valid: 1
+  SfGuardUserWeezevent_29:
+    SfGuardUser: sfGuardUser_32
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 29
+    is_valid: 1
+  SfGuardUserWeezevent_30:
+    SfGuardUser: sfGuardUser_33
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 30
+    is_valid: 1
+  SfGuardUserWeezevent_31:
+    SfGuardUser: sfGuardUser_34
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 31
+    is_valid: 1
+  SfGuardUserWeezevent_32:
+    SfGuardUser: sfGuardUser_35
+    event_id: 000002
+    tournament_id: Tournament_CSGO
+    barcode: 32
+    is_valid: 1
+
+
+
+
+

@@ -21,6 +21,11 @@ Call it with:
 EOF;
   }
 
+    /**
+   * @brief Check if profil is ok ( name, email, username ).
+   * @param[in] $user Take a user
+   * @return boolean : true if everything is ok.
+   */
   protected function execute($arguments = array(), $options = array())
   {
     $databaseManager = new sfDatabaseManager($this->configuration);
@@ -30,6 +35,7 @@ EOF;
     foreach ($tournamentSlots as $tournamentSlot)
     {
       $result = false;
+
       if ($this->checkPlayerNumber($tournamentSlot))
       {
         foreach ($tournamentSlot->getTeam()->getTeamPlayer() as $teamPlayer)
@@ -45,9 +51,11 @@ EOF;
           }
         }
       }
+
       if ($result)
       {
         $this->logSection('info', $tournamentSlot->getTeam()->getName() . ' peut etre validée sur ' . $tournamentSlot->getTournament()->getName());
+
         if ($options['execute'])
         {
           $this->logSection('info', $tournamentSlot->getIsValid());
@@ -62,6 +70,7 @@ EOF;
         }
       }
     }
+
     if ($result)
     {
       $this->logSection('info', 'Vous pouvez lancer la procédure utilisez la commande');
@@ -71,6 +80,7 @@ EOF;
 
   /**
    * @brief Check if profil is ok ( name, email, username ).
+   * @param[in] $user Take a user
    * @return boolean : true if everything is ok.
    */
   private function checkProfile($user)
@@ -82,7 +92,6 @@ EOF;
             $user->getEmailAddress() == NULL ||
             $user->getUsername() == NULL)
       $result = false;
-    //$this->logSection('info', 'toto 5 : Check Profile : ' . $result);
 
     return $result;
   }
@@ -92,6 +101,7 @@ EOF;
     $result = true;
 
     $player_per_team = $tournamentSlot->getTournament()->getPlayerPerTeam();
+
     $users_are_players = Doctrine_Query::create()
             ->from('TeamPlayer tp')
             ->innerJoin('tp.Team t')
@@ -100,17 +110,15 @@ EOF;
             ->andWhere('ts.id_tournament_slot = ?', $tournamentSlot->getIdTournamentSlot())
             ->count();
 
-    //$this->logSection('info', 'Toto 2, player_perteam, usersareplayers, idtournament slot ' . $player_per_team . ' ' . $users_are_players . ' ' . $tournamentSlot->getIdTournamentSlot());
     if ($player_per_team >= $users_are_players)
       $result = false;
 
-    //$this->logSection('info', 'toto 6 : Check PlayerNumber : ' . $result);
     return $result;
   }
 
   /**
    * @brief Check if Weezevent Ticket is valid.
-   * @param[in] $userId Take a user id or check current user id
+   * @param[in] $user Take a user
    * @return boolean : true if there is one.
    */
   private function checkWeezevent($user)
@@ -121,16 +129,18 @@ EOF;
             ->where('user_id = ?', $user->getId())
             ->andWhere('is_valid = 1')
             ->fetchOne();
+
     $result = true;
+
     if ($weezevent == NULL)
       $result = false;
 
-    $this->logSection('info', 'toto 6 : Check Weezevent : ' . $result);
     return $result;
   }
 
   /**
    * @brief Check if there is a default address.
+   * @param[in] $user Take a user
    * @return boolean : true if there is one.
    */
   private function checkAddress($user)
@@ -141,11 +151,12 @@ EOF;
             ->where('user_id = ?', $user->getId())
             ->andWhere('is_default = 1')
             ->fetchOne();
+
     $result = true;
+
     if ($address == NULL)
       $result = false;
 
-    //$this->logSection('info', 'toto 7 : Check address : ' . $result);
     return $result;
   }
 

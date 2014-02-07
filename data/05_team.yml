@@ -10,14 +10,14 @@ Team:
     name: 'SaTeam'
     tag: 'ST'
     country: 'FR'
-    description: 'La team pas complete'
+    description: 'La team avec plein de monde'
     website: 'SaTeam.com'
     logourl: 'SaTeam.com/logo.png'
   Team_TheTeam:
     name: 'TheTeam'
     tag: 'TT'
     country: 'FR'
-    description: 'La super Team avec plein de monde'
+    description: 'La super Team  pas complete'
     website: 'TheTeam.com'
     logourl: 'TheTeam.com/logo.png'
   Team_ATeam:
@@ -35,287 +35,287 @@ Team:
     website: 'PTeam.com'
     logourl: 'PTeam.com/logo.png'
   Team_WTeam:
-    name: 'TheTeam'
-    tag: 'TT'
+    name: 'WTeam'
+    tag: 'WT'
     country: 'FR'
     description: 'La Team avec un probleme de Weeze ticket'
-    website: 'TheTeam.com'
-    logourl: 'TheTeam.com/logo.png'
+    website: 'WTeam.com'
+    logourl: 'WTeam.com/logo.png'
   Team_ITeam:
-    name: 'TheTeam'
-    tag: 'TT'
+    name: 'ITeam'
+    tag: 'IT'
     country: 'FR'
-    description: 'La Team avec un probleme de Weeze ticket'
-    website: 'TheTeam.com'
-    logourl: 'TheTeam.com/logo.png'
+    description: 'La Team en attente de réponse'
+    website: 'ITeam.com'
+    logourl: 'ITeam.com/logo.png'
 
 TeamPlayer:
   TeamPlayer_1:
     Team: Team_MaTeam
     SfGuardUser: sfGuardUser_4
-    is_captain: 1
-    is_player: 1
+    is_captain: '1'
+    is_player: '1'
   TeamPlayer_2:
     Team: Team_MaTeam
     SfGuardUser: sfGuardUser_5
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_3:
     Team: Team_MaTeam
     SfGuardUser: sfGuardUser_6
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_4:
     Team: Team_MaTeam
     SfGuardUser: sfGuardUser_7
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_5:
     Team: Team_MaTeam
     SfGuardUser: sfGuardUser_8
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_6:
     Team: Team_SaTeam
     SfGuardUser: sfGuardUser_9
-    is_captain: 1
-    is_player: 1
+    is_captain: '1'
+    is_player: '1'
   TeamPlayer_7:
     Team: Team_SaTeam
     SfGuardUser: sfGuardUser_10
-    is_captain: 1
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_8:
     Team: Team_SaTeam
     SfGuardUser: sfGuardUser_11
-    is_captain: 1
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_9:
     Team: Team_SaTeam
     SfGuardUser: sfGuardUser_12
-    is_captain: 1
-    is_player: 1
+    is_captain: 0'
+    is_player: '1'
   TeamPlayer_10:
     Team: Team_SaTeam
     SfGuardUser: sfGuardUser_13
-    is_captain: 1
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_11:
     Team: Team_SaTeam
     SfGuardUser: sfGuardUser_14
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_12:
     Team: Team_TheTeam
     SfGuardUser: sfGuardUser_15
-    is_captain: 0
-    is_player: 1
+    is_captain: '1'
+    is_player: '1'
   TeamPlayer_13:
     Team: Team_TheTeam
     SfGuardUser: sfGuardUser_16
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_14:
     Team: Team_TheTeam
     SfGuardUser: sfGuardUser_17
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_15:
     Team: Team_TheTeam
     SfGuardUser: sfGuardUser_18
-    is_captain: 1
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_16:
     Team: Team_ATeam
     SfGuardUser: sfGuardUser_19
-    is_captain: 1
-    is_player: 1
+    is_captain: '1'
+    is_player: '1'
   TeamPlayer_17:
     Team: Team_ATeam
     SfGuardUser: sfGuardUser_20
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_18:
     Team: Team_ATeam
     SfGuardUser: sfGuardUser_21
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_19:
     Team: Team_ATeam
     SfGuardUser: sfGuardUser_22
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_20:
     Team: Team_ATeam
     SfGuardUser: sfGuardUser_23
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_21:
     Team: Team_PTeam
     SfGuardUser: sfGuardUser_24
-    is_captain: 1
-    is_player: 1
+    is_captain: '1'
+    is_player: '1'
   TeamPlayer_22:
     Team: Team_PTeam
     SfGuardUser: sfGuardUser_25
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_23:
     Team: Team_PTeam
     SfGuardUser: sfGuardUser_26
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_24:
     Team: Team_PTeam
     SfGuardUser: sfGuardUser_27
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_25:
     Team: Team_PTeam
     SfGuardUser: sfGuardUser_28
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_26:
     Team: Team_WTeam
     SfGuardUser: sfGuardUser_29
-    is_captain: 1
-    is_player: 1
+    is_captain: '1'
+    is_player: '1'
   TeamPlayer_27:
     Team: Team_WTeam
     SfGuardUser: sfGuardUser_30
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_28:
     Team: Team_WTeam
     SfGuardUser: sfGuardUser_31
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_29:
     Team: Team_WTeam
     SfGuardUser: sfGuardUser_32
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_30:
     Team: Team_WTeam
     SfGuardUser: sfGuardUser_33
-    is_captain: 0
-    is_player: 1
+    is_captain: '0'
+    is_player: '1'
   TeamPlayer_31:
     Team: Team_ITeam
     SfGuardUser: sfGuardUser_34
-    is_captain: 1
-    is_player: 1
+    is_captain: '1'
+    is_player: '1'
     
 Invite:
   Invite_1:
     Team: Team_MaTeam
     SfGuardUser: sfGuardUser_5
-    is_accepted: 1
+    is_accepted: '1'
   Invite_2:
     Team: Team_MaTeam
     SfGuardUser: sfGuardUser_6
-    is_accepted: 1
+    is_accepted: '1'
   Invite_3:
     Team: Team_MaTeam
     SfGuardUser: sfGuardUser_7
-    is_accepted: 1
+    is_accepted: '1'
   Invite_4:
     Team: Team_MaTeam
-    SfGuardUser: sfGuardUser_7
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_8
+    is_accepted: '1'
   Invite_5:
     Team: Team_SaTeam
-    SfGuardUser: sfGuardUser_8
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_10
+    is_accepted: '1'
   Invite_6:
     Team: Team_SaTeam
-    SfGuardUser: sfGuardUser_10
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_11
+    is_accepted: '1'
   Invite_7:
     Team: Team_SaTeam
-    SfGuardUser: sfGuardUser_11
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_12
+    is_accepted: '1'
   Invite_8:
     Team: Team_SaTeam
-    SfGuardUser: sfGuardUser_12
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_13
+    is_accepted: '1'
   Invite_9:
     Team: Team_SaTeam
-    SfGuardUser: sfGuardUser_13
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_14
+    is_accepted: '1'
   Invite_10:
     Team: Team_TheTeam
-    SfGuardUser: sfGuardUser_14
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_16
+    is_accepted: '1'
   Invite_11:
     Team: Team_TheTeam
-    SfGuardUser: sfGuardUser_15
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_17
+    is_accepted: '1'
   Invite_12:
     Team: Team_TheTeam
-    SfGuardUser: sfGuardUser_17
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_18
+    is_accepted: '1'
   Invite_13:
     Team: Team_ATeam
-    SfGuardUser: sfGuardUser_18
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_20
+    is_accepted: '1'
   Invite_14:
     Team: Team_ATeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_21
+    is_accepted: '1'
   Invite_15:
     Team: Team_ATeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_22
+    is_accepted: '1'
   Invite_16:
     Team: Team_ATeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_23
+    is_accepted: '1'
   Invite_17:
     Team: Team_PTeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_25
+    is_accepted: '1'
   Invite_18:
     Team: Team_PTeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_26
+    is_accepted: '1'
   Invite_19:
     Team: Team_PTeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_27
+    is_accepted: '1'
   Invite_20:
     Team: Team_PTeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_28
+    is_accepted: '1'
   Invite_21:
     Team: Team_WTeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_30
+    is_accepted: '1'
   Invite_22:
     Team: Team_WTeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_31
+    is_accepted: '1'
   Invite_23:
     Team: Team_WTeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1
+    SfGuardUser: sfGuardUser_32
+    is_accepted: '1'
   Invite_24:
     Team: Team_WTeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 1 
+    SfGuardUser: sfGuardUser_33
+    is_accepted: '1'
   Invite_25:
     Team: Team_ITeam
-    SfGuardUser: sfGuardUser_19
+    SfGuardUser: sfGuardUser_35
     is_accepted: 'Null'  
   Invite_26:
     Team: Team_ITeam
-    SfGuardUser: sfGuardUser_19
+    SfGuardUser: sfGuardUser_36
     is_accepted: 'Null'  
   Invite_27:
     Team: Team_ITeam
-    SfGuardUser: sfGuardUser_19
+    SfGuardUser: sfGuardUser_37
     is_accepted: 'Null'  
   Invite_28:
     Team: Team_ITeam
-    SfGuardUser: sfGuardUser_19
-    is_accepted: 'Null' 
+    SfGuardUser: sfGuardUser_38
+    is_accepted: 'Null'
