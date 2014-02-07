@@ -2,3 +2,6 @@ default:
   enabled:     true
   with_layout: false
   lifetime:    300
+
+_list:
+  enabled:     true

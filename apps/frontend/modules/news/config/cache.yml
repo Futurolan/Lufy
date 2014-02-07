@@ -2,7 +2,19 @@ default:
   enabled:     true
   lifetime:    1200
   with_layout: false
+
 view:
-  enabled: false
+  enabled:     true
+  lifetime:    300
+
 index:
-  enabled: false
+  enabled:     true
+  lifetime:    300
+
+_affiche:
+  enabled:     true
+  lifetime:    300
+
+_actualite:
+  enabled:     true
+  lifetime:    300

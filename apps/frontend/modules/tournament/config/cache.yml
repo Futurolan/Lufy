@@ -2,7 +2,7 @@ default:
   enabled:     false
   with_layout: false
 
-_nexttournament:
+_next:
   enabled: true
   with_layout: false
   lifetime: 900
