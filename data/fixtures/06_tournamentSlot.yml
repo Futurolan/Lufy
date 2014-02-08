@@ -1,0 +1,23 @@
+TournamentSlot:
+  TournamentSlot_1:
+    Team: Team_MaTeam
+    Tournament: Tournament_CSGO
+  TournamentSlot_2:
+    Team: Team_SaTeam
+    Tournament: Tournament_CSGO
+  TournamentSlot_3:
+    Team: Team_TheTeam
+    Tournament: Tournament_CSGO
+  TournamentSlot_4:
+    Team: Team_ATeam
+    Tournament: Tournament_CSGO
+  TournamentSlot_5:
+    Team: Team_PTeam
+    Tournament: Tournament_CSGO
+  TournamentSlot_6:
+    Team: Team_WTeam
+    Tournament: Tournament_CSGO
+  TournamentSlot_7:
+    Team: Team_ITeam
+    Tournament: Tournament_CSGO
+    

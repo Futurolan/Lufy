@@ -21,7 +21,7 @@ Call it with:
 EOF;
   }
 
-    /**
+  /**
    * @brief Check if profil is ok ( name, email, username ).
    * @param[in] $user Take a user
    * @return boolean : true if everything is ok.
@@ -31,25 +31,35 @@ EOF;
     $databaseManager = new sfDatabaseManager($this->configuration);
     $this->logSection('info', 'Affiche la liste de tous les slots qui peuvent être validés.');
     $tournamentSlots = Doctrine_Core::getTable('TournamentSlot')->findByIsValid('0');
-
+    $result = true;
     foreach ($tournamentSlots as $tournamentSlot)
     {
-      $result = false;
 
-      if ($this->checkPlayerNumber($tournamentSlot))
+      $this->logSection('info', 'Debut =======');
+
+
+      if ($this->checkPlayerNumber($tournamentSlot) && !$tournamentSlot->getTeam()->getIsLocked())
       {
+        //$this->logSection('info', 'Banzaiiii');
         foreach ($tournamentSlot->getTeam()->getTeamPlayer() as $teamPlayer)
         {
+          //$this->logSection('info', 'kawwaaaaa');
+
           if ($teamPlayer->getIsPlayer() == 1)
           {
+            //$this->logSection('info', 'bunnnga');
             $user = $teamPlayer->getSfGuardUser();
 
-            if ($this->checkProfile($user) || $this->checkAddress($user) || $this->checkWeezevent($user))
+            if (!$this->checkProfile($user) || !$this->checkAddress($user) || !$this->checkWeezevent($user))
             {
-              $result = true;
+              $result = false;
             }
           }
         }
+      }
+      else
+      {
+        $result = false;
       }
 
       if ($result)
@@ -67,8 +77,14 @@ EOF;
           $tournamentSlot->getTeam()->setIsLocked('1');
           $tournamentSlot->save();
           $tournamentSlot->getTeam()->save();
+          $this->logSection('info', $tournamentSlot->getTeam()->getName() . ' est maintenant validée sur ' . $tournamentSlot->getTournament()->getName());
         }
       }
+      else
+      {
+        $this->logSection('info', $tournamentSlot->getTeam()->getName() . ' non validable sur ' . $tournamentSlot->getTournament()->getName());
+      }
+      $this->logSection('info', 'Fin =======');
     }
 
     if ($result)
@@ -85,21 +101,34 @@ EOF;
    */
   private function checkProfile($user)
   {
-    $result = true;
+    $result = false;
 
-    if ($user->getFirstName() == NULL ||
-            $user->getLastName() == NULL ||
-            $user->getEmailAddress() == NULL ||
-            $user->getUsername() == NULL)
-      $result = false;
+    if ($user->getFirstName() != NULL &&
+            $user->getLastName() != NULL &&
+            $user->getEmailAddress() != NULL &&
+            $user->getUsername() != NULL)
+      $result = true;
+
+
+
+    $this->logSection('info', '+++++++');
+    if ($result)
+    {
+      $this->logSection('info', 'profil ok');
+    }
+    else
+    {
+      $this->logSection('info', 'profil Nok');
+    }
+
 
     return $result;
   }
 
   private function checkPlayerNumber($tournamentSlot)
   {
-    $result = true;
-
+    $result = false;
+    //$this->logSection('info', 'Katana dans ta gueule');
     $player_per_team = $tournamentSlot->getTournament()->getPlayerPerTeam();
 
     $users_are_players = Doctrine_Query::create()
@@ -109,9 +138,20 @@ EOF;
             ->where('tp.is_player = 1')
             ->andWhere('ts.id_tournament_slot = ?', $tournamentSlot->getIdTournamentSlot())
             ->count();
+    $this->logSection('info', $player_per_team . ' == ' . $users_are_players);
 
-    if ($player_per_team >= $users_are_players)
-      $result = false;
+    if ($player_per_team <= $users_are_players)
+      $result = true;
+
+    if ($result)
+    {
+      $this->logSection('info', 'playernb ok');
+    }
+    else
+    {
+      $this->logSection('info', 'playernb Nok');
+    }
+
 
     return $result;
   }
@@ -130,10 +170,21 @@ EOF;
             ->andWhere('is_valid = 1')
             ->fetchOne();
 
-    $result = true;
+    $result = false;
 
-    if ($weezevent == NULL)
-      $result = false;
+    //$this->logSection('info', $weezevent . ' <== weezevent');
+    if ($weezevent != NULL)
+      $result = true;
+
+    if ($result)
+    {
+      $this->logSection('info', 'weezevent ok');
+    }
+    else
+    {
+      $this->logSection('info', 'weezevent Nok');
+    }
+    $this->logSection('info', '+++++++');
 
     return $result;
   }
@@ -156,6 +207,16 @@ EOF;
 
     if ($address == NULL)
       $result = false;
+
+
+    if ($result)
+    {
+      $this->logSection('info', 'address ok');
+    }
+    else
+    {
+      $this->logSection('info', 'address Nok');
+    }
 
     return $result;
   }
