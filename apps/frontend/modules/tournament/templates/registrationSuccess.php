@@ -25,18 +25,12 @@
         <td><?php echo __('Cree le') ?></td>
         <td><?php echo $team->getCreatedAt() ?></td>
       </tr>
-      <tr>
-        <td><?php echo __('Site web') ?></td>
-        <td><?php echo $team->getWebsite() ?></td>
-      </tr>
-      <tr>
-        <td><?php echo __('Description') ?></td>
-        <td><?php echo $team->getdescription() ?></td>
-      </tr>
     </table>
     <h3><?php echo __('Composition'); ?></h3>
     <table class="table">
-      <?php $nbPlayer = 0 ;foreach ($sf_user->getGuardUser()->TeamPlayer[0]->getTeam()->getTeamPlayer() as $player): ?>
+      <? $nbPlayer = 0 ; ?>
+      <? foreach ($sf_user->getGuardUser()->TeamPlayer[0]->getTeam()->getTeamPlayer() as $player): ?>
+        <? if ($player->getIsPlayer()): ?>
         <tr>
           <td><?php echo $player->getSfGuardUser()->getUsername(); ?></td>
           <td><?php echo $player->getSfGuardUser()->getFirstName(); ?> <?php echo substr($player->getSfGuardUser()->getLastName(), 0, 1); ?>.</td>
@@ -44,12 +38,13 @@
             <span class="label"><?php if ($player->getIsCaptain() == 1) echo __('Manager'); ?></span>
             <span class="label"><?php if ($player->getIsPlayer() == 1) echo __('Joueur'); ?></span>
           </td>
-          <td><?php echo $tournament->getCostPerPlayer().__(' Euros.') ?></td>
+          <td><?php echo $tournament->getCostPerPlayer() ?> &euro;</td>
         </tr>
+        <? endif; ?>
         <?php $nbPlayer += 1; ?>
       <?php endforeach; ?>
     </table>
-    <h4><?php echo __('Total :').$nbPlayer*$tournament->getCostPerPlayer().' Euros';?></h4>
+    <h4><?php echo __('Total :').' '.$nbPlayer*$tournament->getCostPerPlayer().' &euro;';?></h4>
     <br/>
     PROCEDURE D'INSCRIPTION...
   </div>

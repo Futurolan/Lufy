@@ -19,4 +19,12 @@ class fileComponents extends sfComponents
             ->execute();
   }
 
+  public function executeList(sfWebRequest $request)
+  {
+    $this->fileCategories = Doctrine_Query::create()
+      ->from('FileCategory fg')
+      ->orderBy('fg.name ASC')
+      ->execute();
+  }
+
 }

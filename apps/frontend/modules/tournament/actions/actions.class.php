@@ -32,37 +32,47 @@ class tournamentActions extends FrontendActions
       $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
 
-    if (!$this->checkHasTeamAndIsCaptain())
-    {
-      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez etre le manager pour vous inscrire au tournoi.'));
-      $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
-    }
   }
 
   public function executeRegistrationConfirm(sfWebRequest $request)
   {
-    $this->checkRegistration($request);
     $teamSlug = $request->getParameter('team_slug');
     $tournamentSlug = $request->getParameter('slug');
-    
+
+    $this->checkRegistration($request);
+
+    if (!$this->checkHasTeamAndIsCaptain())
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous devez etre le manager pour vous inscrire au tournoi.'));
+      $this->redirect('tournament/registration?slug=' . $tournamentSlug);
+    }
+
+    if ($this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getTournamentSlot()->getIdTournamentSlot() != '')
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous etes deja inscrit au tournoi.'));
+      $this->redirect('tournament/registration?slug=' . $tournamentSlug);
+    }
+
     $idTournament = Doctrine_Query::create()
             ->select('t.id_tournament')
             ->from('tournament t')
-            ->where('t.slug =?', $tournamentSlug)
+            ->where('t.slug = ?', $tournamentSlug)
             ->fetchOne();
-    
+
     $idTeam = Doctrine_Query::create()
             ->select('t.id_team')
             ->from('team t')
-            ->where('t.slug =?', $teamSlug)
+            ->where('t.slug = ?', $teamSlug)
             ->fetchOne();
-    
+
     $tournamentSlot = new TournamentSlot();
     $tournamentSlot->setTeamId($idTeam);
-    $tournamentSlot->setTournamentId($idTournament);    
+    $tournamentSlot->setTournamentId($idTournament);
     $tournamentSlot->save();
+
     $this->getUser()->setFlash('success', 'L equipe est inscrite au tournoi');
-    //$this->redirect('team/index');
+
+    $this->redirect('tournament/registration?slug='.$tournamentSlug);
   }
 
   /**
