@@ -94,17 +94,17 @@ class teamActions extends FrontendActions
       else
       {
         if ((Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'))->getIsAccepted()) === NULL)
-          {
+        {
           $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
-          $this->getUser()->setFlash('error', $player->getUsername().$this->getContext()->getI18n()->__(' a déjà reçu une invitation a rejoindre l\'équipe'));
-          }
-          else
-          { 
-        $invite->setIsAccepted(null);
-        $invite->save();
+          $this->getUser()->setFlash('error', $player->getUsername() . $this->getContext()->getI18n()->__(' a déjà reçu une invitation a rejoindre l\'équipe'));
+        }
+        else
+        {
+          $invite->setIsAccepted(null);
+          $invite->save();
 
-        $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
-        $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez envoyé une invitation à ') . $player->getUsername());
+          $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
+          $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez envoyé une invitation à ') . $player->getUsername());
         }
       }
     }
@@ -130,18 +130,33 @@ class teamActions extends FrontendActions
    */
   public function executeDeleteMember(sfWebRequest $request)
   {
+
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
+    $otherManager = Doctrine_Query::create()
+            ->from('TeamPlayer tp')
+            ->where("tp.team_id = ?", $request->getParameter('team_id'))
+            ->andWhere("tp.is_captain = ?", 1)
+            ->andWhere("tp.user_id <> ?", $this->getUser()->getGuardUser()->getId())
+            ->count();
+
+    if ($otherManager > 0)
+    {
+      $team_player->delete();
+
+      $invite = Doctrine_core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
+      $invite->setIsAccepted(0);
+      $invite->save();
+
+      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' a ete supprime de l\'equipe'));
+    }
+    else
+    {
+
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas laisser l\'équipe sans manager'));
+    }
 
 
-    
-    $team_player->delete();
-
-    $invite = Doctrine_core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
-    $invite->setIsAccepted(0);
-    $invite->save();
-    
-    $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' a ete supprime de l\'equipe'));
     $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
@@ -179,19 +194,34 @@ class teamActions extends FrontendActions
   {
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
 
-    if ($team_player->getIsCaptain() == 0)
+
+    $otherManager = Doctrine_Query::create()
+            ->from('TeamPlayer tp')
+            ->where("tp.team_id = ?", $request->getParameter('team_id'))
+            ->andWhere("tp.is_captain = ?", 1)
+            ->andWhere("tp.user_id <> ?", $this->getUser()->getGuardUser()->getId())
+            ->count();
+
+    if ($otherManager > 0)
     {
-      $team_player->setIsCaptain(1);
-      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' ne fait plus parti des capitaines');
+      if ($team_player->getIsCaptain() == 0)
+      {
+        $team_player->setIsCaptain(1);
+        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' ne fait plus parti des capitaines');
+      }
+      else
+      {
+        $team_player->setIsCaptain(0);
+        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' est maintenant capitaine de l\'equipe');
+      }
+
+      $team_player->save();
     }
     else
     {
-      $team_player->setIsCaptain(0);
-      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' est maintenant capitaine de l\'equipe');
+
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas laisser l\'équipe sans manager'));
     }
-
-    $team_player->save();
-
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
     $this->redirect('team/view?slug=' . $team->getSlug());
   }
