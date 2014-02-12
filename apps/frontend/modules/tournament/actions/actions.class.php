@@ -32,8 +32,191 @@ class tournamentActions extends FrontendActions
       $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
 
+    // Vérifier si le slot de la team est validé ; afficher un message d'info
+    if ($this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getTournamentSlot()->getIdTournamentSlot() != '')
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous etes deja inscrit au tournoi.'));
+      $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
+    }
+
+// Vérifier que la team comporte bien le bon nombre de joueur pour le tournoi ; si non : afficher un message
+// 
+// 
+// tester que le profil des joueurs est bien remplis ; si non : afficher un message en indiquant les joueurs concernés
+// tester que chaque joueur a une adresse par défaut ; si non : afficher un message en indiquants les joueurs concernés
+// tester que chaque joueur à bien enregistré son billets Weezevent ; si non : afficher un message en indiquants les joueurs concernés
+
+    $this->steps = array(
+        'Profile' => false,
+        'Address' => false,
+        'Weezevent' => false,
+        'IsInTeam' => false,
+        'MyTeamIsOk' => false,
+    );
+    if ($this->checkProfile())
+      $this->steps['Profile'] = true;
+    
+    if ($this->checkAddress())
+      $this->steps['Address'] = true;
+    
+    if ($this->checkWeezevent($this->getUser()->getGuardUser()->getId()))
+      $this->steps['Weezevent'] = true;
+    
+    if ($this->checkHasTeam())
+      $this->steps['IsInTeam'] = true;
+    
+    if ($this->checkTeamPlayerHasWeezevent())
+      $this->steps['MyTeamIsOk'] = true;
+  }
+  
+  
+private function checkPlayerNumber()
+  {
+    $result = false;
+    $player_per_team = $this->getPlayerPerTeam();
+    
+    // TODO :plein de chose ici
+    $idTournamentSlot = Doctrine_core::getTable("tournament_slot")->findOneByIdTournamentAndTeamId($this->getId(), );
+
+    $users_are_players = Doctrine_Query::create()
+            ->from('TeamPlayer tp')
+            ->innerJoin('tp.Team t')
+            ->innerJoin('t.TournamentSlot ts')
+            ->where('tp.is_player = 1')
+            ->andWhere('ts.id_tournament_slot = ?', $tournamentSlot->getIdTournamentSlot())
+            ->count();
+    $this->logSection('info', $player_per_team . ' == ' . $users_are_players);
+
+    if ($player_per_team <= $users_are_players)
+      $result = true;
+
+    if ($result)
+    {
+      $this->logSection('info', 'playernb ok');
+    }
+    else
+    {
+      $this->logSection('info', 'playernb Nok');
+    }
+
+
+    return $result;
   }
 
+  /**
+   * @brief Check if weezevent tickets of team members are valid.
+   * @return boolean : true if team is ok.
+   */
+  private function checkTeamPlayerHasWeezevent()
+  {
+    $user = $this->getUser();
+    $team = Doctrine_Query::create()
+            ->select('tp.team_id')
+            ->from('TeamPlayer tp')
+            ->where('tp.user_id = ?', $this->getUser()->getGuardUser()->getId())
+            ->fetchOne();
+
+    $users = Doctrine_Query::create()
+            ->select('tp.user_id')
+            ->from('TeamPlayer tp')
+            ->where('tp.team_id = ?', $team->getTeamId())
+            ->execute();
+    $players = array();
+    $result = true;
+    foreach ($users as $key)
+    {
+      if (!$this->checkWeezevent($key->getUserId()))
+        $result = false;
+    }
+    return $result;
+  }
+
+  /**
+   * @brief Check if Weezevent Ticket is valid.
+   * @param[in] $userId Take a user id or check current user id
+   * @return boolean : true if there is one.
+   */
+  private function checkWeezevent($userId)
+  {
+    if (!$userId)
+    {
+      $userId = $this->getUser()->getSfGuard()->getId();
+    }
+    $weezevent = Doctrine_Query::create()
+            ->select("user_id")
+            ->from('sfGuardUserWeezevent')
+            ->where('user_id = ?', $userId)
+            ->andWhere('is_valid = 1')
+            ->fetchOne();
+    $result = true;
+    if ($weezevent == NULL)
+      $result = false;
+    return $result;
+  }
+
+  /**
+   * @brief Check if User is a player in a team.
+   * @return boolean : true if he is.
+   */
+  private function checkHasTeam()
+  {
+    $user = $this->getUser();
+    $team = Doctrine_Query::create()
+            ->select("team_id")
+            ->from('teamPlayer')
+            ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
+            ->andWhere('is_player = 1')
+            ->fetchOne();
+    $result = true;
+    if ($team == NULL)
+      $result = false;
+    return $result;
+  }
+
+  /**
+   * @brief Check if there is a default address.
+   * @return boolean : true if there is one.
+   */
+  private function checkAddress($user)
+  {
+    $address = Doctrine_Query::create()
+            ->select("id")
+            ->from('sfGuardUserAddress')
+            ->where('user_id = ?', $user)
+            ->andWhere('is_default = 1')
+            ->fetchOne();
+    $result = true;
+    if ($address == NULL)
+      $result = false;
+    return $result;
+  }
+
+  /**
+   * @brief Check if profil is ok ( name, email, username ).
+   * @return boolean : true if everything is ok.
+   */
+  private function checkProfile($user)
+  {
+    $result = true;
+
+    if ($user->getFirstName() == NULL ||
+            $user->getLastName() == NULL ||
+            $user->getEmailAddress() == NULL ||
+            $user->getUsername() == NULL)
+      $result = false;
+
+    return $result;
+  }
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
   public function executeRegistrationConfirm(sfWebRequest $request)
   {
     $teamSlug = $request->getParameter('team_slug');
@@ -72,10 +255,12 @@ class tournamentActions extends FrontendActions
 
     $this->getUser()->setFlash('success', 'L equipe est inscrite au tournoi');
 
-    $this->redirect('tournament/registration?slug='.$tournamentSlug);
+    $this->redirect('tournament/registration?slug=' . $tournamentSlug);
   }
 
-  /**
+
+
+    /**
    * @brief Check if User is a player in a team.
    * @return boolean : true if he is.
    */
