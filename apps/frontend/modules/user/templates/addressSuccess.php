@@ -1,4 +1,4 @@
-z<h2><?php echo __('Mes adresses')?></h2>
+<h2><?php echo __('Mes adresses')?></h2>
 
 <?php if (count($addresses) == 0): ?>
   <div class="alert alert-info"><?php echo __('Vous n\'avez aucune adresse pour le moment.'); ?></div>
