@@ -20,6 +20,7 @@ class tournamentActions extends FrontendActions
   {
     $this->forward404Unless($this->tournament = Doctrine::getTable('tournament')->findOneBySlug($request->getParameter('slug')));
 
+    echo'toto';
     if (!$this->tournament->registrationIsActive())
     {
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Les inscriptions ne sont pas encore ouvertes pour ce tournois.'));
@@ -38,6 +39,12 @@ class tournamentActions extends FrontendActions
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous etes deja inscrit au tournoi.'));
       $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
+    
+    if ($this->checkPlayerNumber() == false )
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Votre équipe ne comporte pas le nombre requis de joueurs pour ce tournois.'));
+      $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
+    }
 
 // Vérifier que la team comporte bien le bon nombre de joueur pour le tournoi ; si non : afficher un message
 // 
@@ -45,71 +52,7 @@ class tournamentActions extends FrontendActions
 // tester que le profil des joueurs est bien remplis ; si non : afficher un message en indiquant les joueurs concernés
 // tester que chaque joueur a une adresse par défaut ; si non : afficher un message en indiquants les joueurs concernés
 // tester que chaque joueur à bien enregistré son billets Weezevent ; si non : afficher un message en indiquants les joueurs concernés
-
-    $this->steps = array(
-        'Profile' => false,
-        'Address' => false,
-        'Weezevent' => false,
-        'IsInTeam' => false,
-        'MyTeamIsOk' => false,
-    );
-    if ($this->checkProfile())
-      $this->steps['Profile'] = true;
-    
-    if ($this->checkAddress())
-      $this->steps['Address'] = true;
-    
-    if ($this->checkWeezevent($this->getUser()->getGuardUser()->getId()))
-      $this->steps['Weezevent'] = true;
-    
-    if ($this->checkHasTeam())
-      $this->steps['IsInTeam'] = true;
-    
-    if ($this->checkTeamPlayerHasWeezevent())
-      $this->steps['MyTeamIsOk'] = true;
-  }
-  
-  
-private function checkPlayerNumber()
-  {
-    $result = false;
-    $player_per_team = $this->getPlayerPerTeam();
-    
-    // TODO :plein de chose ici
-    $idTournamentSlot = Doctrine_core::getTable("tournament_slot")->findOneByIdTournamentAndTeamId($this->getId(), );
-
-    $users_are_players = Doctrine_Query::create()
-            ->from('TeamPlayer tp')
-            ->innerJoin('tp.Team t')
-            ->innerJoin('t.TournamentSlot ts')
-            ->where('tp.is_player = 1')
-            ->andWhere('ts.id_tournament_slot = ?', $tournamentSlot->getIdTournamentSlot())
-            ->count();
-    $this->logSection('info', $player_per_team . ' == ' . $users_are_players);
-
-    if ($player_per_team <= $users_are_players)
-      $result = true;
-
-    if ($result)
-    {
-      $this->logSection('info', 'playernb ok');
-    }
-    else
-    {
-      $this->logSection('info', 'playernb Nok');
-    }
-
-
-    return $result;
-  }
-
-  /**
-   * @brief Check if weezevent tickets of team members are valid.
-   * @return boolean : true if team is ok.
-   */
-  private function checkTeamPlayerHasWeezevent()
-  {
-    $user = $this->getUser();
+    echo 'coincoin';
     $team = Doctrine_Query::create()
             ->select('tp.team_id')
             ->from('TeamPlayer tp')
@@ -121,13 +64,47 @@ private function checkPlayerNumber()
             ->from('TeamPlayer tp')
             ->where('tp.team_id = ?', $team->getTeamId())
             ->execute();
-    $players = array();
-    $result = true;
-    foreach ($users as $key)
+
+
+    $this->teamPlayer = array();
+    foreach ($users as $key => $user)
     {
-      if (!$this->checkWeezevent($key->getUserId()))
-        $result = false;
+//      echo '<pre>';
+//          print_r($value->getSfGuardUser()->getName());
+//         echo '<pre />';exit;
+         
+  
+      $steps = array(
+          'profile' => false,
+          'address' => false,
+          'weezevent' => false,
+      );
+      
+      if ($this->checkProfile($user->getSfGuardUser()))
+        $steps['profile'] = true;
+
+      if ($this->checkAddress($user->getSfGuardUser()->getId()))
+        $steps['address'] = true;
+
+      if ($this->checkWeezevent($user->getSfGuardUser()->getId()))
+        $steps['weezevent'] = true;
+      $this->teamPlayer[$user->getSfGuardUser()->getId()]=$steps;
     }
+    
+  }
+
+  private function checkPlayerNumber()
+  {
+    $result = false;
+    $player_per_team = $this->tournament->getPlayerPerTeam();
+    $teamId = $this->getUser()->getGuardUser()->TeamPlayer[0]->getTeamId();
+    $users_are_players = Doctrine_Query::create()
+            ->from('TeamPlayer tp')
+            ->where('tp.is_player = ?', 1)
+            ->andWhere('tp.team_id = ?', $teamId)
+            ->count();
+    if ($player_per_team <= $users_are_players)
+      $result = true;
     return $result;
   }
 
@@ -155,34 +132,15 @@ private function checkPlayerNumber()
   }
 
   /**
-   * @brief Check if User is a player in a team.
-   * @return boolean : true if he is.
-   */
-  private function checkHasTeam()
-  {
-    $user = $this->getUser();
-    $team = Doctrine_Query::create()
-            ->select("team_id")
-            ->from('teamPlayer')
-            ->where('user_id = ?', $this->getUser()->getGuardUser()->getId())
-            ->andWhere('is_player = 1')
-            ->fetchOne();
-    $result = true;
-    if ($team == NULL)
-      $result = false;
-    return $result;
-  }
-
-  /**
    * @brief Check if there is a default address.
    * @return boolean : true if there is one.
    */
-  private function checkAddress($user)
+  private function checkAddress($userId)
   {
     $address = Doctrine_Query::create()
             ->select("id")
             ->from('sfGuardUserAddress')
-            ->where('user_id = ?', $user)
+            ->where('user_id = ?', $userId)
             ->andWhere('is_default = 1')
             ->fetchOne();
     $result = true;
@@ -208,15 +166,6 @@ private function checkPlayerNumber()
     return $result;
   }
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
   public function executeRegistrationConfirm(sfWebRequest $request)
   {
     $teamSlug = $request->getParameter('team_slug');
@@ -258,9 +207,7 @@ private function checkPlayerNumber()
     $this->redirect('tournament/registration?slug=' . $tournamentSlug);
   }
 
-
-
-    /**
+  /**
    * @brief Check if User is a player in a team.
    * @return boolean : true if he is.
    */
