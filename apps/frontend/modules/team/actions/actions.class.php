@@ -93,19 +93,25 @@ class teamActions extends FrontendActions
       }
       else
       {
-        if ((Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'))->getIsAccepted()) === NULL)
-        {
-          $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
-          $this->getUser()->setFlash('error', $player->getUsername() . $this->getContext()->getI18n()->__(' a déjà reçu une invitation a rejoindre l\'équipe'));
+        /*$existInvit =Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
+        if ($existInvit === NULL) {
+          echo 'toto';
         }
-        else
-        {
-          $invite->setIsAccepted(null);
-          $invite->save();
+        else {*/
+          if ((Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'))->getIsAccepted()) === NULL)
+          {
+            $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
+            $this->getUser()->setFlash('error', $player->getUsername() . $this->getContext()->getI18n()->__(' a déjà reçu une invitation a rejoindre l\'équipe'));
+          }
+          else
+          {
+            $invite->setIsAccepted(null);
+            $invite->save();
 
-          $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
-          $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez envoyé une invitation à ') . $player->getUsername());
-        }
+            $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
+            $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez envoyé une invitation à ') . $player->getUsername());
+          }
+        //}
       }
     }
     else
@@ -140,7 +146,7 @@ class teamActions extends FrontendActions
             ->andWhere("tp.user_id <> ?", $this->getUser()->getGuardUser()->getId())
             ->count();
 
-    if ($otherManager > 0)
+    if ($otherManager > 0 || ($request->getParameter('user_id'))!= $this->getUser()->getGuardUser()->getId() )
     {
       $team_player->delete();
 
