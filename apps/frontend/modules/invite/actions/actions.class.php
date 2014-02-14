@@ -18,13 +18,13 @@ class inviteActions extends FrontendActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->invites = Doctrine_Query::create()
-      ->select('*')
-      ->from('Invite i')
-      ->leftJoin('i.SfGuardUser u')
-      ->leftJoin('i.Team t')
-      ->where('i.user_id = ?', $this->getUser()->getGuardUser()->getId())
-      ->orderBy('i.updated_at')
-      ->execute();
+            ->select('*')
+            ->from('Invite i')
+            ->leftJoin('i.SfGuardUser u')
+            ->leftJoin('i.Team t')
+            ->where('i.user_id = ?', $this->getUser()->getGuardUser()->getId())
+            ->orderBy('i.updated_at')
+            ->execute();
 
     $this->setLayout('user');
   }
@@ -81,27 +81,36 @@ class inviteActions extends FrontendActions
 
     $invite = Doctrine::getTable('invite')->findOneByIdInvite($request->getParameter('id'));
 
-    if ($invite->getUserId() == $this->getUser()->getGuardUser()->getId()){
-
-      $team_player = new TeamPlayer();
-      $team_player->setTeamId($invite->getTeamId());
-      $team_player->setUserId($invite->getUserId());
-      $team_player->setIsPlayer(0);
-      $team_player->setIsCaptain(0);
-      $team_player->save();
-
-
-      $invite->setIsAccepted(1);
-      $invite->save();
-
-      $this->redirect('invite/index');
+    if ($this->getUser()->getGuardUser()->getTeamPlayer()->count() > 0)
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas intégrer plus d\'une équipe.'));
     }
     else
     {
-      $this->forward(sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-      $this->getContext()->getResponse()->setStatusCode(403);
+      if ($invite->getUserId() == $this->getUser()->getGuardUser()->getId())
+      {
+
+        $team_player = new TeamPlayer();
+        $team_player->setTeamId($invite->getTeamId());
+        $team_player->setUserId($invite->getUserId());
+        $team_player->setIsPlayer(0);
+        $team_player->setIsCaptain(0);
+        $team_player->save();
+
+
+        $invite->setIsAccepted(1);
+        $invite->save();
+
+        $this->redirect('invite/index');
+      }
+      else
+      {
+        $this->forward(sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+        $this->getContext()->getResponse()->setStatusCode(403);
+      }
     }
 
+    $this->redirect('invite/index');
   }
 
   /**
@@ -112,7 +121,8 @@ class inviteActions extends FrontendActions
   public function executeRefusePlayer(sfWebRequest $request)
   {
     $invite = Doctrine::getTable('invite')->findOneByIdInvite($request->getParameter('id'));
-    if ($invite->getUserId() == $this->getUser()->getGuardUser()->getId()){
+    if ($invite->getUserId() == $this->getUser()->getGuardUser()->getId())
+    {
       $invite = Doctrine::getTable('invite')->findOneByIdInvite($request->getParameter('id'));
       $invite->setIsAccepted(0);
       $invite->save();

@@ -144,7 +144,7 @@ class teamActions extends FrontendActions
     }
     else
     {
-      
+
       $otherManager = Doctrine_Query::create()
               ->from('TeamPlayer tp')
               ->where("tp.team_id = ?", $request->getParameter('team_id'))
@@ -181,19 +181,25 @@ class teamActions extends FrontendActions
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
 
-    if ($team_player->getIsPlayer() == 0)
+    if ($team->getIsLocked())
     {
-      $team_player->setIsPlayer(1);
-      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' est maintenant joueur de l\'equipe'));
+      $this->getUser()->setFlash('error', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' ne peut pas voir son status modifié car votre équipe est inscrite à un tournoi.'));
     }
     else
     {
-      $team_player->setIsPlayer(0);
-      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' ne fait plus parti des joueurs'));
+      if ($team_player->getIsPlayer() == 0)
+      {
+        $team_player->setIsPlayer(1);
+        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' est maintenant joueur de l\'equipe'));
+      }
+      else
+      {
+        $team_player->setIsPlayer(0);
+        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' ne fait plus parti des joueurs'));
+      }
+
+      $team_player->save();
     }
-
-    $team_player->save();
-
     $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
@@ -214,25 +220,42 @@ class teamActions extends FrontendActions
             ->andWhere("tp.user_id <> ?", $this->getUser()->getGuardUser()->getId())
             ->count();
 
-    if ($otherManager > 0)
+
+    if ($team_player->getUserId() == $this->getUser()->getGuardUser()->getId())
+    {
+      if ($otherManager != 0)
+      {
+        if ($team_player->getIsCaptain() == 0)
+        {
+          $team_player->setIsCaptain(1);
+          $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' est maintenant capitaine de l\'equipe');
+        }
+        else
+        {
+          $team_player->setIsCaptain(0);
+          $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' ne fait plus parti des capitaines');
+        }
+
+        $team_player->save();
+      }
+      else
+      {
+        $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas laisser l\'équipe sans manager'));
+      }
+    }
+    else
     {
       if ($team_player->getIsCaptain() == 0)
       {
         $team_player->setIsCaptain(1);
-        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' ne fait plus parti des capitaines');
+        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' est maintenant capitaine de l\'equipe');
       }
       else
       {
         $team_player->setIsCaptain(0);
-        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' est maintenant capitaine de l\'equipe');
+        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . ' ne fait plus parti des capitaines');
       }
-
       $team_player->save();
-    }
-    else
-    {
-
-      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas laisser l\'équipe sans manager'));
     }
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
     $this->redirect('team/view?slug=' . $team->getSlug());
@@ -245,11 +268,20 @@ class teamActions extends FrontendActions
    */
   public function executeLeaveTeam(sfWebRequest $request)
   {
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
     $team_player = Doctrine_core::getTable('teamplayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $this->getUser()->getGuardUser()->getId());
-    $team_player->delete();
 
-    $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez quitte l\'equipe'));
-    $this->redirect('user/profile');
+    if ($team->getIsLocked() && $team_player->getIsPlayer())
+    {
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas quitter l\'equipe si vous etes joueur et que celle ci est validée'));
+      $this->redirect('team/view?slug=' . $team->getSlug());
+    }
+    else
+    {
+      $team_player->delete();
+      $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez quitter l\'equipe'));
+      $this->redirect('user/profile');
+    }
   }
 
   /**
