@@ -20,7 +20,6 @@ class tournamentActions extends FrontendActions
   {
     $this->forward404Unless($this->tournament = Doctrine::getTable('tournament')->findOneBySlug($request->getParameter('slug')));
 
-    echo'toto';
     if (!$this->tournament->registrationIsActive())
     {
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Les inscriptions ne sont pas encore ouvertes pour ce tournois.'));
@@ -39,47 +38,29 @@ class tournamentActions extends FrontendActions
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous etes deja inscrit au tournoi.'));
       $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
-    
-    if ($this->checkPlayerNumber() == false )
+
+    if ($this->checkPlayerNumber() == false)
     {
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Votre équipe ne comporte pas le nombre requis de joueurs pour ce tournois.'));
       $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
 
-// Vérifier que la team comporte bien le bon nombre de joueur pour le tournoi ; si non : afficher un message
-// 
-// 
-// tester que le profil des joueurs est bien remplis ; si non : afficher un message en indiquant les joueurs concernés
-// tester que chaque joueur a une adresse par défaut ; si non : afficher un message en indiquants les joueurs concernés
-// tester que chaque joueur à bien enregistré son billets Weezevent ; si non : afficher un message en indiquants les joueurs concernés
-    echo 'coincoin';
-    $team = Doctrine_Query::create()
-            ->select('tp.team_id')
-            ->from('TeamPlayer tp')
-            ->where('tp.user_id = ?', $this->getUser()->getGuardUser()->getId())
-            ->fetchOne();
-
     $users = Doctrine_Query::create()
             ->select('tp.user_id')
             ->from('TeamPlayer tp')
-            ->where('tp.team_id = ?', $team->getTeamId())
+            ->where('tp.team_id = ?', $this->getUser()->getGuardUser()->TeamPlayer[0]->getTeamId())
+            ->andWhere('tp.is_player =?', 1)
             ->execute();
 
-
     $this->teamPlayer = array();
-    foreach ($users as $key => $user)
+    foreach ($users as $user)
     {
-//      echo '<pre>';
-//          print_r($value->getSfGuardUser()->getName());
-//         echo '<pre />';exit;
-         
-  
       $steps = array(
           'profile' => false,
           'address' => false,
           'weezevent' => false,
       );
-      
+
       if ($this->checkProfile($user->getSfGuardUser()))
         $steps['profile'] = true;
 
@@ -88,9 +69,8 @@ class tournamentActions extends FrontendActions
 
       if ($this->checkWeezevent($user->getSfGuardUser()->getId()))
         $steps['weezevent'] = true;
-      $this->teamPlayer[$user->getSfGuardUser()->getId()]=$steps;
+      $this->teamPlayer[$user->getSfGuardUser()->getId()] = $steps;
     }
-    
   }
 
   private function checkPlayerNumber()
@@ -110,7 +90,7 @@ class tournamentActions extends FrontendActions
 
   /**
    * @brief Check if Weezevent Ticket is valid.
-   * @param[in] $userId Take a user id or check current user id
+   * @param[in] $userId Take a user id.
    * @return boolean : true if there is one.
    */
   private function checkWeezevent($userId)
@@ -133,6 +113,7 @@ class tournamentActions extends FrontendActions
 
   /**
    * @brief Check if there is a default address.
+   * @param[in] $userId Take a user id.
    * @return boolean : true if there is one.
    */
   private function checkAddress($userId)
@@ -151,6 +132,7 @@ class tournamentActions extends FrontendActions
 
   /**
    * @brief Check if profil is ok ( name, email, username ).
+   * @param[in] $user Take a user.
    * @return boolean : true if everything is ok.
    */
   private function checkProfile($user)

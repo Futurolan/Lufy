@@ -93,24 +93,24 @@ class teamActions extends FrontendActions
       }
       else
       {
-        /*$existInvit =Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
-        if ($existInvit === NULL) {
+        /* $existInvit =Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
+          if ($existInvit === NULL) {
           echo 'toto';
+          }
+          else { */
+        if ((Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'))->getIsAccepted()) === NULL)
+        {
+          $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
+          $this->getUser()->setFlash('error', $player->getUsername() . $this->getContext()->getI18n()->__(' a déjà reçu une invitation a rejoindre l\'équipe'));
         }
-        else {*/
-          if ((Doctrine_Core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'))->getIsAccepted()) === NULL)
-          {
-            $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
-            $this->getUser()->setFlash('error', $player->getUsername() . $this->getContext()->getI18n()->__(' a déjà reçu une invitation a rejoindre l\'équipe'));
-          }
-          else
-          {
-            $invite->setIsAccepted(null);
-            $invite->save();
+        else
+        {
+          $invite->setIsAccepted(null);
+          $invite->save();
 
-            $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
-            $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez envoyé une invitation à ') . $player->getUsername());
-          }
+          $player = Doctrine::getTable('SfGuardUser')->findOneById($request->getParameter('user_id'));
+          $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Vous avez envoyé une invitation à ') . $player->getUsername());
+        }
         //}
       }
     }
@@ -136,33 +136,38 @@ class teamActions extends FrontendActions
    */
   public function executeDeleteMember(sfWebRequest $request)
   {
-
-    $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
     $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
-    $otherManager = Doctrine_Query::create()
-            ->from('TeamPlayer tp')
-            ->where("tp.team_id = ?", $request->getParameter('team_id'))
-            ->andWhere("tp.is_captain = ?", 1)
-            ->andWhere("tp.user_id <> ?", $this->getUser()->getGuardUser()->getId())
-            ->count();
-
-    if ($otherManager > 0 || ($request->getParameter('user_id'))!= $this->getUser()->getGuardUser()->getId() )
+    $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
+    if ($team->getIsLocked())
     {
-      $team_player->delete();
-
-      $invite = Doctrine_core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
-      $invite->setIsAccepted(0);
-      $invite->save();
-
-      $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' a ete supprime de l\'equipe'));
+      $this->getUser()->setFlash('error', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' ne peut pas etre renvoyé car votre équipe est inscrite à un tournoi.'));
     }
     else
     {
+      
+      $otherManager = Doctrine_Query::create()
+              ->from('TeamPlayer tp')
+              ->where("tp.team_id = ?", $request->getParameter('team_id'))
+              ->andWhere("tp.is_captain = ?", 1)
+              ->andWhere("tp.user_id <> ?", $this->getUser()->getGuardUser()->getId())
+              ->count();
 
-      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas laisser l\'équipe sans manager'));
+      if ($otherManager > 0 || ($request->getParameter('user_id')) != $this->getUser()->getGuardUser()->getId())
+      {
+        $team_player->delete();
+
+        $invite = Doctrine_core::getTable('Invite')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
+        $invite->setIsAccepted(0);
+        $invite->save();
+
+        $this->getUser()->setFlash('success', $team_player->getSfGuardUser()->getUsername() . $this->getContext()->getI18n()->__(' a ete supprime de l\'equipe'));
+      }
+      else
+      {
+
+        $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous ne pouvez pas laisser l\'équipe sans manager'));
+      }
     }
-
-
     $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
@@ -173,6 +178,7 @@ class teamActions extends FrontendActions
    */
   public function executeSetPlayer(sfWebRequest $request)
   {
+    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
     $team_player = Doctrine::getTable('TeamPlayer')->findOneByTeamIdAndUserId($request->getParameter('team_id'), $request->getParameter('user_id'));
 
     if ($team_player->getIsPlayer() == 0)
@@ -187,7 +193,7 @@ class teamActions extends FrontendActions
     }
 
     $team_player->save();
-    $team = Doctrine::getTable('Team')->findOneByIdTeam($request->getParameter('team_id'));
+
     $this->redirect('team/view?slug=' . $team->getSlug());
   }
 
