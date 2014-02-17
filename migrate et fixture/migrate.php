@@ -28,18 +28,56 @@ mysql_select_db($config['db']['dev']['name']);
 
 $migrate = array(
 //===========================================
-    /*89 => array(
+        99 => array(
         'from' => array(
-            'table' => '',
+            'table' => 'sf_guard_user',
             'fields' => array(
+                'id',
+                'first_name',
+                'last_name',
+                'email_address',
+                'username',
+                'algorithm',
+                'salt',
+                'password',
+                'is_active',
+                'is_super_admin',
+                'last_login',
+                'created_at',
+                'updated_at',
             ),
         ),
         'to' => array(
-            'table' => '',
+            'table' => 'sf_guard_user',
             'fields' => array(
+                'id',
+                'first_name',
+                'last_name',
+                'email_address',
+                'username',
+                'algorithm',
+                'salt',
+                'password',
+                'is_active',
+                'is_super_admin',
+                'last_login',
+                'created_at',
+                'updated_at',
             ),
         ),
-    ),*/
+    ),
+    /* 89 => array(
+      'from' => array(
+      'table' => '',
+      'fields' => array(
+      ),
+      ),
+      'to' => array(
+      'table' => '',
+      'fields' => array(
+      ),
+      ),
+      ), */
     78 => array(
         'from' => array(
             'table' => 'var_config',
@@ -119,6 +157,7 @@ $migrate = array(
         'from' => array(
             'table' => 'sf_guard_user',
             'fields' => array(
+                'username',
                 'address',
                 'zipcode',
                 'city',
@@ -128,39 +167,15 @@ $migrate = array(
         'to' => array(
             'table' => 'sf_guard_user_address',
             'fields' => array(
+                'name',
                 'address',
                 'zipcode',
                 'city',
                 'country',
-                'username',
             ),
         ),
     ),
     //=====================================
-    83 => array(
-        'from' => array(
-            'table' => '',
-            'fields' => array(
-                'id',
-                'user_id',
-                'remember_key',
-                'ip_address',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-        'to' => array(
-            'table' => '',
-            'fields' => array(
-                'id',
-                'user_id',
-                'remember_key',
-                'ip_address',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-    ),
     84 => array(
         'from' => array(
             'table' => 'sf_guard_permission',
@@ -225,30 +240,6 @@ $migrate = array(
             ),
         ),
     ),
-    87 => array(
-        'from' => array(
-            'table' => 'sf_guard_forgot_password',
-            'fields' => array(
-                'id',
-                'user_id',
-                'unique_key',
-                'expires_at',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-        'to' => array(
-            'table' => 'sf_guard_forgot_password',
-            'fields' => array(
-                'id',
-                'user_id',
-                'unique_key',
-                'expires_at',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-    ),
     88 => array(
         'from' => array(
             'table' => 'newsletter',
@@ -296,30 +287,6 @@ $migrate = array(
                 'email',
                 'subject',
                 'content',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-    ),
-    90 => array(
-        'from' => array(
-            'table' => 'invite',
-            'fields' => array(
-                'id_invite',
-                'team_id',
-                'user_id',
-                'is_accepted',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-        'to' => array(
-            'table' => 'invite',
-            'fields' => array(
-                'id_invite',
-                'team_id',
-                'user_id',
-                'is_accepted',
                 'created_at',
                 'updated_at',
             ),
@@ -475,38 +442,6 @@ $migrate = array(
             ),
         ),
     ),
-    97 => array(
-        'from' => array(
-            'table' => 'entree',
-            'fields' => array(
-                'id_entree',
-                'user_id',
-                'is_enter',
-                'is_prepayed',
-                'payement_amount',
-                'payement_type',
-                'parental_consent',
-                'created_by',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-        'to' => array(
-            'table' => 'entree',
-            'fields' => array(
-                'id_entree',
-                'user_id',
-                'is_enter',
-                'is_prepayed',
-                'payement_amount',
-                'payement_type',
-                'parental_consent',
-                'created_by',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-    ),
     98 => array(
         'from' => array(
             'table' => 'block',
@@ -534,44 +469,6 @@ $migrate = array(
         ),
     ),
 //===========================================    
-    99 => array(
-        'from' => array(
-            'table' => 'sf_guard_user',
-            'fields' => array(
-                'id',
-                'first_name',
-                'last_name',
-                'email_address',
-                'username',
-                'algorithm',
-                'salt',
-                'password',
-                'is_active',
-                'is_super_admin',
-                'last_login',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-        'to' => array(
-            'table' => 'sf_guard_user',
-            'fields' => array(
-                'id',
-                'first_name',
-                'last_name',
-                'email_address',
-                'username',
-                'algorithm',
-                'salt',
-                'password',
-                'is_active',
-                'is_super_admin',
-                'last_login',
-                'created_at',
-                'updated_at',
-            ),
-        ),
-    ),
     0 => array(
         'from' => array(
             'table' => 'plateform',
