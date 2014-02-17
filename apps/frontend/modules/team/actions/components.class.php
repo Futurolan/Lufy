@@ -18,4 +18,16 @@ class teamComponents extends sfComponents
       ->andWhere('t.is_player = 1')
       ->execute();
   }
+  
+  
+  public function executeListPlayers(sfWebRequest $request)
+  {
+    $this->players = Doctrine_Query::create()
+      ->select('u.username')
+      ->from('sfGuardUser u')
+      ->leftJoin('u.TeamPlayer tp')
+      ->where('tp.team_id = ?', $this->idteam)
+      ->andWhere('tp.is_player = ?', 1)
+      ->execute();
+  }
 }

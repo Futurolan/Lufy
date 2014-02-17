@@ -1,7 +1,7 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
-<div class="alert alert-info"><?php echo __('Les champs marques * sont obligatoires pour valider votre inscription a un tournoi.')?></div>
+<div class="alert alert-info"><?php echo __('Vous devez saisir un nom, prenom et une date de naissance correct pour valider votre inscription a un tournoi.')?></div>
 
 <form action="<?php echo url_for('user/editProfile') ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
   <?php if (!$form->getObject()->isNew()): ?>

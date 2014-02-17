@@ -10,8 +10,8 @@
     <p>
       <strong><?php echo __('Jeu')?> :</strong> <?php echo  $tournament->getGame() ?><br/>
       <strong><?php echo __('Editeur')?> :</strong> <?php echo  $tournament->getGame()->getEditor() ?><br/>
-      <strong><?php echo __('Genre')?> :</strong> <?php echo  $tournament->getGame()->getGameType() ?><br/>
-      <strong><?php echo __('Plateforme')?> :</strong> <?php echo  $tournament->getGame()->getPlateform() ?>
+      <strong><?php echo __('Genre')?> :</strong> <?php echo  $tournament->getGame()->getGameType()->getLabel() ?><br/>
+      <strong><?php echo __('Plateforme')?> :</strong> <?php echo  $tournament->getGame()->getPlateform()->getName() ?>
     </p>
 
     <p>
@@ -50,4 +50,4 @@
 <? endif; ?>
 
 <h3><?=__('Liste des equipes inscrites')?></h3>
-<?php // include_component('tournament_slot', 'teamAndPlayers', array('idtournament' => $tournament['id_tournament'], 'numberteam' => $tournament['number_team'])) ?>
+<?php include_component('tournament_slot', 'listTeamsAndPlayers', array('idtournament' => $tournament->getIdTournament(), 'numberteam' => $tournament->getNumberTeam())) ?>

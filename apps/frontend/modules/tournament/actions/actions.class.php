@@ -20,6 +20,8 @@ class tournamentActions extends FrontendActions
   {
     $this->forward404Unless($this->tournament = Doctrine::getTable('tournament')->findOneBySlug($request->getParameter('slug')));
 
+    $this->register = false;
+    
     if (!$this->tournament->registrationIsActive())
     {
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Les inscriptions ne sont pas encore ouvertes pour ce tournois.'));
@@ -32,14 +34,22 @@ class tournamentActions extends FrontendActions
       $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
 
-    // Vérifier si le slot de la team est validé ; afficher un message d'info
-    if ($this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getTournamentSlot()->getIdTournamentSlot() != '')
+    if ($this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getTournamentSlot()->getIdTournamentSlot() != '' && $this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getTournamentSlot()->getTournament()->getSlug() != $request->getParameter('slug'))
     {
-      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous etes deja inscrit au tournoi.'));
+      $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Vous etes deja inscrit a un autre tournoi.'));
       $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
     }
-
-    if ($this->checkPlayerNumber() == false)
+    elseif ($this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getTournamentSlot()->getIsValid())
+    {
+      $this->getUser()->setFlash('success', $this->getContext()->getI18n()->__('Votre inscription au tournoi a ete validee.'));
+      $this->register = true;
+    }
+    elseif ($this->getUser()->getGuardUser()->TeamPlayer[0]->getTeam()->getTournamentSlot()->getIdTournamentSlot() != '')
+    {
+      $this->getUser()->setFlash('info', $this->getContext()->getI18n()->__('Vous etes inscrit au tournoi. La validation sera effective dans les 24 a 48h lorsque tous les joueurs auront complete les informations demandees.'));
+      $this->register = true;
+    }
+    elseif ($this->checkPlayerNumber() == false)
     {
       $this->getUser()->setFlash('error', $this->getContext()->getI18n()->__('Votre équipe ne comporte pas le nombre requis de joueurs pour ce tournois.'));
       $this->redirect('tournament/view?slug=' . $this->tournament->getSlug());
@@ -53,6 +63,7 @@ class tournamentActions extends FrontendActions
             ->execute();
 
     $this->teamPlayer = array();
+    
     foreach ($users as $user)
     {
       $steps = array(
@@ -69,6 +80,7 @@ class tournamentActions extends FrontendActions
 
       if ($this->checkWeezevent($user->getSfGuardUser()->getId()))
         $steps['weezevent'] = true;
+        
       $this->teamPlayer[$user->getSfGuardUser()->getId()] = $steps;
     }
   }
@@ -183,8 +195,6 @@ class tournamentActions extends FrontendActions
     $tournamentSlot->setTeamId($idTeam);
     $tournamentSlot->setTournamentId($idTournament);
     $tournamentSlot->save();
-
-    $this->getUser()->setFlash('success', 'L equipe est inscrite au tournoi');
 
     $this->redirect('tournament/registration?slug=' . $tournamentSlug);
   }

@@ -2,27 +2,18 @@
 
 class tournament_slotComponents extends sfComponents
 {
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeTeamAndPlayers(sfWebRequest $request)
+  public function executeListTeamsAndPlayers(sfWebRequest $request)
   {
-    $this->attente = $this->numberteam + 1;
-    $this->teams = Doctrine_Query::create()
-            ->select('*')
-            ->from('team t, tournamentSlot t2')
-            ->where('t.id_team = t2.team_id')
-            ->andWhere('t2.tournament_id = ' . $this->idtournament)
-            ->execute();
+    $this->nb_slots = $this->numberteam;
+    
     $this->slots = Doctrine_Query::create()
-            ->from('tournamentSlot')
-            ->where('tournament_id =' . $this->idtournament)
-            ->orderBy('position ASC')
-            ->execute();
+      ->select('ts.is_valid, ts.team_id')
+      ->from('tournamentSlot ts')
+      ->where('ts.tournament_id = ?', $this->idtournament)
+      ->execute();
   }
+  
+  
 
   /**
    * @brief

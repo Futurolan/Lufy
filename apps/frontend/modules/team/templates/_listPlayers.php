@@ -1,3 +1,4 @@
-<?php
-echo 'je suis la liste des players';
-?>
+<? foreach ($players as $player): ?>
+  <?=$player->getUsername()?>
+  &nbsp;&nbsp;&nbsp;
+<? endforeach; ?>

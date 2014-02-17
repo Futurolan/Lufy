@@ -25,7 +25,7 @@
         <li class="dropdown-submenu">
           <a href="#"><?php echo __('Videos') ?></a>
           <ul class="dropdown-menu">
-            <li><a href="#"><?php echo __('A venir') ?></a></li>
+            <?php include_component('file', 'list') ?>
           </ul>
         </li>
         <li><?php echo ajax_link(__('Palmares'), '@page_view?slug=palmares')?></li>

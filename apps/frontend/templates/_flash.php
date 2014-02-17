@@ -6,6 +6,8 @@ if ($sf_user->isAuthenticated()):
     $type = 'error';
   elseif ($sf_user->hasFlash('warning')):
     $type = 'warning';
+  elseif ($sf_user->hasFlash('info')):
+    $type = 'info';
   elseif ($sf_user->hasFlash('success')):
     $type = 'success';
   endif;
