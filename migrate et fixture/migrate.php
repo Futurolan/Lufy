@@ -27,8 +27,8 @@ mysql_select_db($config['db']['dev']['name']);
 
 
 $migrate = array(
-//===========================================
-        99 => array(
+    //===========================================
+    00 => array(
         'from' => array(
             'table' => 'sf_guard_user',
             'fields' => array(
@@ -66,39 +66,7 @@ $migrate = array(
             ),
         ),
     ),
-    /* 89 => array(
-      'from' => array(
-      'table' => '',
-      'fields' => array(
-      ),
-      ),
-      'to' => array(
-      'table' => '',
-      'fields' => array(
-      ),
-      ),
-      ), */
-    78 => array(
-        'from' => array(
-            'table' => 'var_config',
-            'fields' => array(
-                'id_var',
-                'name',
-                'value',
-                'description',
-            ),
-        ),
-        'to' => array(
-            'table' => 'var_config',
-            'fields' => array(
-                'id_var',
-                'name',
-                'value',
-                'description',
-            ),
-        ),
-    ),
-    79 => array(
+    01 => array(
         'from' => array(
             'table' => 'tshirt',
             'fields' => array(
@@ -114,25 +82,7 @@ $migrate = array(
             ),
         ),
     ),
-    80 => array(
-        'from' => array(
-            'table' => 'tournament_admin',
-            'fields' => array(
-                'id_tournament_admin',
-                'user_id',
-                'tournament_id',
-            ),
-        ),
-        'to' => array(
-            'table' => '',
-            'fields' => array(
-                'id_tournament_admin',
-                'user_id',
-                'tournament_id',
-            ),
-        ),
-    ),
-    81 => array(
+    02 => array(
         'from' => array(
             'table' => 'sf_guard_user_permission',
             'fields' => array(
@@ -153,7 +103,7 @@ $migrate = array(
         ),
     ),
     //================ adresse =====================
-    82 => array(
+    03 => array(
         'from' => array(
             'table' => 'sf_guard_user',
             'fields' => array(
@@ -176,7 +126,7 @@ $migrate = array(
         ),
     ),
     //=====================================
-    84 => array(
+    04 => array(
         'from' => array(
             'table' => 'sf_guard_permission',
             'fields' => array(
@@ -198,7 +148,7 @@ $migrate = array(
             ),
         ),
     ),
-    85 => array(
+    05 => array(
         'from' => array(
             'table' => 'sf_guard_group_permission',
             'fields' => array(
@@ -218,7 +168,7 @@ $migrate = array(
             ),
         ),
     ),
-    86 => array(
+    06 => array(
         'from' => array(
             'table' => 'sf_guard_group',
             'fields' => array(
@@ -240,7 +190,39 @@ $migrate = array(
             ),
         ),
     ),
-    88 => array(
+    07 => array(
+        'from' => array(
+            'table' => 'var_config',
+            'fields' => array(
+                'id_var',
+                'name',
+                'value',
+                'description',
+            ),
+        ),
+        'to' => array(
+            'table' => 'var_config',
+            'fields' => array(
+                'id_var',
+                'name',
+                'value',
+                'description',
+            ),
+        ),
+    ),
+    /* 89 => array(
+      'from' => array(
+      'table' => '',
+      'fields' => array(
+      ),
+      ),
+      'to' => array(
+      'table' => '',
+      'fields' => array(
+      ),
+      ),
+      ), */
+    08 => array(
         'from' => array(
             'table' => 'newsletter',
             'fields' => array(
@@ -264,7 +246,7 @@ $migrate = array(
             ),
         ),
     ),
-    89 => array(
+    09 => array(
         'from' => array(
             'table' => 'mail',
             'fields' => array(
@@ -292,7 +274,7 @@ $migrate = array(
             ),
         ),
     ),
-    91 => array(
+    10 => array(
         'from' => array(
             'table' => 'gallery',
             'fields' => array(
@@ -322,7 +304,7 @@ $migrate = array(
             ),
         ),
     ),
-    92 => array(
+    11 => array(
         'from' => array(
             'table' => 'friend',
             'fields' => array(
@@ -340,7 +322,7 @@ $migrate = array(
             ),
         ),
     ),
-    93 => array(
+    12 => array(
         'from' => array(
             'table' => 'file_type',
             'fields' => array(
@@ -364,7 +346,7 @@ $migrate = array(
             ),
         ),
     ),
-    94 => array(
+    13 => array(
         'from' => array(
             'table' => 'file_category',
             'fields' => array(
@@ -386,289 +368,34 @@ $migrate = array(
                 'slug',),
         ),
     ),
-    95 => array(
-        'from' => array(
-            'table' => 'file',
-            'fields' => array(
-                'id_file',
-                'name',
-                'file',
-                'description',
-                'file_type_id',
-                'file_category_id',
-                'position',
-                'status',
-                'created_at',
-                'updated_at',
-                'slug',
-            ),
-        ),
-        'to' => array(
-            'table' => 'file',
-            'fields' => array(
-                'id_file',
-                'name',
-                'file',
-                'description',
-                'file_type_id',
-                'file_category_id',
-                'position',
-                'status',
-                'created_at',
-                'updated_at',
-                'slug',
-            ),
-        ),
-    ),
-    96 => array(
-        'from' => array(
-            'table' => 'faq',
-            'fields' => array(
-                'id_faq',
-                'request',
-                'answer',
-                'status',
-                'position',
-            ),
-        ),
-        'to' => array(
-            'table' => 'faq',
-            'fields' => array(
-                'id_faq',
-                'request',
-                'answer',
-                'status',
-                'position',
-            ),
-        ),
-    ),
-    98 => array(
-        'from' => array(
-            'table' => 'block',
-            'fields' => array(
-                'id_block',
-                'title',
-                'content',
-                'image',
-                'link',
-                'position',
-                'is_active',
-            ),
-        ),
-        'to' => array(
-            'table' => 'block',
-            'fields' => array(
-                'id_block',
-                'title',
-                'content',
-                'image',
-                'link',
-                'position',
-                'is_active',
-            ),
-        ),
-    ),
-//===========================================    
-    0 => array(
-        'from' => array(
-            'table' => 'plateform',
-            'fields' => array(
-                'id_plateform',
-                'name',
-                'tag',
-                'constructor',
-            ),
-        ),
-        'to' => array(
-            'table' => 'plateform',
-            'fields' => array(
-                'id_plateform',
-                'name',
-                'tag',
-                'constructor',
-            ),
-        ),
-    ),
-    1 => array(
-        'from' => array(
-            'table' => 'game_type',
-            'fields' => array(
-                'id_game_type',
-                'label',
-            ),
-        ),
-        'to' => array(
-            'table' => 'game_type',
-            'fields' => array(
-                'id_game_type',
-                'label',
-            ),
-        ),
-    ),
-    2 => array(
-        'from' => array(
-            'table' => 'game',
-            'fields' => array(
-                'id_game',
-                'game_type_id',
-                'plateform_id',
-                'label',
-                'editor',
-                'year',
-                'description',
-                'logourl',
-            ),
-        ),
-        'to' => array(
-            'table' => 'game',
-            'fields' => array(
-                'id_game',
-                'game_type_id',
-                'plateform_id',
-                'label',
-                'editor',
-                'year',
-                'description',
-                'logourl',
-            ),
-        ),
-    ),
-    3 => array(
-        'from' => array(
-            'table' => 'event',
-            'fields' => array(
-                'id_event',
-                'null',
-                'name',
-                'description',
-                'image',
-                'start_at',
-                'end_at',
-                'null',
-                'null',
-                'start_registration_at',
-                'end_registration_at',
-                'slug',
-            ),
-        ),
-        'to' => array(
-            'table' => 'event',
-            'fields' => array(
-                'id_event',
-                '',
-                'name',
-                'description',
-                'image',
-                'start_at',
-                'end_at',
-                '',
-                '',
-                'start_registration_at',
-                'end_registration_at',
-                'slug',
-            ),
-        ),
-    ),
-    11 => array(
-        'from' => array(
-            'table' => 'news_type',
-            'fields' => array(
-                'id_news_type',
-                'label',
-                'description',
-                'logourl',
-                'is_special',
-            ),
-        ),
-        'to' => array(
-            'table' => 'news_type',
-            'fields' => array(
-                'id_news_type',
-                'label',
-                'description',
-                'logourl',
-                'is_special',
-            ),
-        ),
-    ),
-    12 => array(
-        'from' => array(
-            'table' => 'news',
-            'fields' => array(
-                'id_news',
-                'user_id',
-                'title',
-                'summary',
-                'content',
-                'status',
-                'publish_on',
-                'image',
-                'news_type_id',
-                'created_at',
-                'updated_at',
-                'slug',
-            ),
-        ),
-        'to' => array(
-            'table' => 'news',
-            'fields' => array(
-                'id_news',
-                'user_id',
-                'title',
-                'summary',
-                'content',
-                'status',
-                'publish_on',
-                'image',
-                'news_type_id',
-                'created_at',
-                'updated_at',
-                'slug',
-            ),
-        ),
-    ),
-    13 => array(
-        'from' => array(
-            'table' => 'page_type',
-            'fields' => array(
-                'id_page_type',
-                'label',
-                'description',
-            ),
-        ),
-        'to' => array(
-            'table' => 'page_type',
-            'fields' => array(
-                'id_page_type',
-                'label',
-                'description',
-            ),
-        ),
-    ),
     14 => array(
         'from' => array(
-            'table' => 'page',
+            'table' => 'file',
             'fields' => array(
-                'id_page',
-                'title',
-                'content',
+                'id_file',
+                'name',
+                'file',
+                'description',
+                'file_type_id',
+                'file_category_id',
+                'position',
                 'status',
-                'publish_on',
-                'page_type_id',
                 'created_at',
                 'updated_at',
                 'slug',
             ),
         ),
         'to' => array(
-            'table' => 'page',
+            'table' => 'file',
             'fields' => array(
-                'id_page',
-                'title',
-                'content',
+                'id_file',
+                'name',
+                'file',
+                'description',
+                'file_type_id',
+                'file_category_id',
+                'position',
                 'status',
-                'publish_on',
-                'page_type_id',
                 'created_at',
                 'updated_at',
                 'slug',
@@ -677,6 +404,160 @@ $migrate = array(
     ),
     15 => array(
         'from' => array(
+            'table' => 'faq',
+            'fields' => array(
+                'id_faq',
+                'request',
+                'answer',
+                'status',
+                'position',
+            ),
+        ),
+        'to' => array(
+            'table' => 'faq',
+            'fields' => array(
+                'id_faq',
+                'request',
+                'answer',
+                'status',
+                'position',
+            ),
+        ),
+    ),
+    16 => array(
+        'from' => array(
+            'table' => 'block',
+            'fields' => array(
+                'id_block',
+                'title',
+                'content',
+                'image',
+                'link',
+                'position',
+                'is_active',
+            ),
+        ),
+        'to' => array(
+            'table' => 'block',
+            'fields' => array(
+                'id_block',
+                'title',
+                'content',
+                'image',
+                'link',
+                'position',
+                'is_active',
+            ),
+        ),
+    ),
+    17 => array(
+        'from' => array(
+            'table' => 'news_type',
+            'fields' => array(
+                'id_news_type',
+                'label',
+                'description',
+                'logourl',
+                'is_special',
+            ),
+        ),
+        'to' => array(
+            'table' => 'news_type',
+            'fields' => array(
+                'id_news_type',
+                'label',
+                'description',
+                'logourl',
+                'is_special',
+            ),
+        ),
+    ),
+    18 => array(
+        'from' => array(
+            'table' => 'news',
+            'fields' => array(
+                'id_news',
+                'user_id',
+                'title',
+                'summary',
+                'content',
+                'status',
+                'publish_on',
+                'image',
+                'news_type_id',
+                'created_at',
+                'updated_at',
+                'slug',
+            ),
+        ),
+        'to' => array(
+            'table' => 'news',
+            'fields' => array(
+                'id_news',
+                'user_id',
+                'title',
+                'summary',
+                'content',
+                'status',
+                'publish_on',
+                'image',
+                'news_type_id',
+                'created_at',
+                'updated_at',
+                'slug',
+            ),
+        ),
+    ),
+    19 => array(
+        'from' => array(
+            'table' => 'page_type',
+            'fields' => array(
+                'id_page_type',
+                'label',
+                'description',
+            ),
+        ),
+        'to' => array(
+            'table' => 'page_type',
+            'fields' => array(
+                'id_page_type',
+                'label',
+                'description',
+            ),
+        ),
+    ),
+    20 => array(
+        'from' => array(
+            'table' => 'page',
+            'fields' => array(
+                'id_page',
+                'title',
+                'content',
+                'status',
+                'publish_on',
+                'page_type_id',
+                'created_at',
+                'updated_at',
+                'slug',
+            ),
+        ),
+        'to' => array(
+            'table' => 'page',
+            'fields' => array(
+                'id_page',
+                'title',
+                'content',
+                'status',
+                'publish_on',
+                'page_type_id',
+                'created_at',
+                'updated_at',
+                'slug',
+            ),
+        ),
+    ),
+    21 => array(
+        'from' => array(
             'table' => 'partner_type',
             'fields' => array(
                 'id_partner_type',
@@ -697,7 +578,7 @@ $migrate = array(
             ),
         ),
     ),
-    16 => array(
+    22 => array(
         'from' => array(
             'table' => 'partner',
             'fields' => array(
@@ -725,7 +606,108 @@ $migrate = array(
             ),
         ),
     ),
-    17 => array(
+//===========================================    
+    23 => array(
+        'from' => array(
+            'table' => 'plateform',
+            'fields' => array(
+                'id_plateform',
+                'name',
+                'tag',
+                'constructor',
+            ),
+        ),
+        'to' => array(
+            'table' => 'plateform',
+            'fields' => array(
+                'id_plateform',
+                'name',
+                'tag',
+                'constructor',
+            ),
+        ),
+    ),
+    24 => array(
+        'from' => array(
+            'table' => 'game_type',
+            'fields' => array(
+                'id_game_type',
+                'label',
+            ),
+        ),
+        'to' => array(
+            'table' => 'game_type',
+            'fields' => array(
+                'id_game_type',
+                'label',
+            ),
+        ),
+    ),
+    25 => array(
+        'from' => array(
+            'table' => 'game',
+            'fields' => array(
+                'id_game',
+                'game_type_id',
+                'plateform_id',
+                'label',
+                'editor',
+                'year',
+                'description',
+                'logourl',
+            ),
+        ),
+        'to' => array(
+            'table' => 'game',
+            'fields' => array(
+                'id_game',
+                'game_type_id',
+                'plateform_id',
+                'label',
+                'editor',
+                'year',
+                'description',
+                'logourl',
+            ),
+        ),
+    ),
+    26 => array(
+        'from' => array(
+            'table' => 'event',
+            'fields' => array(
+                'id_event',
+                'null',
+                'name',
+                'description',
+                'image',
+                'start_at',
+                'end_at',
+                'null',
+                'null',
+                'start_registration_at',
+                'end_registration_at',
+                'slug',
+            ),
+        ),
+        'to' => array(
+            'table' => 'event',
+            'fields' => array(
+                'id_event',
+                '',
+                'name',
+                'description',
+                'image',
+                'start_at',
+                'end_at',
+                '',
+                '',
+                'start_registration_at',
+                'end_registration_at',
+                'slug',
+            ),
+        ),
+    ),
+    27 => array(
         'from' => array(
             'table' => 'tournament',
             'fields' => array(
@@ -766,6 +748,24 @@ $migrate = array(
                 'position',
                 'is_active',
                 'slug'
+            ),
+        ),
+    ),
+    28 => array(
+        'from' => array(
+            'table' => 'tournament_admin',
+            'fields' => array(
+                'id_tournament_admin',
+                'user_id',
+                'tournament_id',
+            ),
+        ),
+        'to' => array(
+            'table' => 'tournament_admin',
+            'fields' => array(
+                'id_tournament_admin',
+                'user_id',
+                'tournament_id',
             ),
         ),
     ),
