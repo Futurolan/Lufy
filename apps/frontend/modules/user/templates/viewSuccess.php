@@ -30,7 +30,7 @@
     <td><?php
         $teamPlayers = $user->getTeamPlayer();
         foreach ($teamPlayers as $teamPlayer): ?>
-            <a href="<?php echo  url_for('team/view?slug=' . $teamPlayer->Team->slug) ?>"><?php echo  $teamPlayer->Team->name ?></a><?php echo ' |'; ?>
+            <a href="<?php echo  url_for('team/view?slug=' . $teamPlayer->Team->slug) ?>"><?php echo  $teamPlayer->Team->name ?></a><?php //echo ' |'; ?>
         <?php endforeach;
         ?>
     </td>
