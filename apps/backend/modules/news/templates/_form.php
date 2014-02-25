@@ -6,7 +6,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
   var o = {
-    buttonList: ['save','bold','italic','underline','left','center','right','justify','ol','ul','fontSize','fontFamily','fontFormat','indent','outdent','image','link','unlink','forecolor','bgcolor', 'xhtml'],
+    btn btn-defaultList: ['save','bold','italic','underline','left','center','right','justify','ol','ul','fontSize','fontFamily','fontFormat','indent','outdent','image','link','unlink','forecolor','bgcolor', 'xhtml'],
     iconsPath:('http://js.nicedit.com/nicEditIcons-latest.gif')
   };
   new nicEditor(o).panelInstance('news_summary');
@@ -22,11 +22,11 @@ $(document).ready(function() {
       <tr>
         <td colspan="4">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a href="<?php echo url_for('news/index') ?>" class="button">Retour &agrave; la liste</a>
+          &nbsp;<a href="<?php echo url_for('news/index') ?>" class="btn btn-default">Retour &agrave; la liste</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo ajax_link('Supprimer', 'news/delete?id_news='.$form->getObject()->getIdNews(), array('class' => 'button delete', 'method' => 'delete', 'confirm' => 'Etes vous sur ?')) ?>
+            &nbsp;<?php echo link_to('Supprimer', 'news/delete?id_news='.$form->getObject()->getIdNews(), array('class' => 'btn btn-default delete', 'method' => 'delete', 'confirm' => 'Etes vous sur ?')) ?>
           <?php endif; ?>
-          <input type="submit" value="Enregistrer" class="button save" /><br/>
+          <input type="submit" value="Enregistrer" class="btn btn-default save" /><br/>
         </td>
       </tr>
     </tfoot>

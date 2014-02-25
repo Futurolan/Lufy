@@ -1,7 +1,7 @@
 <h2>Equipes</h2>
 
 <div id="toolbox">
-<?=ajax_link('Ajouter une &eacute;quipe', 'team/new', array('class' => 'button add'))?>
+<?=link_to('Ajouter une &eacute;quipe', 'team/new', array('class' => 'btn btn-default add'))?>
 </div>
 
 <table class="table" style="width: 620px; float: left;"">
@@ -16,8 +16,8 @@
     <tr>
       <td><?=$team->getName() ?></td>
       <td>
-        <?=ajax_link('D&eacute;tails', 'team/view?id_team='.$team->getIdTeam(), array('class' => 'button small'))?>
-        <?=ajax_link('Modifier', 'team/edit?id_team='.$team->getIdTeam(), array('class' => 'button small'))?>
+        <?=link_to('D&eacute;tails', 'team/view?id_team='.$team->getIdTeam(), array('class' => 'btn btn-default small'))?>
+        <?=link_to('Modifier', 'team/edit?id_team='.$team->getIdTeam(), array('class' => 'btn btn-default small'))?>
       </td>
     </tr>
     <? endforeach; ?>
@@ -36,7 +36,7 @@
     </tr>
     <?=$form?>
     <tr>
-      <td colspan="2" align="right"><input class="button" type="submit" value="Rechercher"/></td>
+      <td colspan="2" align="right"><input class="btn btn-default" type="submit" value="Rechercher"/></td>
     </tr>
 </table>
 </form>
@@ -44,7 +44,7 @@
 <div style="clear: left;"></div>
 
 <div class="pager" style="width: 620px; text-align: center;">
-    <span class="page"><?=ajax_link('<<', 'team/index?page='.$teams->getFirstPage())?></span>
-    <? foreach ($teams->getLinks(10) as $page) echo ($page == ' '.$teams->getPage()) ? ' <span class="current">'.$page : '</span> <span class="page">'.ajax_link($page, 'team/index?page='.$page)?>
-    <span class="page"><?=ajax_link('>>', 'team/index?page='.$teams->getLastPage())?></span>
+    <span class="page"><?=link_to('<<', 'team/index?page='.$teams->getFirstPage())?></span>
+    <? foreach ($teams->getLinks(10) as $page) echo ($page == ' '.$teams->getPage()) ? ' <span class="current">'.$page : '</span> <span class="page">'.link_to($page, 'team/index?page='.$page)?>
+    <span class="page"><?=link_to('>>', 'team/index?page='.$teams->getLastPage())?></span>
 </div>

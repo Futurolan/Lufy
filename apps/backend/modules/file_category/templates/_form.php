@@ -10,11 +10,11 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a class="button" href="<?php echo url_for('file_category/index') ?>">Retour &agrave; la liste</a>
+          &nbsp;<a class="btn btn-default" href="<?php echo url_for('file_category/index') ?>">Retour &agrave; la liste</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo ajax_link('Supprimer', 'file_category/delete?id_file_category='.$form->getObject()->getIdFileCategory(), array('method' => 'delete', 'confirm' => 'Etes-vous sur ?', 'class' => 'button')) ?>
+            &nbsp;<?php echo link_to('Supprimer', 'file_category/delete?id_file_category='.$form->getObject()->getIdFileCategory(), array('method' => 'delete', 'confirm' => 'Etes-vous sur ?', 'class' => 'btn btn-default')) ?>
           <?php endif; ?>
-          <input class="button" type="submit" value="Enregistrer" />
+          <input class="btn btn-default" type="submit" value="Enregistrer" />
         </td>
       </tr>
     </tfoot>

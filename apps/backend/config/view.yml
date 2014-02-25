@@ -12,9 +12,19 @@ default:
     language:     fr
     #robots:       index, follow
 
-  stylesheets:    [backend.css, jquery-ui.css]
+  stylesheets:
+    - ../bootstrap/css/bootstrap.min.css
+    - ../bootstrap/css/bootstrap-responsive.min.css
+    - ../font-awesome/css/font-awesome.min.css
+    - backend.css
+    - jquery-ui.css
 
-  javascripts:    [jquery-1.4.2.min.js, jquery-ui.js, tiny_mce/tiny_mce.js, kfm/tinyMCE_kfm.js, jquery.bbcodeeditor-1.0.min.js, jquery-hashchange.js, backend/ajax.js]
+  javascripts:
+    - jquery-1.11.0.min.js
+    - ../bootstrap/js/bootstrap.min.js
+    - jquery-ui.js
+    - jquery-hashchange.js
+    - backend/ajax.js
 
   has_layout:     true
   layout:         layout

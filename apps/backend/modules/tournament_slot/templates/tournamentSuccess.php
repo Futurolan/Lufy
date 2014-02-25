@@ -17,10 +17,10 @@
     else echo image_tag('16/unlock.png'); ?></td>
         <td><?php
           if ($tournament_slot->getTeamId() != '0' && $tournament_slot->getTeamId() != NULL):
-            echo ajax_link($tournament_slot->teamName($tournament_slot->getTeamId()), 'team/view?id_team=' . $tournament_slot->getTeamId());
+            echo link_to($tournament_slot->teamName($tournament_slot->getTeamId()), 'team/view?id_team=' . $tournament_slot->getTeamId());
           endif;
           ?></td>
-        <td><?php echo ajax_link($tournament_slot->getTournament(), 'tournament/edit?id_tournament=' . $tournament_slot->getTournamentId()) ?></td>
+        <td><?php echo link_to($tournament_slot->getTournament(), 'tournament/edit?id_tournament=' . $tournament_slot->getTournamentId()) ?></td>
         <td><?php
           if ($tournament_slot->getIsValid())
           {
@@ -37,4 +37,4 @@
 <?php endforeach; ?>
   </tbody>
 </table>
-&nbsp;<a href="<?php echo url_for('tournament_slot/index') ?>" class="button">Retour a la liste des tournois</a>
+&nbsp;<a href="<?php echo url_for('tournament_slot/index') ?>" class="btn btn-default">Retour a la liste des tournois</a>

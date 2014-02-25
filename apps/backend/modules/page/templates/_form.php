@@ -1,6 +1,10 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
+<link rel="stylesheet" type="text/css" media="screen" href="/css/../sceditor/minified/themes/default.min.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/../sceditor/minified/jquery.sceditor.default.min.css" />
+<script type="text/javascript" src="/js/../sceditor/minified/jquery.sceditor.bbcode.min.js"></script>
+
 <form action="<?php echo url_for('page/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id_page='.$form->getObject()->getIdPage() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
@@ -10,11 +14,11 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a href="<?php echo url_for('page/index') ?>" class="button">Retour &agrave; la liste</a>
+          &nbsp;<a href="<?php echo url_for('page/index') ?>" class="btn btn-default">Retour &agrave; la liste</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo ajax_link('Supprimer', 'page/delete?id_page='.$form->getObject()->getIdPage(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'class' => 'button delete')) ?>
+            &nbsp;<?php echo link_to('Supprimer', 'page/delete?id_page='.$form->getObject()->getIdPage(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'class' => 'btn btn-default delete')) ?>
           <?php endif; ?>
-          <input type="submit" value="Enregistrer" class="button save" />
+          <input type="submit" value="Enregistrer" class="btn btn-default save" />
         </td>
       </tr>
     </tfoot>
@@ -66,3 +70,14 @@
     </tbody>
   </table>
 </form>
+
+<script>
+$(function() {
+  // Replace all textarea's
+  // with SCEditor
+  $("textarea").sceditor({
+    plugins: "xhtml",
+    style: "/sceditor/minified/jquery.sceditor.default.min.css"
+  });
+});
+</script>

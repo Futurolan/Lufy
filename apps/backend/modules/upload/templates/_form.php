@@ -5,8 +5,8 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('upload/index') ?>" class="button">Retour a la liste</a>
-           <input type="submit" value="Enregistrer" class="button" />
+          &nbsp;<a href="<?php echo url_for('upload/index') ?>" class="btn btn-default">Retour a la liste</a>
+           <input type="submit" value="Enregistrer" class="btn btn-default" />
         </td>
       </tr>
     </tfoot>

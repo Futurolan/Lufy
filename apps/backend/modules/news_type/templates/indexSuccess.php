@@ -1,26 +1,29 @@
-<h2>Actualit&eacute;s > Configuration > Cat&eacute;gories</h2>
+<ul class="breadcrumb">
+  <li><a href="<?php echo url_for('@homepage') ?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+  <li><a href="<?php echo url_for('news_type/index') ?>">News types</a> <span class="divider">/</span></li>
+  <li class="active"><?php echo __('List')?></li>
+</ul>
 
-<?=ajax_link('Ajouter une cat&eacute;gorie', 'news_type/new', array('class' => 'button add'))?>
-<?=ajax_link('Retour aux actualit&eacute;s', 'news/index', array('class' => 'button'))?>
+<ul class="breadcrumb subbreadcrumb">
+  <li><a href="<?php echo url_for('news_type/form') ?>"><i class="icon icon-plus-sign"></i> <?php echo __('New')?></a></li>
+</ul>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Nom</th>
-      <th>Description</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <? foreach ($news_types as $news_type): ?>
-    <tr>
-      <td><?=image_tag('/uploads/news/icones/'.$news_type->getLogourl())?></td>
-      <td><a href="<?=url_for('news_type/edit?id_news_type='.$news_type->getIdNewsType())?>"><?=$news_type->getLabel()?></a></td>
-      <td><?=$news_type->getDescription()?></td>
-      <td><a class="button small" href="<?=url_for('news_type/edit?id_news_type='.$news_type->getIdNewsType())?>">Modifier</a></td>
-    </tr>
-    <? endforeach; ?>
-  </tbody>
+
+<table class="table table-striped table-hover">
+  <tr>
+    <th></th>
+    <th>Label</th>
+    <th>Description</th>
+    <th>Logourl</th>
+    <th>Is special</th>
+  </tr>
+    <?php foreach ($news_types as $news_type): ?>
+  <tr>
+    <td><span class="muted">#<?php echo $news_type->getIdNewsType() ?></span></td>
+    <td><a href="<?php echo url_for('news_type/view?id_news_type='.$news_type->getIdNewsType()) ?>"><?php echo $news_type->getLabel() ?></a></td>
+    <td><?php echo $news_type->getDescription() ?></td>
+    <td><?php echo $news_type->getLogourl() ?></td>
+    <td><?php echo $news_type->getIsSpecial() ?></td>
+  </tr>
+    <?php endforeach; ?>
 </table>
-<br />

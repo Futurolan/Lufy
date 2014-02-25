@@ -15,7 +15,7 @@ class PageForm extends BasePageForm
         unset($this['created_at'], $this['updated_at']);
         $this->widgetSchema['title']->setAttributes(array('size' => '50'));
         $this->widgetSchema['slug']->setAttributes(array('size' => '50'));
-        $this->widgetSchema['content'] = new sfWidgetFormTextareaTinyMCE(array('theme' => 'advanced', 'width'=>790, 'height'=>700, 'config' => 'file_browser_callback: kfm_for_tiny_mce'));
+        $this->widgetSchema['content'] = new sfWidgetFormTextarea(array(), array('style' => 'width: 850px; height: 500px;'));
 
 
 //              $this->widgetSchema['texte'] = new sfWidgetFormTextareaTinyMCE( array('config' => 'file_browser_callback: kfm_for_tiny_mce') );

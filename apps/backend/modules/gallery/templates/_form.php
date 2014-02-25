@@ -10,11 +10,11 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields() ?>
-          &nbsp;<a class="button" href="<?php echo url_for('gallery/index') ?>">Retour &agrave; la liste</a>
+          &nbsp;<a class="btn btn-default" href="<?php echo url_for('gallery/index') ?>">Retour &agrave; la liste</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo ajax_link('Supprimer', 'gallery/delete?id_gallery='.$form->getObject()->getIdGallery(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'class' => 'button')) ?>
+            &nbsp;<?php echo link_to('Supprimer', 'gallery/delete?id_gallery='.$form->getObject()->getIdGallery(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'class' => 'btn btn-default')) ?>
           <?php endif; ?>
-          <input class="button" type="submit" value="Enregistrer" />
+          <input class="btn btn-default" type="submit" value="Enregistrer" />
         </td>
       </tr>
     </tfoot>

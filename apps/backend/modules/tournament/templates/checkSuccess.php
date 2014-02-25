@@ -26,5 +26,5 @@
     </tbody>
 </table>
 <br />
-<a href="<?php echo url_for('tournament/index') ?>" class="button">Retourner &agrave; la liste des tournoi</a>
-<a href="<?= url_for('tournament/check') ?>" class="button">Verifier l'int&eacute;grit&eacute; des slots</a>
+<a href="<?php echo url_for('tournament/index') ?>" class="btn btn-default">Retourner &agrave; la liste des tournoi</a>
+<a href="<?= url_for('tournament/check') ?>" class="btn btn-default">Verifier l'int&eacute;grit&eacute; des slots</a>

@@ -1,7 +1,7 @@
 <h2>Pages > Configuration > Cat&eacute;gories</h2>
 
-<?=ajax_link('Ajouter une cat&eacute;gorie', 'pageType/new', array('class' => 'add button'))?>
-<?=ajax_link('Retour aux pages', 'page/index', array('class' => 'button'))?>
+<?=link_to('Ajouter une cat&eacute;gorie', 'pageType/new', array('class' => 'add btn btn-default'))?>
+<?=link_to('Retour aux pages', 'page/index', array('class' => 'btn btn-default'))?>
 
 <table class="table">
   <thead>
@@ -16,7 +16,7 @@
     <tr>
       <td><a href="<?php echo url_for('pageType/edit?id_page_type='.$pageType->getIdPageType()) ?>"><?php echo $pageType->getLabel() ?></a></td>
       <td><?php echo $pageType->getDescription() ?></td>
-      <td><a class="button small" href="<?php echo url_for('pageType/edit?id_page_type='.$pageType->getIdPageType()) ?>">Modifier</a></td>
+      <td><a class="btn btn-default small" href="<?php echo url_for('pageType/edit?id_page_type='.$pageType->getIdPageType()) ?>">Modifier</a></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

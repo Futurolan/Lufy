@@ -19,4 +19,4 @@
   </tbody>
 </table>
 
-  <a class="button" href="<?php echo url_for('file_type/new') ?>">Nouveau</a>
+  <a class="btn btn-default" href="<?php echo url_for('file_type/new') ?>">Nouveau</a>

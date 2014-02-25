@@ -1,6 +1,6 @@
 <h2>Upload</h2>
 
-<a class="button" href="#">Uploader un fichier</a>
+<a class="btn btn-default" href="#">Uploader un fichier</a>
 
 <script>
 function fade(id) {

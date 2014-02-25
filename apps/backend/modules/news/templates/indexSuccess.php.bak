@@ -1,6 +1,6 @@
 <h2>Actualit&eacute;s</h2>
 
- <a href="<?php echo url_for('news/new') ?>" class="button">Ajouter une news</a>
+ <a href="<?php echo url_for('news/new') ?>" class="btn btn-default">Ajouter une news</a>
 
 <table class="table">
   <thead>
@@ -32,13 +32,13 @@
         }
         echo image_tag('/css/img/flag/'.$lang.'.png');
          ?>
-	<?=ajax_link(substr($news->getTitle(), 0, 70).'...', 'news/edit?id_news='.$news->getIdNews())?><br/>
+	<?=link_to(substr($news->getTitle(), 0, 70).'...', 'news/edit?id_news='.$news->getIdNews())?><br/>
 	<i style="font-size: 11px; color:#666;">Definir cette news comme etant en 
 	<? if ($lang == 'GB') {
-	    echo ajax_link('francais', 'news/set?id_news='.$news->getIdNews().'&lang=fr', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
+	    echo link_to('francais', 'news/set?id_news='.$news->getIdNews().'&lang=fr', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
 	}
 	else {
-	    echo ajax_link('anglais', 'news/set?id_news='.$news->getIdNews().'&lang=en', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
+	    echo link_to('anglais', 'news/set?id_news='.$news->getIdNews().'&lang=en', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
 	}
 	?>
 	</a>
@@ -54,7 +54,7 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('news/new') ?>" class="button">Ajouter une news</a>
+  <a href="<?php echo url_for('news/new') ?>" class="btn btn-default">Ajouter une news</a>
 
 <script>
 function news_switchStatus(id) {

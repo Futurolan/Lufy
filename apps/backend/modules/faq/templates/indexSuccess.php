@@ -18,8 +18,8 @@
 
 <form method="POST" action="<?=url_for('faq/updatePosition')?>">
 
-<input type="submit" value="Enregistrer les changements"  class="button"/>
-<a href="<?php echo url_for('faq/new') ?>" class="button">Ajouter une question</a>
+<input type="submit" value="Enregistrer les changements"  class="btn btn-default"/>
+<a href="<?php echo url_for('faq/new') ?>" class="btn btn-default">Ajouter une question</a>
 
 <ul id="jquery-ui-faq">
   <? $i= 0; foreach ($faqs as $faq): $i++; ?>
@@ -37,8 +37,8 @@
                     <input type="hidden" class="positionInput" name="faq[<?=$i?>][position]" value="<?=$faq->getPosition()?>" /> 
                 </td>
                 <td width="150px">
-                    <?php echo ajax_link('Modifier','faq/edit?id_faq='.$faq->getIdFaq()) ?> - 
-                    <?php echo ajax_link('Visible/Cach&eacute;','faq/setStatus?id_faq='.$faq->getIdFaq()) ?> 
+                    <?php echo link_to('Modifier','faq/edit?id_faq='.$faq->getIdFaq()) ?> - 
+                    <?php echo link_to('Visible/Cach&eacute;','faq/setStatus?id_faq='.$faq->getIdFaq()) ?> 
                 </td>
             </tr>
         </table>

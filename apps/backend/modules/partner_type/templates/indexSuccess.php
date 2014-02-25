@@ -18,9 +18,9 @@
 
 <form method="POST" action="<?=url_for('partner_type/updatePosition')?>">
 
-<input type="submit" value="Enregistrer les changements"  class="button save"/>
-<a href="<?php echo url_for('partner_type/new') ?>" class="button add">Ajouter une cat&eacute;gorie</a>
-<a href="<?php echo url_for('partner/index') ?>" class="button">Retour aux partenaires</a>
+<input type="submit" value="Enregistrer les changements"  class="btn btn-default save"/>
+<a href="<?php echo url_for('partner_type/new') ?>" class="btn btn-default add">Ajouter une cat&eacute;gorie</a>
+<a href="<?php echo url_for('partner/index') ?>" class="btn btn-default">Retour aux partenaires</a>
 
 <ul id="jquery-ui-partner-type">
   <? $i= 0; foreach ($partners_types as $partner_type): $i++; ?>
@@ -40,8 +40,8 @@
                     <span style="font-size: 14px;"><?=strtoupper($partner_type->getName())?></span>
                 </td>
                 <td width="150px">
-                    <?php echo ajax_link('Modifier','partner_type/edit?id_partner_type='.$partner_type->getIdPartnerType()) ?>
-                    <?php echo ajax_link('Visible/Cach&eacute;','partner_type/setStatus?id_partner_type='.$partner_type->getIdPartnerType()) ?> 
+                    <?php echo link_to('Modifier','partner_type/edit?id_partner_type='.$partner_type->getIdPartnerType()) ?>
+                    <?php echo link_to('Visible/Cach&eacute;','partner_type/setStatus?id_partner_type='.$partner_type->getIdPartnerType()) ?> 
                 </td>
             </tr>
         </table>

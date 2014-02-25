@@ -5,106 +5,64 @@
  *
  * @package    lufy
  * @subpackage event
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @author     Guillaume Marsay
+ * @version    Doctrine theme "lufy_backend"
  */
-class eventActions extends sfActions
-{
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
+class eventActions extends sfActions{
+
   public function executeIndex(sfWebRequest $request)
   {
-    $this->events = Doctrine::getTable('event')
-            ->createQuery('a')
-            ->execute();
+    $this->events = Doctrine_Core::getTable('Event')->findAll();
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeNew(sfWebRequest $request)
+
+  public function executeView(sfWebRequest $request)
   {
-    $this->form = new eventForm();
+    $this->event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id_event')));
+    $this->forward404Unless($this->event);
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeCreate(sfWebRequest $request)
+
+  public function executeForm(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+    $this->form = new EventForm();
 
-    $this->form = new eventForm();
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+    {
+      if ($request->hasParameter('id_event'))
+      {
+        $this->object = Doctrine_Core::getTable('Event')->findOneByIdEvent($request->getParameter('id_event'));
 
-    $this->processForm($request, $this->form);
+        $this->form =  new EventForm($this->object);
+      }
 
-    $this->setTemplate('new');
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+
+      if ($this->form->isValid())
+      {
+        $object = $this->form->save();
+
+        $this->redirect('event/view?id_event='.$object->getIdEvent());
+      }
+    }
+
+    if ($request->hasParameter('id_event'))
+    {
+      $this->object = Doctrine_Core::getTable('Event')->findOneByIdEvent($request->getParameter('id_event'));
+
+      $this->form =  new EventForm($this->object);
+    }
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($this->event = Doctrine::getTable('event')->find(array($request->getParameter('id_event'))), sprintf('Object event does not exist (%s).', $request->getParameter('id_event')));
-    $this->form = new eventForm($this->event);
-  }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($event = Doctrine::getTable('event')->find(array($request->getParameter('id_event'))), sprintf('Object event does not exist (%s).', $request->getParameter('id_event')));
-    $this->form = new eventForm($event);
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('edit');
-  }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($event = Doctrine::getTable('event')->find(array($request->getParameter('id_event'))), sprintf('Object event does not exist (%s).', $request->getParameter('id_event')));
+    $this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id_event'))), sprintf('Object event does not exist (%s).', $request->getParameter('id_event')));
     $event->delete();
 
     $this->redirect('event/index');
   }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $event = $form->save();
-
-      $this->redirect('event/edit?id_event=' . $event->getIdEvent());
-    }
-  }
-
 }

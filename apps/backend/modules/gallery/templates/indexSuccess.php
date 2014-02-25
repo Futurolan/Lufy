@@ -19,4 +19,4 @@
   </tbody>
 </table>
 
-  <a class="button" href="<?php echo url_for('gallery/new') ?>">Nouveau</a>
+  <a class="btn btn-default" href="<?php echo url_for('gallery/new') ?>">Nouveau</a>

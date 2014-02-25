@@ -8,8 +8,8 @@
             <tr>
                 <td colspan="2">
                     <?php echo $form->renderHiddenFields(false) ?>
-                    &nbsp;<a href="<?php echo url_for('newsletter/index') ?>" class="button">Annuler</a>
-                    <input type="submit" value="Envoyer la newsletter" class="button" />
+                    &nbsp;<a href="<?php echo url_for('newsletter/index') ?>" class="btn btn-default">Annuler</a>
+                    <input type="submit" value="Envoyer la newsletter" class="btn btn-default" />
                 </td>
             </tr>
         </tfoot>

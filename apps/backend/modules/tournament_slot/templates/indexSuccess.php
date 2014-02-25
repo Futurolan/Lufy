@@ -31,6 +31,6 @@
         ?>
         </tbody>
     </table>
-    <a href="<?php echo url_for('tournament/new') ?>" class="button">Ajouter un tournois</a>
-    <a href="<?php echo url_for('tournament/index') ?>" class="button">Voir tous les tournois</a>
+    <a href="<?php echo url_for('tournament/new') ?>" class="btn btn-default">Ajouter un tournois</a>
+    <a href="<?php echo url_for('tournament/index') ?>" class="btn btn-default">Voir tous les tournois</a>
 </table>

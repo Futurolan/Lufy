@@ -37,11 +37,11 @@
   <table class="table">
     <tr>
       <th>Nom</th>
-      <td><?=$user->getFirstName()?> "<?=ajax_link($user->getUsername(), 'user/view?user_id='.$user->getId())?>" <?=$user->getLastName()?></td>
+      <td><?=$user->getFirstName()?> "<?=link_to($user->getUsername(), 'user/view?user_id='.$user->getId())?>" <?=$user->getLastName()?></td>
     </tr>
     <tr>
       <th>Equipe</th>
-      <td><?=ajax_link($user->Team[0]->getName(), 'team/view?id_team='.$user->Team[0]->getIdTeam())?></td>
+      <td><?=link_to($user->Team[0]->getName(), 'team/view?id_team='.$user->Team[0]->getIdTeam())?></td>
     </tr>
     <tr>
       <th>Email</th>
@@ -69,22 +69,22 @@
   <table class="table">
     <tr>
       <th>Tournoi</th>
-      <td><?=ajax_link($user->Team[0]->TournamentSlot->getTournament(), 'tournament_slot/tournament?slug='.$user->Team[0]->TournamentSlot->getTournament()->getSlug())?></td>
+      <td><?=link_to($user->Team[0]->TournamentSlot->getTournament(), 'tournament_slot/tournament?slug='.$user->Team[0]->TournamentSlot->getTournament()->getSlug())?></td>
     </tr>
     <tr>
       <th>Slot</th>
-      <td><?=ajax_link($user->Team[0]->TournamentSlot->getIdTournamentSlot(), 'tournament_slot/edit?id_tournament_slot='.$user->Team[0]->TournamentSlot->getIdTournamentSlot())?> <i>(<?=$user->Team[0]->TournamentSlot->getStatus()?>)</i> - <s>Valider le slot</s></td>
+      <td><?=link_to($user->Team[0]->TournamentSlot->getIdTournamentSlot(), 'tournament_slot/edit?id_tournament_slot='.$user->Team[0]->TournamentSlot->getIdTournamentSlot())?> <i>(<?=$user->Team[0]->TournamentSlot->getStatus()?>)</i> - <s>Valider le slot</s></td>
     </tr>
     <tr>
       <th>Commande</th>
-      <td><?=ajax_link($user->Team[0]->TournamentSlot->getCommande(), 'commande/edit?id_commande='.$user->Team[0]->TournamentSlot->getCommande()->getIdCommande())?></td>
+      <td><?=link_to($user->Team[0]->TournamentSlot->getCommande(), 'commande/edit?id_commande='.$user->Team[0]->TournamentSlot->getCommande()->getIdCommande())?></td>
     </tr>
     <tr>
       <td colspan="2">
         <?=$user->Team[0]->TournamentSlot->getCommande()->getPayement()->count()?> paiement(s)
         <? if ($user->Team[0]->TournamentSlot->getCommande()->getPayement()->count() == 1): ?>
           <? if ($user->Team[0]->TournamentSlot->getCommande()->Payement[0]->getIsValid() != 1): ?>
-            <?=ajax_component('Valider le paiement', 'payement/validateIpn?id_payement='.$user->Team[0]->TournamentSlot->getCommande()->Payement[0]->getIdPayement().'&id_txn='.$ipn->getTxnId(), array('class' => 'button small'))?>
+            <?=ajax_component('Valider le paiement', 'payement/validateIpn?id_payement='.$user->Team[0]->TournamentSlot->getCommande()->Payement[0]->getIdPayement().'&id_txn='.$ipn->getTxnId(), array('class' => 'btn btn-default small'))?>
           <? else: ?>
             <span style="font-style: italic;">Valid&eacute;</span>
           <? endif; ?>

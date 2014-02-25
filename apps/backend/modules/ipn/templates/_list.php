@@ -1,7 +1,7 @@
 <div class="subnavigation">
-  <span><?=ajax_link('En attentes', 'ipn/listNotChecked')?></span>
-  <span><?=ajax_link('Archiv&eacute;s', 'ipn/listChecked')?></span>
-  <span><?=ajax_link('Toutes', 'ipn/listAll')?></span>
+  <span><?=link_to('En attentes', 'ipn/listNotChecked')?></span>
+  <span><?=link_to('Archiv&eacute;s', 'ipn/listChecked')?></span>
+  <span><?=link_to('Toutes', 'ipn/listAll')?></span>
 </div>
 
 <table class="table">
@@ -23,8 +23,8 @@
   <? else: ?>
     <tr style="background: #eeeeee;">
   <? endif; ?>
-    <td><?=ajax_link('Check', 'ipn/check?id='.$ipn->getId())?></td>
-    <td><?=ajax_link($ipn->getCreatedAt(), 'ipn/view?id='.$ipn->getId())?></td>
+    <td><?=link_to('Check', 'ipn/check?id='.$ipn->getId())?></td>
+    <td><?=link_to($ipn->getCreatedAt(), 'ipn/view?id='.$ipn->getId())?></td>
     <td><?=$ipn->getTxnId()?></td>
     <td><?=$ipn->getAmount()?> <?=$ipn->getCurrency()?></td>
     <td><?=$ipn->getLicenceGa()?></td>

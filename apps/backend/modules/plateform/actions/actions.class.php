@@ -5,106 +5,68 @@
  *
  * @package    lufy
  * @subpackage plateform
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @author     Guillaume Marsay
+ * @version    Doctrine theme "lufy_backend"
  */
-class plateformActions extends sfActions
-{
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
+class plateformActions extends sfActions{
+
   public function executeIndex(sfWebRequest $request)
   {
-    $this->plateforms = Doctrine::getTable('plateform')
-            ->createQuery('a')
-            ->execute();
+    $this->plateforms = Doctrine_Core::getTable('Plateform')->findAll();
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeNew(sfWebRequest $request)
+
+  public function executeView(sfWebRequest $request)
   {
-    $this->form = new plateformForm();
+    $this->plateform = Doctrine_Core::getTable('Plateform')->find(array($request->getParameter('id_plateform')));
+    $this->forward404Unless($this->plateform);
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeCreate(sfWebRequest $request)
+
+  public function executeForm(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+    $this->form = new PlateformForm();
 
-    $this->form = new plateformForm();
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+    {
+      if ($request->hasParameter('id_plateform'))
+      {
+        $this->object = Doctrine_Core::getTable('Plateform')->findOneByIdPlateform($request->getParameter('id_plateform'));
 
-    $this->processForm($request, $this->form);
+        $this->form =  new PlateformForm($this->object);
+      }
 
-    $this->setTemplate('new');
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+
+      if ($this->form->isValid())
+      {
+        $object = $this->form->save();
+
+        $this->getUser()->setFlash('success', 'Object has been updated.');
+
+        $this->redirect('plateform/view?id_plateform='.$object->getIdPlateform());
+      }
+    }
+
+    if ($request->hasParameter('id_plateform'))
+    {
+      $this->object = Doctrine_Core::getTable('Plateform')->findOneByIdPlateform($request->getParameter('id_plateform'));
+
+      $this->form =  new PlateformForm($this->object);
+    }
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($plateform = Doctrine::getTable('plateform')->find(array($request->getParameter('id_plateform'))), sprintf('Object plateform does not exist (%s).', $request->getParameter('id_plateform')));
-    $this->form = new plateformForm($plateform);
-  }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($plateform = Doctrine::getTable('plateform')->find(array($request->getParameter('id_plateform'))), sprintf('Object plateform does not exist (%s).', $request->getParameter('id_plateform')));
-    $this->form = new plateformForm($plateform);
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('edit');
-  }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($plateform = Doctrine::getTable('plateform')->find(array($request->getParameter('id_plateform'))), sprintf('Object plateform does not exist (%s).', $request->getParameter('id_plateform')));
+    $this->forward404Unless($plateform = Doctrine_Core::getTable('Plateform')->find(array($request->getParameter('id_plateform'))), sprintf('Object plateform does not exist (%s).', $request->getParameter('id_plateform')));
     $plateform->delete();
+
+    $this->getUser()->setFlash('success', 'Object has been deleted.');
 
     $this->redirect('plateform/index');
   }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $plateform = $form->save();
-
-      $this->redirect('plateform/edit?id_plateform=' . $plateform->getIdPlateform());
-    }
-  }
-
 }

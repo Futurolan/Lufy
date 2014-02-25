@@ -1,1 +1,1 @@
-<h2>Statistiques</h2><ul>    <li><?=ajax_link('Inscriptions', 'stats/inscriptions')?></li>    <li><?=link_to('Actualites', 'stats/news')?></li>    <li><?=link_to('Utilisateurs', 'stats/user')?></li>    <li><?=link_to('Tshirts', 'stats/tshirt')?></li></ul>
+<h2>Statistiques</h2><ul>    <li><?=link_to('Inscriptions', 'stats/inscriptions')?></li>    <li><?=link_to('Actualites', 'stats/news')?></li>    <li><?=link_to('Utilisateurs', 'stats/user')?></li>    <li><?=link_to('Tshirts', 'stats/tshirt')?></li></ul>

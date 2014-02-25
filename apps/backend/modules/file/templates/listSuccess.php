@@ -20,5 +20,5 @@
   </tbody>
 </table>
 
-  <a class="button" href="<?php echo url_for('file/new') ?>">Ajouter une vid&eacute;o</a>
+  <a class="btn btn-default" href="<?php echo url_for('file/new') ?>">Ajouter une vid&eacute;o</a>
 

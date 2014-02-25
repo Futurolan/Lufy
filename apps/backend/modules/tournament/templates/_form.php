@@ -10,11 +10,11 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a href="<?php echo url_for('tournament/index') ?>" class="button">Retour à la liste</a>
+          &nbsp;<a href="<?php echo url_for('tournament/index') ?>" class="btn btn-default">Retour à la liste</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo ajax_link('Supprimer', 'tournament/delete?id_tournament='.$form->getObject()->getIdTournament(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'class' => 'button')) ?>
+            &nbsp;<?php echo link_to('Supprimer', 'tournament/delete?id_tournament='.$form->getObject()->getIdTournament(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'class' => 'btn btn-default')) ?>
           <?php endif; ?>
-          <input type="submit" value="Enregistrer" class="button" /><br/>
+          <input type="submit" value="Enregistrer" class="btn btn-default" /><br/>
           <i>La suppression d'un tournois entrainera également la suppression des slots, commandes, paiements et admins qui sont liés à ce tournois.</i>
         </td>
       </tr>

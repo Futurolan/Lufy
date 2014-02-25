@@ -5,107 +5,64 @@
  *
  * @package    lufy
  * @subpackage game
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @author     Guillaume Marsay
+ * @version    Doctrine theme "lufy_backend"
  */
-class gameActions extends sfActions
-{
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
+class gameActions extends sfActions{
+
   public function executeIndex(sfWebRequest $request)
   {
-    $this->games = Doctrine::getTable('game')
-            ->createQuery('a')
-            ->orderby('label ASC')
-            ->execute();
+    $this->games = Doctrine_Core::getTable('Game')->findAll();
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeNew(sfWebRequest $request)
+
+  public function executeView(sfWebRequest $request)
   {
-    $this->form = new gameForm();
+    $this->game = Doctrine_Core::getTable('Game')->find(array($request->getParameter('id_game')));
+    $this->forward404Unless($this->game);
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeCreate(sfWebRequest $request)
+
+  public function executeForm(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+    $this->form = new GameForm();
 
-    $this->form = new gameForm();
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+    {
+      if ($request->hasParameter('id_game'))
+      {
+        $this->object = Doctrine_Core::getTable('Game')->findOneByIdGame($request->getParameter('id_game'));
 
-    $this->processForm($request, $this->form);
+        $this->form =  new GameForm($this->object);
+      }
 
-    $this->setTemplate('new');
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+
+      if ($this->form->isValid())
+      {
+        $object = $this->form->save();
+
+        $this->redirect('game/view?id_game='.$object->getIdGame());
+      }
+    }
+
+    if ($request->hasParameter('id_game'))
+    {
+      $this->object = Doctrine_Core::getTable('Game')->findOneByIdGame($request->getParameter('id_game'));
+
+      $this->form =  new GameForm($this->object);
+    }
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($game = Doctrine::getTable('game')->find(array($request->getParameter('id_game'))), sprintf('Object game does not exist (%s).', $request->getParameter('id_game')));
-    $this->form = new gameForm($game);
-  }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($game = Doctrine::getTable('game')->find(array($request->getParameter('id_game'))), sprintf('Object game does not exist (%s).', $request->getParameter('id_game')));
-    $this->form = new gameForm($game);
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('edit');
-  }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($game = Doctrine::getTable('game')->find(array($request->getParameter('id_game'))), sprintf('Object game does not exist (%s).', $request->getParameter('id_game')));
+    $this->forward404Unless($game = Doctrine_Core::getTable('Game')->find(array($request->getParameter('id_game'))), sprintf('Object game does not exist (%s).', $request->getParameter('id_game')));
     $game->delete();
 
     $this->redirect('game/index');
   }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $game = $form->save();
-
-      $this->redirect('game/index');
-    }
-  }
-
 }

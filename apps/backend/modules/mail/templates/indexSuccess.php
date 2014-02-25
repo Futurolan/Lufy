@@ -23,5 +23,5 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('mail/new') ?>" class="button">Nouveau mail</a>
-  <a href="<?php echo url_for('mail/majEmail') ?>" class="button">mettre &agrave; jour l'email d'expedition</a>
+  <a href="<?php echo url_for('mail/new') ?>" class="btn btn-default">Nouveau mail</a>
+  <a href="<?php echo url_for('mail/majEmail') ?>" class="btn btn-default">mettre &agrave; jour l'email d'expedition</a>

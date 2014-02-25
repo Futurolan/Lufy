@@ -35,7 +35,7 @@
     </tr>
 </table>
 
-<a href="<?php echo url_for('tournament/edit?id_tournament='.$tournament->getIdTournament()) ?>" class="button">Modifier</a>
+<a href="<?php echo url_for('tournament/edit?id_tournament='.$tournament->getIdTournament()) ?>" class="btn btn-default">Modifier</a>
 <br/><br/><br/>
 
 <h3>Etat du tournois</h3>

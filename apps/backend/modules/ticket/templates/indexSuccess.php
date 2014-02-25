@@ -23,4 +23,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('ticket/new') ?>" class="button add">Cr&eacute;er un ticket</a>
+  <a href="<?php echo url_for('ticket/new') ?>" class="btn btn-default add">Cr&eacute;er un ticket</a>

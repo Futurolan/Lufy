@@ -19,4 +19,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('tournament_admin/new') ?>" class="button">Ajouter un admin</a>
+  <a href="<?php echo url_for('tournament_admin/new') ?>" class="btn btn-default">Ajouter un admin</a>

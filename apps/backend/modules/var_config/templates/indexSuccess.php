@@ -21,5 +21,5 @@
     </tbody>
 </table>
 <br/><br/><br/>
-<a href="<?php echo url_for('var_config/new') ?>" class="button">Nouvelle variable de configuration</a>
+<a href="<?php echo url_for('var_config/new') ?>" class="btn btn-default">Nouvelle variable de configuration</a>
 

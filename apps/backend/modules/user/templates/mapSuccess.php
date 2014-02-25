@@ -1,5 +1,3 @@
-<h2>Cartographie des joueurs valid&eacute;s</h2>
-
 <style>
 #map {
 	width:100%;

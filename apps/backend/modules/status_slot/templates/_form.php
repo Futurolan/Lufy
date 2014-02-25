@@ -12,7 +12,7 @@
           <?php echo $form->renderHiddenFields(false) ?>
           &nbsp;<a href="<?php echo url_for('status_slot/index') ?>">Back to list</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo ajax_link('Delete', 'status_slot/delete?id_status_slot='.$form->getObject()->getIdStatusSlot(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Delete', 'status_slot/delete?id_status_slot='.$form->getObject()->getIdStatusSlot(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
           <?php endif; ?>
           <input type="submit" value="Save" />
         </td>

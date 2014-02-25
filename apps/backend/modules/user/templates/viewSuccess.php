@@ -27,7 +27,7 @@
   </tr>
   <tr>
     <th>Equipe</th>
-    <td><?= ajax_link($player->getTeam(), 'team/view?id_team=' . $player->getTeam()->getIdTeam()) ?></td>
+    <td><?= link_to($player->getTeam(), 'team/view?id_team=' . $player->getTeam()->getIdTeam()) ?></td>
   </tr>
   <tr>
     <th>Statuts</th>
@@ -71,11 +71,11 @@ foreach ($player->getSfGuardUser()->getSfGuardUserAddress() as $key => $value)
     <td><?= $player->getSfGuardUser()->getSfGuardUserProfile()->getBirthdate() ?></td>
   </tr>
 </table>
-<!-- <a class="button" href="<?//= url_for('user/setCaptain?user_id=' . $player->getUserId()) ?>">D&eacute;finir comme capitaine</a>
-<a class="button" href="<?//= url_for('user/setPlayer?user_id=' . $player->getUserId()) ?>">D&eacute;finir comme joueur</a>
-<a class="button" href="<?//= url_for('user/verifMasters?id=' . $player->getUserId()) ?>">V&eacute;rifier licence Masters</a><br/><br/>
-<a class="button" href="../../../guard/users/<?//=$player->getUserId() ?>/edit">Modifier joueur</a>-->
+<!-- <a class="btn btn-default" href="<?//= url_for('user/setCaptain?user_id=' . $player->getUserId()) ?>">D&eacute;finir comme capitaine</a>
+<a class="btn btn-default" href="<?//= url_for('user/setPlayer?user_id=' . $player->getUserId()) ?>">D&eacute;finir comme joueur</a>
+<a class="btn btn-default" href="<?//= url_for('user/verifMasters?id=' . $player->getUserId()) ?>">V&eacute;rifier licence Masters</a><br/><br/>
+<a class="btn btn-default" href="../../../guard/users/<?//=$player->getUserId() ?>/edit">Modifier joueur</a>-->
 <? if ($notactive == true): ?>
-  <a class="button" href="<?= url_for('user/sendActivation?id=' . $player->getUserId()) ?>">Renvoyer le mail d'activation de compte</a>
+  <a class="btn btn-default" href="<?= url_for('user/sendActivation?id=' . $player->getUserId()) ?>">Renvoyer le mail d'activation de compte</a>
 <? endif; ?>
 

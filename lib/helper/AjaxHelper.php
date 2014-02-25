@@ -39,7 +39,7 @@ function ajax_component($name, $internal_uri, $options = array())
   if (isset($js_options['padding'])) { $padding = $js_options['padding']; } else { $padding = '20'; }
   if (isset($js_options['borderColor'])) { $borderColor = $js_options['borderColor']; } else { $borderColor = '#ccc'; }
 
-  $html = '<a '.$class.' style="cursor: pointer;" onclick="modalPopup(\''.$align.'\', '.$top.', '.$width.', '.$padding.', \'#dddddd\', 40, \'#ffffff\', \''.$borderColor.'\', 5, 5, 300, \''.url_for($internal_uri, $absolute).'\', \'http://dev-backend.gamers-assembly.net/images/ajax-loader.gif\');">'.$name.'</a>';
+  $html = '<a '.$class.' style="cursor: pointer;" onclick="modalPopup(\''.$align.'\', '.$top.', '.$width.', '.$padding.', \'#dddddd\', 40, \'#ffffff\', \''.$borderColor.'\', 5, 5, 300, \''.url_for($internal_uri, $absolute).'\', \'http://www.gamers-assembly.net/images/ajax-loader.gif\');">'.$name.'</a>';
 
   return $html;
 }

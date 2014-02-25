@@ -18,8 +18,8 @@
 
 <form method="POST" action="<?=url_for('block/updatePosition')?>">
 
-<input type="submit" value="Enregistrer les changements"  class="button"/>
-<a href="<?php echo url_for('block/new') ?>" class="button">Ajouter un encart</a>
+<input type="submit" value="Enregistrer les changements"  class="btn btn-default"/>
+<a href="<?php echo url_for('block/new') ?>" class="btn btn-default">Ajouter un encart</a>
 
 <ul id="jquery-ui-block">
   <? $i= 0; foreach ($blocks as $block): $i++; ?>
@@ -41,8 +41,8 @@
                     <span style="font-size: 10px; font-style: italic;"><?=$block->getLink()?></span>
                 </td>
                 <td width="100px">
-                    <?php echo ajax_link('Modifier','block/edit?id_block='.$block->getIdBlock()) ?> <br/>
-                    <?php echo ajax_link('Visible/Cach&eacute;','block/setStatus?id_block='.$block->getIdBlock()) ?> 
+                    <?php echo link_to('Modifier','block/edit?id_block='.$block->getIdBlock()) ?> <br/>
+                    <?php echo link_to('Visible/Cach&eacute;','block/setStatus?id_block='.$block->getIdBlock()) ?> 
                 </td>
             </tr>
         </table>

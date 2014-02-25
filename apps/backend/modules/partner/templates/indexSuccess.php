@@ -18,9 +18,9 @@
 
 <form method="POST" action="<?=url_for('partner/updatePosition')?>">
 
-<input type="submit" value="Enregistrer les changements"  class="button save"/>
-<a href="<?php echo url_for('partner/new') ?>" class="button add">Ajouter un partenaire</a>
-<a href="<?php echo url_for('partner_type/index') ?>" class="button">G&eacute;rer les cat&eacute;gories</a>
+<input type="submit" value="Enregistrer les changements"  class="btn btn-default save"/>
+<a href="<?php echo url_for('partner/new') ?>" class="btn btn-default add">Ajouter un partenaire</a>
+<a href="<?php echo url_for('partner_type/index') ?>" class="btn btn-default">G&eacute;rer les cat&eacute;gories</a>
 
 <ul id="jquery-ui-partner">
   <? $i= 0; foreach ($partners as $partner): $i++; ?>
@@ -38,10 +38,10 @@
                     <input type="hidden" class="positionInput" name="partner[<?=$i?>][position]" value="<?=$partner->getPosition()?>" /> 
                 </td>
                 <td width="165px">
-                    <span style="font-size: 11px;"><?=ajax_link(substr($partner->getName(), 0, 27), 'partner/edit?id_partner='.$partner->getIdPartner()) ?></span><br/>
+                    <span style="font-size: 11px;"><?=link_to(substr($partner->getName(), 0, 27), 'partner/edit?id_partner='.$partner->getIdPartner()) ?></span><br/>
                     <span style="font-style: italic; font-size: 10px; color: #888;"><?=$partner->getPartnerType()?></span><br/>
 		    <p style="font-size: 10px; text-transform: uppercase; text-align: right;"">
-			<? if ($partner->getStatus() == '0') { echo ajax_link('Afficher','partner/setStatus?id_partner='.$partner->getIdPartner()); } else { echo ajax_link('Cacher','partner/setStatus?id_partner='.$partner->getIdPartner()); } ?>
+			<? if ($partner->getStatus() == '0') { echo link_to('Afficher','partner/setStatus?id_partner='.$partner->getIdPartner()); } else { echo link_to('Cacher','partner/setStatus?id_partner='.$partner->getIdPartner()); } ?>
 		    </p>
                 </td>
             </tr>

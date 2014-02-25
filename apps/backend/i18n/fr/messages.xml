@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="fr" datatype="plaintext" original="messages" date="2014-02-10T23:04:01Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Form</source>
+        <target>Formulaire</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Back to list</source>
+        <target>Retour</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Save</source>
+        <target>Enregistrer</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>List</source>
+        <target>List</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>New</source>
+        <target>Ajouter</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>View</source>
+        <target>Detail</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Are you sure ?</source>
+        <target>Etes vous sur ?</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Label</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Game type</source>
+        <target>Genre</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Plateform</source>
+        <target>Plateforme</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Logourl</source>
+        <target>Image</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Weezevent</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Image</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Start at</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>End at</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Start registration at</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>End registration at</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Address</source>
+        <target>Adresse</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>Map url</source>
+        <target>Carte</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>Slug</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>Tag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>Constructor</source>
+        <target>Constructeur</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

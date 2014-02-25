@@ -5,106 +5,64 @@
  *
  * @package    lufy
  * @subpackage game_type
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @author     Guillaume Marsay
+ * @version    Doctrine theme "lufy_backend"
  */
-class game_typeActions extends sfActions
-{
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
+class game_typeActions extends sfActions{
+
   public function executeIndex(sfWebRequest $request)
   {
-    $this->game_types = Doctrine::getTable('gameType')
-            ->createQuery('a')
-            ->execute();
+    $this->game_types = Doctrine_Core::getTable('GameType')->findAll();
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeNew(sfWebRequest $request)
+
+  public function executeView(sfWebRequest $request)
   {
-    $this->form = new gameTypeForm();
+    $this->game_type = Doctrine_Core::getTable('GameType')->find(array($request->getParameter('id_game_type')));
+    $this->forward404Unless($this->game_type);
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeCreate(sfWebRequest $request)
+
+  public function executeForm(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+    $this->form = new GameTypeForm();
 
-    $this->form = new gameTypeForm();
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+    {
+      if ($request->hasParameter('id_game_type'))
+      {
+        $this->object = Doctrine_Core::getTable('GameType')->findOneByIdGameType($request->getParameter('id_game_type'));
 
-    $this->processForm($request, $this->form);
+        $this->form =  new GameTypeForm($this->object);
+      }
 
-    $this->setTemplate('new');
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+
+      if ($this->form->isValid())
+      {
+        $object = $this->form->save();
+
+        $this->redirect('game_type/view?id_game_type='.$object->getIdGameType());
+      }
+    }
+
+    if ($request->hasParameter('id_game_type'))
+    {
+      $this->object = Doctrine_Core::getTable('GameType')->findOneByIdGameType($request->getParameter('id_game_type'));
+
+      $this->form =  new GameTypeForm($this->object);
+    }
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($game_type = Doctrine::getTable('gameType')->find(array($request->getParameter('id_game_type'))), sprintf('Object game_type does not exist (%s).', $request->getParameter('id_game_type')));
-    $this->form = new gameTypeForm($game_type);
-  }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($game_type = Doctrine::getTable('gameType')->find(array($request->getParameter('id_game_type'))), sprintf('Object game_type does not exist (%s).', $request->getParameter('id_game_type')));
-    $this->form = new gameTypeForm($game_type);
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('edit');
-  }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($game_type = Doctrine::getTable('gameType')->find(array($request->getParameter('id_game_type'))), sprintf('Object game_type does not exist (%s).', $request->getParameter('id_game_type')));
+    $this->forward404Unless($game_type = Doctrine_Core::getTable('GameType')->find(array($request->getParameter('id_game_type'))), sprintf('Object game_type does not exist (%s).', $request->getParameter('id_game_type')));
     $game_type->delete();
 
     $this->redirect('game_type/index');
   }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $game_type = $form->save();
-
-      $this->redirect('game_type/edit?id_game_type=' . $game_type->getIdGameType());
-    }
-  }
-
 }

@@ -20,7 +20,7 @@
             <td><?=$team->getWebsite()?></td>
         </tr>
 </table>
-<a class="button" href="<?= url_for('team/edit?id_team=' . $team->getIdTeam()) ?>">Modifier &eacute;quipe</a>
+<a class="btn btn-default" href="<?= url_for('team/edit?id_team=' . $team->getIdTeam()) ?>">Modifier &eacute;quipe</a>
 </fieldset>
 <fieldset>
     <legend>Inscription</legend>
@@ -29,7 +29,7 @@
             <th>ID Slot</th>
             <td>
               <? if ($team->getTournamentSlot()->getIdTournamentSlot()): ?>
-                <?=ajax_link($team->getTournamentSlot()->getIdTournamentSlot(), 'tournament_slot/tournament?slug='.$team->getTournamentSlot()->getTournament()->getSlug())?>
+                <?=link_to($team->getTournamentSlot()->getIdTournamentSlot(), 'tournament_slot/tournament?slug='.$team->getTournamentSlot()->getTournament()->getSlug())?>
               <? endif; ?>
             </td>
         </tr>
@@ -37,7 +37,7 @@
             <th>Tournoi</th>
             <td>
               <? if ($team->getTournamentSlot()->getTournament()->getName()): ?>
-                <?=ajax_link($team->getTournamentSlot()->getTournament()->getName(), 'tournament/edit?id_tournament='.$team->getTournamentSlot()->getTournamentId())?>
+                <?=link_to($team->getTournamentSlot()->getTournament()->getName(), 'tournament/edit?id_tournament='.$team->getTournamentSlot()->getTournamentId())?>
               <? endif; ?>
             </td>
         </tr>
@@ -66,7 +66,7 @@
             ?>
             </th>
             <td>
-                <?=ajax_link($player->getSfGuardUser()->getUsername(), 'user/view?user_id='.$player->getSfGuardUser()->getId())?> (<?=$player->getSfGuardUser()->getFirstName()?> <?=$player->getSfGuardUser()->getLastName()?>)
+                <?=link_to($player->getSfGuardUser()->getUsername(), 'user/view?user_id='.$player->getSfGuardUser()->getId())?> (<?=$player->getSfGuardUser()->getFirstName()?> <?=$player->getSfGuardUser()->getLastName()?>)
             </td>
         </tr>
     <?php

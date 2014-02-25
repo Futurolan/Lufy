@@ -31,7 +31,7 @@
   </tbody>
 </table>
 
-  <a class="button" href="<?php echo url_for('file_category/new') ?>">Nouveau</a>
+  <a class="btn btn-default" href="<?php echo url_for('file_category/new') ?>">Nouveau</a>
 
 <script>
 function fileCategory_switchStatus(id) {

@@ -18,8 +18,8 @@
 
 <form method="POST" action="<?=url_for('tournament/updatePosition')?>">
 
-<input type="submit" value="Enregistrer les changements"  class="button save"/>
-<a href="<?php echo url_for('tournament/new') ?>" class="button add">Ajouter un tournois</a>
+<input type="submit" value="Enregistrer les changements"  class="btn btn-default save"/>
+<a href="<?php echo url_for('tournament/new') ?>" class="btn btn-default add">Ajouter un tournois</a>
 
 <ul id="jquery-ui-tournament">
   <? $i= 0; foreach ($tournaments as $tournament): $i++; ?>
@@ -43,8 +43,8 @@
                     <?=$tournament->getEvent()?>
                 </td>
                 <td width="150px">
-                    <?php echo ajax_link('Modifier','tournament/edit?id_tournament='.$tournament->getIdTournament()) ?> - 
-                    <?php echo ajax_link('Visible/Cach&eacute;','tournament/setStatus?id_tournament='.$tournament->getIdTournament()) ?> 
+                    <?php echo link_to('Modifier','tournament/edit?id_tournament='.$tournament->getIdTournament()) ?> - 
+                    <?php echo link_to('Visible/Cach&eacute;','tournament/setStatus?id_tournament='.$tournament->getIdTournament()) ?> 
                 </td>
             </tr>
         </table>

@@ -5,106 +5,64 @@
  *
  * @package    lufy
  * @subpackage news_type
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @author     Guillaume Marsay
+ * @version    Doctrine theme "lufy_backend"
  */
-class news_typeActions extends sfActions
-{
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
+class news_typeActions extends sfActions{
+
   public function executeIndex(sfWebRequest $request)
   {
-    $this->news_types = Doctrine::getTable('newsType')
-            ->createQuery('a')
-            ->execute();
+    $this->news_types = Doctrine_Core::getTable('NewsType')->findAll();
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeNew(sfWebRequest $request)
+
+  public function executeView(sfWebRequest $request)
   {
-    $this->form = new newsTypeForm();
+    $this->news_type = Doctrine_Core::getTable('NewsType')->find(array($request->getParameter('id_news_type')));
+    $this->forward404Unless($this->news_type);
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeCreate(sfWebRequest $request)
+
+  public function executeForm(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+    $this->form = new NewsTypeForm();
 
-    $this->form = new newsTypeForm();
+    if ($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT))
+    {
+      if ($request->hasParameter('id_news_type'))
+      {
+        $this->object = Doctrine_Core::getTable('NewsType')->findOneByIdNewsType($request->getParameter('id_news_type'));
 
-    $this->processForm($request, $this->form);
+        $this->form =  new NewsTypeForm($this->object);
+      }
 
-    $this->setTemplate('new');
+      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+
+      if ($this->form->isValid())
+      {
+        $object = $this->form->save();
+
+        $this->redirect('news_type/view?id_news_type='.$object->getIdNewsType());
+      }
+    }
+
+    if ($request->hasParameter('id_news_type'))
+    {
+      $this->object = Doctrine_Core::getTable('NewsType')->findOneByIdNewsType($request->getParameter('id_news_type'));
+
+      $this->form =  new NewsTypeForm($this->object);
+    }
   }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($news_type = Doctrine::getTable('newsType')->find(array($request->getParameter('id_news_type'))), sprintf('Object news_type does not exist (%s).', $request->getParameter('id_news_type')));
-    $this->form = new newsTypeForm($news_type);
-  }
 
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($news_type = Doctrine::getTable('newsType')->find(array($request->getParameter('id_news_type'))), sprintf('Object news_type does not exist (%s).', $request->getParameter('id_news_type')));
-    $this->form = new newsTypeForm($news_type);
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('edit');
-  }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($news_type = Doctrine::getTable('newsType')->find(array($request->getParameter('id_news_type'))), sprintf('Object news_type does not exist (%s).', $request->getParameter('id_news_type')));
+    $this->forward404Unless($news_type = Doctrine_Core::getTable('NewsType')->find(array($request->getParameter('id_news_type'))), sprintf('Object news_type does not exist (%s).', $request->getParameter('id_news_type')));
     $news_type->delete();
 
     $this->redirect('news_type/index');
   }
-
-  /**
-   * @brief
-   * @param[in]
-   * @return
-   */
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $news_type = $form->save();
-
-      $this->redirect('news_type/index');
-    }
-  }
-
 }

@@ -1,20 +1,23 @@
-<h2>Genres de jeux</h2>
+<ul class="breadcrumb">
+  <li><a href="<?php echo url_for('@homepage') ?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+  <li><a href="<?php echo url_for('game_type/index') ?>">Game types</a> <span class="divider">/</span></li>
+  <li class="active"><?php echo __('List')?></li>
+</ul>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+<ul class="breadcrumb subbreadcrumb">
+  <li><a href="<?php echo url_for('game_type/form') ?>"><i class="icon icon-plus-sign"></i> <?php echo __('New')?></a></li>
+</ul>
+
+
+<table class="table table-striped table-hover">
+  <tr>
+    <th></th>
+    <th><?php echo __('Label') ?></th>
+  </tr>
     <?php foreach ($game_types as $game_type): ?>
-    <tr>
-      <td><?php echo $game_type->getLabel() ?></td>
-      <td><a href="<?php echo url_for('game_type/edit?id_game_type='.$game_type->getIdGameType()) ?>">Modifier</a></td>
-    </tr>
+  <tr>
+    <td><span class="muted">#<?php echo $game_type->getIdGameType() ?></span></td>
+    <td><a href="<?php echo url_for('game_type/view?id_game_type='.$game_type->getIdGameType()) ?>"><?php echo $game_type->getLabel() ?></a></td>
+  </tr>
     <?php endforeach; ?>
-  </tbody>
 </table>
-<br />
-<a href="<?php echo url_for('game_type/new') ?>" class="button add">Ajouter un nouveau genre</a>

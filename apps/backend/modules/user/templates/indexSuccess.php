@@ -1,5 +1,5 @@
 <h2>Liste des joueurs</h2>
-<?=ajax_link(image_tag('/css/img/backend/16excel.png').' Exporter au format Excel 2007', 'user/exportCsv', array('class' => 'button'))?>
+<?=link_to(image_tag('/css/img/backend/16excel.png').' Exporter au format Excel 2007', 'user/exportCsv', array('class' => 'btn btn-default'))?>
 <table class="table">
   <thead>
     <tr>

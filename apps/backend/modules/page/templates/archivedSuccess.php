@@ -17,8 +17,8 @@
       <td style="font-size: 10px;"><?php echo $page->getSlug() ?></td>
       <td style="font-size: 11px;"><?php echo $page->getPageType() ?></td>
       <td style="font-size: 11px;">
-        <?php echo ajax_link('Supprimer', 'page/delete?id_page='.$page->getIdPage(), array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir supprimer la page ?')) ?> - 
-        <?php echo ajax_link('D&eacute;sarchiver', 'page/unarchive?id_page='.$page->getIdPage(), array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir desarchiver la page ?')) ?>
+        <?php echo link_to('Supprimer', 'page/delete?id_page='.$page->getIdPage(), array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir supprimer la page ?')) ?> - 
+        <?php echo link_to('D&eacute;sarchiver', 'page/unarchive?id_page='.$page->getIdPage(), array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir desarchiver la page ?')) ?>
       </td>
     </tr>
     <?php endforeach; ?>

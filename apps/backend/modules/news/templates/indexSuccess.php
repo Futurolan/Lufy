@@ -1,7 +1,7 @@
 <h2>Actualit&eacute;s</h2>
 
- <a href="<?php echo url_for('news/new') ?>" class="button add">Ajouter une news</a>
-<?=ajax_link('G&eacute;rer les cat&eacute;gories', 'news_type/index', array('class' => 'button'))?>
+ <a href="<?php echo url_for('news/new') ?>" class="btn">Ajouter une news</a>
+<?=link_to('G&eacute;rer les cat&eacute;gories', 'news_type/index', array('class' => 'btn'))?>
 
 <table class="table">
   <thead>
@@ -33,13 +33,13 @@
         }
         echo image_tag('/css/img/flag/'.$lang.'.png');
          ?>
-	<?=ajax_link(substr($news->getTitle(), 0, 70).'...', 'news/edit?id_news='.$news->getIdNews())?><br/>
+	<?=link_to($news->getTitle(), 'news/edit?id_news='.$news->getIdNews())?><br/>
 	<i style="font-size: 11px; color:#666;">Definir cette news comme etant en 
 	<? if ($lang == 'GB') {
-	    echo ajax_link('francais', 'news/set?id_news='.$news->getIdNews().'&lang=fr', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
+	    echo link_to('francais', 'news/set?id_news='.$news->getIdNews().'&lang=fr', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
 	}
 	else {
-	    echo ajax_link('anglais', 'news/set?id_news='.$news->getIdNews().'&lang=en', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
+	    echo link_to('anglais', 'news/set?id_news='.$news->getIdNews().'&lang=en', array('method' => 'delete', 'confirm' => 'Etes vous sur de vouloir changer la langue ?'));
 	}
 	?>
 	</a>
@@ -47,7 +47,7 @@
       <td style="font-size: 11px;"><?php echo date('d/m/Y', strtotime($news->getPublishOn())) ?></td>
       <td style="font-size: 11px;"><?php echo $news->getNewsType() ?></td>
       <td style="font-size: 11px;">
-       <?=ajax_component('Apercu', 'news/preview?id_news='.$news->getIdNews(), array('class' => 'button small','width' => 760))?>
+       <?=ajax_component('Apercu', 'news/preview?id_news='.$news->getIdNews(), array('class' => 'btn btn-default small','width' => 760))?>
       </td>
     </tr>
     <?php endforeach; ?>
@@ -56,9 +56,9 @@
 
 <div class="pager pager-bottom">
     Page :
-    <span class="page"><?=ajax_link('Premi&egrave;re', 'news/index?page='.$pager->getFirstPage())?></span>
-    <? foreach ($pager->getLinks(10) as $page) echo ($page == ' '.$pager->getPage()) ? ' <span class="current">'.$page : '</span> <span class="page">'.ajax_link($page, 'news/index?page='.$page)?>
-    <span class="page"><?=ajax_link('Derni&egrave;re', 'news/index?page='.$pager->getLastPage())?></span>
+    <span class="page"><?=link_to('Premi&egrave;re', 'news/index?page='.$pager->getFirstPage())?></span>
+    <? foreach ($pager->getLinks(10) as $page) echo ($page == ' '.$pager->getPage()) ? ' <span class="current">'.$page : '</span> <span class="page">'.link_to($page, 'news/index?page='.$page)?>
+    <span class="page"><?=link_to('Derni&egrave;re', 'news/index?page='.$pager->getLastPage())?></span>
 </div>
 
 <script>

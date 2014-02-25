@@ -17,4 +17,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('friend/new') ?>" class="button">New</a>
+  <a href="<?php echo url_for('friend/new') ?>" class="btn btn-default">New</a>

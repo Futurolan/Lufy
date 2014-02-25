@@ -10,11 +10,11 @@
                 <tr>
                     <td colspan="2">
                     <?php echo $form->renderHiddenFields(false) ?>
-                    &nbsp;<a href="<?php echo url_for('tournament_slot/tournament?slug=' . $form->getObject()->getTournament()->getSlug()) ?>" class="button">Retour a la liste</a>
+                    &nbsp;<a href="<?php echo url_for('tournament_slot/tournament?slug=' . $form->getObject()->getTournament()->getSlug()) ?>" class="btn btn-default">Retour a la liste</a>
                     <?php if (!$form->getObject()->isNew()): ?>
-                        &nbsp;<?php echo ajax_link('Supprimer le slot', 'tournament_slot/delete?id_tournament_slot=' . $form->getObject()->getIdTournamentSlot(), array('class' => 'button')) ?>
+                        &nbsp;<?php echo link_to('Supprimer le slot', 'tournament_slot/delete?id_tournament_slot=' . $form->getObject()->getIdTournamentSlot(), array('class' => 'btn btn-default')) ?>
                     <?php endif; ?>
-                        <input type="submit" value="Save" class="button"/>
+                        <input type="submit" value="Save" class="btn btn-default"/>
                     </td>
                 </tr>
             </tfoot>

@@ -39,7 +39,7 @@ switch ($subdomain)
 
   case 'dev':
     $app = 'frontend';
-    $env = 'dev';
+    $env = 'prod';
     $dbg = true;
     break;
 

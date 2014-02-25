@@ -3,35 +3,38 @@
 
 prod:
   .settings:
-    no_script_name:         true
+    no_script_name:         false
     logging_enabled:        false
-    cache:                  false
+    cache:                  true
     etag:                   true
-    i18n:                   false
+    i18n:                   true
 
 dev:
   .settings:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
     web_debug:              true
     cache:                  false
-    no_script_name:         true
+    no_script_name:         false
     etag:                   false
+    i18n:                   true
 
 test:
   .settings:
     error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
     cache:                  false
     web_debug:              false
-    no_script_name:         true
+    no_script_name:         false
     etag:                   false
+    i18n:                   true
 
 all:
   .settings:
-    i18n: false
-    default_culture: fr
+    i18n:                   true
+    default_culture:        fr
     charset: utf-8
+
     # Form security secret (CSRF protection)
-    #csrf_secret:            47706b763ff1893e52519a63b1a1e12d387f6bc1
+    #csrf_secret:           47706b763ff1893e52519a63b1a1e12d387f6bc1
     csrf_secret:            false
 
     # Output escaping settings
@@ -42,7 +45,7 @@ all:
     use_database:           true
     enabled_modules:        [default, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission]
 
-    standard_helpers:       [Partial, Cache, Tag, Url, Ajax]
+    standard_helpers:       [Partial, Cache, Tag, Url, Ajax, I18N]
 
     # Mode maintenance
     check_lock:             on
