@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <div class="span2">
-    <img src="/uploads/event/logo/<?=$event->getImage()?>" />
+    <img src="/uploads/events/logo/<?=$event->getImage()?>" />
   </div>
   <div class="span10">
     <h2><?php echo $event->getName()?></h2>
